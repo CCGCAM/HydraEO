@@ -11,10 +11,10 @@ https://CCGCAM.github.io/HydraEO
 
 HYDRA-EO is an ESA-funded project that combines **hyperspectral, thermal and fluorescence** data with **radiative transfer models (RTMs)** and **hybrid machine learning** to detect biotic and abiotic stress in key crops across Spain, Italy and the Netherlands.
 
-The project is coordinated by the **Laboratory of Geo-information Science and Remote Sensing**, Department Environment Science, Wageningen University (WU-DES), together with:
+The project is coordinated by the **Laboratory of Geo-information Science and Remote Sensing**, Department Environment Sciences, Wageningen University (WU-DES), together with:
 
 - **WENR** – Wageningen Environmental Research, Wageningen University and Research (Wageningen, Netherlands) 
-- **CNR-IBE** Consiglio Nazionale della Ricerca , Institute of BioEconomy (Fiorenze, Italy)  
+- **CNR-IBE** Consiglio Nazionale della Ricerca, Institute of BioEconomy (Fiorenze, Italy)  
 - **CIAG-IRIAF** – Agro-environmental Research Centre (Ciudad Real, Spain)
 
 ---
@@ -23,9 +23,9 @@ The project is coordinated by the **Laboratory of Geo-information Science and Re
 
 This repository contains the **static website** for HYDRA-EO:
 
-- `index.html` – main project page (project description, objectives, scenarios, methods, open tools, consortium, news).
-- `assets/` – figures, logos and icons used on the site.
-- `tools/` (optional) – links or HTML pages describing open tools such as **ToolsRTM** and **SCOPEinR**.
+- `index.html`: main project page (project description, objectives, scenarios, methods, open tools, consortium, news).
+- `assets/`:figures, logos and icons used on the site.
+- `tools/`: HTML pages describing open tools such as **ToolsRTM** and **SCOPEinR**.
 
 The site is deployed via **GitHub Pages** and is intended as a public entry point for the HYDRA-EO project.
 
