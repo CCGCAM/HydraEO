@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Earth Observation Lab</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --esa-blue: #004080;
+      --esa-light: #e6f0ff;
+      --esa-dark: #001a33;
+      --accent: #4da6ff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #111827;
+      line-height: 1.6;
+    }
+
+    /* Top bar */
+    header {
+      background: var(--esa-dark);
+      color: white;
+      padding: 0.5rem 1rem;
+      font-size: 0.85rem;
+      text-align: right;
+    }
+
+    /* Main nav */
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 6vw;
+      background: white;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      border: 2px solid var(--esa-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: var(--esa-blue);
+      font-weight: 700;
+    }
+
+    .logo-text {
+      font-weight: 700;
+      color: var(--esa-dark);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #374151;
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.2s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent);
+      color: var(--esa-blue);
+      font-size: 0.85rem;
+      background: #f0f7ff;
+    }
+
+    main {
+      padding: 2rem 6vw 4rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-text h1 {
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      color: var(--esa-dark);
+      margin-bottom: 1rem;
+    }
+
+    .hero-text p {
+      color: #4b5563;
+      max-width: 36rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      background: var(--esa-light);
+      color: var(--esa-blue);
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .btn-primary {
+      background: var(--esa-blue);
+      color: white;
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--esa-blue);
+      border: 1px solid var(--esa-blue);
+    }
+
+    .hero-visual {
+      background: radial-gradient(circle at top, #1f4fd9, var(--esa-dark));
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      color: #e5e7eb;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-visual h2 {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #bfdbfe;
+      margin-bottom: 0.7rem;
+    }
+
+    .orbit {
+      border-radius: 999px;
+      border: 1px dashed rgba(191, 219, 254, 0.5);
+      padding: 1.2rem;
+      margin-top: 0.6rem;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .orbit-pill {
+      background: rgba(15, 23, 42, 0.8);
+      border-radius: 999px;
+      padding: 0.4rem 0.9rem;
+      font-size: 0.75rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .stars {
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle at 10% 20%, rgba(255,255,255,0.2) 0, transparent 40%),
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.15) 0, transparent 45%),
+        radial-gradient(circle at 30% 80%, rgba(255,255,255,0.12) 0, transparent 40%);
+      opacity: 0.3;
+      pointer-events: none;
+    }
+
+    .hero-visual-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 3rem;
+    }
+
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--esa-dark);
+    }
+
+    section p.lead {
+      color: #4b5563;
+      max-width: 42rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.2rem 1.3rem;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e5e7eb;
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--esa-blue);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+      margin-bottom: 0.4rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--esa-dark);
+      color: #9ca3af;
+      padding: 1.5rem 6vw;
+      font-size: 0.8rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    footer a {
+      color: #bfdbfe;
+      text-decoration: none;
+      margin-left: 0.7rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.7rem;
+      }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    European-style Earth Observation Lab • Open Science & Remote Sensing
+  </header>
+
+  <nav class="nav">
+    <div class="logo">
+      <div class="logo-circle">EO</div>
+      <div class="logo-text">Earth Observation Lab</div>
+    </div>
+    <div class="nav-links">
+      <a href="#mission">Mission</a>
+      <a href="#projects">Projects</a>
+      <a href="#data">Data</a>
+      <a href="#team">Team</a>
+      <button class="nav-cta">Contact</button>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-badges">
+          <span class="badge">Satellite Data</span>
+          <span class="badge">Remote Sensing</span>
+          <span class="badge">Open Science</span>
+        </div>
+        <h1>Monitoring the Earth’s surface with satellite-based remote sensing.</h1>
+        <p>
+          We explore multi-sensor Earth Observation data to track vegetation dynamics,
+          climate impacts, and ecosystem resilience, following open and reproducible
+          workflows inspired by major space agencies.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn-primary">Explore projects ▸</a>
+          <a href="#data" class="btn-secondary">Access data & code</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="stars"></div>
+        <div class="hero-visual-content">
+          <h2>Observation stack</h2>
+          <p style="font-size:0.85rem; color:#e5e7eb;">
+            Integrated view of satellite missions, airborne campaigns
+            and in-situ measurements.
+          </p>
+          <div class="orbit">
+            <div class="orbit-pill">Sentinel-2 • Optical</div>
+            <div class="orbit-pill">PRISMA • Hyperspectral</div>
+            <div class="orbit-pill">FLEX • SIF</div>
+            <div class="orbit-pill">UAV • LiDAR & Thermal</div>
+            <div class="orbit-pill">Flux towers • GPP</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mission">
+      <h2>Mission & Objectives</h2>
+      <p class="lead">
+        Our mission is to develop, validate, and share open methods for monitoring
+        vegetation function, biodiversity, and climate impacts using multi-source
+        satellite data and radiative transfer modelling.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <div class="tag">Objective 1</div>
+          <h3>Multi-scale monitoring</h3>
+          <p>
+            Combine satellite, airborne, and in-situ observations to derive functional
+            traits across local, regional, and continental scales.
+          </p>
+        </div>
+        <div class="card">
+          <div class="tag">Objective 2</div>
+          <h3>Advanced modelling</h3>
+          <p>
+            Use radiative transfer models and machine learning to link spectral signals
+            with key ecosystem processes.
+          </p>
+        </div>
+        <div class="card">
+          <div class="tag">Objective 3</div>
+          <h3>Open science</h3>
+          <p>
+            Release code, data, and reproducible workflows for the research
+            and user community.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Featured Projects</h2>
+      <p class="lead">
+        A selection of ongoing activities demonstrating the use of space data
+        for ecosystem monitoring.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Forest Resilience</h3>
+          <p>
+            Monitoring drought and disturbance impacts in temperate forests
+            using Sentinel-2, PRISMA, and ICOS flux data.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Crop Stress Detection</h3>
+          <p>
+            Integrating hyperspectral, thermal, and UAV observations to track
+            disease progression in agricultural systems.
+          </p>
+        </div>
+        <div class="card">
+          <h3>SIF & Productivity</h3>
+          <p>
+            Exploring satellite-based sun-induced fluorescence as a window
+            into ecosystem photosynthesis and GPP.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="data">
+      <h2>Data & Tools</h2>
+      <p class="lead">
+        Access open repositories, processing chains, and documentation for
+        our workflows.
+      </p>
+      <div class="grid-3">
+        <div class="card">
+          <h3>Code repositories</h3>
+          <p>Git-based workflows for data access, preprocessing, and analysis.</p>
+        </div>
+        <div class="card">
+          <h3>Processing chains</h3>
+          <p>End-to-end scripts for generating analysis-ready datasets.</p>
+        </div>
+        <div class="card">
+          <h3>Documentation</h3>
+          <p>User guides, tutorials, and notebooks for students and collaborators.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <h2>Team & Contact</h2>
+      <p class="lead">
+        The Earth Observation Lab brings together researchers, students,
+        and collaborators working at the interface of remote sensing,
+        ecology, and modelling.
+      </p>
+      <p style="font-size:0.9rem;">
+        For collaborations, data access or student projects, please send an email to
+        <strong>youremail@yourinstitution.org</strong>.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>© 2025 Earth Observation Lab. Inspired by European space missions, not affiliated with ESA.</div>
+    <div>
+      Links:
+      <a href="#mission">Mission</a>
+      <a href="#projects">Projects</a>
+      <a href="#data">Data</a>
+    </div>
+  </footer>
+</body>
+</html>
