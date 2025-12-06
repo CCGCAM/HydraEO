@@ -355,6 +355,18 @@
       font-size: 0.98rem;
       margin-bottom: 0.4rem;
     }
+    .card-link {
+      color: #4af3ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+      
+    }
+    .card-link:hover {
+      color: #f6c453;
+      text-shadow: 0 0 6px rgba(246,196,83,0.7);
+      
+    }
 
     .card p {
       font-size: 0.88rem;
@@ -492,7 +504,8 @@
           <li><a href="#objectives">Objectives</a></li>
           <li><a href="#scenarios">Scenarios</a></li>
           <li><a href="#methods">Methods</a></li>
-          <li><a href="#software">Open tools</a></li>
+          <li><a href="#tools">Open tools</a></li>
+          <li><a href="#news">Announcements</a></li>
           <li><a href="#consortium">Consortium</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -535,7 +548,7 @@
         </div>
         <div class="hero-buttons">
           <a href="#objectives" class="btn btn-primary">Explore scientific objectives</a>
-          <a href="#software" class="btn btn-ghost">ToolsRTM · SCOPEinR · GitLab workspace</a>
+          <a href="#tools" class="btn btn-ghost">ToolsRTM · SCOPEinR · GitLab workspace</a>
         </div>
       </div>
 
@@ -690,8 +703,8 @@
       </div>
     </section>
 
-    <!-- SOFTWARE & WORKSPACES -->
-    <section id="software">
+    <!-- Tools & WORKSPACES -->
+    <section id="tools">
       <h2>Open tools & workspaces</h2>
       <p class="section-intro">
         HYDRA-EO builds on existing open-source ecosystems developed by the GRS group at Wageningen University
@@ -828,6 +841,66 @@ db.sim <-SCOPEinR::get.SCOPE(LUT=inputLUT,options.SCOPE=table.with.opts,
     </div>
   </div>
 </section>
+
+  <!-- News -->
+
+<section id="news" class="section">
+  <h2>ANNOUNCEMENTS & DISSEMINATION</h2>
+  <p class="section-intro">
+    HYDRA-EO activities, public presentations and scientific outputs are 
+    disseminated through ESA events, conferences and peer-reviewed papers. 
+    This section highlights key milestones and communication actions.
+  </p>
+
+  <div class="card-grid">
+    <!-- Event 1: ESA DTE KO presentation -->
+    <article class="card">
+      <div class="pill-mini">Event · ESA Digital Twin Earth</div>
+      <h3>HYDRA-EO presentation at ESA DTE Open Science Meeting</h3>
+      <p>
+        The HYDRA-EO project will be presented during the
+        <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>
+      </p>
+      <p>
+        <strong>Date:</strong> 2-5 February 2026 (ESRIN, Frascati, Italy).<br>
+        <strong>Meeting link:</strong>
+        <br>
+        <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction" 
+           target="_blank" class="card-link">
+          ESA Digital Twin Earth – Open Science Meeting
+        </a>
+      </p>
+      <p>
+        This is the first public event of HYDRA-EO project, introducing the project concept, 
+        consortium and planned ESA-oriented tools for multi-stressor crop disease detection.
+      </p>
+      <p>
+        <strong>Project presentation (PDF):</strong><br>
+        <a href="docs/HYDRA-EO_KO_Presentation.pdf" 
+        target="_blank" class="card-link">
+    Download HYDRA-EO Kick-off Presentation (PDF)</a>
+    </p>
+    </article>
+
+    <!-- Dissemination / papers -->
+    <article class="card">
+      <div class="pill-mini">Papers & media</div>
+      <h3>Scientific papers and media coverage</h3>
+      <p>
+        HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML 
+        inversion, stress indicators for Flavescence Dorée and Potato Virus Y, 
+        and EO-based disease early-warning systems.
+      </p>
+      <p>
+        A curated list of accepted papers, conference contributions and media 
+        highlights will be added here as the project progresses, providing 
+        references for ESA, national agencies and the scientific community.
+      </p>
+    </article>
+  </div>
+</section>
+
+
 
     <!-- CONSORTIUM -->
     <section id="consortium">
