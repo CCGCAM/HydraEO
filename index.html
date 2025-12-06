@@ -2,17 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>HYDRA-EO • Hybrid Disease & Stress Monitoring</title>
+  <title>HYDRA-EO • Hybrid Machine Learning for Crop Disease & Stress Detection</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
     :root {
-      --esa-blue: #003366;
-      --esa-blue-soft: #0055aa;
-      --esa-light: #e6f0ff;
-      --esa-dark: #00152b;
+      /* ESA-like palette (inspirado, no oficial) */
+      --esa-navy: #001f3f;
+      --esa-blue: #005aac;
+      --esa-blue-soft: #0070c9;
+      --esa-light: #e6edf7;
+      --esa-bg: #f4f6fa;
       --accent: #4da6ff;
-      --accent-soft: #e0f2fe;
-      --bg: #f4f6fb;
+      --accent-soft: #dbeafe;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --border-soft: #e5e7eb;
     }
 
     * {
@@ -24,16 +28,16 @@
     }
 
     body {
-      background: radial-gradient(circle at top, #f0f4ff, #f9fafb);
-      color: #111827;
+      background: radial-gradient(circle at top, #eef2ff, var(--esa-bg));
+      color: var(--text-main);
       line-height: 1.6;
     }
 
     /* Top strip */
     header {
-      background: linear-gradient(90deg, var(--esa-dark), var(--esa-blue-soft));
+      background: linear-gradient(90deg, var(--esa-navy), var(--esa-blue));
       color: #e5e7eb;
-      padding: 0.5rem 6vw;
+      padding: 0.55rem 6vw;
       font-size: 0.8rem;
       display: flex;
       justify-content: space-between;
@@ -42,7 +46,7 @@
     }
 
     header span {
-      opacity: 0.9;
+      opacity: 0.95;
     }
 
     header .badges {
@@ -53,10 +57,10 @@
     }
 
     header .badge-top {
-      padding: 0.2rem 0.45rem;
+      padding: 0.2rem 0.5rem;
       border-radius: 999px;
-      border: 1px solid rgba(191, 219, 254, 0.6);
-      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(191, 219, 254, 0.7);
+      background: rgba(15, 23, 42, 0.35);
       color: #e5e7eb;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -68,9 +72,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.9rem 6vw;
-      background: rgba(255, 255, 255, 0.9);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
       position: sticky;
       top: 0;
       z-index: 20;
@@ -79,38 +83,20 @@
     .logo {
       display: flex;
       align-items: center;
-      gap: 0.7rem;
+      gap: 0.6rem;
     }
 
-    .logo-orbit {
-      width: 38px;
-      height: 38px;
-      border-radius: 999px;
-      border: 2px solid var(--accent);
-      background: radial-gradient(circle at 30% 20%, #ffffff, #0b1733);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
-      color: #e5e7eb;
-      font-size: 0.85rem;
-      font-weight: 700;
-      text-transform: uppercase;
-    }
-
-    .logo-orbit::after {
-      content: "";
-      position: absolute;
-      width: 80%;
-      height: 80%;
-      border-radius: 999px;
-      border: 1px dashed rgba(191, 219, 254, 0.6);
+    /* ← LOGO HYDRA-EO EN NAV */
+    .logo-image {
+      height: 44px;
+      width: auto;
+      border-radius: 8px;
+      background: #000; /* el propio logo ya lleva fondo negro, esto ayuda a integrarlo */
     }
 
     .logo-text-main {
       font-weight: 700;
-      color: var(--esa-dark);
+      color: var(--esa-navy);
       letter-spacing: 0.08em;
       text-transform: uppercase;
       font-size: 0.85rem;
@@ -142,7 +128,7 @@
       bottom: 0;
       width: 0;
       height: 2px;
-      background: var(--accent);
+      background: var(--esa-blue-soft);
       transition: width 0.2s ease;
     }
 
@@ -153,10 +139,10 @@
     .nav-cta {
       padding: 0.45rem 1rem;
       border-radius: 999px;
-      border: 1px solid var(--accent);
+      border: 1px solid var(--esa-blue-soft);
       color: var(--esa-blue);
       font-size: 0.8rem;
-      background: #f0f7ff;
+      background: #eef4ff;
       text-decoration: none;
       font-weight: 500;
     }
@@ -176,14 +162,14 @@
 
     .hero-text h1 {
       font-size: clamp(2.1rem, 3.1vw, 2.9rem);
-      color: var(--esa-dark);
+      color: var(--esa-navy);
       margin-bottom: 0.8rem;
       letter-spacing: -0.01em;
     }
 
     .hero-subtitle {
       font-size: 0.95rem;
-      color: #4b5563;
+      color: var(--text-muted);
       max-width: 40rem;
       margin-bottom: 1.4rem;
     }
@@ -230,13 +216,13 @@
     .btn-primary {
       background: linear-gradient(135deg, var(--esa-blue), var(--esa-blue-soft));
       color: white;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.25);
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.2);
     }
 
     .btn-secondary {
       background: white;
       color: var(--esa-blue);
-      border: 1px solid rgba(148, 163, 184, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.8);
     }
 
     .hero-metadata {
@@ -257,11 +243,14 @@
     .hero-visual {
       position: relative;
       border-radius: 1.6rem;
-      background: radial-gradient(circle at 10% 0%, #4f46e5, #020617);
+      background: radial-gradient(circle at 10% 0%, #2563eb, #020617);
       padding: 1.6rem 1.6rem 1.8rem;
       color: #e5e7eb;
       overflow: hidden;
       box-shadow: 0 18px 40px rgba(15, 23, 42, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .hero-visual::before {
@@ -270,89 +259,51 @@
       inset: -40%;
       background-image: radial-gradient(
           circle at 15% 30%,
-          rgba(248, 250, 252, 0.2),
+          rgba(248, 250, 252, 0.22),
           transparent 55%
         ),
         radial-gradient(
           circle at 80% 10%,
-          rgba(191, 219, 254, 0.22),
+          rgba(191, 219, 254, 0.24),
           transparent 55%
         ),
         radial-gradient(
           circle at 30% 80%,
-          rgba(56, 189, 248, 0.18),
+          rgba(56, 189, 248, 0.22),
           transparent 55%
         );
-      opacity: 0.35;
+      opacity: 0.25;
       pointer-events: none;
     }
 
     .hero-visual-inner {
       position: relative;
       z-index: 1;
+      width: 100%;
     }
 
-    .hero-visual-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.7rem;
-    }
-
-    .hero-visual-header h2 {
-      font-size: 0.9rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #bfdbfe;
-    }
-
-    .hero-visual-header span {
-      font-size: 0.75rem;
-      color: #9ca3af;
-    }
-
-    .mission-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.45rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .mission-pill {
-      font-size: 0.7rem;
-      border-radius: 999px;
-      padding: 0.35rem 0.8rem;
-      background: rgba(15, 23, 42, 0.82);
-      border: 1px solid rgba(148, 163, 184, 0.8);
-      backdrop-filter: blur(8px);
-    }
-
-    .orbit-ring {
+    /* ← LOGO GRANDE EN EL HERO */
+    .hero-logo-wrapper {
+      background: #000;
       border-radius: 1.2rem;
-      border: 1px dashed rgba(191, 219, 254, 0.65);
-      padding: 1rem;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.9rem;
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.6), transparent);
+      padding: 0.4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .orbit-column-title {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #9ca3af;
-      margin-bottom: 0.25rem;
+    .hero-logo {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+      display: block;
     }
 
-    .orbit-pill {
-      font-size: 0.75rem;
-      border-radius: 999px;
-      padding: 0.3rem 0.7rem;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      margin: 0.15rem 0;
-      display: inline-block;
+    .hero-visual-caption {
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+      color: #d1d5db;
+      text-align: center;
     }
 
     /* Sections */
@@ -363,12 +314,12 @@
     section h2 {
       font-size: 1.4rem;
       margin-bottom: 0.5rem;
-      color: var(--esa-dark);
+      color: var(--esa-navy);
       letter-spacing: -0.01em;
     }
 
     section p.lead {
-      color: #4b5563;
+      color: var(--text-muted);
       max-width: 46rem;
       margin-bottom: 1.4rem;
       font-size: 0.95rem;
@@ -391,7 +342,7 @@
       border-radius: 1.1rem;
       padding: 1.2rem 1.35rem 1.25rem;
       box-shadow: 0 2px 10px rgba(15, 23, 42, 0.05);
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--border-soft);
     }
 
     .card h3 {
@@ -402,7 +353,7 @@
 
     .card p {
       font-size: 0.9rem;
-      color: #4b5563;
+      color: var(--text-muted);
     }
 
     .tag {
@@ -425,15 +376,15 @@
       font-size: 0.75rem;
       padding: 0.25rem 0.6rem;
       border-radius: 999px;
-      background: #eef2ff;
-      color: #4338ca;
+      background: #e0e7ff;
+      color: #3730a3;
     }
 
     .timeline {
       border-radius: 1.1rem;
-      background: linear-gradient(145deg, #ffffff, #e5edff);
+      background: linear-gradient(145deg, #ffffff, #e0ebff);
       padding: 1.1rem 1.25rem;
-      border: 1px solid #dbe3ff;
+      border: 1px solid #d1ddff;
     }
 
     .timeline-row {
@@ -453,7 +404,7 @@
 
     .timeline-text {
       font-size: 0.85rem;
-      color: #4b5563;
+      color: var(--text-muted);
     }
 
     .timeline-text strong {
@@ -471,13 +422,13 @@
     .partner-item {
       padding: 0.65rem 0.75rem;
       border-radius: 0.85rem;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.97);
       border: 1px dashed #d1d5db;
     }
 
     .partner-title {
       font-weight: 600;
-      color: var(--esa-dark);
+      color: var(--esa-navy);
       font-size: 0.85rem;
       margin-bottom: 0.1rem;
     }
@@ -495,7 +446,7 @@
 
     /* Footer */
     footer {
-      background: var(--esa-dark);
+      background: var(--esa-navy);
       color: #9ca3af;
       padding: 1.6rem 6vw 1.4rem;
       font-size: 0.8rem;
@@ -532,7 +483,7 @@
 </head>
 <body>
   <header>
-    <span>HYDRA-EO • Hybrid multi-sensor monitoring of crop diseases and stress</span>
+    <span>HYDRA-EO • Hybrid machine learning and radiative transfer for crop disease and stress monitoring</span>
     <div class="badges">
       <span class="badge-top">ESA Project</span>
       <span class="badge-top">Earth Observation & Agriculture</span>
@@ -541,7 +492,8 @@
 
   <nav class="nav">
     <div class="logo">
-      <div class="logo-orbit">HE</div>
+      <!-- Logo en el nav -->
+      <img src="hydraeo-logo.png" alt="HYDRA-EO logo" class="logo-image" />
       <div>
         <div class="logo-text-main">HYDRA-EO</div>
         <div class="logo-text-sub">Hybrid Disease & Stress EO Framework</div>
@@ -567,12 +519,12 @@
           <span class="badge">Hybrid ML & RTMs</span>
         </div>
 
-        <h1>HYDRA-EO: Hybrid Earth Observation for early detection of crop diseases and stress.</h1>
+        <h1>HYDRA-EO: a unified framework for early detection of crop diseases and stress.</h1>
 
         <p class="hero-subtitle">
-          HYDRA-EO integrates hyperspectral, thermal and multi-sensor satellite data with
-          radiative transfer models and hybrid machine learning to detect, quantify, and
-          map crop stress caused by multiple biotic and abiotic factors.
+          HYDRA-EO integrates hyperspectral, thermal and multi-mission satellite data with
+          radiative transfer models and hybrid machine learning to detect, quantify and map
+          crop stress caused by multiple biotic and abiotic factors.
         </p>
 
         <div class="hero-actions">
@@ -588,32 +540,12 @@
 
       <div class="hero-visual">
         <div class="hero-visual-inner">
-          <div class="hero-visual-header">
-            <h2>HYDRA-EO observation stack</h2>
-            <span>from leaf to satellite</span>
+          <div class="hero-logo-wrapper">
+            <!-- Logo grande en el hero -->
+            <img src="hydraeo-logo.png" alt="HYDRA-EO illustration" class="hero-logo" />
           </div>
-
-          <div class="mission-pills">
-            <span class="mission-pill">Early disease detection</span>
-            <span class="mission-pill">Stress severity mapping</span>
-            <span class="mission-pill">Pre-FLEX & CHIME science</span>
-          </div>
-
-          <div class="orbit-ring">
-            <div>
-              <div class="orbit-column-title">Airborne & field</div>
-              <span class="orbit-pill">UAV hyperspectral (VNIR–SWIR)</span>
-              <span class="orbit-pill">UAV thermal cameras</span>
-              <span class="orbit-pill">Leaf spectroscopy & SIF</span>
-              <span class="orbit-pill">Physiological traits & gas exchange</span>
-            </div>
-            <div>
-              <div class="orbit-column-title">Space missions</div>
-              <span class="orbit-pill">Sentinel-2 MSI • reflectance</span>
-              <span class="orbit-pill">PRISMA / EnMAP • hyperspectral</span>
-              <span class="orbit-pill">ECOSTRESS / LST missions</span>
-              <span class="orbit-pill">FLEX & CHIME preparatory use</span>
-            </div>
+          <div class="hero-visual-caption">
+            HYDRA-EO integrates UAV, satellite, plant traits and pathogens into one EO-based framework.
           </div>
         </div>
       </div>
@@ -624,8 +556,8 @@
       <h2>Mission & objectives</h2>
       <p class="lead">
         HYDRA-EO aims to build a transferable framework that combines high-resolution
-        remote sensing, radiative transfer modelling, and hybrid machine learning to
-        detect, characterise, and monitor crop stress caused by pathogens and water or
+        remote sensing, radiative transfer modelling and hybrid machine learning to
+        detect, characterise and monitor crop stress caused by pathogens and water or
         heat stress. The project focuses on real agricultural systems, with contrasting
         resistant and susceptible varieties in Mediterranean and temperate environments.
       </p>
@@ -636,7 +568,7 @@
           <h3>Detect multiple stressors</h3>
           <p>
             Quantify spectral and thermal signatures of diseases and abiotic stress in
-            orchards and field crops, disentangling overlapping signals at canopy level.
+            orchards and field crops, disentangling overlapping signals at canopy scale.
           </p>
           <div class="pill-row">
             <span class="pill">Biotic vs abiotic</span>
@@ -662,7 +594,7 @@
           <h3>Operational mapping tools</h3>
           <p>
             Deliver EO-based tools and processing chains that can be transferred to
-            other crops, pathogens, and regions, supporting decision-making and
+            other crops, pathogens and regions, supporting decision-making and
             early warning systems.
           </p>
           <div class="pill-row">
@@ -677,7 +609,7 @@
     <section id="science">
       <h2>Science & methods</h2>
       <p class="lead">
-        HYDRA-EO combines high-resolution imaging, radiative transfer modelling, and
+        HYDRA-EO combines high-resolution imaging, radiative transfer modelling and
         hybrid machine learning to link canopy reflectance, fluorescence and temperature
         with underlying physiological processes and disease progression.
       </p>
@@ -689,8 +621,8 @@
           <p>
             Leaf and canopy radiative transfer models are used to simulate
             hyperspectral reflectance, sun-induced fluorescence and thermal
-            emission under different stress scenarios. These simulations guide the
-            selection of spectral regions and indicators most sensitive to pathogen
+            emission under different stress scenarios. These simulations guide
+            the selection of spectral regions and indicators most sensitive to pathogen
             damage, water stress and combined stressors.
           </p>
           <div class="pill-row">
@@ -723,36 +655,92 @@
       <h2>Workplan & work packages</h2>
       <p class="lead">
         The workplan is organised into work packages that connect field campaigns,
-        EO data processing, modelling, and tool development into a coherent,
+        EO data processing, modelling and tool development into a coherent,
         multi-year workflow.
       </p>
 
       <div class="grid-3">
         <div class="card">
           <div class="tag">WP1</div>
-          <h3>Field campaigns & protocols</h3>
+          <h3>Scientific requirements</h3>
           <p>
-            Design and execution of coordinated field campaigns across multiple crops,
-            including UAV flights, leaf spectroscopy, gas exchange, fluorescence,
-            and detailed disease scoring.
+            Consolidation of user needs, scientific requirements and trait–stressor
+            definitions to guide modelling, data collection and EO product design.
           </p>
         </div>
 
         <div class="card">
           <div class="tag">WP2</div>
-          <h3>EO data processing</h3>
+          <h3>Field & EO datasets</h3>
           <p>
-            Pre-processing of hyperspectral, thermal and satellite data, atmospheric
-            correction, BRDF handling and generation of analysis-ready data cubes.
+            Coordinated field trials and aerial campaigns, including UAV and aircraft
+            hyperspectral/thermal data and harmonised satellite imagery.
           </p>
         </div>
 
         <div class="card">
           <div class="tag">WP3</div>
-          <h3>RTM simulations & trait retrieval</h3>
+          <h3>RTM & trait retrieval</h3>
           <p>
             Radiative transfer simulations to support trait inversion, stress
             indicators and benchmarking of spectral configurations (e.g. S2, PRISMA,
             EnMAP, CHIME).
           </p>
-        </d
+        </div>
+
+        <div class="card">
+          <div class="tag">WP4</div>
+          <h3>Hybrid ML & disease mapping</h3>
+          <p>
+            Development and validation of hybrid ML models for early stress detection
+            and severity mapping at plot and orchard scale.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="tag">WP5</div>
+          <h3>Integration & tools</h3>
+          <p>
+            Implementation of open workflows, documentation and prototype tools
+            for end-users, including visualisation and decision-support components.
+          </p>
+        </div>
+
+        <div class="card timeline">
+          <h3>Timeline (indicative)</h3>
+          <div class="timeline-row">
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">
+              <strong>Year 1</strong> – Field protocols, initial campaigns, EO data
+              collection and pre-processing.
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">
+              <strong>Year 2</strong> – RTM simulations, ML model development and
+              first disease & stress maps.
+            </div>
+          </div>
+          <div class="timeline-row">
+            <div class="timeline-dot"></div>
+            <div class="timeline-text">
+              <strong>Year 3</strong> – Cross-site transferability, external validation
+              and release of tools and documentation.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEST SITES & CROPS -->
+    <section id="sites">
+      <h2>Test sites & crops</h2>
+      <p class="lead">
+        HYDRA-EO focuses on real agricultural systems where diseases and stressors
+        are already impacting production, enabling validation against ground truth
+        and agronomic observations.
+      </p>
+
+      <div class="grid-2">
+        <div class="car
