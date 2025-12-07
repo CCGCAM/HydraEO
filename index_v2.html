@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HYDRA-EO | Hybrid ML & EO for Plant Stress Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --esa-blue: #0b1f3b;
+      --esa-blue-light: #1f355c;
+      --esa-accent: #2c75ff;
+      --esa-gold: #f6c453;
+      --bg-dark: #050914;
+      --text-main: #f5f7ff;
+      --text-muted: #c3c7dd;
+      --card-bg: #11182a;
+      --border-subtle: #26314d;
+      --shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.45);
+      --radius-xl: 18px;
+      --radius-pill: 999px;
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #172952 0, #050914 55%, #02030a 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--esa-accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5, 9, 20, 0.94), rgba(5, 9, 20, 0.8));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.6rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.06);
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #7cb0ff 40%, #0b1f3b 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-weight: 650;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      border-color: rgba(255, 255, 255, 0.18);
+      background: rgba(18, 33, 73, 0.9);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 2.5rem;
+    }
+
+    .hero {
+      margin-top: 1.2rem;
+      margin-bottom: 2.2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.4fr);
+      gap: 1.0rem;
+      align-items: center;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: radial-gradient(circle at 0% 50%, rgba(44, 117, 255, 0.4), rgba(11, 31, 59, 0.9));
+      font-size: 0.75rem;
+      color: var(--text-main);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    .pill span.dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #4af3ff;
+      box-shadow: 0 0 12px rgba(74, 243, 255, 0.8);
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      line-height: 1.2;
+      letter-spacing: 0.02em;
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #4af3ff, #f6c453);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+       margin-top: 0.4rem;
+       text-align: justify;
+       line-height: 1.45;
+      color: var(--text-muted);
+      max-width: 38rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.25rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span.label {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.3rem;
+    }
+
+    .btn {
+      padding: 0.55rem 1.05rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #2c75ff, #4af3ff);
+      color: #02030a;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.55);
+      font-weight: 600;
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: rgba(10, 20, 46, 0.8);
+      border-color: rgba(255, 255, 255, 0.16);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(20, 35, 70, 0.95);
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-right {
+      justify-self: center;
+    }
+
+    .logo-card {
+      width: 260px;
+      max-width: 100%;
+      border-radius: 24px;
+      background: radial-gradient(circle at top, #273d77, #050914 55%);
+      padding: 0.9rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .hidden {
+  display: none;
+  }   
+    .code-block {
+  position: relative;
+  margin-top: 0.6rem;
+  background: #050914;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 0.7rem 0.8rem 0.8rem;
+  font-family: "Fira Code", monospace;
+  font-size: 0.8rem;
+  color: #e5e7eb;
+  overflow-x: auto;
+   }
+
+     .copy-btn {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.5rem;
+  font-size: 0.7rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: rgba(15,23,42,0.8);
+  color: #e5e7eb;
+  cursor: pointer;
+    }
+    .logo-card-inner {
+      background: #ffffff;
+      border-radius: 18px;
+      padding: 0.2rem;
+    }
+
+    .logo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    .logo-caption {
+      margin-top: 0.55rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    section {
+      margin-bottom: 2.1rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.6rem;
+      color: var(--text-main);
+    }
+
+    .section-intro {
+      font-size: 0.93rem;
+      max-width: 100%;
+      text-align: justify;
+      text-justify: inter-word;
+      color: var(--text-muted);
+    }
+
+    .card-grid {
+      margin-top: 1rem;
+      display: grid;
+      text-justify: inter-word;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, rgba(44, 117, 255, 0.12), rgba(11, 18, 40, 0.95));
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .card h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.4rem;
+    }
+    .card-link {
+      color: #4af3ff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+      
+    }
+    .card-link:hover {
+      color: #f6c453;
+      text-shadow: 0 0 6px rgba(246,196,83,0.7);
+      
+    }
+
+    .card p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      text-align: left;   /* o center si quieres efecto ESA */
+      line-height: 1.5;
+      text-justify: inter-word;
+    }
+
+    .pill-mini {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.16rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
+      gap: 1.4rem;
+      margin-top: 0.9rem;
+    }
+
+    .list {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1rem;
+    }
+
+    .list li {
+      margin-bottom: 0.25rem;
+    }
+
+    .consortium-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .partner {
+      background: radial-gradient(circle at top left, rgba(246, 196, 83, 0.18), rgba(11, 18, 40, 0.95));
+      border-radius: var(--radius-xl);
+      padding: 1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .partner-role {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--esa-gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .partner h3 {
+      font-size: 0.96rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .partner p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.2rem 1.25rem 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+
+      main {
+        padding-top: 1rem;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn,
+      nav a {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="assets/hydra-eo-logo.png" alt="HYDRA-EO logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">HYDRA-EO</div>
+          <div class="brand-sub">ESA EO for plant stress</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#overview">Project</a></li>
+          <li><a href="#objectives">Objectives</a></li>
+          <li><a href="#scenarios">Scenarios</a></li>
+          <li><a href="#methods">Methods</a></li>
+          <li><a href="#tools">Open tools</a></li>
+          <li><a href="#news">Announcements</a></li>
+          <li><a href="#consortium">Consortium</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero" id="overview">
+      <div class="hero-left">
+        <div class="pill">
+          <span class="dot"></span>
+          
+          <span>CROP MULTIPLE STRESSORS, PESTS AND DISEASES - EXPRO+ Tender</span>
+        </div>
+          <span>Action Number: 1-12684 — Activity Number: 1000042288</span>
+        <h1>
+          Hybrid ML & Earth Observation for
+          <span class="highlight">multi-stressor crop disease detection</span>
+        </h1>
+        <p class="hero-subtitle">
+          HYDRA-EO is an ESA-funded project (EXPRO+ Tender) carried out by a four-partner international consortium. 
+          The project is coordinated by the Laboratory of Geo-information Science and Remote Sensing from Department of 
+          Environmental Sciences at Wageningen University (WU-DES), in collaboration with Wageningen Environmental Research (WENR)
+          at Wageningen University and Research (Wageningen,Netherlands), the Institute of BioEconomy 
+          of the Italian National Research Council (CNR-IBE, Fiorenze, Italy), and the Chaparrillo Agro-environmental Research Centre 
+          CIAG-IRIAF (Ciudad Real,Spain).Together, the consortium integrates hyperspectral, thermal and fluorescence 
+          observations with radiative transfer modelling and machine learning to retrieve plant traits and 
+          detect biotic and abiotic stress in key crops across Spain, Italy and the Netherlands.
+        </p>
+        <div class="hero-meta">
+            <span><span class="label">HYDRA-EO:</span> The Hybrid Machine Learning for Multi-Stressor Crop Disease and Pest 
+            Detection Using high-resolution Hyperspectral, Thermal with Radiative 
+            transfer Analysis and exploitation of Next Generation Earth Observation missions.</span>
+          <span><span class="label">Duration:</span> 30 months (2026–2028)</span>
+          <span><span class="label">Start date:</span> 15-January 2026</span>
+          <span><span class="label">Prime contractor:</span> Wageningen University, Department Environmental Sciences (WU-DES, GRS)</span>
+          <span><span class="label">Partners:</span> WENR, CNR-IBE, CIAG-IRIAF</span>
+        </div>
+        <div class="hero-buttons">
+          <a href="#objectives" class="btn btn-primary">Explore scientific objectives</a>
+          <a href="#tools" class="btn btn-ghost">ToolsRTM · SCOPEinR · GitLab workspace</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="logo-card">
+          <div class="logo-card-inner">
+            <img src="assets/hydra-eo-logo.png" alt="HYDRA-EO concept art" />
+          </div>
+          <div class="logo-caption">
+            HYDRA-EO combines UAVs, satellites, RTMs and genetics to understand plant stress.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section id="objectives">
+      <h2>Scientific objectives</h2>
+      <p class="section-intro">
+        HYDRA-EO develops a hybrid modelling framework that couples radiative transfer
+        simulations with machine learning to retrieve functional plant traits and disentangle
+        overlapping stress signals (drought vs. disease) across multiple EO platforms and crops.
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <div class="pill-mini">functional plant traits</div>
+          <h3>Retrieve key functional traits</h3>
+         <p>
+           Retrieve key functional traits such as chlorophyll content, anthocyanins, leaf area index (LAI), 
+           biomass, water status, canopy temperature, nitrogen- and red-edge-based indices, as well as 
+           SIF-related indicators. These traits are derived from hyperspectral, multispectral and thermal 
+           data using PROSAIL- and SCOPE-based simulations combined with machine learning.
+        </p>
+        </article>
+        <article class="card">
+          <div class="pill-mini">Stressors</div>
+          <h3>Disentangle drought and disease</h3>
+          <p>
+            Separate the spectral and thermal fingerprints of drought, fungal infections, bacterial and 
+            viral diseases, enabling early detection of biotic and abiotic stress. HYDRA-EO analyses how 
+            these stressors interact, overlap and evolve over time, improving resilience assessments and 
+            supporting early warning systems in agricultural landscapes across multiple regions.
+          </p>
+        </article>
+        <article class="card">
+          <div class="pill-mini">Scaling</div>
+          <h3>Bridge scales & missions</h3>
+          <p>
+            Quantify how plant trait signals degrade from UAV and airborne hyperspectral data to 
+            satellite missions such as Sentinel-2, PRISMA, EnMAP, FLEX, CHIME and LSTM, and design 
+            optimised bandsets and indices for operational monitoring. HYDRA-EO develops scaling 
+            strategies that link leaf, canopy and landscape processes, ensuring consistency across 
+            platforms and preparing methodologies for next-generation ESA missions.
+          </p>
+        </article>
+        <article class="card">
+          <div class="pill-mini">Impact</div>
+          <h3>Operational EO tools for users</h3>
+          <p>
+            Deliver open, ESA-oriented tools and Shiny interfaces that translate advanced radiative-transfer 
+            modelling, hyperspectral–thermal analysis and hybrid machine learning into practical decision-support 
+            applications. These tools will support agronomists, advisors and policy stakeholders in monitoring 
+            crop health, anticipating multi-stressor risks and improving resilience planning across regions.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCENARIOS -->
+    <section id="scenarios">
+      <h2>Crop–stressor scenarios</h2>
+      <p class="section-intro">
+        HYDRA-EO focuses on five strategic crops and a palette of biotic and abiotic stressors.
+        Field campaigns and EO acquisitions are co-designed to capture contrasted responses
+        across varieties, management and climate zones.
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Alfalfa (Italy)</h3>
+          <p>
+            Drought and water-management experiments at Italian test sites are used to
+            analyse structural and physiological changes in alfalfa using hyperspectral,
+            thermal and flux data.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Potato (Netherlands)</h3>
+          <p>
+            Multi-stressor trials including Potato Virus Y and fungal infections, combining leaf measurements 
+            biochemical analysis, UAV imaging and Sentinel-2 / PRISMA / EnMAP observations.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Grapevine (Italy)</h3>
+          <p>
+            Vineyards infected with <em>Flavescence Dorée</em> and other fungal pathogens support the
+            development of spectral–thermal indicators for early disease detection and trait
+            retrieval in perennial crops.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Pistachio &amp; Olive (Spain)</h3>
+          <p>
+            CIAG-IRIAF orchards with inoculated fungal and bacterial pathogens (e.g.
+            <em>Septoria</em> spp., <em>Pseudomonas savastanoi</em>) under varying water regimes are monitored
+            using UAV hyperspectral, thermal, and aircraft-borne sensors to build a unique
+            multi-sensor stress library.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- METHODS -->
+    <section id="methods">
+      <h2>Methods & data</h2>
+      <div class="two-column">
+        <div>
+          <p class="section-intro">
+            HYDRA-EO combines empirical datasets, radiative transfer models and advanced machine
+            learning into a single workflow, aligned with ESA’s Digital Twin Earth vision.
+          </p>
+          <ul class="list">
+            <li>
+              <strong>Field &amp; UAV campaigns:</strong> Coordinated hyperspectral, thermal and
+              fluorescence measurements over alfalfa, potato, grapevine, pistachio and olive sites.
+            </li>
+            <li>
+              <strong>Airborne &amp; satellite data:</strong> Integration of PRISMA, EnMAP, Sentinel-2,
+              FLEX-like SIF products and simulated CHIME and LSTM configurations.
+            </li>
+            <li>
+              <strong>Radiative transfer:</strong> Use of PROSAIL and SCOPE–based models for spectral,
+              fluorescence and thermal simulation under controlled trait–stressor combinations.
+            </li>
+            <li>
+              <strong>Hybrid ML:</strong> Random forests, gradient boosting, CNNs and Gaussian
+              processes trained on RTM-informed synthetic libraries and empirical observations.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="card">
+            <h3>From physics to operational products</h3>
+            <p>
+              Simulations in WP3–WP4 generate trait-sensitive reflectance, fluorescence and thermal
+              signatures for different sensors. WP5 trains ML models to retrieve traits and classify
+              stressors, while WP6 packages the full pipeline into open-source R code and Shiny
+              dashboards tailored to ESA users.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools & WORKSPACES -->
+    <section id="tools">
+      <h2>Open tools & workspaces</h2>
+      <p class="section-intro">
+        HYDRA-EO builds on existing open-source ecosystems developed by the GRS group at Wageningen University
+        and extends them with ESA-funded modules for plant trait retrieval and stress
+        detection.
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>ToolsRTM (R package)</h3>
+          <p>
+            A radiative transfer modelling toolbox maintained by WU-DES for PROSAIL-based
+            simulations, spectral resampling, LUT generation and hybrid inversion. HYDRA-EO
+            will add new routines for trait–stressor libraries, band reduction and thermal
+            integration.
+              <br><br>
+             <a href="https://gitlab.com/caminoccg/toolsrtm" class="card-link" target="_blank">
+               → View SCOPEinR on GitLab </a>
+          
+          </p>
+        </article>
+        <article class="card">
+          <h3>SCOPEinR (R package)</h3>
+          <p>
+            An R interface for SCOPE-style energy-balance and SIF simulations, used to produce
+            consistent reflectance, fluorescence and thermal datasets for crops under varying
+            stress and illumination conditions.
+             <br><br><br>
+             <a href="https://gitlab.com/caminoccg/scopeinr" class="card-link" target="_blank">
+               → View SCOPEinR on GitLab </a>
+          
+          </p>
+        </article>
+        <article class="card">
+          <h3>GitLab project workspace</h3>
+          <p>
+            A central GitLab repository will host the HYDRA-EO pipelines: RTM code, ML models,
+            spectral libraries, trait-stressor metadata and Shiny applications. ESA and project
+            partners will have full access for collaboration, reproducibility and long-term reuse.
+             <br><br>
+             <a href="https://github.com/CCGCAM/HYDRA-EO" class="card-link" target="_blank">
+               → View project on GitHub </a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Shiny app for trait retrieval</h3>
+          <p>
+            An interactive web application (developed in WP6) will allow users to explore
+            retrieval workflows, visualise scaling effects, and test different sensor
+            configurations and bandsets for specific crops and pathogens.
+          </p>
+        </article>
+      </div>
+    </section>
+    
+  <!-- tutorials -->
+    <section id="tutorials">
+      <h2>Tutorials & example code</h2>
+  <p class="section-intro">
+    Short, reproducible snippets to explore the HYDRA-EO workflows with
+    <strong>ToolsRTM</strong> and <strong>SCOPEinR</strong>. You can copy, paste and adapt
+    them in your own R scripts or RStudio projects.
+  </p>
+
+  <!-- Botón para ocultar/mostrar toda la sección -->
+  <button id="toggle-tutorials" class="btn btn-ghost" style="margin-top:0.7rem;">
+    Hide tutorials
+  </button>
+
+  <div id="tutorials-content" style="margin-top:1rem;">
+    <article class="card">
+      <div class="pill-mini">R · ToolsRTM</div>
+      <h3>Basic PROSAIL simulation</h3>
+      <p>Run different Shiny apps for understanding the simulations 
+      and inspect the reflectance spectrum based on several radtive transfer models, such as 
+      SCOPE, INFORM, PROSAIL models.</p>
+
+      <div class="code-block">
+        <button class="copy-btn" data-copy="code-prosail">Copy code</button>
+        <pre id="code-prosail"><code>
+library(ToolsRTM)
+
+ToolsRTM::get.simulator(app='SCOPE')
+ToolsRTM::get.simulator(app='getLUT')
+ToolsRTM::get.simulator(app='PROSAIL-BRDF')
+?get.simulator # to see more options
+     </code>
+     </pre>
+      </div>
+    </article>
+    <!-- FIGURE 1 -->
+    <div style="text-align: center; margin-top: 1.2rem;">
+      <img src="assets/1-rtm_sims.png"
+       class="tutorial-figure"
+       alt="ToolsRTM simulations"
+       style="max-width: 40%; height: auto; border-radius: 12px;">
+       <p class="fig-caption"
+       style="font-size: 0.8rem; color: #c3c7dd; margin-top: 0.5rem;">
+      <em>Fig. 1.</em> ToolsRTM simulations across RTMs.
+      </p>
+    </div>
+    <br>
+    <article class="card">
+      <div class="pill-mini">R · SCOPEinR</div>
+      <h3>Runing SCOPE mode using SCOPEinR</h3>
+      <p>Prepare the config table needed for SCOPE model. Run some simulations using SCOPEinR
+      for understanding reflectance and fluorescence emsion.</p>
+      
+      <div class="code-block">
+        <button class="copy-btn" data-copy="code-scope">Copy code</button>
+        <pre id="code-scope"><code>
+library(SCOPEinR)
+
+## read the setoptions
+table.with.opts<-read.table('input/setoptions.csv',header=T, sep=',')
+
+## read the LUT table, here the default LUT ('input_data_default.csv') is used.  
+inputLUT=read.table('input/LUT_input.csv',header=T,sep=',')
+## Execute the SCOPE model, and store the resultant inputs and outputs in a list element.
+db.sim <-SCOPEinR::get.SCOPE(LUT=inputLUT,options.SCOPE=table.with.opts,
+            optipar=SCOPEinR::optipar2021.Pro.CX,
+            leaf.model='fluspect-CX',canopy.model='fourSAIL',
+            get.outputs = 'ALL', get.plots = F)
+        </code>
+        </pre>
+      </div>
+    </article>
+      <!-- FIGURE 2 -->
+      <div style="text-align: center; margin-top: 1.2rem;">
+      <img src="assets/2-fluorescence.png"
+       class="tutorial-figure"
+       alt="ToolsRTM simulations"
+       style="max-width: 40%; height: auto; border-radius: 12px;">
+       <p class="fig-caption"
+       style="font-size: 0.8rem; color: #c3c7dd; margin-top: 0.5rem;">
+      <em>Fig. 2.</em> Chlorophyll fluorescence  emission simuated with SCOPEinR.
+      </p>
+    </div>
+  </div>
+</section>
+
+  <!-- News -->
+
+<section id="news" class="section">
+  <h2>ANNOUNCEMENTS & DISSEMINATION</h2>
+  <p class="section-intro">
+    HYDRA-EO activities, public presentations and scientific outputs are 
+    disseminated through ESA events, conferences and peer-reviewed papers. 
+    This section highlights key milestones and communication actions.
+  </p>
+
+  <div class="card-grid">
+    <!-- Event 1: ESA DTE KO presentation -->
+    <article class="card">
+      <div class="pill-mini">Event · ESA Digital Twin Earth</div>
+      <h3>HYDRA-EO presentation at ESA DTE Open Science Meeting</h3>
+      <p>
+        The HYDRA-EO project will be presented during the
+        <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>
+      </p>
+      <p>
+        <strong>Date:</strong> 2-5 February 2026 (ESRIN, Frascati, Italy).<br>
+        <strong>Meeting link:</strong>
+        <br>
+        <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction" 
+           target="_blank" class="card-link">
+          ESA Digital Twin Earth – Open Science Meeting
+        </a>
+      </p>
+      <p>
+        This is the first public event of HYDRA-EO project, introducing the project concept, 
+        consortium and planned ESA-oriented tools for multi-stressor crop disease detection.
+      </p>
+      <p>
+        <strong>Project presentation (PDF):</strong><br>
+        <a href="docs/HYDRA-EO_KO_Presentation.pdf" 
+        target="_blank" class="card-link">
+    Download HYDRA-EO Kick-off Presentation (PDF)</a>
+    </p>
+    </article>
+
+    <!-- Dissemination / papers -->
+    <article class="card">
+      <div class="pill-mini">Papers & media</div>
+      <h3>Scientific papers and media coverage</h3>
+      <p>
+        HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML 
+        inversion, stress indicators for Flavescence Dorée and Potato Virus Y, 
+        and EO-based disease early-warning systems.
+      </p>
+      <p>
+        A curated list of accepted papers, conference contributions and media 
+        highlights will be added here as the project progresses, providing 
+        references for ESA, national agencies and the scientific community.
+      </p>
+    </article>
+  </div>
+</section>
+
+
+
+    <!-- CONSORTIUM -->
+    <section id="consortium">
+      <h2>Consortium</h2>
+      <p class="section-intro">
+        HYDRA-EO is coordinated by Wageningen University and brings together expertise
+        in EO, plant pathology, genetics and agronomy from the Netherlands, Italy and Spain. Both
+        WU-DES and WENR are part of Wageningen University &amp; Research.
+      </p>
+      <div class="consortium-grid">
+        <article class="partner">
+          <div class="partner-role">Prime contractor</div>
+          <h3>Wageningen University – Department of Environmental Sciences (WU-DES)</h3>
+          <p>
+            The Geoinformation Science and Remote Sensing (GRS) group leads overall coordination
+            and WP1, WP2, WP5, WP6 and WP10. WU-DES develops the RTM and ML core (ToolsRTM,
+            SCOPEinR), designs the scientific workflow, and manages the central GitLab and Shiny
+            tools. Project coordination is led by Dr. Carlos Camino with scientific support from
+            Prof. Lammert Kooistra and colleagues.
+          </p>
+        </article>
+        <article class="partner">
+          <div class="partner-role">Partner · Wageningen University &amp; Research</div>
+          <h3>Wageningen Environmental Research (WENR)</h3>
+          <p>
+            WENR, also part of Wageningen University &amp; Research, leads WP8 (Scientific
+            Collaboration) and WP9 (Promotion &amp; Coordination), and co-leads WP6. The team
+            specialises in operational EO services, evapotranspiration and agricultural
+            applications, and is responsible for outreach, stakeholder engagement and links with
+            ESA platforms.
+          </p>
+        </article>
+        <article class="partner">
+          <div class="partner-role">Partner · Italy</div>
+          <h3>Consiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE)</h3>
+          <p>
+            CNR-IBE leads WP3 (Development &amp; Validation), WP4 (Experimental Dataset Generation)
+            and WP7 (Scientific Roadmap). The group coordinates Italian alfalfa and vineyard
+            campaigns, hyperspectral validation and scaling studies, and contributes to trait
+            retrieval modelling and the long-term scientific roadmap for ESA missions.
+          </p>
+        </article>
+        <article class="partner">
+          <div class="partner-role">Partner · Spain</div>
+          <h3>Chaparrillo Agro-Environmental Research Center (CIAG-IRIAF)</h3>
+          <p>
+            CIAG-IRIAF co-leads WP2 and is responsible for pistachio and olive trials in WP4.
+            They provide experimental orchards with controlled inoculation of fungal and bacterial
+            pathogens, conduct UAV and aircraft-borne campaigns, and integrate agronomic, spectral
+            and genetic (qPCR, SNP) data to support stress disaggregation and resilience studies.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-intro">
+        HYDRA-EO is currently in preparation for the ESA Kick-Off meeting. For questions about the
+        project, collaboration opportunities or technical information, please contact the project
+        coordinator at Wageningen University &amp; Research.
+      </p>
+      <br>
+      <div class="card">
+        <h3>Project coordination</h3>
+        <p>
+          <strong>Dr. Carlos Luis Camino González</strong><br />
+          Geo-Information Science and Remote Sensing (GRS)<br />
+          Wageningen University – Department of Environmental Sciences (WU-DES)<br />
+          Wageningen, The Netherlands
+        </p>
+        <!-- You can add your email here if you want it public -->
+        email: carlos.caminogonzalez@wur.nl 
+      </div>
+    </section>
+  </main>
+
+    <footer>
+       HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+       “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684. 
+    </footer>
+    
+<script>
+  // Toggle sección de tutoriales
+  const toggleBtn = document.getElementById("toggle-tutorials");
+  const tutorialsContent = document.getElementById("tutorials-content");
+
+  if (toggleBtn && tutorialsContent) {
+    toggleBtn.addEventListener("click", () => {
+      const hidden = tutorialsContent.classList.toggle("hidden");
+      toggleBtn.textContent = hidden ? "Show tutorials" : "Hide tutorials";
+    });
+  }
+
+  // Botones de "Copy code"
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const targetId = btn.getAttribute("data-copy");
+      const el = document.getElementById(targetId);
+      if (!el) return;
+
+      const text = el.textContent.replace(/^\n+|\s+$/g, "");
+      try {
+        await navigator.clipboard.writeText(text);
+        const old = btn.textContent;
+        btn.textContent = "Copied!";
+        setTimeout(() => (btn.textContent = old), 1200);
+      } catch (e) {
+        console.error("Clipboard error", e);
+        btn.textContent = "Error";
+        setTimeout(() => (btn.textContent = "Copy code"), 1200);
+      }
+    });
+  });
+</script>    
+</body>
+</html>
