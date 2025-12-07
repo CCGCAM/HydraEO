@@ -69,8 +69,14 @@
       border:1px solid var(--border-subtle);box-shadow:var(--shadow-soft);
       padding:1rem 1.1rem 1.2rem;
     }
+    
     .card h3{font-size:1rem;margin-bottom:.3rem;}
-    .card p{font-size:.9rem;color:var(--text-muted);text-align:justify;text-justify:inter-word;}
+    
+    .card p{
+      font-size:.9rem;
+      color:var(--text-muted);
+      text-align:left;text-justify:inter-word;}
+    
     .pill-mini{
       display:inline-flex;align-items:center;padding:.18rem .6rem;
       border-radius:var(--radius-pill);border:1px solid rgba(148,163,184,.7);
@@ -131,7 +137,7 @@
     <p class="hero-text">
       This internal page summarises the main processing pipelines, methodological
       choices and software components developed within HYDRA-EO. It is intended
-      for the consortium (WUR, WENR, CNR-IBE, CIAG-IRIAF) and should not be
+      for the consortium (WU-DES, WENR-WUR, CNR-IBE, CIAG-IRIAF) and should not be
       shared outside ESA and project partners without prior agreement.
     </p>
     <div class="hero-tags">
@@ -147,7 +153,7 @@
     <h2>Pipelines</h2>
     <p class="section-intro">
       Pipelines are organised by data source and level of processing. Each
-      pipeline folder in the repository should contain an <code>_README.md</code>
+      pipeline folder in the repository should contain an <code>README.md</code>
       describing inputs, steps, outputs and links to scripts or notebooks.
     </p>
 
@@ -293,15 +299,64 @@ ToolsRTM::get.simulator(app = "getLUT")
         </summary>
         <div class="code-block">
           <button class="copy-btn" data-target="code-prosail-demo">Copy</button>
-          <pre class="pretty-code"><code id="code-prosail-demo">
+          <pre class="pretty-code">
+            
+            <code id="code-prosail-demo">
 library(ToolsRTM)
 
-sim <- ToolsRTM::get.simulator(app = "PROSAIL")
-out <- sim(Cab = 45, LAI = 3.2)
+# 2.2 Generate a LUT with 2000 samples
+set.seed(1234)
+n.samples = 2000
+LUT <- as.data.frame(ToolsRTM::getLUT(inputs = inputs, nLUT = n.samples, setseed = 1234))
+# Long format for ggplot
+lut_long <- LUT |>
+  select(all_of(traits_to_plot)) |>
+  pivot_longer(cols = everything(),
+               names_to = "Trait",
+               values_to = "Value")
 
-plot(out$wl, out$R, type = "l",
-     xlab = "Wavelength (nm)",
-     ylab = "Reflectance")</code></pre>
+# Histogram (barplot) per trait
+ggplot(lut_long, aes(x = Value)) +
+  geom_histogram(fill = "grey70", color = "black", bins = 20) +
+  facet_wrap(~ Trait, scales = "free") +
+  theme_bw() +
+  xlab("Value") +
+  ylab("Frequency") +
+  ggtitle("Histogram of LUT input traits (PROSAIL simulations)")
+
+sims <- lapply(seq_len(nrow(LUT)), function(i) {
+
+  # FourSAIL simulation for one LUT configuration
+  out <- suppressMessages(
+    ToolsRTM::foursail(
+      inputLUT     = LUT[i, ],
+      rsoil        = rsoil.default,
+      LeafModel    = "PROSPECT-D",    # biochemical leaf model
+      spectrum.all = TRUE               # output full spectral components
+    )
+  )
+
+  # Compute BRF (Bidirectional Reflectance Factor)
+  # BRF combines directional/diffuse reflectance according to solar zenith angle (tts)
+  brf <- ToolsRTM::Compute_BRF(
+    rdot = out$rdot,                    # diffuse → observer
+    rsot = out$rsot,                    # direct sun → observer
+    tts  = LUT[i, "tts"],               # solar zenith angle
+    data.light = ToolsRTM::dataSpec_PDB
+  )
+
+  # Return tidy tibble for this simulation
+  tibble(
+    run = i,
+    wl  = wl_grid,
+    rho = as.numeric(brf)
+  )
+})
+
+
+     </code>
+  
+</pre>
         </div>
       </details>
     </div>
@@ -311,14 +366,32 @@ plot(out$wl, out$R, type = "l",
       <h3>Install SCOPEinR</h3>
       <details class="code-details" open>
         <summary>
-          <span>Show SCOPEinR installation snippet</span>
+          <span>Show SCOPEinR installation snippet and running some simulations.</span>
           <span class="summary-icon">▾</span>
         </summary>
         <div class="code-block">
           <button class="copy-btn" data-target="code-install-scopeinr">Copy</button>
           <pre class="pretty-code"><code id="code-install-scopeinr">
 ## Install SCOPEinR package from GitLab.
-remotes::install_gitlab("caminoccg/scopeinr", upgrade = "never")</code></pre>
+remotes::install_gitlab("caminoccg/scopeinr", upgrade = "never")
+Table.LUT <- read.table(
+    "Tables/inputs/LUT_input.csv",
+    header = TRUE, sep = ","
+  )
+
+  db.sim <- SCOPEinR::get.SCOPE(
+    LUT           = Table.LUT[1, ],
+    options.SCOPE = table.with.opts,
+    optipar       = SCOPEinR::optipar2021.Pro.CX,
+    leaf.model    = "fluspect-CX",
+    canopy.model  = "fourSAIL",
+    get.outputs   = "ALL",
+    get.plots     = FALSE
+  )
+</code>
+
+
+</pre>
         </div>
       </details>
     </div>
@@ -356,8 +429,8 @@ remotes::install_gitlab("caminoccg/scopeinr", upgrade = "never")</code></pre>
   </section>
 
   <footer>
-    HYDRA-EO internal methods &amp; pipelines page · For ESA and consortium
-    use only (WUR, WENR, CNR-IBE, CIAG-IRIAF).
+     HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+     “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684. 
   </footer>
 </main>
 

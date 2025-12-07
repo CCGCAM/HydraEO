@@ -777,7 +777,9 @@
     <article class="card">
       <div class="pill-mini">R · ToolsRTM</div>
       <h3>Basic PROSAIL simulation</h3>
-      <p>Run a simple PROSAIL simulation and inspect the reflectance spectrum.</p>
+      <p>Run different Shiny apps for understanding the simulations 
+      and inspect the reflectance spectrum based on several radtive transfer models, such as 
+      SCOPE, INFORM, PROSAIL models.</p>
 
       <div class="code-block">
         <button class="copy-btn" data-copy="code-prosail">Copy code</button>
@@ -806,8 +808,9 @@ ToolsRTM::get.simulator(app='PROSAIL-BRDF')
     <br>
     <article class="card">
       <div class="pill-mini">R · SCOPEinR</div>
-      <h3>Linking SCOPE to canopy temperature</h3>
-      <p>Example call to run SCOPE and extract modelled canopy temperature.</p>
+      <h3>Runing SCOPE mode using SCOPEinR</h3>
+      <p>Prepare the config table needed for SCOPE model. Run some simulations using SCOPEinR
+      for understanding reflectance and fluorescence emsion.</p>
       
       <div class="code-block">
         <button class="copy-btn" data-copy="code-scope">Copy code</button>
@@ -980,8 +983,8 @@ db.sim <-SCOPEinR::get.SCOPE(LUT=inputLUT,options.SCOPE=table.with.opts,
   </main>
 
     <footer>
-      HYDRA-EO – Hybrid ML &amp; EO for Multi-Stressor Crop Disease Detection · ESA contract – project
-      website draft for KO meeting.
+       HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+       “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684. 
     </footer>
     
 <script>

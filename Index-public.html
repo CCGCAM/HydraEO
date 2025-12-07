@@ -119,6 +119,8 @@
     }
     .card-grid{
       display:grid;gap:1rem;
+      text-align: left;
+      text-justify: inter-word;
       grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
     }
     .card{
@@ -129,11 +131,12 @@
     .card h3{font-size:1rem;margin-bottom:.35rem;}
     .card p{
       font-size:.9rem;color:var(--text-muted);
-      text-align:justify;text-justify:inter-word;
+      text-align:left;text-justify:inter-word;
     }
     .pill-mini{
       display:inline-flex;align-items:center;
       padding:.18rem .6rem;border-radius:var(--radius-pill);
+      
       font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
       border:1px solid rgba(148,163,184,.7);color:var(--text-muted);
       margin-bottom:.4rem;
@@ -168,7 +171,7 @@
     <div class="nav-left">
       <div class="nav-logo">
         <!-- ajusta ruta del logo -->
-        <img src="assets/HYDRA-EO-logo.png" alt="HYDRA-EO logo">
+        <img src="Hydra-eo-logo.png" alt="HYDRA-EO logo">
       </div>
       <div>
         <div class="nav-title">HYDRA-EO</div>
@@ -204,7 +207,8 @@
       </p>
       <p class="hero-meta">
         <strong>Duration:</strong> 2026–2028 &nbsp; · &nbsp;
-        <strong>Prime contractor:</strong> Wageningen University (WU) ·
+        <span><span class="label">Prime contractor:</span> Wageningen University, Department Environmental Sciences (WU-DES, GRS)</span>
+        <span><span class="label">Partners:</span> WENR, CNR-IBE, CIAG-IRIAF</span>
         <strong>Action:</strong> 1-12684
       </p>
       <div class="hero-tags">
@@ -218,7 +222,7 @@
 
     <aside class="hero-card">
       <div class="hero-logo-big">
-        <img src="assets/HYDRA-EO-logo-square.png" alt="HYDRA-EO">
+        <img src="Hydra-eo-logo.png" alt="HYDRA-EO">
       </div>
       <p>
         HYDRA-EO develops ESA-oriented workflows and tools that bridge
@@ -384,26 +388,29 @@
       <article class="card">
         <h3>Prime contractor</h3>
         <p class="partner-name">
-          Wageningen University &amp; Research (WUR) – Laboratory of Geo-information Science and Remote Sensing
+          Wageningen University, Department Environmental Sciences (WU-DES, GRS); 
+          Laboratory of Geo-information Science and Remote Sensing
         </p>
         <p class="partner-role">
           Project coordination, RTM–ML framework, hyperspectral/thermal analysis, EO scaling and open tools.
+           Netherlands test trial in potato, airborne campaigns and field data, and flux measurements.
         </p>
       </article>
 
       <article class="card">
         <h3>Partners</h3>
-        <p class="partner-name">Wageningen Environmental Research (WENR, NL)</p>
+        <p class="partner-name">Wageningen Environmental Research (WENR), Wageningen University &amp; Research</p>
         <p class="partner-role">
-          EO data processing, spatial analysis, and operational agro-environmental applications.
+          Evapotranspiration models, and operational agro-environmental applications.
         </p>
         <br>
-        <p class="partner-name">CNR-IBE – Institute of BioEconomy (IT)</p>
+        <p class="partner-name">Consiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE)</p>
         <p class="partner-role">
           Italian test sites, vine/alfalfa trials, airborne campaigns and flux measurements.
+          EO data processing, spatial analysis, and operational agro-environmental applications
         </p>
         <br>
-        <p class="partner-name">CIAG-IRIAF – Agro-environmental Research Centre (ES)</p>
+        <p class="partner-name">Chaparrillo, Agro-environmental Research Centre (CIAG-IRIAF)</p>
         <p class="partner-role">
           Pistachio &amp; olive orchards, inoculation trials, disease scoring and UAV monitoring.
         </p>
@@ -416,10 +423,13 @@
             <span>2026 Q1</span> &nbsp; Kick-off meeting and workflow design.
           </div>
           <div class="timeline-item">
-            <span>2026–2027</span> &nbsp; Field campaigns, RTM libraries, ML training.
+            <span>2026 Q2-Q3</span> &nbsp; Field campaigns, leaf measurements, visual inspection, field inspection.
           </div>
           <div class="timeline-item">
-            <span>2027–2028</span> &nbsp; Validation, EO upscaling and user-oriented tools.
+            <span>2026 Q4 - 2027 Q3</span> &nbsp; Processing dataset, RTM libraries, ML training.
+          </div>
+          <div class="timeline-item">
+            <span>2027 Q4 – 2028</span> &nbsp; Validation, EO upscaling and user-oriented tools.
           </div>
         </div>
       </article>
