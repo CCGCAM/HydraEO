@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HYDRA-EO | Hybrid ML & EO for Plant Stress Detection</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --esa-blue: #003399;
+      --esa-blue-soft: #2054a8;
+      --esa-accent: #0058ff;
+      --esa-gold: #f2a900;
+      --bg-page: #f5f7fb;
+      --bg-surface: #ffffff;
+      --bg-soft: #eef1f8;
+      --text-main: #121826;
+      --text-muted: #5c667d;
+      --border-subtle: #dde1ee;
+      --shadow-soft: 0 14px 40px rgba(15, 23, 42, 0.12);
+      --radius-xl: 18px;
+      --radius-pill: 999px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #ffffff 0, #f5f7fb 45%, #edf0f7 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--esa-accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* TOP FUNDING STRIP (EU / ESA FEEL) */
+    .funding-bar {
+      background: linear-gradient(90deg, #001f5b, #004aad);
+      color: #ffffff;
+      font-size: 0.75rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.25rem;
+    }
+    .funding-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+    .funding-label {
+      opacity: 0.95;
+    }
+    .funding-ref {
+      opacity: 0.8;
+      font-weight: 500;
+    }
+
+    /* HEADER / NAV – LIGHT ESA STYLE */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: rgba(255, 255, 255, 0.96);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+    }
+
+    .nav-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.7rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand-logo {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      overflow: hidden;
+      background: radial-gradient(circle at 30% 20%, #ffffff 0, #bcd4ff 40%, #003399 100%);
+      box-shadow: 0 0 0 2px rgba(0, 31, 91, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 0.98rem;
+      text-transform: uppercase;
+      color: var(--esa-blue);
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 0.5rem;
+      font-size: 0.86rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      padding: 0.32rem 0.9rem;
+      border-radius: var(--radius-pill);
+      color: var(--text-muted);
+      border: 1px solid transparent;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    nav a:hover {
+      color: var(--esa-blue);
+      border-color: rgba(0, 31, 91, 0.15);
+      background: rgba(0, 72, 173, 0.04);
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.8rem 1.25rem 2.6rem;
+    }
+
+    /* HERO */
+    .hero {
+      margin-top: 0.3rem;
+      margin-bottom: 2.4rem;
+      display: grid;
+      grid-template-columns: minmax(0, 3.6fr) minmax(0, 2.4fr);
+      gap: 1.8rem;
+      align-items: center;
+    }
+
+    .pill-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.3rem 1rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 31, 91, 0.12);
+      background: linear-gradient(135deg, #eaf2ff, #ffffff);
+      font-size: 0.72rem;
+      color: var(--esa-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.13em;
+      margin-bottom: 0.35rem;
+      font-weight: 600;
+    }
+
+    .pill-main .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #27c0ff;
+      box-shadow: 0 0 10px rgba(39, 192, 255, 0.7);
+    }
+
+    .hero small.action-ref {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.6rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 3vw, 2.7rem);
+      line-height: 1.18;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.5rem;
+      color: var(--esa-blue);
+    }
+
+    h1 span.highlight {
+      background: linear-gradient(120deg, #004aad, #27c0ff);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      margin-top: 0.4rem;
+      text-align: justify;
+      color: var(--text-muted);
+      max-width: 44rem;
+    }
+
+    .hero-meta {
+      margin-top: 0.9rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 0.4rem 1.2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span .label {
+      color: var(--esa-blue-soft);
+      font-weight: 600;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.86rem;
+      border: 1px solid transparent;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.18s ease-out;
+      font-weight: 500;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #004aad, #27a4ff);
+      color: #ffffff;
+      box-shadow: 0 10px 26px rgba(0, 31, 91, 0.25);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 15px 36px rgba(0, 31, 91, 0.3);
+      transform: translateY(-1px);
+    }
+
+    .btn-ghost {
+      background: #ffffff;
+      border-color: rgba(0, 31, 91, 0.12);
+      color: var(--esa-blue-soft);
+    }
+
+    .btn-ghost:hover {
+      background: #f2f5ff;
+      border-color: rgba(0, 31, 91, 0.25);
+    }
+
+    .hero-right {
+      justify-self: center;
+    }
+
+    .logo-card {
+      width: 320px;
+      max-width: 100%;
+      border-radius: 22px;
+      background: radial-gradient(circle at top, #e6efff, #ffffff);
+      padding: 1rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(0, 31, 91, 0.08);
+    }
+
+    .logo-card-inner {
+      background: #ffffff;
+      border-radius: 16px;
+      padding: 0.4rem;
+      border: 1px solid #edf0f7;
+    }
+
+    .logo-card img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .logo-caption {
+      margin-top: 0.6rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    /* SECTION BASICS */
+    section {
+      margin-bottom: 2.3rem;
+    }
+
+    h2 {
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.6rem;
+      color: var(--esa-blue);
+    }
+
+    .section-intro {
+      font-size: 0.96rem;
+      max-width: 100%;
+      text-align: justify;
+      color: var(--text-muted);
+    }
+
+    .card-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+      color: var(--esa-blue-soft);
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      text-align: left;
+      line-height: 1.5;
+    }
+
+    .pill-mini {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.16rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(0, 31, 91, 0.16);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-bottom: 0.4rem;
+      color: var(--text-muted);
+      background: #f4f6fc;
+    }
+
+    .card-link {
+      color: var(--esa-accent);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s ease, text-shadow 0.2s ease;
+    }
+
+    .card-link:hover {
+      color: var(--esa-gold);
+      text-shadow: 0 0 6px rgba(242, 169, 0, 0.4);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(0, 1.1fr);
+      gap: 1.4rem;
+      margin-top: 0.9rem;
+      align-items: stretch;
+    }
+
+    .list {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      padding-left: 1.1rem;
+      margin-top: 0.6rem;
+    }
+
+    .list li {
+      margin-bottom: 0.35rem;
+    }
+
+    /* MISSION / STATS */
+    .mission-grid {
+      margin-top: 1.1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 1.4rem;
+    }
+
+    .mission-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      text-align: justify;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .stat-card {
+      background: linear-gradient(145deg, #ffffff, #f3f6ff);
+      border-radius: var(--radius-xl);
+      padding: 0.85rem 0.9rem 1rem;
+      border: 1px solid var(--border-subtle);
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+    }
+
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--esa-blue);
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-top: 0.1rem;
+    }
+
+    /* CONSORTIUM */
+    .consortium-grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .partner {
+      background: linear-gradient(135deg, #ffffff, #f4f7ff);
+      border-radius: var(--radius-xl);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.06);
+    }
+
+    .partner-role {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--esa-gold);
+      margin-bottom: 0.35rem;
+    }
+
+    .partner h3 {
+      font-size: 0.98rem;
+      margin-bottom: 0.25rem;
+      color: var(--esa-blue-soft);
+    }
+
+    .partner p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* TUTORIALS */
+    .hidden {
+      display: none;
+    }
+
+    .code-block {
+      position: relative;
+      margin-top: 0.6rem;
+      background: #0f172a;
+      border-radius: 10px;
+      border: 1px solid rgba(15, 23, 42, 0.7);
+      padding: 0.7rem 0.8rem 0.8rem;
+      font-family: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.8rem;
+      color: #e5e7eb;
+      overflow-x: auto;
+    }
+
+    .copy-btn {
+      position: absolute;
+      top: 0.45rem;
+      right: 0.5rem;
+      font-size: 0.7rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      cursor: pointer;
+    }
+
+    /* IMAGES IN TUTORIALS */
+    .figure-wrapper {
+      text-align: center;
+      margin-top: 1.2rem;
+    }
+
+    .figure-wrapper img {
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      box-shadow: 0 16px 35px rgba(15, 23, 42, 0.18);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: #ffffff;
+    }
+
+    .figure-caption {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+    }
+
+    /* CONTACT CARD */
+    #contact .card h3 {
+      margin-bottom: 0.4rem;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 1.3rem 1.25rem 2rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
+    footer span.emphasis {
+      color: var(--esa-blue-soft);
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .mission-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .stats-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      nav ul {
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .btn,
+      nav a {
+        justify-content: center;
+      }
+      .funding-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- EU/ESA FUNDING STRIP -->
+  <div class="funding-bar">
+    <div class="funding-inner">
+      <div class="funding-label">
+        Co-funded by the <strong>European Space Agency (ESA)</strong> · EXPRO+ “Crop Multiple Stressors, Pests and Diseases”
+      </div>
+      <div class="funding-ref">
+        Action 1-12684 · Activity 1000042288
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="brand-logo">
+          <img src="assets/hydra-eo-logo.png" alt="HYDRA-EO logo" />
+        </div>
+        <div class="brand-text">
+          <div class="brand-title">HYDRA-EO</div>
+          <div class="brand-sub">ESA · Crop Multiple Stressors</div>
+        </div>
+      </div>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#overview">About</a></li>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#objectives">Objectives</a></li>
+          <li><a href="#scenarios">Scenarios</a></li>
+          <li><a href="#methods">Methods</a></li>
+          <li><a href="#tools">Tools</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#consortium">Consortium</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / INTRO -->
+    <section class="hero" id="overview">
+      <div>
+        <div class="pill-main">
+          <span class="dot"></span>
+          <span>CROP MULTIPLE STRESSORS, PESTS AND DISEASES · ESA EXPRO+</span>
+        </div>
+        <small class="action-ref">
+          Action Number: 1-12684 · Activity Number: 1000042288
+        </small>
+
+        <h1>
+          Hybrid ML &amp; Earth Observation for
+          <span class="highlight">multi-stressor crop disease detection</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          HYDRA-EO is an ESA-funded project (EXPRO+ Tender) carried out by a four-partner international consortium.
+          The project is coordinated by the Laboratory of Geo-information Science and Remote Sensing from the Department of
+          Environmental Sciences at Wageningen University (WU-DES), in collaboration with Wageningen Environmental Research (WENR)
+          at Wageningen University and Research (Netherlands), the Institute of BioEconomy
+          of the Italian National Research Council (CNR-IBE, Firenze, Italy), and the Chaparrillo Agro-environmental Research Centre
+          (CIAG-IRIAF, Ciudad Real, Spain).
+        </p>
+        <br>
+        <p class="hero-subtitle">
+          The consortium integrates expertise in hyperspectral, thermal and fluorescence observations with radiative
+          transfer modelling, machine learning and GWAS analyses, together with a team of field
+          phytopathologists (e.g., University of Florence), to retrieve plant traits and detect
+          biotic and abiotic stress in key crops across Spain, Italy and the Netherlands.
+        </p>
+
+        <div class="hero-meta">
+          <span><span class="label">Duration:</span> 30 months (2026–2028)</span>
+          <span><span class="label">Start date:</span> 15 January 2026</span>
+          <span><span class="label">Prime contractor:</span> WU-DES</span>
+          <span><span class="label">Partners:</span> WENR, CNR-IBE, CIAG-IRIAF</span>
+        </div>
+
+        <div class="hero-buttons">
+          <a href="#mission" class="btn btn-primary">Discover the HYDRA-EO mission</a>
+          <a href="#tools" class="btn btn-ghost">ToolsRTM · SCOPEinR · Git repositories</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="logo-card">
+          <div class="logo-card-inner">
+            <img src="assets/hydra-eo-logo.png" alt="HYDRA-EO visual concept" />
+          </div>
+          <div class="logo-caption">
+            HYDRA-EO combines UAVs, satellites, radiative transfer models and genetics to understand
+            crop stress and resilience across Europe.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION / STATS -->
+    <section id="mission" class="mission">
+      <h2>Our mission</h2>
+      <div class="mission-grid">
+        <div class="mission-text">
+          HYDRA-EO aims to develop and demonstrate a physics-informed, hybrid machine learning
+          framework for early detection and attribution of multiple stressors in agricultural
+          systems. By bridging leaf, canopy and landscape scales, the project supports ESA’s
+          Digital Twin Earth vision for crops and prepares methodologies for upcoming missions
+          such as FLEX, CHIME and LSTM.
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Core partners</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3</div>
+            <div class="stat-label">EU countries</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">5</div>
+            <div class="stat-label">Crop systems</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OBJECTIVES -->
+    <section id="objectives">
+      <h2>Scientific objectives</h2>
+      <p class="section-intro">
+        HYDRA-EO develops a hybrid modelling framework that couples radiative transfer
+        simulations with machine learning to retrieve functional plant traits and disentangle
+        overlapping stress signals (drought vs. disease) across multiple EO platforms and crops.
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <div class="pill-mini">Functional plant traits</div>
+          <h3>Retrieve key functional traits</h3>
+          <p>
+            Retrieve traits such as chlorophyll content, anthocyanins, leaf area index (LAI),
+            biomass, water status, canopy temperature, nitrogen- and red-edge-based indices,
+            as well as SIF-related indicators. These traits are derived from hyperspectral,
+            multispectral and thermal data using PROSAIL- and SCOPE-based simulations combined
+            with machine learning.
+          </p>
+ 
