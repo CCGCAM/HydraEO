@@ -1,1 +1,1024 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HYDRA-EO | ESA Project</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --esa-blue: #003f7d;
+      --esa-light-blue: #0083c7;
+      --accent: #00bcd4;
+      --bg-light: #f5f7fb;
+      --text-main: #333333;
+      --text-muted: #666666;
+      --border-soft: #e1e4ec;
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --transition-fast: 0.25s ease;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #ffffff;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 999;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--esa-blue);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .nav-logo span {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--esa-light-blue);
+      transition: width var(--transition-fast);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--esa-light-blue);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--esa-light-blue);
+      background: #ffffff;
+      cursor: pointer;
+      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-cta:hover {
+      background: var(--esa-light-blue);
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      width: 22px;
+      height: 2px;
+      background: var(--esa-blue);
+      border-radius: 10px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-links-mobile {
+      display: none;
+      flex-direction: column;
+      padding: 10px 20px 16px;
+      gap: 10px;
+      background: #ffffff;
+      border-top: 1px solid rgba(0, 0, 0, 0.04);
+    }
+
+    .nav-links-mobile a {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-main);
+    }
+
+    /* HERO (tal como en tu captura) */
+    .hero {
+      padding: 120px 20px 80px;
+      background: radial-gradient(circle at top left, #e2f3ff 0, #ffffff 50%, #ffffff 100%);
+    }
+
+    .hero-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--esa-light-blue);
+      font-weight: 500;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: 40px;
+      line-height: 1.15;
+      color: var(--esa-blue);
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .hero-highlight {
+      color: var(--accent);
+    }
+
+    .hero-subtitle {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin-bottom: 22px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .hero-tag {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #d4e4f5;
+      background: rgba(255, 255, 255, 0.8);
+      color: var(--text-muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--esa-blue);
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 500;
+      box-shadow: 0 10px 25px rgba(0, 63, 125, 0.30);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 63, 125, 0.38);
+      background: #002a52;
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      padding: 10px 16px;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
+    }
+
+    .btn-ghost:hover {
+      background: #f0f4fb;
+      border-color: var(--esa-light-blue);
+      color: var(--esa-blue);
+    }
+
+    .hero-side-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 20px 22px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #edf1fb;
+    }
+
+    .hero-side-title {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--esa-blue);
+      margin-bottom: 12px;
+    }
+
+    .hero-side-list {
+      list-style: none;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .hero-side-list li {
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 8px;
+    }
+
+    .hero-side-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--esa-light-blue);
+    }
+
+    .hero-side-note {
+      margin-top: 12px;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px dashed #e1e5f2;
+      padding-top: 10px;
+    }
+
+    /* GENERIC SECTIONS */
+    section {
+      padding: 70px 20px;
+    }
+
+    .section-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 35px;
+      max-width: 720px;
+    }
+
+    .section-kicker {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--esa-light-blue);
+      margin-bottom: 6px;
+    }
+
+    .section-title {
+      font-size: 26px;
+      color: var(--esa-blue);
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    .section-subtitle {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .section-bg-light {
+      background: var(--bg-light);
+    }
+
+    /* ABOUT / PROJECT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 32px;
+    }
+
+    .about-text p {
+      font-size: 15px;
+      color: var(--text-main);
+      margin-bottom: 12px;
+    }
+
+    .about-highlight {
+      background: #f5f8ff;
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--esa-blue);
+      border-left: 3px solid var(--esa-light-blue);
+      margin-top: 4px;
+    }
+
+    .about-meta {
+      background: #f8fafc;
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      border: 1px solid #e4e8f4;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .about-meta-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .about-meta-label {
+      font-weight: 500;
+      color: var(--esa-blue);
+    }
+
+    /* DISEASES + 3 IMAGES */
+    .disease-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1.1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .disease-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      margin-bottom: 8px;
+    }
+
+    .disease-tags span {
+      font-size: 11px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: #eef4ff;
+      color: var(--esa-blue);
+    }
+
+    .tri-image-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-top: 10px;
+    }
+
+    .tri-image-col {
+      flex: 1;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--card-shadow);
+      background: #000;
+    }
+
+    .tri-image-caption {
+      font-size: 11px;
+      text-align: center;
+      padding: 6px 4px 8px;
+      color: var(--text-muted);
+      background: #ffffff;
+    }
+
+    /* METHODS */
+    .methods-grid {
+      display: grid;
+      grid-template-columns: 1.3fr 1.1fr;
+      gap: 32px;
+    }
+
+    .methods-steps {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .methods-steps li {
+      margin-bottom: 10px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .methods-steps li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 7px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--esa-light-blue);
+    }
+
+    .pipeline-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px 18px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #e3e7f3;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* WORK PACKAGES (resumen) */
+    .wp-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .wp-card {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      box-shadow: var(--card-shadow);
+      border: 1px solid #e3e7f3;
+      font-size: 13px;
+    }
+
+    .wp-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--esa-light-blue);
+      margin-bottom: 4px;
+    }
+
+    .wp-title {
+      font-size: 14px;
+      color: var(--esa-blue);
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .wp-text {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* CONSORTIUM */
+    .consortium-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .partner-list {
+      list-style: none;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .partner-list li {
+      margin-bottom: 8px;
+    }
+
+    .partner-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .consortium-box {
+      background: #ffffff;
+      border-radius: var(--radius-lg);
+      padding: 18px;
+      border: 1px solid #e1e5f0;
+      box-shadow: var(--card-shadow);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #020817;
+      color: #d9e2ff;
+      padding: 30px 20px;
+      font-size: 12px;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+    }
+
+    .footer-links a {
+      color: #aebce8;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: #aebce8;
+      max-width: 720px;
+    }
+
+    .footer-credit {
+      font-size: 11px;
+      color: #7f8ac4;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 960px) {
+      .hero-inner,
+      .about-grid,
+      .disease-layout,
+      .methods-grid,
+      .consortium-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      .hero-title {
+        font-size: 32px;
+      }
+
+      .wp-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: flex;
+      }
+
+      .nav-links-mobile.show {
+        display: flex;
+      }
+
+      .hero-inner {
+        gap: 28px;
+      }
+
+      .tri-image-row {
+        flex-direction: column;
+      }
+
+      .wp-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 60px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">
+      HYDRA-EO
+      <span>Hybrid ML &amp; RTM for crop stress</span>
+    </div>
+
+    <nav class="nav-links">
+      <a href="#about">Project</a>
+      <a href="#diseases">Diseases</a>
+      <a href="#methods">Methods &amp; Data</a>
+      <a href="#workpackages">Work Packages</a>
+      <a href="#consortium">Consortium</a>
+      <button class="nav-cta" onclick="document.getElementById('consortium').scrollIntoView({behavior:'smooth'});">
+        ESA Project
+      </button>
+    </nav>
+
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="nav-links-mobile" id="navMobile">
+    <a href="#about">Project</a>
+    <a href="#diseases">Diseases</a>
+    <a href="#methods">Methods &amp; Data</a>
+    <a href="#workpackages">Work Packages</a>
+    <a href="#consortium">Consortium</a>
+  </div>
+</header>
+
+<!-- HERO (igual que en tu captura) -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-kicker">ESA EXPRO+ · EARTH OBSERVATION</div>
+      <h1 class="hero-title">
+        HYDRA-EO: <span class="hero-highlight">Hybrid Machine Learning</span><br>
+        for multi-stressor crop disease detection
+      </h1>
+      <p class="hero-subtitle">
+        HYDRA-EO develops a hybrid framework that couples radiative transfer models with
+        machine learning to detect and attribute crop stress from field to satellite scales,
+        using hyperspectral, thermal and multi-sensor EO data.
+      </p>
+
+      <div class="hero-tags">
+        <span class="hero-tag">Hyperspectral &amp; thermal</span>
+        <span class="hero-tag">RTM + ML inversion</span>
+        <span class="hero-tag">UAV · airborne · satellite</span>
+        <span class="hero-tag">Crop diseases &amp; pests</span>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('workpackages').scrollIntoView({behavior:'smooth'});">
+          Explore work packages
+        </button>
+        <button class="btn-ghost" onclick="document.getElementById('methods').scrollIntoView({behavior:'smooth'});">
+          View methods &amp; data
+        </button>
+      </div>
+    </div>
+
+    <aside class="hero-side-card">
+      <div class="hero-side-title">Multi-scale EO pipeline</div>
+      <ul class="hero-side-list">
+        <li>Field phenotyping and proximal sensing in orchards.</li>
+        <li>UAV hyperspectral and thermal mapping of crop canopies.</li>
+        <li>Airborne and satellite missions (Sentinel-2, PRISMA, EnMAP, FLEX, CHIME).</li>
+        <li>Hybrid RTM–ML inversion for functional traits and disease stress.</li>
+      </ul>
+      <div class="hero-side-note">
+        HYDRA-EO is funded by the European Space Agency (ESA) and prepares methods and tools
+        for next-generation European EO missions targeting agriculture and plant health.
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- PROJECT / ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-kicker">Project overview</div>
+      <h2 class="section-title">Understanding crop stress across scales</h2>
+      <p class="section-subtitle">
+        HYDRA-EO links leaf-level physiological processes with canopy-scale Earth Observation signals to
+        support early detection of crop diseases, pests and combined stressors.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-text">
+        <!-- HERE: si quieres, pega aquí el texto que tenías antes en “Project / About” -->
+        <p>
+          The project addresses key Mediterranean and temperate crop systems (olive, citrus, pistachio,
+          grapevine) and develops interpretable indicators of plant health based on hyperspectral,
+          fluorescence and thermal data.
+        </p>
+        <p>
+          Multi-sensor datasets from field instruments, UAV platforms, airborne campaigns and satellite missions
+          are combined with radiative transfer models to retrieve functional traits related to photosynthesis,
+          structure and water status.
+        </p>
+        <div class="about-highlight">
+          Outputs from HYDRA-EO are designed to be integrated into digital twins of agriculture and operational
+          crop monitoring services.
+        </div>
+      </div>
+
+      <aside class="about-meta">
+        <div class="about-meta-row">
+          <span class="about-meta-label">Funding agency</span>
+          <span>European Space Agency (ESA)</span>
+        </div>
+        <div class="about-meta-row">
+          <span class="about-meta-label">Programme</span>
+          <span>Earth Observation · EXPRO+</span>
+        </div>
+        <div class="about-meta-row">
+          <span class="about-meta-label">Duration</span>
+          <span>2025–2028</span>
+        </div>
+        <div class="about-meta-row">
+          <span class="about-meta-label">Coordinator</span>
+          <span>Wageningen University &amp; Research</span>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- DISEASES + 3 IMAGES -->
+<section id="diseases">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-kicker">Diseases &amp; multi-stressor detection</div>
+      <h2 class="section-title">From leaf symptoms to satellite indicators</h2>
+      <p class="section-subtitle">
+        HYDRA-EO explores how spectral and thermal responses to infection, drought and heat stress can be
+        translated into robust EO-based indicators for different crop–pathogen systems.
+      </p>
+    </div>
+
+    <div class="disease-layout">
+      <div>
+        <!-- HERE: pega aquí si quieres tu texto antiguo de “Diseases & crop detection” -->
+        <p>
+          Field campaigns capture gradients of infection and stress using detailed visual assessments,
+          physiological measurements and proximal sensing. These observations are used to calibrate and
+          validate models that connect disease processes with hyperspectral and thermal signatures.
+        </p>
+        <div class="disease-tags">
+          <span>Olive decline</span>
+          <span>Citrus fungal infections</span>
+          <span>Pistachio stress</span>
+          <span>Grapevine diseases</span>
+        </div>
+        <p>
+          The resulting indicators are designed to be transferable between sites and sensors, supporting
+          monitoring of plant health at regional scale.
+        </p>
+      </div>
+
+      <div>
+        <div class="tri-image-row">
+          <div class="tri-image-col">
+            <img src="assets/figure1.png" alt="Disease patterns - figure 1">
+          </div>
+          <div class="tri-image-col">
+            <img src="assets/figure2.png" alt="Disease patterns - figure 2">
+          </div>
+          <div class="tri-image-col">
+            <img src="assets/figure3.png" alt="Disease patterns - figure 3">
+          </div>
+        </div>
+        <div class="tri-image-caption">
+          Examples of disease and stress patterns in different crop systems from high-resolution hyperspectral imagery.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHODS & DATA -->
+<section id="methods" class="section-bg-light">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-kicker">Methods &amp; data</div>
+      <h2 class="section-title">Hybrid radiative transfer and machine learning pipeline</h2>
+      <p class="section-subtitle">
+        The HYDRA-EO methods combine physically-based radiative transfer models with data-driven machine learning
+        to derive plant traits and stress indicators from multi-sensor EO data.
+      </p>
+    </div>
+
+    <div class="methods-grid">
+      <div>
+        <!-- HERE: si quieres, sustituye estos bullets por tu texto de “Methods & Data” -->
+        <ul class="methods-steps">
+          <li>Simulation of canopy reflectance, fluorescence and thermal emission using PROSAIL and SCOPE.</li>
+          <li>Generation of look-up tables and emulators covering structural and physiological variability.</li>
+          <li>Training of regression and classification models to retrieve traits and map stress regimes.</li>
+          <li>Harmonisation of field, UAV, airborne and satellite data through spectral resampling and co-registration.</li>
+          <li>Validation against in-situ traits, flux measurements and disease assessments.</li>
+        </ul>
+      </div>
+
+      <aside class="pipeline-card">
+        <strong>Key EO datasets:</strong>
+        <ul style="margin-top:8px; padding-left:18px;">
+          <li>UAV hyperspectral VNIR–SWIR and thermal imagery.</li>
+          <li>Airborne hyperspectral campaigns over pilot sites.</li>
+          <li>Sentinel-2 MSI, PRISMA, EnMAP, FLEX (FLEX_AO) and CHIME-like configurations.</li>
+        </ul>
+        <p style="margin-top:10px;">
+          All processing chains are implemented in open-source environments and will be made available through
+          project repositories.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- WORK PACKAGES (resumen, puedes adaptar nombres) -->
+<section id="workpackages">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-kicker">Work packages</div>
+      <h2 class="section-title">Project structure</h2>
+      <p class="section-subtitle">
+        HYDRA-EO is organised in work packages that cover requirements, data acquisition, RTM–ML development and
+        validation/exploitation.
+      </p>
+    </div>
+
+    <div class="wp-grid">
+      <!-- HERE: cambia títulos y descripciones según tu lista oficial de WPs -->
+      <div class="wp-card">
+        <div class="wp-label">WP1</div>
+        <div class="wp-title">User needs &amp; system design</div>
+        <p class="wp-text">
+          Collection of user and ESA requirements, definition of use cases and overall system architecture.
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-label">WP2</div>
+        <div class="wp-title">Data acquisition &amp; harmonisation</div>
+        <p class="wp-text">
+          Planning and execution of field, UAV and airborne campaigns and pre-processing of all EO datasets.
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-label">WP3</div>
+        <div class="wp-title">RTM–ML development</div>
+        <p class="wp-text">
+          Development and testing of hybrid inversion chains for functional traits and stress mapping.
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-label">WP4</div>
+        <div class="wp-title">Validation &amp; exploitation</div>
+        <p class="wp-text">
+          Validation, demonstration cases and preparation of guidelines and tools for ESA and end-users.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSORTIUM -->
+<section id="consortium" class="section-bg-light">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-kicker">Consortium</div>
+      <h2 class="section-title">European partnership</h2>
+      <p class="section-subtitle">
+        HYDRA-EO is coordinated by Wageningen University &amp; Research and involves partners with expertise in
+        remote sensing, plant physiology, pathology and EO services.
+      </p>
+    </div>
+
+    <div class="consortium-grid">
+      <div>
+        <!-- HERE: pega la lista de socios tal como la tenías antes -->
+        <ul class="partner-list">
+          <li>
+            <strong>Wageningen University &amp; Research (WUR)</strong><br>
+            <span class="partner-role">Project coordination, RTMs, hyperspectral processing.</span>
+          </li>
+          <li>
+            <strong>Research institutes &amp; universities</strong><br>
+            <span class="partner-role">Field campaigns, pathology, physiological measurements.</span>
+          </li>
+          <li>
+            <strong>Technical &amp; EO service partners</strong><br>
+            <span class="partner-role">UAV and airborne operations, data services and upscaling.</span>
+          </li>
+        </ul>
+      </div>
+
+      <aside class="consortium-box">
+        <strong>ESA context</strong>
+        <p style="margin-top:8px;">
+          The project is part of ESA activities on digital twins, agriculture and plant health monitoring.
+          Results will support future Copernicus-like hyperspectral and thermal missions.
+        </p>
+        <p style="margin-top:8px;">
+          HYDRA-EO works in close interaction with ESA technical officers to align developments with the
+          long-term EO strategy.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <span>HYDRA-EO · Hybrid Machine Learning for Multi-Stressor Crop Disease Detection</span>
+      <div class="footer-links">
+        <a href="#about">Project</a>
+        <a href="#methods">Methods</a>
+        <a href="#consortium">Consortium</a>
+      </div>
+    </div>
+    <div class="footer-note">
+      HYDRA-EO is financed by the European Space Agency (ESA). Any views expressed on this web page are those
+      of the project consortium and do not necessarily reflect the official opinion of ESA or the European Union.
+      <!-- HERE: si quieres, añade el nº de contrato ESA -->
+    </div>
+    <div class="footer-credit">
+      Design: WU-DES · HYDRA-EO team
+    </div>
+  </div>
+</footer>
+
+<!-- JS: NAV TOGGLE -->
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navMobile = document.getElementById('navMobile');
+
+  navToggle.addEventListener('click', () => {
+    navMobile.classList.toggle('show');
+  });
+
+  navMobile.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navMobile.classList.remove('show');
+    });
+  });
+</script>
+
+</body>
+</html>
