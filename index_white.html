@@ -757,4 +757,446 @@
             multispectral and thermal data using PROSAIL- and SCOPE-based simulations combined
             with machine learning.
           </p>
- 
+        </article>
+        <article class="card">
+          <div class="pill-mini">Stressors</div>
+          <h3>Disentangle drought and disease</h3>
+          <p>
+            Separate the spectral and thermal fingerprints of drought, fungal infections,
+            bacterial and viral diseases, enabling early detection of biotic and abiotic stress.
+            HYDRA-EO analyses how these stressors interact, overlap and evolve over time,
+            improving resilience assessments and supporting early warning systems in agricultural
+            landscapes.
+          </p>
+        </article>
+        <article class="card">
+          <div class="pill-mini">Scaling</div>
+          <h3>Bridge scales &amp; missions</h3>
+          <p>
+            Quantify how plant trait signals degrade from UAV and airborne hyperspectral data
+            to satellite missions such as Sentinel-2, PRISMA, EnMAP, FLEX, CHIME and LSTM, and
+            design optimised bandsets and indices for operational monitoring. HYDRA-EO develops
+            scaling strategies that link leaf, canopy and landscape processes, preparing
+            methodologies for next-generation ESA missions.
+          </p>
+        </article>
+        <article class="card">
+          <div class="pill-mini">Impact</div>
+          <h3>Operational EO tools for users</h3>
+          <p>
+            Deliver open, ESA-oriented tools and Shiny interfaces that translate advanced
+            radiative-transfer modelling, hyperspectral–thermal analysis and hybrid machine
+            learning into practical decision-support applications for agronomists, advisors
+            and policy stakeholders.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SCENARIOS -->
+    <section id="scenarios">
+      <h2>Crop–stressor scenarios</h2>
+      <p class="section-intro">
+        HYDRA-EO focuses on five strategic crops and a palette of biotic and abiotic stressors.
+        Field campaigns and EO acquisitions are co-designed to capture contrasted responses
+        across varieties, management and climate zones.
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>Alfalfa (Italy)</h3>
+          <p>
+            Alfalfa experimental plots in Italy include controlled fertiliser treatments designed
+            to capture a wide range of physiological responses. HYDRA-EO also investigates
+            the spectral and thermal signatures associated with insect pressure in alfalfa,
+            enabling early detection of pest-driven stress.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Potato (Netherlands)</h3>
+          <p>
+            Multi-stressor trials including Potato Virus Y and fungal infections in a dedicated
+            phenotyping trial, combining leaf measurements, biochemical analysis, UAV imaging, and
+            satellite observations. These experiments generate contrasted physiological responses across
+            varieties under plant diseases.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Grapevine (Italy)</h3>
+          <p>
+            Vineyards infected with <em>Flavescence Dorée</em> and other fungal pathogens support the
+            development of spectral–thermal indicators for early disease detection and trait
+            retrieval in perennial crops.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Pistachio &amp; Olive (Spain)</h3>
+          <p>
+            CIAG-IRIAF orchards with inoculated fungal and bacterial pathogens (e.g.
+            <em>Septoria</em> spp., <em>Pseudomonas savastanoi</em>) under varying water regimes are monitored
+            using UAV hyperspectral, thermal, and aircraft-borne sensors to build a unique
+            multi-sensor stresses.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- METHODS -->
+    <section id="methods">
+      <h2>Methods &amp; data</h2>
+      <div class="two-column">
+        <div>
+          <p class="section-intro">
+            HYDRA-EO combines empirical datasets, radiative transfer models and advanced machine
+            learning into a single workflow, aligned with ESA’s Digital Twin Earth vision.
+          </p>
+          <ul class="list">
+            <li>
+              <strong>Field &amp; UAV campaigns:</strong> Coordinated hyperspectral, thermal and
+              fluorescence measurements over alfalfa, potato, grapevine, pistachio and olive sites.
+            </li>
+            <li>
+              <strong>Airborne &amp; satellite data:</strong> Integration of PRISMA, EnMAP,
+              Sentinel-2, FLEX-like SIF products and simulated CHIME and LSTM configurations.
+            </li>
+            <li>
+              <strong>Radiative transfer:</strong> Use of PROSAIL and SCOPE-based models for
+              spectral, fluorescence and thermal simulation under controlled trait–stressor
+              combinations.
+            </li>
+            <li>
+              <strong>Hybrid ML:</strong> Random forests, gradient boosting, CNNs and Gaussian
+              processes trained on RTM-informed synthetic libraries and empirical observations.
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="card">
+            <h3>From physics to operational products</h3>
+            <p>
+              Simulations in WP3–WP4 generate trait-sensitive reflectance, fluorescence and thermal
+              signatures for different sensors. WP5 trains ML models to retrieve traits and classify
+              stressors, while WP6 packages the full pipeline into open-source R code and Shiny
+              dashboards tailored to ESA users.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS & WORKSPACES -->
+    <section id="tools">
+      <h2>Open tools &amp; workspaces</h2>
+      <p class="section-intro">
+        HYDRA-EO builds on existing open-source ecosystems developed by the GRS group at
+        Wageningen University and extends them with ESA-funded modules for plant trait
+        retrieval and stress detection.
+      </p>
+      <div class="card-grid">
+        <article class="card">
+          <h3>ToolsRTM (R package)</h3>
+          <p>
+            A radiative transfer modelling toolbox maintained by WU-DES for PROSAIL-based
+            simulations, spectral resampling, LUT generation and hybrid inversion. HYDRA-EO
+            will add new routines for trait–stressor libraries, band reduction and thermal
+            integration.
+            <br /><br />
+            <a href="https://gitlab.com/caminoccg/toolsrtm" class="card-link" target="_blank">
+              → View ToolsRTM on GitLab
+            </a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>SCOPEinR (R package)</h3>
+          <p>
+            An R interface for SCOPE-style energy-balance and SIF simulations, used to produce
+            consistent reflectance, fluorescence and thermal datasets for crops under varying
+            stress and illumination conditions.
+            <br /><br /><br />
+            <a href="https://gitlab.com/caminoccg/scopeinr" class="card-link" target="_blank">
+              → View SCOPEinR on GitLab
+            </a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>HYDRA-EO project repository</h3>
+          <p>
+            A central Git repository will host the HYDRA-EO pipelines: RTM code, ML models,
+            spectral libraries, trait–stressor metadata and Shiny applications. ESA and project
+            partners will have access for collaboration, reproducibility and long-term reuse.
+            <br /><br />
+            <a href="https://github.com/CCGCAM/HYDRA-EO" class="card-link" target="_blank">
+              → View HYDRA-EO on GitHub
+            </a>
+          </p>
+        </article>
+        <article class="card">
+          <h3>Shiny app for trait retrieval</h3>
+          <p>
+            An interactive web application (developed in WP6) will allow users to explore
+            retrieval workflows, visualise scaling effects, and test different sensor
+            configurations and bandsets for specific crops and pathogens.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TUTORIALS -->
+    <section id="tutorials">
+      <h2>Tutorials &amp; example code</h2>
+      <p class="section-intro">
+        Short, reproducible snippets to explore the HYDRA-EO workflows with
+        <strong>ToolsRTM</strong> and <strong>SCOPEinR</strong>. You can copy, paste and adapt
+        them in your own R scripts or RStudio projects.
+      </p>
+
+      <button id="toggle-tutorials" class="btn btn-ghost" style="margin-top:0.7rem;">
+        Hide tutorials
+      </button>
+
+      <div id="tutorials-content" style="margin-top:1rem;">
+        <article class="card">
+          <div class="pill-mini">R · ToolsRTM</div>
+          <h3>Basic PROSAIL simulation</h3>
+          <p>
+            Run different Shiny apps for understanding simulations and inspect reflectance
+            spectra based on several radiative transfer models (SCOPE, INFORM, PROSAIL).
+          </p>
+
+          <div class="code-block">
+            <button class="copy-btn" data-copy="code-prosail">Copy code</button>
+            <pre id="code-prosail"><code>
+library(ToolsRTM)
+
+ToolsRTM::get.simulator(app = "SCOPE")
+ToolsRTM::get.simulator(app = "getLUT")
+ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
+?get.simulator  # to see more options
+            </code></pre>
+          </div>
+        </article>
+
+        <div class="figure-wrapper">
+          <img src="assets/1-rtm_sims.png"
+               alt="ToolsRTM simulations"
+          >
+          <p class="figure-caption">
+            <em>Fig. 1.</em> ToolsRTM simulations across radiative transfer models.
+          </p>
+        </div>
+
+        <br />
+
+        <article class="card">
+          <div class="pill-mini">R · SCOPEinR</div>
+          <h3>Running SCOPE with SCOPEinR</h3>
+          <p>
+            Prepare the configuration table needed for SCOPE, run simulations using SCOPEinR
+            and inspect reflectance and fluorescence emission.
+          </p>
+
+          <div class="code-block">
+            <button class="copy-btn" data-copy="code-scope">Copy code</button>
+            <pre id="code-scope"><code>
+library(SCOPEinR)
+
+## read the setoptions
+table.with.opts <- read.table("input/setoptions.csv", header = TRUE, sep = ",")
+
+## read the LUT table
+inputLUT <- read.table("input/LUT_input.csv", header = TRUE, sep = ",")
+
+## execute the SCOPE model
+db.sim <- SCOPEinR::get.SCOPE(
+  LUT          = inputLUT,
+  options.SCOPE = table.with.opts,
+  optipar      = SCOPEinR::optipar2021.Pro.CX,
+  leaf.model   = "fluspect-CX",
+  canopy.model = "fourSAIL",
+  get.outputs  = "ALL",
+  get.plots    = FALSE
+)
+            </code></pre>
+          </div>
+        </article>
+
+        <div class="figure-wrapper">
+          <img src="assets/2-fluorescence.png"
+               alt="Chlorophyll fluorescence emission">
+          <p class="figure-caption">
+            <em>Fig. 2.</em> Chlorophyll fluorescence emission simulated with SCOPEinR.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEWS / ANNOUNCEMENTS -->
+    <section id="news">
+      <h2>Announcements &amp; dissemination</h2>
+      <p class="section-intro">
+        HYDRA-EO activities, public presentations and scientific outputs are disseminated
+        through ESA events, conferences and peer-reviewed papers. This section highlights
+        key milestones and communication actions.
+      </p>
+
+      <div class="card-grid">
+        <article class="card">
+          <div class="pill-mini">Event · ESA Digital Twin Earth</div>
+          <h3>HYDRA-EO at ESA Digital Twin Earth Open Science Meeting</h3>
+          <p>
+            The HYDRA-EO project will be presented during the
+            <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>.
+          </p>
+          <p>
+            <strong>Date:</strong> 2–5 February 2026 (ESRIN, Frascati, Italy).<br />
+            <strong>Meeting link:</strong><br />
+            <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction"
+               target="_blank" class="card-link">
+              ESA Digital Twin Earth – Open Science Meeting
+            </a>
+          </p>
+          <p>
+            This is the first public event of HYDRA-EO, introducing the project concept,
+            consortium and ESA-oriented tools for multi-stressor crop disease detection.
+          </p>
+          <p>
+            <strong>Project presentation (PDF):</strong><br />
+            <a href="docs/ESA_Hydra_submitted.pdf"
+               target="_blank" class="card-link">
+              Download HYDRA-EO Presentation (PDF)
+            </a>
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="pill-mini">Papers &amp; media</div>
+          <h3>Scientific papers and media coverage</h3>
+          <p>
+            HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML inversion,
+            stress indicators for <em>Flavescence Dorée</em> and Potato Virus Y, and EO-based
+            disease early-warning systems.
+          </p>
+          <p>
+            A curated list of accepted papers, conference contributions and media highlights
+            will be added here as the project progresses, providing references for ESA,
+            national agencies and the scientific community.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONSORTIUM -->
+    <section id="consortium">
+      <h2>Consortium</h2>
+      <p class="section-intro">
+        HYDRA-EO is coordinated by Wageningen University and brings together expertise
+        in EO, plant pathology, genetics and agronomy from the Netherlands, Italy and Spain.
+        WU-DES and WENR are both part of Wageningen University &amp; Research.
+      </p>
+      <div class="consortium-grid">
+        <article class="partner">
+          <div class="partner-role">Prime contractor</div>
+          <h3>Wageningen University – Department of Environmental Sciences (WU-DES)</h3>
+          <p>
+            The Geoinformation Science and Remote Sensing (GRS) group leads overall coordination
+            and WP1, WP2, WP5, WP6 and WP10. WU-DES develops the RTM and ML core (ToolsRTM,
+            SCOPEinR), designs the scientific workflow, and manages the central Git and Shiny
+            tools. Project coordination is led by Dr. Carlos Camino with scientific support
+            from Prof. Lammert Kooistra and colleagues.
+          </p>
+        </article>
+        <article class="partner">
+          <div class="partner-role">Partner · Netherlands</div>
+          <h3>Wageningen Environmental Research (WENR)</h3>
+          <p>
+            WENR leads WP8 (Scientific Collaboration) and WP9 (Promotion &amp; Coordination),
+            and co-leads WP6. The team specialises in operational EO services, evapotranspiration
+            and agricultural applications, and is responsible for outreach, stakeholder
+            engagement and links with ESA platforms.
+          </p>
+        </article>
+        <article class="partner">
+          <div class="partner-role">Partner · Italy</div>
+          <h3>Consiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE)</h3>
+          <p>
+            CNR-IBE leads WP3 (Development &amp; Validation), WP4 (Experimental Dataset Generation)
+            and WP7 (Scientific Roadmap). The group coordinates Italian alfalfa and vineyard
+            campaigns, hyperspectral validation and scaling studies, and contributes to trait
+            retrieval modelling and the long-term scientific roadmap for ESA missions.
+          </p>
+        </article>
+        <article class="partner">
+          <div class="partner-role">Partner · Spain</div>
+          <h3>Chaparrillo Agro-Environmental Research Center (CIAG-IRIAF)</h3>
+          <p>
+            CIAG-IRIAF co-leads WP2 and is responsible for pistachio and olive trials in WP4.
+            They provide experimental orchards with controlled inoculation of fungal and bacterial
+            pathogens, conduct UAV and aircraft-borne campaigns, and integrate agronomic, spectral
+            and genetic data to support stress disaggregation and resilience studies.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Contact</h2>
+      <p class="section-intro">
+        HYDRA-EO is currently in preparation for the ESA Kick-off meeting. For questions about the
+        project, collaboration opportunities or technical information, please contact the project
+        coordinator at Wageningen University &amp; Research.
+      </p>
+      <br />
+      <div class="card">
+        <h3>Project coordination</h3>
+        <p>
+          <strong>Dr. Carlos Luis Camino González</strong><br />
+          Geo-Information Science and Remote Sensing (GRS)<br />
+          Wageningen University – Department of Environmental Sciences (WU-DES)<br />
+          Wageningen, The Netherlands<br />
+          <br />
+          Email: <a href="mailto:carlos.caminogonzalez@wur.nl">carlos.caminogonzalez@wur.nl</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    HYDRA-EO is funded by the <span class="emphasis">European Space Agency (ESA)</span> under the EXPRO+ Tender
+    “Crop Multiple Stressors, Pests and Diseases” (Action 1-12684, Activity 1000042288).
+  </footer>
+
+  <script>
+    // Toggle tutorials
+    const toggleBtn = document.getElementById("toggle-tutorials");
+    const tutorialsContent = document.getElementById("tutorials-content");
+
+    if (toggleBtn && tutorialsContent) {
+      toggleBtn.addEventListener("click", () => {
+        const hidden = tutorialsContent.classList.toggle("hidden");
+        toggleBtn.textContent = hidden ? "Show tutorials" : "Hide tutorials";
+      });
+    }
+
+    // Copy code buttons
+    document.querySelectorAll(".copy-btn").forEach((btn) => {
+      btn.addEventListener("click", async () => {
+        const targetId = btn.getAttribute("data-copy");
+        const el = document.getElementById(targetId);
+        if (!el) return;
+
+        const text = el.textContent.replace(/^\n+|\s+$/g, "");
+        try {
+          await navigator.clipboard.writeText(text);
+          const old = btn.textContent;
+          btn.textContent = "Copied!";
+          setTimeout(() => (btn.textContent = old), 1200);
+        } catch (e) {
+          console.error("Clipboard error", e);
+          btn.textContent = "Error";
+          setTimeout(() => (btn.textContent = "Copy code"), 1200);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
