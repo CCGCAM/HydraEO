@@ -24,6 +24,7 @@ The project is coordinated by the **Laboratory of Geo-information Science and Re
 This repository contains the **static website** for HYDRA-EO:
 
 -   `index.html`: main project page (project description, objectives, scenarios, methods, open tools, consortium, news).
+-   `docs/`: Documents, papers.
 -   `assets/`:figures, logos and icons used on the site.
 -   `tools/`: HTML pages describing open tools such as **ToolsRTM** and **SCOPEinR**.
 
