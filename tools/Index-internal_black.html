@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HYDRA-EO · Pipelines & Methods</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <style>
+    :root{
+      --bg:#020617;--bg-card:#0b1220;--accent:#4af3ff;--accent-soft:#38bdf8;
+      --text-main:#e5e7eb;--text-muted:#9ca3af;--border-subtle:#1f2937;
+      --radius-xl:20px;--radius-pill:999px;--shadow-soft:0 20px 40px rgba(0,0,0,.45);
+      --maxw:1120px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{
+      background:radial-gradient(circle at top,#0f172a 0%,#020617 55%,#000);
+      color:var(--text-main);font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      line-height:1.6;display:flex;justify-content:center;
+      padding:1.8rem 1.2rem 2.5rem;
+    }
+    main{width:100%;max-width:var(--maxw);}
+    a{color:var(--accent-soft);text-decoration:none}
+    a:hover{color:#f6c453}
+
+    .nav{
+      display:flex;justify-content:space-between;align-items:center;
+      margin-bottom:1.5rem;
+    }
+    .nav-title{font-weight:650;font-size:1.2rem;}
+    .nav-sub{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);}
+    .nav-links{display:flex;flex-wrap:wrap;gap:1rem;font-size:.88rem;}
+    .nav-links a{color:var(--text-muted);}
+    .nav-links a:hover{color:var(--accent-soft);}
+    @media(max-width:800px){
+      .nav{flex-direction:column;align-items:flex-start;gap:.6rem;}
+    }
+
+    header{
+      background:linear-gradient(135deg,#020617 0%,#111827 50%,#020617 100%);
+      border-radius:var(--radius-xl);border:1px solid var(--border-subtle);
+      padding:1.1rem 1.3rem 1.2rem;box-shadow:var(--shadow-soft);
+      margin-bottom:2rem;
+    }
+    header h1{font-size:1.6rem;font-weight:650;margin-bottom:.4rem;}
+    header h1 span{color:var(--accent);}
+    .hero-text{font-size:.95rem;color:var(--text-muted);text-align:justify;text-justify:inter-word;}
+    .hero-tags{margin-top:.6rem;display:flex;flex-wrap:wrap;gap:.4rem;}
+    .tag-pill{
+      padding:.18rem .7rem;border-radius:var(--radius-pill);
+      border:1px solid rgba(148,163,184,.7);font-size:.72rem;
+      text-transform:uppercase;letter-spacing:.12em;color:var(--text-muted);
+    }
+
+    section{margin-bottom:2.3rem;}
+    section h2{
+      font-size:1.02rem;text-transform:uppercase;letter-spacing:.16em;
+      margin-bottom:.4rem;
+    }
+    .section-intro{
+      font-size:.94rem;color:var(--text-muted);
+      text-align:justify;text-justify:inter-word;margin-bottom:.8rem;
+    }
+    .card-grid{
+      display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    }
+    .card{
+      background:var(--bg-card);border-radius:var(--radius-xl);
+      border:1px solid var(--border-subtle);box-shadow:var(--shadow-soft);
+      padding:1rem 1.1rem 1.2rem;
+    }
+    
+    .card h3{font-size:1rem;margin-bottom:.3rem;}
+    
+    .card p{
+      font-size:.9rem;
+      color:var(--text-muted);
+      text-align:left;text-justify:inter-word;}
+    
+    .pill-mini{
+      display:inline-flex;align-items:center;padding:.18rem .6rem;
+      border-radius:var(--radius-pill);border:1px solid rgba(148,163,184,.7);
+      font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;
+      color:var(--text-muted);margin-bottom:.4rem;
+    }
+
+    /* DETAILS/CODE */
+    details.code-details{
+      margin-top:.5rem;background:#020617;border-radius:12px;
+      border:1px solid #1f2937;padding:.35rem .75rem .75rem;
+    }
+    details.code-details[open]{border-color:var(--accent-soft);}
+    details.code-details > summary{
+      list-style:none;cursor:pointer;font-size:.9rem;color:#e5e7eb;
+      display:flex;justify-content:space-between;align-items:center;
+      padding:.25rem 0;
+    }
+    details.code-details > summary::marker,
+    details.code-details > summary::-webkit-details-marker{display:none;}
+    .summary-icon{color:var(--accent-soft);font-size:1rem;}
+
+    .code-block{position:relative;margin-top:.5rem;}
+    pre.pretty-code{
+      background:#0d1526;border-radius:14px;border:1px solid rgba(255,255,255,.08);
+      padding:1rem;margin:0;font-family:"Fira Code",ui-monospace,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace;
+      font-size:.84rem;color:#9ae6ff;overflow-x:auto;
+    }
+    .copy-btn{
+      position:absolute;top:.6rem;right:.7rem;padding:.25rem .6rem;
+      border-radius:999px;font-size:.74rem;border:1px solid #3b4b66;
+      background:#162238;color:#a7b4c8;cursor:pointer;
+    }
+    .copy-btn.copied{border-color:#f6c453;color:#f6c453;}
+
+    footer{font-size:.75rem;color:var(--text-muted);text-align:center;margin-top:1.2rem;}
+  </style>
+</head>
+<body>
+<main>
+
+  <nav class="nav">
+    <div>
+      <div class="nav-title">HYDRA-EO · Internal Pipelines &amp; Methods</div>
+      <div class="nav-sub">ESA EXPRO+ · Action 1-12684</div>
+    </div>
+    <div class="nav-links">
+      <a href="#overview">Overview</a>
+      <a href="#pipelines">Pipelines</a>
+      <a href="#methods">Methods</a>
+      <a href="#tools">ToolsRTM &amp; SCOPEinR</a>
+      <a href="#docs">Docs &amp; repos</a>
+    </div>
+  </nav>
+
+  <header id="overview">
+    <h1><span>HYDRA-EO</span> internal workflow repository</h1>
+    <p class="hero-text">
+      This internal page summarises the main processing pipelines, methodological
+      choices and software components developed within HYDRA-EO. It is intended
+      for the consortium (WU-DES, WENR-WUR, CNR-IBE, CIAG-IRIAF) and should not be
+      shared outside ESA and project partners without prior agreement.
+    </p>
+    <div class="hero-tags">
+      <span class="tag-pill">UAV &amp; airborne</span>
+      <span class="tag-pill">RTM libraries</span>
+      <span class="tag-pill">Hybrid ML</span>
+      <span class="tag-pill">Crop–stressor trials</span>
+    </div>
+  </header>
+
+  <!-- PIPELINES -->
+  <section id="pipelines">
+    <h2>Pipelines</h2>
+    <p class="section-intro">
+      Pipelines are organised by data source and level of processing. Each
+      pipeline folder in the repository should contain an <code>README.md</code>
+      describing inputs, steps, outputs and links to scripts or notebooks.
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <div class="pill-mini">UAV / airborne</div>
+        <h3>UAV &amp; airborne processing</h3>
+        <p>
+          Radiometric and geometric correction of UAV and airborne
+          hyperspectral/thermal data, mosaicking, BRDF normalisation and
+          co-registration with field plots. Output products include surface
+          reflectance cubes, temperature maps and quality masks.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="pill-mini">Satellite</div>
+        <h3>Satellite EO processing</h3>
+        <p>
+          Sentinel-2, PRISMA and EnMAP workflows (e.g. Sen2Cor atmospheric
+          correction, spectral resampling, tiling and time-series aggregation),
+          harmonised across sites for crop-stressor analysis and EO upscaling.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="pill-mini">RTM–ML</div>
+        <h3>RTM library &amp; hybrid ML</h3>
+        <p>
+          PROSAIL / SCOPE forward simulations via ToolsRTM and SCOPEinR,
+          LUT generation, trait retrieval, and hybrid ML models trained on
+          combined RTM–EO features for stress detection.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- METHODS -->
+  <section id="methods">
+    <h2>Methods</h2>
+    <p class="section-intro">
+      This section documents key methodological blocks: radiative transfer
+      configurations, trait retrieval strategies and disease scoring.
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <div class="pill-mini">RTM configs</div>
+        <h3>Radiative transfer set-ups</h3>
+        <p>
+          Standard parameter ranges for PROSPECT, PROSAIL, FLUSPECT, fourSAIL
+          and MARMIT used in HYDRA-EO simulations (Cab, LAI, Cw, Cm, N, soil
+          moisture, view–illumination geometries, etc.).
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="pill-mini">Traits</div>
+        <h3>Trait retrieval</h3>
+        <p>
+          Hybrid inversion schemes linking RTM-based libraries with ML
+          (RF, GPR, CNN) for the retrieval of chlorophyll, LAI, canopy
+          temperature, stress indices and SIF-related variables.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="pill-mini">Diseases</div>
+        <h3>Disease scoring &amp; labels</h3>
+        <p>
+          Harmonised disease scoring protocols for <em>Flavescence Dorée</em>,
+          Potato virus&nbsp;Y, <em>Septoria</em> spp. and
+          <em>Pseudomonas savastanoi</em>, including categorical and quantitative
+          labels used in ML pipelines.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <!-- TOOLS -->
+  <section id="tools">
+    <h2>ToolsRTM &amp; SCOPEinR</h2>
+    <p class="section-intro">
+      HYDRA-EO uses two core R packages maintained at WUR: <strong>ToolsRTM</strong>
+      for accessing multiple radiative transfer models, and <strong>SCOPEinR</strong>
+      for SCOPE-style energy-balance and fluorescence simulations.
+    </p>
+
+    <div class="card">
+      <div class="pill-mini">Installation</div>
+      <h3>Install ToolsRTM (GitLab)</h3>
+      <details class="code-details" open>
+        <summary>
+          <span>Show installation snippet</span>
+          <span class="summary-icon">▾</span>
+        </summary>
+        <div class="code-block">
+          <button class="copy-btn" data-target="code-install-toolsrtm">Copy</button>
+          <pre class="pretty-code"><code id="code-install-toolsrtm">
+## Install ToolsRTM package from GitLab (HYDRA-EO branch if available).
+if (!requireNamespace("ToolsRTM", quietly = TRUE)) {
+  install.packages("remotes")  # only if remotes is missing
+  remotes::install_gitlab("caminoccg/toolsrtm", upgrade = "never")
+}</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <div class="pill-mini">get.simulator()</div>
+      <h3>Access RTMs via ToolsRTM</h3>
+      <p class="section-intro">
+        The main entry point is <code>ToolsRTM::get.simulator()</code>, which
+        returns a simulator function for a given RTM configuration.
+      </p>
+      <details class="code-details" open>
+        <summary>
+          <span>Show get.simulator() calls (from README)</span>
+          <span class="summary-icon">▾</span>
+        </summary>
+        <div class="code-block">
+          <button class="copy-btn" data-target="code-getsim">Copy</button>
+          <pre class="pretty-code"><code id="code-getsim">
+ToolsRTM::get.simulator(app = "SCOPE")
+ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
+ToolsRTM::get.simulator(app = "getLUT")
+?get.simulator  # to see more options</code></pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <div class="pill-mini">Example</div>
+      <h3>Basic PROSAIL simulation (internal demo)</h3>
+      <p class="section-intro">
+        Example used in HYDRA-EO materials to generate a simple reflectance
+        spectrum from PROSAIL via ToolsRTM.
+      </p>
+      <details class="code-details" open>
+        <summary>
+          <span>Show PROSAIL demo code</span>
+          <span class="summary-icon">▾</span>
+        </summary>
+        <div class="code-block">
+          <button class="copy-btn" data-target="code-prosail-demo">Copy</button>
+          <pre class="pretty-code">
+            
+            <code id="code-prosail-demo">
+library(ToolsRTM)
+
+# 2.2 Generate a LUT with 2000 samples
+set.seed(1234)
+n.samples = 2000
+LUT <- as.data.frame(ToolsRTM::getLUT(inputs = inputs, nLUT = n.samples, setseed = 1234))
+# Long format for ggplot
+lut_long <- LUT |>
+  select(all_of(traits_to_plot)) |>
+  pivot_longer(cols = everything(),
+               names_to = "Trait",
+               values_to = "Value")
+
+# Histogram (barplot) per trait
+ggplot(lut_long, aes(x = Value)) +
+  geom_histogram(fill = "grey70", color = "black", bins = 20) +
+  facet_wrap(~ Trait, scales = "free") +
+  theme_bw() +
+  xlab("Value") +
+  ylab("Frequency") +
+  ggtitle("Histogram of LUT input traits (PROSAIL simulations)")
+
+sims <- lapply(seq_len(nrow(LUT)), function(i) {
+
+  # FourSAIL simulation for one LUT configuration
+  out <- suppressMessages(
+    ToolsRTM::foursail(
+      inputLUT     = LUT[i, ],
+      rsoil        = rsoil.default,
+      LeafModel    = "PROSPECT-D",    # biochemical leaf model
+      spectrum.all = TRUE               # output full spectral components
+    )
+  )
+
+  # Compute BRF (Bidirectional Reflectance Factor)
+  # BRF combines directional/diffuse reflectance according to solar zenith angle (tts)
+  brf <- ToolsRTM::Compute_BRF(
+    rdot = out$rdot,                    # diffuse → observer
+    rsot = out$rsot,                    # direct sun → observer
+    tts  = LUT[i, "tts"],               # solar zenith angle
+    data.light = ToolsRTM::dataSpec_PDB
+  )
+
+  # Return tidy tibble for this simulation
+  tibble(
+    run = i,
+    wl  = wl_grid,
+    rho = as.numeric(brf)
+  )
+})
+
+
+     </code>
+  
+</pre>
+        </div>
+      </details>
+    </div>
+
+    <div class="card">
+      <div class="pill-mini">SCOPEinR</div>
+      <h3>Install SCOPEinR</h3>
+      <details class="code-details" open>
+        <summary>
+          <span>Show SCOPEinR installation snippet and running some simulations.</span>
+          <span class="summary-icon">▾</span>
+        </summary>
+        <div class="code-block">
+          <button class="copy-btn" data-target="code-install-scopeinr">Copy</button>
+          <pre class="pretty-code"><code id="code-install-scopeinr">
+## Install SCOPEinR package from GitLab.
+remotes::install_gitlab("caminoccg/scopeinr", upgrade = "never")
+Table.LUT <- read.table(
+    "Tables/inputs/LUT_input.csv",
+    header = TRUE, sep = ","
+  )
+
+  db.sim <- SCOPEinR::get.SCOPE(
+    LUT           = Table.LUT[1, ],
+    options.SCOPE = table.with.opts,
+    optipar       = SCOPEinR::optipar2021.Pro.CX,
+    leaf.model    = "fluspect-CX",
+    canopy.model  = "fourSAIL",
+    get.outputs   = "ALL",
+    get.plots     = FALSE
+  )
+</code>
+
+
+</pre>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- DOCS & REPOS -->
+  <section id="docs">
+    <h2>Documentation &amp; repositories</h2>
+    <p class="section-intro">
+      Links for consortium members. Please keep these URLs internal to HYDRA-EO
+      and ESA unless explicitly approved for public release.
+    </p>
+
+    <div class="card-grid">
+      <article class="card">
+        <div class="pill-mini">Git repositories</div>
+        <h3>Code &amp; pipelines</h3>
+        <p>
+          • HYDRA-EO main repo (pipelines &amp; notebooks)<br>
+          • ToolsRTM – <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank">gitlab.com/caminoccg/toolsrtm</a><br>
+          • SCOPEinR – <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank">gitlab.com/caminoccg/scopeinr</a>
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="pill-mini">Docs</div>
+        <h3>Internal documentation</h3>
+        <p>
+          • Methodological notes and protocol PDFs<br>
+          • Field manuals for disease scoring and sampling<br>
+          • Meeting minutes and ESA reporting templates
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+     HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+     “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684. 
+  </footer>
+</main>
+
+<script>
+  // copy buttons (opcional, si navegador no soporta clipboard no pasa nada)
+  document.querySelectorAll(".copy-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      const id = btn.getAttribute("data-target");
+      const el = document.getElementById(id);
+      if(!el || !navigator.clipboard) return;
+      navigator.clipboard.writeText(el.innerText).then(()=>{
+        btn.classList.add("copied");
+        btn.textContent = "Copied!";
+        setTimeout(()=>{
+          btn.classList.remove("copied");
+          btn.textContent = "Copy";
+        },1200);
+      });
+    });
+  });
+</script>
+</body>
+</html>
