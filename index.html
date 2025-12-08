@@ -72,9 +72,18 @@ img {
   left: 0;
   width: 100%;
   z-index: 999;
-  background: rgba(255, 255, 255, 0.96);
+  background: #003f7d;  /* ESA deep blue 
+ /*  background: rgba(255, 255, 255, 0.96);*/
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  color: #ffffff;
+}
+.nav-cta {
+  border: 1px solid #ffffff;
+}
+
+.nav-links a::after {
+  background: #ffffff;
 }
 
 .nav-container {
@@ -88,6 +97,7 @@ img {
 
 .nav-logo {
   display: flex;
+  color: #ffffff !important;
   flex-direction: column;
   font-size: 18px;
   font-weight: 600;
@@ -98,6 +108,7 @@ img {
 
 .nav-logo span {
   font-size: 11px;
+    color: rgba(255, 255, 255, 0.75) !important;
   font-weight: 400;
   color: var(--text-muted);
   letter-spacing: 0.04em;
@@ -124,6 +135,7 @@ img {
   bottom: 0;
   width: 0;
   height: 2px;
+  background: #ffffff !important;   /* azul claro ESA */
   background: var(--esa-light-blue);
   transition: width var(--transition-fast);
 }
@@ -133,23 +145,21 @@ img {
 }
 
 .nav-cta {
-  padding: 8px 14px;
+  color: #ffffff !important;                /* texto azul ESA */
+  background: #000 !important;           /* verde-teal */
+  border: 2px solid #ffffff !important;     /* borde blanco */
+  padding: 8px 20px;
   border-radius: 999px;
-  border: 1px solid var(--esa-light-blue);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--esa-light-blue);
-  background: #ffffff;
-  cursor: pointer;
-  transition: background var(--transition-fast), color var(--transition-fast),
-    transform var(--transition-fast);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  transition: 0.25s ease;
 }
 
+
 .nav-cta:hover {
-  background: var(--esa-light-blue);
-  color: #ffffff;
-  transform: translateY(-1px);
+  background: #66c7ff !important;           /* verde más oscuro al hover */
+  color: #ffffff !important;                /* texto blanco al pasar */
+  transform: translateY(-2px);
 }
 
 .nav-toggle {
@@ -184,6 +194,7 @@ img {
 .nav-links-mobile a {
   font-size: 14px;
   color: var(--text-main);
+    color: #ffffff !important;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
