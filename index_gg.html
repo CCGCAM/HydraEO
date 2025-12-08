@@ -351,11 +351,17 @@
       font-weight: 600;
     }
 
-    .section-subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-    }
-
+  .section-subtitle {
+    font-size: 15px;          /* larger and more readable */
+    line-height: 1.65;           /* elegant spacing */
+    color: var(--text-muted);    /* professional ESA-style tone */
+    width: 100%;                 /* forces full-line width */
+    display: block;              /* ensures it spans the entire row */
+    margin-top: 0.5rem;          /* space above */
+    margin-bottom: 1.5rem;       /* space below */
+    max-width: 100%;             /* avoids being constrained */
+    
+  }
     .section-bg-light {
       background: var(--bg-light);
     }
@@ -371,6 +377,7 @@
       font-size: 15px;
       color: var(--text-main);
       margin-bottom: 12px;
+      
     }
 
     .about-highlight {
@@ -656,6 +663,64 @@
         padding: 60px 18px;
       }
     }
+    /* ============================
+   3-image disease strip
+   ============================ */
+   #disease-strip {
+     margin-bottom: 2.5rem;
+     
+   }
+   .img-strip {
+     margin-top: 1rem;
+     display: grid;
+     grid-template-columns: repeat(3, minmax(0, 1fr));
+     gap: 1rem;
+     
+   }
+   .img-frame {
+     background: #ffffff;
+     border-radius: 16px;
+     padding: 0.6rem;
+     border: 1px solid var(--border-subtle);
+     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     
+     
+   }
+   .img-frame img {
+     width: 100%;
+     height: auto;
+     border-radius: 12px;
+     width: 100%;
+     aspect-ratio: 16 / 9;  /*ensures perfect identical ratio */
+     object-fit: cover;
+     object-position: center;
+     }
+   .img-caption {
+     margin-top: 0.5rem;
+     font-size: 0.8rem;
+     color: var(--text-muted);
+     text-align: center;
+     
+   }
+   /* Responsive layout */
+   @media (max-width: 900px) {
+     .img-strip {
+       grid-template-columns: repeat(2, minmax(0, 1fr));
+       
+     }
+     
+   }
+   @media (max-width: 600px) {
+     .img-strip {
+       grid-template-columns: repeat(1, minmax(0, 1fr));
+       
+     }
+     
+   }
+
   </style>
 </head>
 
@@ -795,6 +860,9 @@
   </div>
 </section>
 
+
+
+
 <!-- DISEASES + 3 IMAGES -->
 <section id="diseases">
   <div class="section-inner">
@@ -809,7 +877,7 @@
 
     <div class="disease-layout">
       <div>
-        <!-- HERE: pega aquí si quieres tu texto antiguo de “Diseases & crop detection” -->
+        <!-- “Diseases & crop detection” -->
         <p>
           Field campaigns capture gradients of infection and stress using detailed visual assessments,
           physiological measurements and proximal sensing. These observations are used to calibrate and
@@ -827,25 +895,39 @@
         </p>
       </div>
 
-      <div>
-        <div class="tri-image-row">
-          <div class="tri-image-col">
-            <img src="assets/figure1.png" alt="Disease patterns - figure 1">
-          </div>
-          <div class="tri-image-col">
-            <img src="assets/figure2.png" alt="Disease patterns - figure 2">
-          </div>
-          <div class="tri-image-col">
-            <img src="assets/figure3.png" alt="Disease patterns - figure 3">
-          </div>
-        </div>
-        <div class="tri-image-caption">
-          Examples of disease and stress patterns in different crop systems from high-resolution hyperspectral imagery.
-        </div>
       </div>
     </div>
   </div>
 </section>
+
+
+<!-- IMAGE STRIP: 3 CROP DISEASE FIGURES -->
+<section id="disease-strip">
+  <h2>Crop disease examples</h2>
+  <p class="section-intro">
+    Examples of stress and disease patterns detected in the HYDRA-EO crop scenarios.
+  </p>
+
+  <div class="img-strip">
+    <div class="img-frame">
+      <img src="assets/figure1.png" alt="Disease example 1">
+      <div class="img-caption">Pistachio – Septoria stress</div>
+    </div>
+    <div class="img-frame">
+      <img src="assets/figure2.png" alt="Disease example 2">
+      <div class="img-caption">Potato – fungal infection</div>
+    </div>
+    
+    <div class="img-frame">
+      <img src="assets/figure3.png" alt="Disease example 3">
+      <div class="img-caption">Grapevine – Flavescence Dorée</div>
+    </div>
+
+
+  </div>
+</section>
+
+
 
 <!-- METHODS & DATA -->
 <section id="methods" class="section-bg-light">
@@ -943,15 +1025,21 @@
       <div class="section-kicker">Consortium</div>
       <h2 class="section-title">European partnership</h2>
       <p class="section-subtitle">
-        HYDRA-EO is coordinated by Wageningen University &amp; Research and involves partners with expertise in
-        remote sensing, plant physiology, pathology and EO services.
+        HYDRA-EO is coordinated by Wageningen University and brings together expertise
+        in EO services, modelling, plant pathology, genetics and agronomy from the 
+        Netherlands, Italy and Spain.
+      
       </p>
     </div>
 
     <div class="consortium-grid">
       <div>
-        <!-- HERE: pega la lista de socios tal como la tenías antes -->
+        <!-- Partnerts -->
         <ul class="partner-list">
+          <li>
+            <strong>Wageningen University</strong><br>
+            <span class="partner-role">Project coordination, RTMs, hyperspectral processing.</span>
+          </li>
           <li>
             <strong>Wageningen University &amp; Research (WUR)</strong><br>
             <span class="partner-role">Project coordination, RTMs, hyperspectral processing.</span>
@@ -994,8 +1082,8 @@
       </div>
     </div>
     <div class="footer-note">
-      HYDRA-EO is financed by the European Space Agency (ESA). Any views expressed on this web page are those
-      of the project consortium and do not necessarily reflect the official opinion of ESA or the European Union.
+       HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+       “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684.
       <!-- HERE: si quieres, añade el nº de contrato ESA -->
     </div>
     <div class="footer-credit">
