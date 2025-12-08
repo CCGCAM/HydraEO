@@ -306,7 +306,7 @@ img {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
   font-size: 13px;
   color: var(--text-muted);
-  
+
   text-align: left;
 }
 
@@ -758,9 +758,9 @@ footer {
       <a href="#methods">Methods</a>
       <a href="#tools">ToolsRTM &amp; SCOPEinR</a>
       <a href="#docs">Docs</a>
-      <button class="nav-cta" onclick="window.location.href='index.html';">
+      <button class="nav-cta" onclick="openDomainModal();">
         Public site
-      </button>
+        </button>
     </nav>
 
     <div class="nav-toggle" id="navToggle">
@@ -811,7 +811,7 @@ footer {
       </div>
     </div>
 
-  
+
   </div>
 </section>
 
@@ -1183,6 +1183,61 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+</script>
+
+
+<div id="domainModal" style="
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  backdrop-filter: blur(4px);
+  font-family: 'Poppins', sans-serif;">
+
+  <div style="
+    background: #ffffff;
+    padding: 30px 34px;
+    border-radius: 18px;
+    max-width: 420px;
+    width: 90%;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.15);
+    text-align: center;">
+
+    <h3 style="color:#003f7d; font-size: 22px; margin-bottom: 10px;">
+      Public Domain Not Configured
+    </h3>
+
+    <p style="color:#555; font-size: 15px; line-height: 1.6; margin-bottom: 22px;">
+      A public domain has not been set yet.
+      Please configure your final website URL before accessing the public site.
+    </p>
+
+    <button onclick="closeDomainModal()" style="
+      padding: 10px 22px;
+      background:#003f7d;
+      color:#ffffff;
+      border:none;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      cursor:pointer;
+      transition: 0.25s ease;">
+      Close
+    </button>
+  </div>
+</div>
+
+<script>
+function openDomainModal() {
+  document.getElementById('domainModal').style.display = 'flex';
+}
+
+function closeDomainModal() {
+  document.getElementById('domainModal').style.display = 'none';
+}
 </script>
 
 </body>
