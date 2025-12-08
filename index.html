@@ -449,22 +449,35 @@ section {
   border-radius: var(--radius-lg);
   padding: 14px 18px;
   border: 1px solid #e4e8f4;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--text-muted);
-  max-width: 460px;
-  margin-top: 8px;
+  width: 100%;
+  max-width: 100%;
+  margin: 20px auto;        /* center the block */
 }
+
 
 .about-meta-row {
   display: flex;
   justify-content: space-between;
+  align-items: left;
   margin-bottom: 6px;
+  gap: 20px;
 }
 
+
 .about-meta-label {
-  font-weight: 500;
+  font-weight: 600;
+  width: 150px;             /* Left side */
   color: var(--esa-blue);
+  flex-shrink: 0;
 }
+
+
+
+
+
+
 
 /* =========================================
    5. MISSION + STATS + CROP CARDS
@@ -1041,8 +1054,22 @@ footer {
   color: #d9e2ff;
   padding: 30px 20px;
   font-size: 12px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  transform: translateY(10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  z-index: 9999;
+  pointer-events: none; /* evita clics cuando está oculto */
+}
 }
 
+footer.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
 .footer-inner {
   max-width: 1180px;
   margin: 0 auto;
@@ -1201,6 +1228,7 @@ footer {
       <a href="#consortium">Consortium</a>
       <a href="#news">News</a>
       <a href="#tools">Tools</a>
+             <a href="#contact">Contact</a>
       <button class="nav-cta" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'});">
         Tutorials
       </button>
@@ -1219,8 +1247,11 @@ footer {
     <a href="#consortium">Consortium</a>
     <a href="#news">News</a>
     <a href="#tools">Tools</a>
+    <a href="#contact">Contact</a>
   </div>
 </header>
+<!-- Top -->
+<div id="top"></div>
 
 <!-- HERO (igual que en tu captura) -->
 <section class="hero">
@@ -1299,36 +1330,48 @@ footer {
           are combined with radiative transfer models to retrieve functional traits related to photosynthesis,
           structure and water status.
         </p>
-        <div class="about-highlight">
+         <!-- <div class="about-highlight">
           Outputs from HYDRA-EO are designed to be integrated into digital twins of agriculture and operational
           crop monitoring services.
-        </div>
+        </div>   -->
+        <!-- POTATO SITE BLOCK -->
+        <div style="text-align: center; width: 100%; margin-top: 10px;">
+          <img src="assets/potato.png" alt="UAV flight"
+          style="width:60%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+          <div class="img-caption" style="margin-top:8px;">Phenotyping potato site </div>
+         </div>
+
+    
       </div>
 
       <aside class="about-meta">
-        <div class="about-meta-row">
-          <span class="about-meta-label">Funding agency</span>
+          <span class="about-meta-label"><strong>Funding agency:</strong></span>
           <span>European Space Agency (ESA)</span>
-        </div>
         <div class="about-meta-row">
-          <span class="about-meta-label">Tender</span>
-          <span>CROP MULTIPLE STRESSORS, PESTS AND DISEASES - EXPRO+</span>
         </div>
+          <span class="about-meta-label"><strong>ESA-Tender:</strong></span>
+          <span>CROP MULTIPLE STRESSORS, PESTS AND DISEASES - EXPRO+ (Action 1-12684) </span>
+        <div class="about-meta-row">
+        </div>
+         <span class="about-meta-label"><strong>Start date:</strong></span>
+          <span>15 January 2026.</span>
          <div class="about-meta-row">
-          <span class="about-meta-label">Start date</span>
-          <span>15 January 2026</span>
-        </div>
+         </div>
+          <span class="about-meta-label"><strong>Duration:</strong></span>
+          <span>2026–2028 (30 months).</span>
         <div class="about-meta-row">
-          <span class="about-meta-label">Duration</span>
-          <span>2026–2028</span>
         </div>
+          <span class="about-meta-label"><strong>Coordinator:</strong></span>
+          <span>The Geoinformation Science and Remote Sensing Lab. at the Wageningen University, Department of 
+          Environmental Sciences (WU-DES).</span>
         <div class="about-meta-row">
-          <span class="about-meta-label">Coordinator</span>
-          <span>Wageningen University</span>
         </div>
+          <span class="about-meta-label"><strong>Partners:</strong></span>
+          <span>Wageningen Environmental Research (WENR) at the Wageningen University & Research, 
+          Consiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE), 
+          Chaparrillo Agro-environmental Research Centre (CIAG-IRIAF).</span>
         <div class="about-meta-row">
-          <span class="about-meta-label">Partners </span>
-          <span>WENR-WUR, CNR-IBE, CIAG-IRIAF</span>
+    
         </div>
       </aside>
     </div>
@@ -1913,27 +1956,64 @@ db.sim &lt;- SCOPEinR::get.SCOPE(
   </div>
 </section>
 
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    
+    <div class="section-header">
+      <div class="section-kicker">Contact</div>
+      <h2 class="section-title"></h2>
+      <p class="section-subtitle">
+        HYDRA-EO is currently in preparation for the ESA Kick-off meeting.
+        For questions regarding the project, collaboration opportunities,
+        datasets or technical details, please contact the project coordinator
+        at Wageningen University & Research.
+      </p>
+    </div>
 
+    <div class="wp-card" style="max-width: 600px;">
+      <h3 style="color: var(--esa-blue); margin-bottom: 10px;">Project coordination</h3>
+
+      <p style="line-height: 1.6; color: var(--text-main);">
+        <strong>Dr. Carlos Luis Camino González</strong><br />
+        Geo-Information Science and Remote Sensing (GRS)<br />
+        Wageningen University – Department of Environmental Sciences (WU-DES)<br />
+        Wageningen, The Netherlands<br /><br />
+
+        Email: <a href="mailto:carlos.caminogonzalez@wur.nl"
+          style="color: var(--esa-light-blue); font-weight: 500;">
+          carlos.caminogonzalez@wur.nl
+        </a>
+      </p>
+    </div>
+
+  </div>
+</section>
+<!-- FOOTER -->
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <span>HYDRA-EO · Hybrid Machine Learning for Multi-Stressor Crop Disease Detection</span>
+      <span>
+        HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+        “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684.
+      </span>
       <div class="footer-links">
-        <a href="#about">Project</a>
+        <a href="#top">Top</a>
         <a href="#methods">Pipeline</a>
       </div>
     </div>
+
     <div class="footer-note">
-       HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
-       “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684.
-      <!-- HERE: si quieres, añade el nº de contrato ESA -->
-    </div>
-    <div class="footer-credit">
       Design: WU-DES · HYDRA-EO team
+    </div>
+
+    <div class="footer-credit">
+      <!-- extra info if you want -->
     </div>
   </div>
 </footer>
+
 
 <script>
     // Toggle tutorials
@@ -1947,7 +2027,15 @@ db.sim &lt;- SCOPEinR::get.SCOPE(
       });
     }
     
-    
+    // Scroll smooth
+  document.querySelectorAll('a[href="#top"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+
 
     // Copy code buttons
     document.querySelectorAll(".copy-btn").forEach((btn) => {
@@ -1969,6 +2057,40 @@ db.sim &lt;- SCOPEinR::get.SCOPE(
         }
       });
     });
+    
+        // Footer movements
+   //  let lastScroll = 0;
+  // const footer = document.querySelector("footer");
+  // window.addEventListener("scroll", () => {
+     //  const currentScroll = window.pageYOffset;  
+      // if (currentScroll > lastScroll) {
+    // go down → hide footer
+    // footer.style.transform = "translateY(100%)";
+        
+      // } else {
+    // go up → show footer
+    // footer.style.transform = "translateY(0)";
+        
+    //   }
+    //   lastScroll = currentScroll;
+
+    // });
+    
+    // Fixed footer
+    document.addEventListener("scroll", () => {
+      const footer = document.querySelector("footer");
+      if (window.scrollY > 300) {  
+        footer.classList.add("visible");
+        
+      } else {
+        footer.classList.remove("visible");
+      
+      }
+      
+    });
+
+
+
     
     
       // MOBILE NAV TOGGLE
