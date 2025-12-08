@@ -10,935 +10,839 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --esa-blue: #003f7d;
-      --esa-light-blue: #0083c7;
-      --accent: #00bcd4;
-      --bg-light: #f5f7fb;
-      --text-main: #333333;
-      --text-muted: #666666;
-      --border-soft: #e1e4ec;
-      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
-      --radius-lg: 18px;
-      --radius-sm: 10px;
-      --transition-fast: 0.25s ease;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #ffffff;
-      color: var(--text-main);
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* NAVBAR */
-    .navbar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 999;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .nav-container {
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 12px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .nav-logo {
-      display: flex;
-      flex-direction: column;
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--esa-blue);
-      letter-spacing: 1px;
-      text-transform: uppercase;
-    }
-
-    .nav-logo span {
-      font-size: 11px;
-      font-weight: 400;
-      color: var(--text-muted);
-      letter-spacing: 0.04em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-      font-size: 14px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .nav-links a {
-      position: relative;
-      padding-bottom: 4px;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      width: 0;
-      height: 2px;
-      background: var(--esa-light-blue);
-      transition: width var(--transition-fast);
-    }
-
-    .nav-links a:hover::after {
-      width: 100%;
-    }
-
-    .nav-cta {
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--esa-light-blue);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--esa-light-blue);
-      background: #ffffff;
-      cursor: pointer;
-      transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-    }
-
-    .nav-cta:hover {
-      background: var(--esa-light-blue);
-      color: #ffffff;
-      transform: translateY(-1px);
-    }
-
-    .nav-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      cursor: pointer;
-    }
-
-    .nav-toggle span {
-      width: 22px;
-      height: 2px;
-      background: var(--esa-blue);
-      border-radius: 10px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-    }
-
-    .nav-links-mobile {
-      display: none;
-      flex-direction: column;
-      padding: 10px 20px 16px;
-      gap: 10px;
-      background: #ffffff;
-      border-top: 1px solid rgba(0, 0, 0, 0.04);
-    }
-
-    .nav-links-mobile a {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--text-main);
-    }
-
-    /* HERO */
-    .hero {
-      padding: 120px 20px 80px;
-      background: radial-gradient(circle at top left, #e2f3ff 0, #ffffff 50%, #ffffff 100%);
-    }
-
-    .hero-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.3fr 1fr;
-      gap: 40px;
-      align-items: center;
-    }
-
-    .hero-kicker {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--esa-light-blue);
-      font-weight: 500;
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: 40px;
-      line-height: 1.15;
-      color: var(--esa-blue);
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
-    
-    .hero-title-main {
-      background: linear-gradient(90deg, #003f7d 0%, #005aa3 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      
-    }
-    .hero-title-accent {
-      background: linear-gradient(90deg, #00bcd4 0%, #1dd3b0 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 700;
-      
-    }
-    .hero-title-sub {
-      color: #0a3d91; /* deep ESA blue */
-      font-weight: 600;
-      
-    }
-
-
-    .hero-highlight {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      font-size: 16px;
-      color: var(--text-muted);
-      max-width: 520px;
-      margin-bottom: 22px;
-    }
-
-    .hero-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 24px;
-    }
-
-    .hero-tag {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid #d4e4f5;
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--text-muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
-    }
-    
-    
-    /* HERO LOGO BOX ON THE RIGHT SIDE */
-    .hero-logo-box {
-      background: #ffffff;
-      border-radius: 18px;
-      padding: 22px;
-      border: 1px solid #e5e8f2;
-      box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      
-    }
-    
-    .hero-logo-img {
-      width: 100%;
-      height: auto;
-      max-width: 340px;
-      margin: 0 auto 14px auto;
-      display: block;
-      
-    }
-    
-    .hero-logo-caption {
-      font-size: 13px;
-      color: #6b7280;
-      margin-top: 6px;
-      line-height: 1.4;
-      
-    }
-
-
-    .btn-primary {
-      background: var(--esa-blue);
-      color: #ffffff;
-      padding: 10px 20px;
-      border-radius: 999px;
-      border: none;
-      cursor: pointer;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      font-weight: 500;
-      box-shadow: 0 10px 25px rgba(0, 63, 125, 0.30);
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast), background var(--transition-fast);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 30px rgba(0, 63, 125, 0.38);
-      background: #002a52;
-    }
-
-    .btn-ghost {
-      background: transparent;
-      border-radius: 999px;
-      border: 1px solid var(--border-soft);
-      padding: 10px 1opx;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--text-muted);
-      cursor: pointer;
-      transition: background var(--transition-fast), border-color var(--transition-fast), color var(--transition-fast);
-    }
-
-    .btn-ghost:hover {
-      background: #f0f4fb;
-      border-color: var(--esa-light-blue);
-      color: var(--esa-blue);
-    }
-
-    .hero-side-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 20px 22px;
-      box-shadow: var(--card-shadow);
-      border: 1px solid #edf1fb;
-    }
-
-    .hero-side-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--esa-blue);
-      margin-bottom: 12px;
-    }
-
-    .hero-side-list {
-      list-style: none;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    .hero-side-list li {
-      padding-left: 10px;
-      position: relative;
-      margin-bottom: 8px;
-    }
-
-    .hero-side-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      top: -1px;
-      color: var(--esa-light-blue);
-    }
-
-    .hero-side-note {
-      margin-top: 12px;
-      font-size: 11px;
-      color: var(--text-muted);
-      border-top: 1px dashed #e1e5f2;
-      padding-top: 10px;
-    }
-
-    /* GENERIC SECTIONS */
-    section {
-      padding: 10px 10px;
-    }
-
-    .section-inner {
-      width: 100%;
-      max-width: 1200px;   /* mantiene look profesional */
-      padding: 0 40px;
-      margin: 0 auto;
-    }
-
-    .section-header {
-      margin-bottom: 10px;
-      max-width: 100%;
-    }
-
-    .section-kicker {
-      font-size: 16px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--esa-light-blue);
-      margin-bottom: 6px;
-    }
-
-    .section-title {
-      font-size: 26px;
-      color: var(--esa-blue);
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-  .section-subtitle {
-    
-    line-height: 1.65;           /* elegant spacing */
-    color: var(--text-muted);    /* professional ESA-style tone */
-    width: 100%;                 /* forces full-line width */
-    display: block;              /* ensures it spans the entire row */
-    margin-top: 0.5rem;          /* space above */
-    max-width: 100%;             /* avoids being constrained */
-    color:var(--text-muted);
-    font-size:.95rem;
-    text-align:justify;
-    text-justify:inter-word;
-    margin-bottom:.9rem;
-   
-    
-  }
-    .section-bg-light {
-      background: var(--bg-light);
-    }
-
-    /* ABOUT / PROJECT */
-    .about-grid {
-      display: flex;
-      flex-direction: column;   /* texto arriba, caja abajo */
-      width: 100%; 
-      text-align:justify;
-      text-justify:inter-word;
-      gap: 10px;
-    }
-    
-
-    .about-text p {
-      color: var(--text-main);
-      margin-bottom: 10px;
-      max-width: 100%;
-      width: 100%; 
-      font-size:1.rem;color:var(--text-muted);
-      text-align:justify;
-      text-justify:inter-word;d;
-
-      
-    }
-
-    .about-highlight {
-      background: #f5f8ff;
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      font-size: 13px;
-      color: var(--esa-blue);
-      border-left: 3px solid var(--esa-light-blue);
-      margin-top: 4px;
-    }
-
-    .about-meta {
-      background: #f8fafc;
-      border-radius: var(--radius-lg);
-      padding: 14px 18px;
-      border: 1px solid #e4e8f4;
-      font-size: 13px;
-      color: var(--text-muted);
-      max-width: 460px;   
-      margin-top: 8px;
-    }
-
-    .about-meta-row {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 6px;
-    }
-
-    .about-meta-label {
-      font-weight: 500;
-      color: var(--esa-blue);
-    }
-
-
-    /* Misison + 3 IMAGES */
-    .mission-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 1.1fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-    .mission-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-      margin-bottom: 8px;
-    }
-
-    .mission-tags span {
-      font-size: 11px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      background: #eef4ff;
-      color: var(--esa-blue);
-    }
-    
-    
-    /* MISSION SECTION */
-    .mission-section {
-      padding: 70px 20px;
-      background: #ffffff;
-      
-    }
-    
-    .mission-stats {
-      margin-top: 30px;
-      display: flex;
-      gap: 24px;
-      flex-wrap: wrap;
-      
-    }
-    
-    
-    .mission-card {
-      flex: 1;
-      min-width: 180px;
-      background: linear-gradient(180deg, #f9fbff 0%, #f4f7fc 100%);
-      border: 1px solid #e5e9f2;
-      border-radius: 22px;
-      padding: 26px 20px;  text-align: center;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.06);
-      
-    }
-    .mission-number { 
-      font-size: 42px;
-      font-weight: 700;
-      color: #004aad;
-      margin-bottom: 6px
-      
-    }
-    
-    .mission-label {
-      font-size: 14px;
-      letter-spacing: 0.12em;
-      color: #6c727f;
-      text-transform: uppercase;
-      line-height: 1.4;
-      
-    }
-    
-    /* Crop cards section */
-    .crop-cards-section {
-      margin-top: 50px;
-      
-    }
-    .crop-cards-title {
-      font-size: 22px;
-      color: var(--esa-blue);
-      font-weight: 600;
-      margin-bottom: 8px;
-      
-    }
-    
-    .crop-cards-subtitle {
-      font-size: 15px;
-      color: var(--text-muted);
-      margin-bottom: 30px;
-      max-width: 100%;
-      
-    }
-    
-    /* Grid of 4 cards */
-    .crop-cards-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px
-      
-    }
-    /* Individual card */
-    .crop-card {
-      background: #ffffff;
-      border: 1px solid #e6e9f2;
-      border-radius: 24px;padding: 22px 24px;box-shadow: 0 12px 28px rgba(0,0,0,0.06);
-      
-    }
-    
-    .crop-card-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--esa-blue);
-      margin-bottom: 8px;
-      
-    }
-    .crop-card p {
-      font-size: 14px;
-      line-height: 1.55;
-      color: #5f646e;
-      
-    }
-
-
-
-
-    .tri-image-row {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      margin-top: 10px;
-    }
-
-    .tri-image-col {
-      flex: 1;
-      border-radius: var(--radius-sm);
-      overflow: hidden;
-      box-shadow: var(--card-shadow);
-      background: #000;
-    }
-
-    .tri-image-caption {
-      font-size: 11px;
-      text-align: center;
-      padding: 6px 4px 8px;
-      color: var(--text-muted);
-      background: #ffffff;
-    }
-
-    /* METHODS */
-    .methods-grid {
-      display: grid;
-      grid-template-columns: 1.3fr 1.1fr;
-      gap: 40px;
-      align-items: start; 
-    }
-
-    .methods-steps {
-      list-style: none;
-      font-size: 14px;
-      text-align:justify;
-      text-justify:inter-word;
-      color: var(--text-muted);
-    }
-
-    .methods-steps li {
-      margin-bottom: 10px;
-      padding-left: 18px;
-      position: relative;
-    }
-
-    .methods-steps li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 7px;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--esa-light-blue);
-    }
-    /* Style for the figure itself */
-    .methods-figure img {
-      width: 100%;
-      max-width: 500px;
-      border-radius: 20px;          
-      border: 1px solid #e5e8f0;
-      box-shadow: 0 15px 30px rgba(0,0,0,0.08);
-      margin-top: 0;                
-      
-    }
-    .text-accent {
-      color: var(--esa-light-blue);
-      font-weight: 600;
-      
-    }
-    
-    .card-link {
-      color: var(--esa-accent);
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.2s ease, text-shadow 0.2s ease;
-    }
-
-    .card-link:hover {
-      color: var(--esa-gold);
-      text-shadow: 0 0 6px rgba(242, 169, 0, 0.4);
-    }
-    .pipeline-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 16px 18px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      gap: 16px;
-      box-shadow: var(--card-shadow);
-  
-      border: 1px solid #e3e7f3;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-    
-    /* Caption */
-    .figure-caption {
-      margin-top: 6px;
-      font-size: 13px;
-      text-align: center;color: var(--text-muted);
-      
-    }
-
-    /* WORK PACKAGES */
-    .wp-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .wp-card {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 16px 16px 18px;
-      box-shadow: var(--card-shadow);
-      border: 1px solid #e3e7f3;
-      font-size: 13px;
-    }
-
-    .wp-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--esa-light-blue);
-      margin-bottom: 4px;
-    }
-
-    .wp-title {
-      font-size: 14px;
-      color: var(--esa-blue);
-      font-weight: 600;
-      margin-bottom: 6px;
-    }
-
-    .wp-text {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* CONSORTIUM */
-    .consortium-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      gap: 32px;
-      align-items: center;
-    }
-
-/* ESA context box as full width */
+  /* =========================================
+   0. ROOT VARIABLES & GLOBAL RESETS
+   ========================================= */
+:root {
+  --esa-blue: #003f7d;
+  --esa-light-blue: #0083c7;
+  --accent: #00bcd4;
+  --esa-accent: #0083c7;       /* link accent */
+  --esa-gold: #f2a900;         /* subtle hover accent */
+  --bg-light: #f5f7fb;
+  --text-main: #333333;
+  --text-muted: #666666;
+  --border-soft: #e1e4ec;
+  --border-subtle: #e4e8f4;
+  --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  --radius-lg: 18px;
+  --radius-sm: 10px;
+  --transition-fast: 0.25s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ffffff;
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =========================================
+   1. NAVBAR
+   ========================================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.nav-container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--esa-blue);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.nav-logo span {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nav-links a {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: var(--esa-light-blue);
+  transition: width var(--transition-fast);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-cta {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--esa-light-blue);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--esa-light-blue);
+  background: #ffffff;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    transform var(--transition-fast);
+}
+
+.nav-cta:hover {
+  background: var(--esa-light-blue);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 22px;
+  height: 2px;
+  background: var(--esa-blue);
+  border-radius: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-links-mobile {
+  display: none;
+  flex-direction: column;
+  padding: 10px 20px 16px;
+  gap: 10px;
+  background: #ffffff;
+  border-top: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.nav-links-mobile a {
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-main);
+}
+
+/* =========================================
+   2. HERO SECTION
+   ========================================= */
+.hero {
+  padding: 120px 20px 80px;
+  background: radial-gradient(
+    circle at top left,
+    #e2f3ff 0,
+    #ffffff 50%,
+    #ffffff 100%
+  );
+}
+
+.hero-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-kicker {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--esa-light-blue);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.hero-title {
+  font-size: 40px;
+  line-height: 1.15;
+  color: var(--esa-blue);
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.hero-title-main {
+  background: linear-gradient(90deg, #003f7d 0%, #005aa3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.hero-title-accent {
+  background: linear-gradient(90deg, #00bcd4 0%, #1dd3b0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.hero-title-sub {
+  color: #0a3d91;
+  font-weight: 600;
+}
+
+.hero-subtitle {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin-bottom: 22px;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.hero-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid #d4e4f5;
+  background: rgba(255, 255, 255, 0.8);
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+
+/* HERO RIGHT LOGO CARD */
+.hero-logo-box {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 22px;
+  border: 1px solid #e5e8f2;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-logo-img {
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto 14px auto;
+}
+
+.hero-logo-caption {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+/* HERO BUTTONS */
+.btn-primary {
+  background: var(--esa-blue);
+  color: #ffffff;
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-weight: 500;
+  box-shadow: 0 10px 25px rgba(0, 63, 125, 0.3);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0, 63, 125, 0.38);
+  background: #002a52;
+}
+
+.btn-ghost {
+  background: transparent;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  padding: 10px 10px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.btn-ghost:hover {
+  background: #f0f4fb;
+  border-color: var(--esa-light-blue);
+  color: var(--esa-blue);
+}
+
+/* =========================================
+   3. GENERIC SECTIONS
+   ========================================= */
+section {
+  padding: 10px 10px;
+}
+
+.section-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 40px;
+  margin: 0 auto;
+}
+
+.section-header {
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.section-kicker {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--esa-light-blue);
+  margin-bottom: 6px;
+}
+
+.section-title {
+  font-size: 26px;
+  color: var(--esa-blue);
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.section-subtitle {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  width: 100%;
+  display: block;
+  margin-top: 0.5rem;
+  margin-bottom: 0.9rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.section-bg-light {
+  background: var(--bg-light);
+}
+
+/* =========================================
+   4. ABOUT / PROJECT OVERVIEW
+   ========================================= */
+.about-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.about-text p {
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  width: 100%;
+  font-size: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.about-highlight {
+  background: #f5f8ff;
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--esa-blue);
+  border-left: 3px solid var(--esa-light-blue);
+  margin-top: 4px;
+}
+
+.about-meta {
+  background: #f8fafc;
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  border: 1px solid #e4e8f4;
+  font-size: 13px;
+  color: var(--text-muted);
+  max-width: 460px;
+  margin-top: 8px;
+}
+
+.about-meta-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.about-meta-label {
+  font-weight: 500;
+  color: var(--esa-blue);
+}
+
+/* =========================================
+   5. MISSION + STATS + CROP CARDS
+   ========================================= */
+.mission-section {
+  padding: 70px 20px;
+  background: #ffffff;
+}
+
+.mission-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1.1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.mission-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 8px;
+}
+
+.mission-tags span {
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #eef4ff;
+  color: var(--esa-blue);
+}
+
+/* Mission stats cards */
+.mission-stats {
+  margin-top: 30px;
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.mission-card {
+  flex: 1;
+  min-width: 180px;
+  background: linear-gradient(180deg, #f9fbff 0%, #f4f7fc 100%);
+  border: 1px solid #e5e9f2;
+  border-radius: 22px;
+  padding: 26px 20px;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+
+.mission-number {
+  font-size: 42px;
+  font-weight: 700;
+  color: #004aad;
+  margin-bottom: 6px;
+}
+
+.mission-label {
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #6c727f;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Crop cards (4 crops) */
+.crop-cards-section {
+  margin-top: 50px;
+}
+
+.crop-cards-title {
+  font-size: 22px;
+  color: var(--esa-blue);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.crop-cards-subtitle {
+  font-size: 15px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+.crop-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.crop-card {
+  background: #ffffff;
+  border: 1px solid #e6e9f2;
+  border-radius: 24px;
+  padding: 22px 24px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.crop-card-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--esa-blue);
+  margin-bottom: 8px;
+}
+
+.crop-card p {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #5f646e;
+}
+
+/* =========================================
+   6. TRI-IMAGE ROW (OLD STRIP)
+   ========================================= */
+.tri-image-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+.tri-image-col {
+  flex: 1;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  background: #000;
+}
+
+.tri-image-caption {
+  font-size: 11px;
+  text-align: center;
+  padding: 6px 4px 8px;
+  color: var(--text-muted);
+  background: #ffffff;
+}
+
+/* =========================================
+   7. METHODS / EO PIPELINE
+   ========================================= */
+.methods-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1.1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.methods-steps {
+  list-style: none;
+  font-size: 14px;
+  color: var(--text-muted);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.methods-steps li {
+  margin-bottom: 10px;
+  padding-left: 18px;
+  position: relative;
+}
+
+.methods-steps li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--esa-light-blue);
+}
+
+/* Figure + caption */
+.methods-figure img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  border: 1px solid #e5e8f0;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.figure-caption {
+  margin-top: 6px;
+  font-size: 13px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+/* Side pipeline card */
+.pipeline-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 16px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid #e3e7f3;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Text accent + generic link */
+.text-accent {
+  color: var(--esa-light-blue);
+  font-weight: 600;
+}
+
+.card-link {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--esa-accent);
+  font-weight: 500;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.card-link:hover {
+  color: var(--esa-gold);
+  text-shadow: 0 0 6px rgba(242, 169, 0, 0.4);
+}
+
+/* =========================================
+   8. WORK PACKAGES GRID
+   ========================================= */
+.wp-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.wp-card {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 16px 16px 18px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid #e3e7f3;
+  font-size: 13px;
+}
+
+.wp-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--esa-light-blue);
+  margin-bottom: 4px;
+}
+
+.wp-title {
+  font-size: 14px;
+  color: var(--esa-blue);
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.wp-text {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* =========================================
+   9. CONSORTIUM
+   ========================================= */
+.consortium-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 32px;
+  align-items: center;
+}
+
+.partner-list {
+  list-style: none;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.partner-list li {
+  margin-bottom: 22px;
+}
+
+.partner-role {
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--text-muted);
+}
+
+.consortium-box {
+  background: #ffffff;
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  border: 1px solid #e1e5f0;
+  box-shadow: var(--card-shadow);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ESA context box full width below partners */
 .consortium-box.full-width {
   width: 100%;
   margin-top: 24px;
   padding: 28px 32px;
-  background: white;
+  background: #ffffff;
   border-radius: 18px;
-  box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Reduce width on large screens for better readability */
 .consortium-partners ul,
 .consortium-box.full-width {
   max-width: 100%;
   text-align: justify;
-
-}
-    .partner-list {
-      list-style: none;
-      font-size: 14px;
-      color: var(--text-main);
-    }
-
-    .partner-list li {
-      margin-bottom: 22px;
-    }
-
-    .partner-role {
-      font-size: 16px;
-      line-height: 1.55;
-      color: var(--text-muted);
-    }
-
-    .consortium-box {
-      background: #ffffff;
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      border: 1px solid #e1e5f0;
-      box-shadow: var(--card-shadow);
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* FOOTER */
-    footer {
-      background: #020817;
-      color: #d9e2ff;
-      padding: 30px 20px;
-      font-size: 12px;
-    }
-
-    .footer-inner {
-      max-width: 1180px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .footer-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 16px;
-      font-size: 12px;
-    }
-
-    .footer-links a {
-      color: #aebce8;
-    }
-
-    .footer-note {
-      font-size: 11px;
-      color: #aebce8;
-      max-width: 720px;
-    }
-
-    .footer-credit {
-      font-size: 11px;
-      color: #7f8ac4;
-    }
-
-    
-    /* RESPONSIVE — on mobile image goes below text naturally */
-  
-    @media (max-width: 960px) {
-      .hero-inner,
-      .about-grid,
-      .mission-layout,
-      .methods-grid,
-      .consortium-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-top: 110px;
-      }
-
-      .hero-title {
-        font-size: 32px;
-      }
-
-      .wp-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-      .methods-figure img {
-        max-width: 100%;
-        
-      } 
-    }
-
-    @media (max-width: 768px) {
-      .nav-links {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: flex;
-      }
-
-      .nav-links-mobile.show {
-        display: flex;
-      }
-
-      .hero-inner {
-        gap: 28px;
-      }
-
-      .tri-image-row {
-        flex-direction: column;
-      }
-
-      .wp-grid {
-        grid-template-columns: 1fr;
-      }
-
-      section {
-        padding: 20px 18px;
-      }
-    }
-    
-    /* Responsive layout */
-@media (max-width: 1100px) {
-  .crop-cards-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
 }
 
-@media (max-width: 700px) {
-  .crop-cards-grid {
+
+
+/* =========================================
+   NEWS SECTION (Announcements & dissemination)
+   ========================================= */
+
+/* layout general de la sección */
+#news {
+  padding: 70px 20px;
+}
+
+/* grid solo dentro de #news, no afecta a otros wp-grid */
+#news .wp-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  margin-top: 12px;
+}
+
+/* tarjeta principal de noticias */
+#news .wp-card {
+  background: #ffffff;
+  border-radius: 30px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+  padding: 26px 28px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* pill de categoría arriba de cada tarjeta */
+#news .wp-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 6px 18px;
+  border-radius: 999px;
+  border: 1px solid #d6e0f5;
+  background: #f7f9ff;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+
+/* título dentro de la tarjeta */
+#news .wp-title {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--esa-blue);
+  margin-bottom: 12px;
+}
+
+/* texto de la tarjeta */
+#news .wp-text {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-muted);
+}
+
+/* enlaces dentro de las tarjetas de noticias */
+#news .wp-card a {
+  color: var(--esa-light-blue);
+  font-weight: 500;
+}
+
+#news .wp-card a:hover {
+  text-decoration: underline;
+}
+
+/* responsive: una columna en pantallas pequeñas */
+@media (max-width: 900px) {
+  #news .wp-grid {
     grid-template-columns: 1fr;
   }
 }
 
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .mission-stats {
-    flex-direction: column;
-    gap: 18px;
-  }
 
-  .mission-card {
-    width: 100%;
-  }
-}
-    
-    /* TOOLS GRID */
+/* =========================================
+   10. OPEN TOOLS & WORKSPACES
+   ========================================= */
 .tools-grid {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
-
 }
 
 .tool-card {
   background: #ffffff;
   border-radius: var(--radius-lg);
   border: 1px solid #e4e8f4;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
   padding: 22px 24px;
 }
 
@@ -956,39 +860,41 @@
   margin-bottom: 12px;
 }
 
-#tools {
-  padding-top: 10x !important;
-}
-
 #consortium {
   padding-bottom: 10px !important;
 }
 
-/* Wrapper animation for tutorials */
+#tools {
+  padding-top: 10px !important;
+}
+
+/* =========================================
+   11. TUTORIALS & CODE BLOCKS
+   ========================================= */
+/* Wrapper animation */
 .tutorials-content {
   margin-top: 1.2rem;
   transition: max-height 0.4s ease, opacity 0.3s ease;
-  max-height: 5000px;   /* suficientemente grande */
+  max-height: 5000px;
   opacity: 1;
   overflow: hidden;
 }
 
-/* Hidden state */
 .tutorials-content.hidden {
   max-height: 0;
   opacity: 0;
   pointer-events: none;
 }
 
-/* --- TUTORIAL TOGGLE BUTTON --- */
+/* Toggle button */
 #toggle-tutorials {
-  background: #0d47a1;          /* azul ESA */
+  background: #0d47a1;
   color: white;
   border: none;
   padding: 10px 20px;
   font-size: 15px;
   letter-spacing: 1px;
-  border-radius: 50px;          /* forma de píldora */
+  border-radius: 50px;
   cursor: pointer;
   transition: all 0.25s ease;
   display: inline-block;
@@ -997,30 +903,22 @@
 }
 
 #toggle-tutorials:hover {
-  background: #08306b;          /* azul oscuro al pasar */
+  background: #08306b;
   transform: translateY(-2px);
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
 }
 
 #toggle-tutorials:active {
-  transform: translateY(0px);
+  transform: translateY(0);
   box-shadow: none;
 }
 
-
-/* simple link style re-use */
-.card-link {
-  font-size: 14px;
-  text-decoration: none;
-  color: var(--esa-light-blue);
-}
-
-/* TUTORIALS / CODE CARDS */
+/* Code cards */
 .code-card {
   background: #ffffff;
   border-radius: 26px;
   border: 1px solid #e4e8f4;
-  box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.08);
   margin-top: 28px;
   overflow: hidden;
 }
@@ -1052,7 +950,8 @@
   background: #020617;
   color: #e5e7eb;
   padding: 18px 22px;
-  font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
   font-size: 13px;
   overflow-x: auto;
 }
@@ -1066,79 +965,193 @@
   white-space: pre;
 }
 
-/* RESPONSIVE TOOLS LAYOUT */
+/* =========================================
+   12. DISEASE IMAGE STRIP (3 FIGURES)
+   ========================================= */
+#disease-strip {
+  margin-bottom: 2.5rem;
+}
+
+.img-strip {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.img-frame {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 0.6rem;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.img-frame img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+}
+
+.img-caption {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* =========================================
+   13. FOOTER
+   ========================================= */
+footer {
+  background: #020817;
+  color: #d9e2ff;
+  padding: 30px 20px;
+  font-size: 12px;
+}
+
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+}
+
+.footer-links a {
+  color: #aebce8;
+}
+
+.footer-note {
+  font-size: 11px;
+  color: #aebce8;
+  max-width: 720px;
+}
+
+.footer-credit {
+  font-size: 11px;
+  color: #7f8ac4;
+}
+
+/* =========================================
+   14. RESPONSIVE BREAKPOINTS
+   ========================================= */
+
+/* 1100px: tools & crops grid break */
 @media (max-width: 1100px) {
+  .crop-cards-grid,
   .tools-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* 960px: main grids collapse */
+@media (max-width: 960px) {
+  .hero-inner,
+  .about-grid,
+  .mission-layout,
+  .methods-grid,
+  .consortium-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding-top: 110px;
+  }
+
+  .hero-title {
+    font-size: 32px;
+  }
+
+  .wp-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .methods-figure img {
+    max-width: 100%;
+  }
+}
+
+/* 900px & 600px: disease strip */
+@media (max-width: 900px) {
+  .img-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 700px) {
-  .tools-grid {
+@media (max-width: 600px) {
+  .img-strip {
     grid-template-columns: 1fr;
   }
 }
 
-    
-    
-    
-    /* ============================
-   3-image disease strip
-   ============================ */
-   #disease-strip {
-     margin-bottom: 2.5rem;
-     
-   }
-   .img-strip {
-     margin-top: 1rem;
-     display: grid;
-     grid-template-columns: repeat(3, minmax(0, 1fr));
-     gap: 1rem;
-     
-   }
-   .img-frame {
-     background: #ffffff;
-     border-radius: 16px;
-     padding: 0.6rem;
-     border: 1px solid var(--border-subtle);
-     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     
-     
-   }
-   .img-frame img {
-     width: 100%;
-     height: auto;
-     border-radius: 12px;
-     width: 100%;
-     aspect-ratio: 16 / 9;  /*ensures perfect identical ratio */
-     object-fit: cover;
-     object-position: center;
-     }
-   .img-caption {
-     margin-top: 0.5rem;
-     font-size: 0.8rem;
-     color: var(--text-muted);
-     text-align: center;
-     
-   }
-   /* Responsive layout */
-   @media (max-width: 900px) {
-     .img-strip {
-       grid-template-columns: repeat(2, minmax(0, 1fr));
-       
-     }
-     
-   }
-   @media (max-width: 600px) {
-     .img-strip {
-       grid-template-columns: repeat(1, minmax(0, 1fr));
-       
-     }
-     
-   }
+/* 768px: mobile layout */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-links-mobile.show {
+    display: flex;
+  }
+
+  .hero-inner {
+    gap: 28px;
+  }
+
+  .tri-image-row {
+    flex-direction: column;
+  }
+
+  .wp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 20px 18px;
+  }
+
+  .mission-stats {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .mission-card {
+    width: 100%;
+  }
+}
+
+/* 700px: tools & crops to single column */
+@media (max-width: 700px) {
+  .crop-cards-grid,
+  .tools-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
   </style>
 </head>
@@ -1156,11 +1169,12 @@
     <nav class="nav-links">
       <a href="#about">Project</a>
       <a href="#mission">Mission</a>
-      <a href="#methods">Pipeline</a>
       <a href="#workpackages">Goals</a>
+      <a href="#methods">Pipeline</a>
       <a href="#consortium">Consortium</a>
+      <a href="#news">News</a>
       <a href="#tools">Tools</a>
-      <button class="nav-cta" onclick="document.getElementById('tutorials').scrollIntoView({behavior:'smooth'});">
+      <button class="nav-cta" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'});">
         Tutorials
       </button>
     </nav>
@@ -1173,10 +1187,12 @@
   <div class="nav-links-mobile" id="navMobile">
     <a href="#about">Project</a>
     <a href="#mission">Mission</a>
+    <a href="#workpackages">Goals</a>
     <a href="#methods">Pipeline</a>
-    <a href="#workpackages">toggle-tutorials</a>
     <a href="#consortium">Consortium</a>
+    <a href="#news">News</a>
     <a href="#tools">Tools</a>
+    <a href="#workpackages">toggle-tutorials</a>
   </div>
 </header>
 
@@ -1184,11 +1200,11 @@
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-kicker">ESA EXPRO+ · EARTH OBSERVATION</div>
+      <div class="hero-kicker">CROP MULTIPLE STRESSORS, PESTS AND DISEASES · ESA EXPRO+</div>
       <h1 class="hero-title">
-        <span class="hero-title-main">HYDRA-EO: Hybrid Machine </span><br>
-        <span class="hero-title-accent">Learning for multi-stressor</span><br>
-        <span class="hero-title-sub">crop disease detection</span>
+        <span class="hero-title-main">Hybrid ML & Earth Observation</span><br>
+        <span class="hero-title-accent">for multi-stressor crop</span><br>
+        <span class="hero-title-sub"> disease detection</span>
       </h1>
        
       <p class="hero-subtitle">
@@ -1202,6 +1218,7 @@
         
         <span class="hero-tag">UAV · airborne · satellite</span>
         <span class="hero-tag">Crop diseases</span>
+         <span class="hero-tag">Fluorescence</span>
         <span class="hero-tag">Machine algorithms</span>
         <span class="hero-tag">Physically-based modelling</span>
       </div>
@@ -1293,7 +1310,7 @@
 </section>
 
 <!-- Our Mission -->
-<section id="mission" class="mission-section">
+<section id="mission"  class="section-bg-light">
   <div class="section-inner">
 
     <!-- HEADER -->
@@ -1424,8 +1441,69 @@
 </section>
 
 
+<!-- WORK PACKAGES (Main Goals) -->
+<section id="workpackages" >
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-kicker">Main Goals</div>
+      <h2 class="section-title">Scientific objectives</h2>
+      <p class="section-subtitle">
+        HYDRA-EO develops a hybrid modelling framework that couples radiative transfer 
+        simulations with machine learning to retrieve functional plant traits and disentangle 
+        overlapping stress signals (drought vs. disease) across multiple EO platforms and crops. 
+      </p>
+    </div>
+
+    <div class="wp-grid">
+      <!-- HERE: Main goals -->
+      <div class="wp-card">
+        <div class="wp-label">Functional plant traits</div>
+        <div class="wp-title">Retrieve key functional traits</div>
+        <p class="wp-text">
+           Retrieve traits such as chlorophyll content, anthocyanins, leaf area index (LAI),
+           biomass, water status, canopy temperature, nitrogen- and red-edge-based indices, 
+           as well as SIF-related indicators. These traits are derived from hyperspectral, 
+           multispectral and thermal data using PROSAIL- and SCOPE-based simulations combined with machine learning.
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-label">Stressors</div>
+        <div class="wp-title">Disentangle drought and disease</div>
+        <p class="wp-text">
+          Separate the spectral and thermal fingerprints of drought, fungal infections, bacterial and viral diseases, 
+          enabling early detection of biotic and abiotic stress.  
+          This HYDRA-EO analyses how these stressors interact, overlap and evolve over time, improving 
+          resilience assessments and supporting early warning systems in agricultural landscapes. 
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-label">Scaling</div>
+        <div class="wp-title">Bridge scales & missions</div>
+        <p class="wp-text">
+          Quantify how plant trait signals degrade from UAV and airborne hyperspectral data to satellite 
+          missions such as Sentinel-2, PRISMA, EnMAP, FLEX, CHIME and LSTM, and design optimised bandsets 
+          and indices for operational monitoring. HYDRA-EO develops scaling strategies that link leaf, 
+          canopy and landscape processes, preparing methods for next-generation ESA missions. 
+        </p>
+      </div>
+
+      <div class="wp-card">
+        <div class="wp-label">Impact</div>
+        <div class="wp-title">Operational EO tools for users</div>
+        <p class="wp-text">
+          Deliver open, ESA-oriented tools and Shiny interfaces that translate advanced radiative-transfer 
+          modelling, hyperspectral–thermal analysis and hybrid machine learning into practical 
+          decision-support applications for agronomists, advisors and policy stakeholders. 
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <!-- Pipeline (methods) -->
-<!-- METHODS & DATA -->
 <section id="methods" class="section-bg-light">
   <div class="section-inner">
 
@@ -1496,70 +1574,67 @@
   </div>
 </section>
 
-
-<!-- WORK PACKAGES (Main Goals) -->
-<section id="workpackages">
+<section id="news" >
   <div class="section-inner">
     <div class="section-header">
-      <div class="section-kicker">Main Goals</div>
-      <h2 class="section-title">Scientific objectives</h2>
+      <div class="section-kicker">News</div>
+      <h2 class="section-title">Announcements & disseminations</h2>
       <p class="section-subtitle">
-        HYDRA-EO develops a hybrid modelling framework that couples radiative transfer 
-        simulations with machine learning to retrieve functional plant traits and disentangle 
-        overlapping stress signals (drought vs. disease) across multiple EO platforms and crops. 
+        HYDRA-EO activities, public presentations and scientific outputs
+        are disseminated through ESA events, conferences and peer-reviewed papers. 
+        This section highlights key milestones and communication actions. 
       </p>
     </div>
 
     <div class="wp-grid">
-      <!-- HERE: Main goals -->
       <div class="wp-card">
-        <div class="wp-label">Functional plant traits</div>
-        <div class="wp-title">Retrieve key functional traits</div>
+        <div class="wp-label">Event · ESA Digital Twin Earth</div>
+        <div class="wp-title">HYDRA-EO at ESA Digital Twin Earth Open Science Meeting</div>
         <p class="wp-text">
-           Retrieve traits such as chlorophyll content, anthocyanins, leaf area index (LAI),
-           biomass, water status, canopy temperature, nitrogen- and red-edge-based indices, 
-           as well as SIF-related indicators. These traits are derived from hyperspectral, 
-           multispectral and thermal data using PROSAIL- and SCOPE-based simulations combined with machine learning.
         </p>
+        <p>
+           The HYDRA-EO project will be presented during the
+           <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>.
+        </p>
+        <p>
+        <strong>Date:</strong> 2–5 February 2026 (ESRIN, Frascati, Italy).<br />
+        <strong>Meeting link:</strong><br />
+               <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction"
+               target="_blank" class="card-link">ESA Digital Twin Earth – Open Science Meeting </a>
+          </p>
+           <p>
+            <strong>Project presentation (PDF):</strong><br />
+            <a href="docs/ESA_Hydra_submitted.pdf"
+               target="_blank" class="card-link">
+              Download HYDRA-EO Presentation (PDF)
+            </a>
+          </p>
       </div>
 
       <div class="wp-card">
-        <div class="wp-label">Stressors</div>
-        <div class="wp-title">Disentangle drought and disease</div>
+        <div class="wp-label">Papers & media</div>
+        <div class="wp-title">Scientific papers and media coverage</div>
         <p class="wp-text">
-          Separate the spectral and thermal fingerprints of drought, fungal infections, bacterial and viral diseases, 
-          enabling early detection of biotic and abiotic stress.  
-          This HYDRA-EO analyses how these stressors interact, overlap and evolve over time, improving 
-          resilience assessments and supporting early warning systems in agricultural landscapes. 
         </p>
-      </div>
-
-      <div class="wp-card">
-        <div class="wp-label">Scaling</div>
-        <div class="wp-title">Bridge scales & missions</div>
-        <p class="wp-text">
-          Quantify how plant trait signals degrade from UAV and airborne hyperspectral data to satellite 
-          missions such as Sentinel-2, PRISMA, EnMAP, FLEX, CHIME and LSTM, and design optimised bandsets 
-          and indices for operational monitoring. HYDRA-EO develops scaling strategies that link leaf, 
-          canopy and landscape processes, preparing methods for next-generation ESA missions. 
-        </p>
-      </div>
-
-      <div class="wp-card">
-        <div class="wp-label">Impact</div>
-        <div class="wp-title">Operational EO tools for users</div>
-        <p class="wp-text">
-          Deliver open, ESA-oriented tools and Shiny interfaces that translate advanced radiative-transfer 
-          modelling, hyperspectral–thermal analysis and hybrid machine learning into practical 
-          decision-support applications for agronomists, advisors and policy stakeholders. 
-        </p>
+        <p>
+            HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML inversion,
+            stress indicators for <em>Flavescence Dorée</em> and Potato Virus Y, and EO-based
+            disease early-warning systems.
+          </p>
+          <p>
+            A curated list of accepted papers, conference contributions and media highlights
+            will be added here as the project progresses, providing references for ESA,
+            national agencies and the scientific community.
+          </p>
       </div>
     </div>
   </div>
 </section>
 
+
+
 <!-- CONSORTIUM -->
-<section id="consortium" class="section-bg-light">
+<section id="consortium" class="section-bg-light" >
   <div class="section-inner">
 
     <!-- HEADER -->
@@ -1584,7 +1659,7 @@
             <span class="partner-role">
               The Geoinformation Science and Remote Sensing (GRS) group leads overall coordination and WP1, WP2, WP5, WP6 and WP10. 
               WU-DES develops the RTM and ML core (ToolsRTM, SCOPEinR), designs the scientific workflow, and manages the central 
-              Git and Shiny tools. Project coordination is led by Dr. Carlos Camino with scientific support from Prof. Lammert 
+              Git and Shiny tools. Project coordination is led by Dr. Carlos Camino with scientific support from Prof. Dr. Lammert 
               Kooistra and colleagues.
             </span>
           </li>
@@ -1650,7 +1725,7 @@
 
 
 <!-- OPEN TOOLS  -->
-<section id="tools" class="mission-section">
+<section id="tools" >
   <div class="section-inner">
 
     <!-- HEADER -->
