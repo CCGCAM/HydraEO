@@ -1116,7 +1116,7 @@ section {
 /* layout general de la sección */
 #contact {
   padding: 20px 20px;
-  padding-bottom: 120px;  /* o 140px según el alto real del footer */
+  padding-bottom: 120px;  /* o 140px depeinf of the footer height*/
 }
 
 /* =========================================
@@ -1884,11 +1884,15 @@ footer.visible {
     <div class="tools-grid">
       <!-- ToolsRTM -->
       <article class="tool-card">
-        <h3 class="tool-card-title">ToolsRTM (R package)</h3>
+        <h3 class="tool-card-title">ToolsRTM package</h3>
         <p>
-          A radiative transfer modelling toolbox maintained by WU-DES for PROSAIL-based simulations,
-          spectral resampling, LUT generation and hybrid inversion. HYDRA-EO will add new routines for
-          trait–stressor libraries, band reduction and thermal integration.
+          This package provides a unified suite of radiative transfer 
+          models for simulating leaf, canopy and soil reflectance
+          across multiple sensor resolutions. It integrates PROSPECT, 
+          FLUSPECT, Liberty, INFORM, fourSAIL and PROSAIL for detailed 
+          optical simulations and advance modelling as SPART and MARMIT for soil.
+          These capabilities support flexible, physics-based 
+          workflows for EO data analysis and model–data integration.
         </p>
         <a href="https://gitlab.com/caminoccg/toolsrtm"
            class="card-link"
@@ -1897,11 +1901,14 @@ footer.visible {
 
       <!-- SCOPEinR -->
       <article class="tool-card">
-        <h3 class="tool-card-title">SCOPEinR (R package)</h3>
+        <h3 class="tool-card-title">SCOPEinR package</h3>
         <p>
-          An R interface for SCOPE-style energy-balance and SIF simulations, used to produce consistent
-          reflectance, fluorescence and thermal datasets for crops under varying stress and illumination
-          conditions.
+         SCOPEinR implements the SCOPE model for simulating 
+         soil–canopy radiative transfer, photosynthesis, fluorescence and surface
+         energy balance. It provides an R interface for producing consistent
+         reflectance, SIF and photosynthesis products under varying stress, 
+         physiological and illumination conditions. This package supports 
+         detailed modelling of vegetation functioning in crop studies.
         </p>
         <a href="https://gitlab.com/caminoccg/scopeinr"
            class="card-link"
