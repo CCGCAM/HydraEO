@@ -1005,6 +1005,72 @@ section {
   white-space: pre;
 }
 
+.copy-btn {
+  background: #0d47a1;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  font-size: 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  float: right;
+  margin-bottom: 6px;
+  transition: 0.2s ease;
+}
+
+.copy-btn:hover {
+  background: #08306b;
+}
+
+
+/* Collapsible container */
+.code-collapse {
+  margin-bottom: 22px;
+  
+  border-radius: 14px;
+  background: #000000;
+  border: 1px solid #000000;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+  overflow: hidden;
+}
+
+/* Summary bar */
+.code-collapse summary {
+  font-size: 16px;
+  color: #ffffff !important; 
+  font-weight: 600;
+  padding: 14px 18px;
+  cursor: pointer;
+  color: var(--esa-blue);
+  list-style: none;
+}
+
+/* Remove default summary arrow */
+.code-collapse summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Change arrow icon when opened */
+.code-collapse[open] summary {
+  color: var(--esa-light-blue);
+}
+
+.code-collapse summary::before {
+  content: "▶ ";
+  color: #ffffff !important; 
+
+}
+.code-collapse[open] summary::before {
+  content: "▼ ";
+  color: var(--esa-light-blue);
+}
+
+/* Inner code card should look normal */
+.code-collapse .code-card {
+  margin-top: 0;
+  border-radius: 0;
+}
+
 /* =========================================
    12. DISEASE IMAGE STRIP (3 FIGURES)
    ========================================= */
@@ -1061,7 +1127,7 @@ footer {
   transform: translateY(10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 9999;
-  pointer-events: none; /* evita clics cuando está oculto */
+  pointer-events: y; /* y or none: evita clics cuando está oculto */
 }
 }
 
@@ -1883,20 +1949,98 @@ footer.visible {
     <div id="tutorials-content" class="tutorials-content" style="margin-top:1rem;">
 
       <!-- TOOLSRTM CODE CARD -->
+  
+      <div class="code-card">
+        <div class="code-card-header">
+
+          <span class="code-badge">R · ToolsRTM</span>
+          <span class="code-title">Shiny applicaiton for different RTMs</span>
+        </div>
+        <div class="code-card-body">
+          <details class="code-collapse">
+              <summary>Show code</summary>
+              <button class="copy-btn" data-copy="code-prosail">Copy</button>
+          <pre id="code-prosail">
+
+            <code>
+library(ToolsRTM)
+# Launch Shiny simulators for different RTMs
+
+ToolsRTM::get.simulator(app = "SCOPE")
+ToolsRTM::get.simulator(app = "getLUT")
+ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
+# Type ?get.simulator to see more options
+              </code>
+              </details>
+          </pre>
+        </div>
+
+
+      </div>
+
+
+      <!-- TOOLSRTM CODE CARD -->
       <div class="code-card">
         <div class="code-card-header">
           <span class="code-badge">R · ToolsRTM</span>
           <span class="code-title">Basic PROSAIL simulation</span>
         </div>
         <div class="code-card-body">
-          <pre><code>library(ToolsRTM)
+          <details class="code-collapse">
+            <summary>Show code</summary>
+              <button class="copy-btn" data-copy="code-prosail2">Copy</button>
+          <pre id="code-prosail2">
+            <code>
+library(ToolsRTM)
+#Get default PROSAIL input list
+inputs <- ToolsRTM::inputsPROSAIL
 
-# Launch Shiny simulators for different RTMs
-ToolsRTM::get.simulator(app = "SCOPE")
-ToolsRTM::get.simulator(app = "getLUT")
-ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
+# 2.2 Generate a LUT with 100 samples
+set.seed(1234)
+LUT <- as.data.frame(ToolsRTM::getLUT(inputs = inputs, nLUT = 100, setseed = 1234))
+# Summarise min–max per parameter
+lut_ranges <- data.frame(
+  Parameter = names(LUT),
+  Min = round(sapply(LUT, min, na.rm = TRUE),3),
+  Max = round(sapply(LUT, max, na.rm = TRUE),3)
+)
+# Display in an interactive datatable
+DT::datatable(
+  lut_ranges,
+  caption = "Ranges of sampled input parameters in the LUT",
+  options = list(pageLength = 10)
+)
 
-# Type ?get.simulator to see more options</code></pre>
+# DGet soil profile
+rsoil.dry <- ToolsRTM::dataSpec_PDB$dry_soil
+rsoil.wet <- ToolsRTM::dataSpec_PDB$wet_soil
+psoil    <-  0.5
+
+rsoil.default<- c(psoil*rsoil.dry+(1-psoil)*rsoil.wet)
+wl_grid <- 400:2500  # wavelength grid in dataSpec_PDB
+
+#Simulate PROSAIL (foursail) for each LUT row
+sims <- lapply(seq_len(nrow(LUT)), function(i) {
+  out <- suppressMessages(ToolsRTM::foursail(
+    inputLUT    = LUT[i, ],
+    rsoil       = rsoil.default,
+    LeafModel   = "PROSPECT-PRO",
+    spectrum.all = TRUE
+  ))
+    # out has rdot, rsot, rddt, rsdt; combine to BRF using solar zenith (tts)
+  brf <- ToolsRTM::Compute_BRF(
+    rdot = out$rdot,
+    rsot = out$rsot,
+    tts  = LUT[i, "tts"],
+    data.light = ToolsRTM::dataSpec_PDB
+  )
+  # Return tidy tibble for this run
+  tibble(run = i, wl = wl_grid, rho = as.numeric(brf))
+})
+
+              </code>
+        </details>
+          </pre>
         </div>
       </div>
 
@@ -1907,19 +2051,23 @@ ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
           <span class="code-title">Running SCOPE with SCOPEinR</span>
         </div>
         <div class="code-card-body">
-          <pre><code>library(SCOPEinR)
+          <details class="code-collapse">
+            <summary>Show code</summary>
+              <button class="copy-btn" data-copy="code-scope">Copy</button>
+          <pre id="code-scope">
+            <code>
+library(SCOPEinR)
 
 # Read configuration and LUT tables
 setopts  &lt;- read.table("input/setoptions.csv", header = TRUE, sep = ",")
 inputLUT &lt;- read.table("input/LUT_input.csv", header = TRUE, sep = ",")
 
 # Execute the SCOPE model
-db.sim &lt;- SCOPEinR::get.SCOPE(
-  LUT          = inputLUT,
-  options.SCOPE = setopts,
-  get.outputs   = "ALL",
-  get.plots     = FALSE
-)</code></pre>
+db.sim &lt;- SCOPEinR::get.SCOPE(LUT = inputLUT,
+options.SCOPE = setopts, get.outputs   = "ALL", get.plots = FALSE)
+              </code>
+              </details>
+          </pre>
         </div>
       </div>
 
@@ -2000,7 +2148,7 @@ db.sim &lt;- SCOPEinR::get.SCOPE(
       </span>
       <div class="footer-links">
         <a href="#top">Top</a>
-        <a href="#methods">Pipeline</a>
+        <a href="#workpackages">Goals</a>
       </div>
     </div>
 
@@ -2014,95 +2162,74 @@ db.sim &lt;- SCOPEinR::get.SCOPE(
   </div>
 </footer>
 
-
 <script>
-    // Toggle tutorials
-    const toggleBtn = document.getElementById("toggle-tutorials");
-    const tutorialsContent = document.getElementById("tutorials-content");
+document.addEventListener("DOMContentLoaded", () => {
 
-    if (toggleBtn && tutorialsContent) {
-      toggleBtn.addEventListener("click", () => {
-        const hidden = tutorialsContent.classList.toggle("hidden");
-        toggleBtn.textContent = hidden ? "Show tutorials" : "Hide tutorials";
-      });
-    }
-    
-    // Scroll smooth
+  // 1) Toggle tutorials
+  const toggleBtn = document.getElementById("toggle-tutorials");
+  const tutorialsContent = document.getElementById("tutorials-content");
+
+  if (toggleBtn && tutorialsContent) {
+    toggleBtn.addEventListener("click", () => {
+      const hidden = tutorialsContent.classList.toggle("hidden");
+      toggleBtn.textContent = hidden ? "Show tutorials" : "Hide tutorials";
+    });
+  }
+
+  // 2) Scroll to top (Top link en footer)
   document.querySelectorAll('a[href="#top"]').forEach(link => {
-    link.addEventListener('click', function(e) {
+    link.addEventListener("click", (e) => {
       e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   });
 
+  // 3) Copy code buttons
+  document.querySelectorAll(".copy-btn").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+    const targetId = btn.getAttribute("data-copy");
+    const el = document.getElementById(targetId);
+    if (!el) return;
 
+    const text = el.textContent.replace(/^\n+|\s+$/g, "");
 
-    // Copy code buttons
-    document.querySelectorAll(".copy-btn").forEach((btn) => {
-      btn.addEventListener("click", async () => {
-        const targetId = btn.getAttribute("data-copy");
-        const el = document.getElementById(targetId);
-        if (!el) return;
+    try {
+      await navigator.clipboard.writeText(text);
+      const old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => (btn.textContent = old), 1200);
+    } catch (e) {
+      console.error("Clipboard error", e);
+      btn.textContent = "Error";
+      setTimeout(() => (btn.textContent = "Copy"), 1200);
+    }
+  });
+});
 
-        const text = el.textContent.replace(/^\n+|\s+$/g, "");
-        try {
-          await navigator.clipboard.writeText(text);
-          const old = btn.textContent;
-          btn.textContent = "Copied!";
-          setTimeout(() => (btn.textContent = old), 1200);
-        } catch (e) {
-          console.error("Clipboard error", e);
-          btn.textContent = "Error";
-          setTimeout(() => (btn.textContent = "Copy code"), 1200);
-        }
-      });
-    });
-    
-        // Footer movements
-   //  let lastScroll = 0;
-  // const footer = document.querySelector("footer");
-  // window.addEventListener("scroll", () => {
-     //  const currentScroll = window.pageYOffset;  
-      // if (currentScroll > lastScroll) {
-    // go down → hide footer
-    // footer.style.transform = "translateY(100%)";
-        
-      // } else {
-    // go up → show footer
-    // footer.style.transform = "translateY(0)";
-        
-    //   }
-    //   lastScroll = currentScroll;
-
-    // });
-    
-    // Fixed footer
-    document.addEventListener("scroll", () => {
-      const footer = document.querySelector("footer");
-      if (window.scrollY > 300) {  
+  // 4) Footer aparece tras hacer scroll
+  const footer = document.querySelector("footer");
+  if (footer) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
         footer.classList.add("visible");
-        
       } else {
         footer.classList.remove("visible");
-      
       }
-      
     });
+  }
 
-
-
-    
-    
-      // MOBILE NAV TOGGLE
+  // 5) MOBILE NAV TOGGLE
   const navToggle = document.getElementById("navToggle");
   const navMobile = document.getElementById("navMobile");
 
-  navToggle.addEventListener("click", () => {
-    const isOpen = navMobile.classList.toggle("show");
-    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-  });
+  if (navToggle && navMobile) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = navMobile.classList.toggle("show");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+  }
 
-
+});
 </script>
 
 
