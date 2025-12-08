@@ -59,6 +59,10 @@ img {
   display: block;
 }
 
+
+
+
+
 /* =========================================
    1. NAVBAR
    ========================================= */
@@ -163,20 +167,43 @@ img {
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
+
+/* --- MOBILE NAVIGATION --- */
+
+
 .nav-links-mobile {
   display: none;
   flex-direction: column;
-  padding: 10px 20px 16px;
-  gap: 10px;
+  gap: 14px;
+  padding: 18px 24px;
   background: #ffffff;
-  border-top: 1px solid rgba(0, 0, 0, 0.04);
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
 
+
 .nav-links-mobile a {
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
+  font-size: 14px;
   color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+
+
+/* When active */
+.nav-links-mobile.show {
+  display: flex;
+}
+
+/* Mobile behavior: hide desktop links */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
 }
 
 /* =========================================
@@ -1942,17 +1969,18 @@ db.sim &lt;- SCOPEinR::get.SCOPE(
         }
       });
     });
+    
+    
+      // MOBILE NAV TOGGLE
+  const navToggle = document.getElementById("navToggle");
+  const navMobile = document.getElementById("navMobile");
 
-    // MOBILE NAV TOGGLE
-    const navToggle = document.querySelector('.nav-toggle');
-    const body = document.body;
+  navToggle.addEventListener("click", () => {
+    const isOpen = navMobile.classList.toggle("show");
+    navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
 
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        const isOpen = body.classList.toggle('nav-open');
-        navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
-      });
-    }
+
 </script>
 
 
