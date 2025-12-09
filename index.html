@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -59,6 +60,9 @@ img {
 }
 
 
+
+
+
 /* =========================================
    1. NAVBAR
    ========================================= */
@@ -68,18 +72,18 @@ img {
   left: 0;
   width: 100%;
   z-index: 999;
-  background: #003f7d;  /* ESA deep blue */
+  background: #003f7d;  /* ESA deep blue 
+ /*  background: rgba(255, 255, 255, 0.96);*/
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   color: #ffffff;
 }
-
 .nav-cta {
   border: 1px solid #ffffff;
 }
 
 .nav-links a::after {
-  background: #ffffff; /* underline blanco sobre fondo azul */
+  background: #ffffff;
 }
 
 .nav-container {
@@ -93,19 +97,21 @@ img {
 
 .nav-logo {
   display: flex;
+  color: #ffffff !important;
   flex-direction: column;
   font-size: 18px;
   font-weight: 600;
+  color: var(--esa-blue);
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #ffffff; /* logo blanco */
 }
 
 .nav-logo span {
   font-size: 11px;
+    color: rgba(255, 255, 255, 0.75) !important;
   font-weight: 400;
+  color: var(--text-muted);
   letter-spacing: 0.04em;
-  color: rgba(255, 255, 255, 0.75) !important;
 }
 
 .nav-links {
@@ -115,13 +121,11 @@ img {
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #ffffff;
 }
 
 .nav-links a {
   position: relative;
   padding-bottom: 4px;
-  color: #ffffff;
 }
 
 .nav-links a::after {
@@ -131,7 +135,8 @@ img {
   bottom: 0;
   width: 0;
   height: 2px;
-  background: #ffffff;
+  background: #ffffff !important;   /* azul claro ESA */
+  background: var(--esa-light-blue);
   transition: width var(--transition-fast);
 }
 
@@ -140,9 +145,9 @@ img {
 }
 
 .nav-cta {
-  color: #ffffff !important;
-  background: #000 !important;
-  border: 2px solid #ffffff !important;
+  color: #ffffff !important;                /* texto azul ESA */
+  background: #000 !important;           /* verde-teal */
+  border: 2px solid #ffffff !important;     /* borde blanco */
   padding: 8px 20px;
   border-radius: 999px;
   font-weight: 600;
@@ -150,9 +155,10 @@ img {
   transition: 0.25s ease;
 }
 
+
 .nav-cta:hover {
-  background: #66c7ff !important;
-  color: #ffffff !important;
+  background: #66c7ff !important;           /* verde más oscuro al hover */
+  color: #ffffff !important;                /* texto blanco al pasar */
   transform: translateY(-2px);
 }
 
@@ -166,28 +172,34 @@ img {
 .nav-toggle span {
   width: 22px;
   height: 2px;
-  background: #ffffff; /* blanco para que se vea sobre el azul */
+  background: var(--esa-blue);
   border-radius: 10px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 
 /* --- MOBILE NAVIGATION --- */
+
+
 .nav-links-mobile {
   display: none;
   flex-direction: column;
   gap: 14px;
-  padding: 18px 24px 20px 24px;
-  background: #003f7d; /* mismo azul que la barra */
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 18px 24px;
+  background: #ffffff;
+  border-top: 1px solid rgba(0,0,0,0.05);
 }
+
 
 .nav-links-mobile a {
   font-size: 14px;
+  color: var(--text-main);
+    color: #ffffff !important;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #ffffff !important; /* enlaces blancos */
 }
+
+
 
 /* When active */
 .nav-links-mobile.show {
@@ -286,6 +298,7 @@ img {
   border: 1px solid #d4e4f5;
   color: #000;
   background: rgba(255, 255, 255, 0.8);
+
 }
 
 .hero-actions {
@@ -369,7 +382,7 @@ img {
    ========================================= */
 section {
   padding: 10px 10px;
-  scroll-margin-top: 90px;
+  scroll-margin-top: 90px;   /* o 80px, 100px… según tu barra */
 }
 
 .section-inner {
@@ -453,8 +466,9 @@ section {
   color: var(--text-muted);
   width: 100%;
   max-width: 100%;
-  margin: 20px auto;
+  margin: 20px auto;        /* center the block */
 }
+
 
 .about-meta-row {
   display: flex;
@@ -464,12 +478,18 @@ section {
   gap: 20px;
 }
 
+
 .about-meta-label {
   font-weight: 600;
-  width: 150px;
+  width: 150px;             /* Left side */
   color: var(--esa-blue);
   flex-shrink: 0;
 }
+
+
+
+
+
 
 
 /* =========================================
@@ -783,13 +803,17 @@ section {
 }
 
 
+
 /* =========================================
    NEWS SECTION (Announcements & dissemination)
    ========================================= */
+
+/* layout general de la sección */
 #news {
   padding: 20px 20px;
 }
 
+/* grid solo dentro de #news, no afecta a otros wp-grid */
 #news .wp-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -797,6 +821,7 @@ section {
   margin-top: 12px;
 }
 
+/* tarjeta principal de noticias */
 #news .wp-card {
   background: #ffffff;
   border-radius: 30px;
@@ -807,6 +832,7 @@ section {
   flex-direction: column;
 }
 
+/* pill de categoría arriba de cada tarjeta */
 #news .wp-label {
   display: inline-flex;
   align-items: center;
@@ -822,6 +848,7 @@ section {
   margin-bottom: 18px;
 }
 
+/* título dentro de la tarjeta */
 #news .wp-title {
   font-size: 22px;
   font-weight: 600;
@@ -829,12 +856,14 @@ section {
   margin-bottom: 12px;
 }
 
+/* texto de la tarjeta */
 #news .wp-text {
   font-size: 15px;
   line-height: 1.65;
   color: var(--text-muted);
 }
 
+/* enlaces dentro de las tarjetas de noticias */
 #news .wp-card a {
   color: var(--esa-light-blue);
   font-weight: 500;
@@ -844,11 +873,13 @@ section {
   text-decoration: underline;
 }
 
+/* responsive: una columna en pantallas pequeñas */
 @media (max-width: 900px) {
   #news .wp-grid {
     grid-template-columns: 1fr;
   }
 }
+
 
 
 /* =========================================
@@ -893,6 +924,7 @@ section {
 /* =========================================
    11. TUTORIALS & CODE BLOCKS
    ========================================= */
+/* Wrapper animation */
 .tutorials-content {
   margin-top: 1.2rem;
   transition: max-height 0.4s ease, opacity 0.3s ease;
@@ -1007,6 +1039,7 @@ section {
 /* Collapsible container */
 .code-collapse {
   margin-bottom: 22px;
+  
   border-radius: 14px;
   background: #000000;
   border: 1px solid #000000;
@@ -1017,31 +1050,35 @@ section {
 /* Summary bar */
 .code-collapse summary {
   font-size: 16px;
+  color: #ffffff !important; 
   font-weight: 600;
   padding: 14px 18px;
   cursor: pointer;
+  color: var(--esa-blue);
   list-style: none;
-  color: #ffffff !important;
 }
 
+/* Remove default summary arrow */
 .code-collapse summary::-webkit-details-marker {
   display: none;
 }
 
+/* Change arrow icon when opened */
 .code-collapse[open] summary {
   color: var(--esa-light-blue);
 }
 
 .code-collapse summary::before {
   content: "▶ ";
-  color: #ffffff !important;
-}
+  color: #ffffff !important; 
 
+}
 .code-collapse[open] summary::before {
   content: "▼ ";
   color: var(--esa-light-blue);
 }
 
+/* Inner code card should look normal */
 .code-collapse .code-card {
   margin-top: 0;
   border-radius: 0;
@@ -1088,10 +1125,10 @@ section {
   text-align: center;
 }
 
-/* CONTACT SECTION */
+/* layout general de la sección */
 #contact {
   padding: 20px 20px;
-  padding-bottom: 120px;
+  padding-bottom: 120px;  /* o 140px depeinf of the footer height*/
 }
 
 /* =========================================
@@ -1107,10 +1144,10 @@ footer {
   left: 0;
   width: 100%;
   transform: translateY(10px);
-  opacity: 0;
   transition: opacity 0.4s ease, transform 0.4s ease;
   z-index: 9999;
-  pointer-events: none; /* no clics cuando está oculto */
+  pointer-events: y; /* y or none: evita clics cuando está oculto */
+}
 }
 
 footer.visible {
@@ -1118,7 +1155,6 @@ footer.visible {
   transform: translateY(0);
   pointer-events: auto;
 }
-
 .footer-inner {
   max-width: 1180px;
   margin: 0 auto;
@@ -1159,6 +1195,8 @@ footer.visible {
 /* =========================================
    14. RESPONSIVE BREAKPOINTS
    ========================================= */
+
+/* 1100px: tools & crops grid break */
 @media (max-width: 1100px) {
   .crop-cards-grid,
   .tools-grid {
@@ -1166,6 +1204,7 @@ footer.visible {
   }
 }
 
+/* 960px: main grids collapse */
 @media (max-width: 960px) {
   .hero-inner,
   .about-grid,
@@ -1192,12 +1231,20 @@ footer.visible {
   }
 }
 
+/* 900px & 600px: disease strip */
 @media (max-width: 900px) {
   .img-strip {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
+@media (max-width: 600px) {
+  .img-strip {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 768px: mobile layout */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
@@ -1237,12 +1284,14 @@ footer.visible {
   }
 }
 
+/* 700px: tools & crops to single column */
 @media (max-width: 700px) {
   .crop-cards-grid,
   .tools-grid {
     grid-template-columns: 1fr;
   }
 }
+
   </style>
 </head>
 
@@ -1265,7 +1314,7 @@ footer.visible {
       <a href="#news">News</a>
       <a href="#tools">Tools</a>
       <a href="#contact">Contact</a>
-      <button class="nav-cta" onclick="document.getElementById('tutorials').scrollIntoView({behavior:'smooth'});">
+      <button class="nav-cta" onclick="document.getElementById('tools').scrollIntoView({behavior:'smooth'});">
         Tutorials
       </button>
       <button class="nav-cta" onclick="openDomainModal();">
@@ -1289,11 +1338,10 @@ footer.visible {
     <a href="#contact">Contact</a>
   </div>
 </header>
-
 <!-- Top -->
 <div id="top"></div>
 
-<!-- HERO -->
+<!-- HERO (igual que en tu captura) -->
 <section class="hero">
   <div class="hero-inner">
     <div>
@@ -1312,9 +1360,10 @@ footer.visible {
 
       <div class="hero-tags">
         <span class="hero-tag">Hyperspectral &amp; thermal</span>
+        
         <span class="hero-tag">UAV · airborne · satellite</span>
         <span class="hero-tag">Crop diseases</span>
-        <span class="hero-tag">Fluorescence</span>
+         <span class="hero-tag">Fluorescence</span>
         <span class="hero-tag">Machine algorithms</span>
         <span class="hero-tag">Physically-based modelling</span>
       </div>
@@ -1328,13 +1377,16 @@ footer.visible {
         </button>
       </div>
     </div>
-
+    <!-- RIGHT SIDE: HYDRA-EO LOGO -->
     <div class="hero-logo-box">
       <img src="assets/Hydra-eo-logo.png" alt="HYDRA-EO logo" class="hero-logo-img">
       <p class="hero-logo-caption">
         HYDRA-EO integrates UAV, satellite and RTM–ML processing for crop stress detection across studied European sites.
-      </p>
-    </div>
+        </p>
+        </div>
+
+
+ 
   </div>
 </section>
 
@@ -1355,6 +1407,7 @@ footer.visible {
 
     <div class="about-grid">
       <div class="about-text">
+        <!-- Project / About -->
         <p>
           The project addresses key Mediterranean and temperate crop systems (olive, citrus, pistachio,
           grapevine) and develops interpretable indicators of plant health based on hyperspectral,
@@ -1365,49 +1418,59 @@ footer.visible {
           are combined with radiative transfer models to retrieve functional traits related to photosynthesis,
           structure and water status.
         </p>
-
+         <!-- <div class="about-highlight">
+          Outputs from HYDRA-EO are designed to be integrated into digital twins of agriculture and operational
+          crop monitoring services.
+        </div>   -->
+        <!-- POTATO SITE BLOCK -->
         <div style="text-align: center; width: 100%; margin-top: 10px;">
           <img src="assets/potato.png" alt="UAV flight"
-               style="width:60%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+          style="width:60%; height:auto; display:block; margin-left:auto; margin-right:auto;">
           <div class="img-caption" style="margin-top:8px;">Phenotyping potato site </div>
-        </div>
+         </div>
+
+    
       </div>
 
       <aside class="about-meta">
-        <span class="about-meta-label"><strong>Funding agency:</strong></span>
-        <span>European Space Agency (ESA)</span>
-        <div class="about-meta-row"></div>
-
-        <span class="about-meta-label"><strong>ESA-Tender:</strong></span>
-        <span>CROP MULTIPLE STRESSORS, PESTS AND DISEASES - EXPRO+ (Action 1-12684)</span>
-        <div class="about-meta-row"></div>
-
-        <span class="about-meta-label"><strong>Start date:</strong></span>
-        <span>15 January 2026.</span>
-        <div class="about-meta-row"></div>
-
-        <span class="about-meta-label"><strong>Duration:</strong></span>
-        <span>2026–2028 (30 months).</span>
-        <div class="about-meta-row"></div>
-
-        <span class="about-meta-label"><strong>Coordinator:</strong></span>
-        <span>The Geoinformation Science and Remote Sensing Lab. at the Wageningen University, Department of 
+          <span class="about-meta-label"><strong>Funding agency:</strong></span>
+          <span>European Space Agency (ESA)</span>
+        <div class="about-meta-row">
+        </div>
+          <span class="about-meta-label"><strong>ESA-Tender:</strong></span>
+          <span>CROP MULTIPLE STRESSORS, PESTS AND DISEASES - EXPRO+ (Action 1-12684) </span>
+        <div class="about-meta-row">
+        </div>
+         <span class="about-meta-label"><strong>Start date:</strong></span>
+          <span>15 January 2026.</span>
+         <div class="about-meta-row">
+         </div>
+          <span class="about-meta-label"><strong>Duration:</strong></span>
+          <span>2026–2028 (30 months).</span>
+        <div class="about-meta-row">
+        </div>
+          <span class="about-meta-label"><strong>Coordinator:</strong></span>
+          <span>The Geoinformation Science and Remote Sensing Lab. at the Wageningen University, Department of 
           Environmental Sciences (WU-DES).</span>
-        <div class="about-meta-row"></div>
-
-        <span class="about-meta-label"><strong>Partners:</strong></span>
-        <span>Wageningen Environmental Research (WENR) at the Wageningen University &amp; Research, 
+        <div class="about-meta-row">
+        </div>
+          <span class="about-meta-label"><strong>Partners:</strong></span>
+          <span>Wageningen Environmental Research (WENR) at the Wageningen University & Research, 
           Consiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE), 
           Chaparrillo Agro-environmental Research Centre (CIAG-IRIAF).</span>
-        <div class="about-meta-row"></div>
+        <div class="about-meta-row">
+    
+        </div>
       </aside>
     </div>
   </div>
 </section>
 
 <!-- Our Mission -->
-<section id="mission" class="section-bg-light">
+<section id="mission"  class="section-bg-light">
   <div class="section-inner">
+
+    <!-- HEADER -->
     <div class="section-header">
       <div class="section-kicker">Our Mission</div>
       <h2 class="section-title">Understanding crop stress across scales</h2>
@@ -1425,8 +1488,12 @@ footer.visible {
         and sensor platforms. Ultimately, the mission of HYDRA-EO is to accelerate the adoption 
         of physics-guided ML in agricultural monitoring and contribute to more resilient, sustainable crop systems.
       </p>
+      <p class="section-subtitle">
+       
+      </p>
     </div>
 
+    <!-- STATS CARDS -->
     <div class="mission-stats">
       <div class="mission-card">
         <div class="mission-number">4</div>
@@ -1444,58 +1511,72 @@ footer.visible {
       </div>
     </div>
 
-    <div class="crop-cards-section">
-      <h3 class="crop-cards-title">Crop–Stressor Scenarios</h3>
-      <p class="crop-cards-subtitle">
-        HYDRA-EO focuses on four strategic crops and a palette of biotic and abiotic stressors. 
-        Field campaigns and EO acquisitions are co-designed to capture contrasted responses 
-        across varieties, management and climate zones.
+    
+    <!-- CROP–STRESS SCENARIOS -->
+<div class="crop-cards-section">
+
+  <h3 class="crop-cards-title">Crop–Stressor Scenarios</h3>
+  <p class="crop-cards-subtitle">
+    HYDRA-EO focuses on four strategic crops and a palette of biotic and abiotic stressors. 
+    Field campaigns and EO acquisitions are co-designed to capture contrasted responses 
+    across varieties, management and climate zones.
+  </p>
+
+  <div class="crop-cards-grid">
+
+
+    <!-- CARD 4 -->
+    <div class="crop-card">
+      <h4 class="crop-card-title">Pistachio & Olive (Spain)</h4>
+      <p>
+        CIAG–IRIAF orchards with inoculated fungal and bacterial pathogens 
+        (e.g. <i>Septoria</i> spp., <i>Pseudomonas savastanoi</i>) under varying water regimes 
+        are monitored using UAV hyperspectral, thermal, and airborne-borne sensors to build 
+        a unique multi-sensor stress dataset.
       </p>
-
-      <div class="crop-cards-grid">
-        <div class="crop-card">
-          <h4 class="crop-card-title">Pistachio &amp; Olive (Spain)</h4>
-          <p>
-            CIAG–IRIAF orchards with inoculated fungal and bacterial pathogens 
-            (e.g. <i>Septoria</i> spp., <i>Pseudomonas savastanoi</i>) under varying water regimes 
-            are monitored using UAV hyperspectral, thermal, and airborne-borne sensors to build 
-            a unique multi-sensor stress dataset.
-          </p>
-        </div>
-        
-        <div class="crop-card">
-          <h4 class="crop-card-title">Potato (Netherlands)</h4>
-          <p>
-            Multi-stressor trials including Potato Virus Y and fungal infections in a dedicated 
-            phenotyping trial, combining leaf measurements, biochemical analysis, UAV imaging, 
-            and satellite observations. These experiments generate contrasted physiological 
-            responses across varieties under plant diseases.
-          </p>
-        </div>
-      
-        <div class="crop-card">
-          <h4 class="crop-card-title">Grapevine (Italy)</h4>
-          <p>
-            Italian vineyard plots infected with <i>Flavescence Dorée</i>
-            and additional fungal pathogens form the primary study area, enabling the 
-            development and validation of spectral–thermal indicators for early disease 
-            detection in perennial cropping systems.
-          </p>
-        </div>
-
-        <div class="crop-card">
-          <h4 class="crop-card-title">Alfalfa (Italy)</h4>
-          <p>
-            Alfalfa experimental plots in Italy include controlled fertiliser treatments designed 
-            to capture a wide range of physiological responses. HYDRA-EO also investigates the 
-            spectral and thermal signatures associated with insect pressure in alfalfa, 
-            enabling early detection of pest-driven stress.
-          </p>
-        </div>
-      </div>
+    </div>
+    
+       <!-- CARD 2 -->
+    <div class="crop-card">
+      <h4 class="crop-card-title">Potato (Netherlands)</h4>
+      <p>
+        Multi-stressor trials including Potato Virus Y and fungal infections in a dedicated 
+        phenotyping trial, combining leaf measurements, biochemical analysis, UAV imaging, 
+        and satellite observations. These experiments generate contrasted physiological 
+        responses across varieties under plant diseases.
+      </p>
+    </div>
+  
+    <!-- CARD 3 -->
+    <div class="crop-card">
+      <h4 class="crop-card-title">Grapevine (Italy)</h4>
+      <p>
+        Italian vineyard plots infected with <i>Flavescence Dorée</i>
+        and additional fungal pathogens form the primary study area, enabling the 
+        development and validation of spectral–thermal indicators for early disease 
+        detection in perennial cropping systems.
+      </p>
     </div>
 
+  <!-- CARD 1 -->
+    <div class="crop-card">
+      <h4 class="crop-card-title">Alfalfa (Italy)</h4>
+      <p>
+        Alfalfa experimental plots in Italy include controlled fertiliser treatments designed 
+        to capture a wide range of physiological responses. HYDRA-EO also investigates the 
+        spectral and thermal signatures associated with insect pressure in alfalfa, 
+        enabling early detection of pest-driven stress.
+      </p>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- IMAGE STRIP INTEGRATED BELOW -->
     <div class="mission-image-strip">
+      <h3 class="mission-strip-title"></h3>
+      <p class="mission-strip-subtitle"></p>
       <div class="img-strip">
         <div class="img-frame">
           <img src="assets/figure1.png" alt="Disease example 1">
@@ -1516,8 +1597,9 @@ footer.visible {
   </div>
 </section>
 
+
 <!-- WORK PACKAGES (Main Goals) -->
-<section id="workpackages">
+<section id="workpackages" >
   <div class="section-inner">
     <div class="section-header">
       <div class="section-kicker">Main Goals</div>
@@ -1530,14 +1612,15 @@ footer.visible {
     </div>
 
     <div class="wp-grid">
+      <!-- HERE: Main goals -->
       <div class="wp-card">
         <div class="wp-label">Functional plant traits</div>
         <div class="wp-title">Retrieve key functional traits</div>
         <p class="wp-text">
-          Retrieve traits such as chlorophyll content, anthocyanins, leaf area index (LAI),
-          biomass, water status, canopy temperature, nitrogen- and red-edge-based indices, 
-          as well as SIF-related indicators. These traits are derived from hyperspectral, 
-          multispectral and thermal data using PROSAIL- and SCOPE-based simulations combined with machine learning.
+           Retrieve traits such as chlorophyll content, anthocyanins, leaf area index (LAI),
+           biomass, water status, canopy temperature, nitrogen- and red-edge-based indices, 
+           as well as SIF-related indicators. These traits are derived from hyperspectral, 
+           multispectral and thermal data using PROSAIL- and SCOPE-based simulations combined with machine learning.
         </p>
       </div>
 
@@ -1554,7 +1637,7 @@ footer.visible {
 
       <div class="wp-card">
         <div class="wp-label">Scaling</div>
-        <div class="wp-title">Bridge scales &amp; missions</div>
+        <div class="wp-title">Bridge scales & missions</div>
         <p class="wp-text">
           Quantify how plant trait signals degrade from UAV and airborne hyperspectral data to satellite 
           missions such as Sentinel-2, PRISMA, EnMAP, FLEX, CHIME and LSTM, and design optimised bandsets 
@@ -1576,9 +1659,12 @@ footer.visible {
   </div>
 </section>
 
+
 <!-- Pipeline (methods) -->
 <section id="methods" class="section-bg-light">
   <div class="section-inner">
+
+    <!-- HEADER -->
     <div class="section-header">
       <div class="section-kicker">EO pipeline</div>
       <h2 class="section-title">Hybrid radiative transfer and machine learning pipeline</h2>
@@ -1588,58 +1674,68 @@ footer.visible {
       </p>
     </div>
 
+    <!-- TWO COLUMN GRID -->
     <div class="methods-grid">
+
+      <!-- LEFT COLUMN: STEPS -->
       <div>
-        <ul class="methods-steps">
-          <li>
-            <span class="text-accent">Field &amp; UAV campaigns:</span> Coordinated hyperspectral, thermal and fluorescence 
-            measurements over alfalfa, potato, grapevine, pistachio and olive sites.
-          </li>
+      <ul class="methods-steps">
 
-          <li>
-            <span class="text-accent">Airborne &amp; satellite data:</span> Integration of PRISMA, EnMAP, Sentinel-2, 
-            FLEX-like SIF products and simulated CHIME and LSTM configurations. 
-          </li>
+  <li>
+    <span class="text-accent">Field & UAV campaigns:</span> Coordinated hyperspectral, thermal and fluorescence 
+    measurements over alfalfa, potato, grapevine, pistachio and olive sites.
+  </li>
 
-          <li>
-            <span class="text-accent">Radiative transfer:</span> Use of PROSAIL and SCOPE models for simulating reflectance
-            and fluorescence at canopy level under controlled trait–stressor combinations. 
-          </li>
+  <li>
+    <span class="text-accent">Airborne & satellite data:</span> Integration of PRISMA, EnMAP, Sentinel-2, 
+    FLEX-like SIF products and simulated CHIME and LSTM configurations. 
+  </li>
 
-          <li>
-            <span class="text-accent">Hybrid ML:</span> Random forests, gradient boosting, CNNs and Gaussian processes 
-            trained on RTM-informed synthetic libraries and empirical observations.
-          </li>
+  <li>
+    <span class="text-accent">Radiative transfer:</span> Use of PROSAIL and SCOPE models for simulating reflectance
+    and fluorescence at canopy level under controlled trait–stressor combinations. 
+  </li>
 
-          <li>
-            Physically-based canopy simulations using the 
-            <span class="text-accent">
-              <a href="https://gitlab.com/caminoccg/toolsrtm" class="card-link" target="_blank">ToolsRTM</a>
-            </span> 
-            and 
-            <span class="text-accent">
-              <a href="https://gitlab.com/caminoccg/scopeinr" class="card-link" target="_blank">SCOPEinR</a>
-            </span>
-            R packages, developed in GitLab, to model hyperspectral reflectance, fluorescence and surface energy balance processes.
-          </li>
-        </ul>
+  <li>
+   <span class="text-accent">Hybrid ML:</span> Random forests, gradient boosting, CNNs and Gaussian processes 
+   trained on RTM-informed synthetic libraries and empirical observations.
+  </li>
+  <li>
+  Physically-based canopy simulations using the 
+  <span class="text-accent">
+    <a href="https://gitlab.com/caminoccg/toolsrtm" class="card-link" target="_blank">ToolsRTM</a>
+  </span> 
+  and 
+  <span class="text-accent">
+    <a href="https://gitlab.com/caminoccg/scopeinr" class="card-link" target="_blank">SCOPEinR</a>
+  </span>
+  R packages, developed in GitLab, to model hyperspectral reflectance, fluorescence and surface energy balance processes.
+</li>
+
+
+</ul>
+
       </div>
 
+      <!-- RIGHT COLUMN: KEY DATASETS + FIGURE -->
       <aside class="pipeline-card">
+        <!-- FIGURE BLOCK -->
         <div class="methods-figure">
           <img src="assets/figureSims.png" alt="Simulation spectra">
-          <div class="figure-caption"></div>
+          <div class="figure-caption">
+          </div>
         </div>
       </aside>
+
     </div>
   </div>
 </section>
 
-<section id="news">
+<section id="news" >
   <div class="section-inner">
     <div class="section-header">
       <div class="section-kicker">News</div>
-      <h2 class="section-title">Announcements &amp; disseminations</h2>
+      <h2 class="section-title">Announcements & disseminations</h2>
       <p class="section-subtitle">
         HYDRA-EO activities, public presentations and scientific outputs
         are disseminated through ESA events, conferences and peer-reviewed papers. 
@@ -1651,48 +1747,54 @@ footer.visible {
       <div class="wp-card">
         <div class="wp-label">Event · ESA Digital Twin Earth</div>
         <div class="wp-title">HYDRA-EO at ESA Digital Twin Earth Open Science Meeting</div>
-        <p class="wp-text"></p>
-        <p>
-          The HYDRA-EO project will be presented during the
-          <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>.
+        <p class="wp-text">
         </p>
         <p>
-          <strong>Date:</strong> 2–5 February 2026 (ESRIN, Frascati, Italy).<br />
-          <strong>Meeting link:</strong><br />
-          <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction"
-             target="_blank" class="card-link">ESA Digital Twin Earth – Open Science Meeting </a>
+           The HYDRA-EO project will be presented during the
+           <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>.
         </p>
         <p>
-          <strong>Project presentation (PDF):</strong><br />
-          <a href="docs/ESA_Hydra_submitted.pdf"
-             target="_blank" class="card-link">
-            Download HYDRA-EO Presentation (PDF)
-          </a>
-        </p>
+        <strong>Date:</strong> 2–5 February 2026 (ESRIN, Frascati, Italy).<br />
+        <strong>Meeting link:</strong><br />
+               <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction"
+               target="_blank" class="card-link">ESA Digital Twin Earth – Open Science Meeting </a>
+          </p>
+           <p>
+            <strong>Project presentation (PDF):</strong><br />
+            <a href="docs/ESA_Hydra_submitted.pdf"
+               target="_blank" class="card-link">
+              Download HYDRA-EO Presentation (PDF)
+            </a>
+          </p>
       </div>
 
       <div class="wp-card">
-        <div class="wp-label">Papers &amp; media</div>
+        <div class="wp-label">Papers & media</div>
         <div class="wp-title">Scientific papers and media coverage</div>
-        <p class="wp-text"></p>
-        <p>
-          HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML inversion,
-          stress indicators for <em>Flavescence Dorée</em> and Potato Virus Y, and EO-based
-          disease early-warning systems.
+        <p class="wp-text">
         </p>
         <p>
-          A curated list of accepted papers, conference contributions and media highlights
-          will be added here as the project progresses, providing references for ESA,
-          national agencies and the scientific community.
-        </p>
+            HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML inversion,
+            stress indicators for <em>Flavescence Dorée</em> and Potato Virus Y, and EO-based
+            disease early-warning systems.
+          </p>
+          <p>
+            A curated list of accepted papers, conference contributions and media highlights
+            will be added here as the project progresses, providing references for ESA,
+            national agencies and the scientific community.
+          </p>
       </div>
     </div>
   </div>
 </section>
 
+
+
 <!-- CONSORTIUM -->
-<section id="consortium" class="section-bg-light">
+<section id="consortium" class="section-bg-light" >
   <div class="section-inner">
+
+    <!-- HEADER -->
     <div class="section-header">
       <div class="section-kicker">Consortium</div>
       <h2 class="section-title">European partnership</h2>
@@ -1703,7 +1805,10 @@ footer.visible {
       </p>
     </div>
 
+    <!-- CONTENT: PARTNERS + ESA CONTEXT (STACKED) -->
     <div class="consortium-grid-single">
+
+      <!-- PARTNERS (FULL WIDTH) -->
       <div class="consortium-partners">
         <ul class="partner-list">
           <li>
@@ -1742,37 +1847,45 @@ footer.visible {
               spectral and genetic data to support stress disaggregation and resilience studies.
             </span>
           </li>
+
         </ul>
       </div>
 
-      <div class="mission-image-strip">
-        <div class="img-strip">
-          <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
-            <img src="assets/figure_WUR.png" alt="WUR"
-                 style="width:100%; height:100%; object-fit:cover;">
-            <div class="img-caption">Wageningen University &amp; Research (WUR)</div>
-          </div>
-          
-          <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
-            <img src="assets/figure_CIAG.png" alt="CIAG-IRIAF"
-                 style="width:100%; height:100%; object-fit:cover;">
-            <div class="img-caption">Chaparrillo Agro-Environmental Research Center</div>
-          </div>
-          
-          <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
-            <img src="assets/figure_CNR.png" alt="CNR-IBE"
-                 style="width:100%; height:100%; object-fit:cover;">
-            <div class="img-caption">Consiglio Nazionale delle Ricerche – Institute of BioEconomy Center</div>
-          </div>
+<!-- IMAGE STRIP INTEGRATED BELOW -->
+    <div class="mission-image-strip">
+      <h3 class="mission-strip-title"></h3>
+      <p class="mission-strip-subtitle"></p>
+      <div class="img-strip">
+        <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
+          <img src="assets/figure_WUR.png" alt="WUR"
+          style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-caption">Wageningen University &amp; Research (WUR)</div>
         </div>
+        
+        <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
+           <img src="assets/figure_CIAG.png" alt="CIAG-IRIAF"
+           style="width:100%; height:100%; object-fit:cover;">
+           <div class="img-caption">Chaparrillo Agro-Environmental Research Center</div>
+        </div>
+        
+        <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
+          <img src="assets/figure_CNR.png" alt="CNR-IBE"
+          style="width:100%; height:100%; object-fit:cover;">
+        <div class="img-caption">Consiglio Nazionale delle Ricerche – Institute of BioEconomy Center</div>
+        </div>
+ 
+     
       </div>
     </div>
   </div>
 </section>
 
+
 <!-- OPEN TOOLS  -->
-<section id="tools">
+<section id="tools" >
   <div class="section-inner">
+
+    <!-- HEADER -->
     <div class="section-header">
       <div class="section-kicker">Open tools</div>
       <h2 class="section-title">Open-source ecosystem for trait retrieval</h2>
@@ -1782,7 +1895,9 @@ footer.visible {
       </p>
     </div>
 
+    <!-- TOOLS GRID -->
     <div class="tools-grid">
+      <!-- ToolsRTM -->
       <article class="tool-card">
         <h3 class="tool-card-title">ToolsRTM package</h3>
         <p>
@@ -1799,21 +1914,23 @@ footer.visible {
            target="_blank">→ View ToolsRTM on GitLab</a>
       </article>
 
+      <!-- SCOPEinR -->
       <article class="tool-card">
         <h3 class="tool-card-title">SCOPEinR package</h3>
         <p>
-          SCOPEinR implements the SCOPE model for simulating 
-          soil–canopy radiative transfer, photosynthesis, fluorescence and surface
-          energy balance. It provides an R interface for producing consistent
-          reflectance, SIF and photosynthesis products under varying stress, 
-          physiological and illumination conditions. This package supports 
-          detailed modelling of vegetation functioning in crop studies.
+         SCOPEinR implements the SCOPE model for simulating 
+         soil–canopy radiative transfer, photosynthesis, fluorescence and surface
+         energy balance. It provides an R interface for producing consistent
+         reflectance, SIF and photosynthesis products under varying stress, 
+         physiological and illumination conditions. This package supports 
+         detailed modelling of vegetation functioning in crop studies.
         </p>
         <a href="https://gitlab.com/caminoccg/scopeinr"
            class="card-link"
            target="_blank">→ View SCOPEinR on GitLab</a>
       </article>
 
+      <!-- HYDRA-EO repo -->
       <article class="tool-card">
         <h3 class="tool-card-title">HYDRA-EO project repository</h3>
         <p>
@@ -1826,12 +1943,14 @@ footer.visible {
            target="_blank">→ View HYDRA-EO on GitHub</a>
       </article>
 
+      <!-- Shiny app -->
       <article class="tool-card">
         <h3 class="tool-card-title">Shiny app for trait retrieval</h3>
         <p>
           An interactive web application will allow users to explore retrieval workflows, visualise scaling
           effects, and test different sensor configurations and bandsets for specific crops and pathogens.
         </p>
+        <!-- add link later if you want -->
       </article>
     </div>
   </div>
@@ -1840,8 +1959,9 @@ footer.visible {
 <!-- TUTORIALS & EXAMPLE CODE -->
 <section id="tutorials" class="section-bg-light">
   <div class="section-inner">
+
     <div class="section-header">
-      <div class="section-kicker">Tutorials &amp; example code</div>
+      <div class="section-kicker">Tutorials & example code</div>
       <h2 class="section-title">Start experimenting with HYDRA-EO workflows</h2>
       <p class="section-subtitle">
         Short, reproducible snippets to explore the HYDRA-EO workflows with
@@ -1853,8 +1973,11 @@ footer.visible {
     <button id="toggle-tutorials" class="btn btn-ghost" style="margin-top:0.6rem;">
       Hide tutorials
     </button>
-
+    <!-- WRAPPER THAT JS NEEDS -->
     <div id="tutorials-content" class="tutorials-content" style="margin-top:1rem;">
+
+      <!-- TOOLSRTM CODE CARD -->
+  
       <div class="code-card">
         <div class="code-card-header">
           <span class="code-badge">R · ToolsRTM</span>
@@ -1862,9 +1985,11 @@ footer.visible {
         </div>
         <div class="code-card-body">
           <details class="code-collapse">
-            <summary>Show code</summary>
-            <button class="copy-btn" data-copy="code-prosail">Copy</button>
-            <pre id="code-prosail"><code>
+              <summary>Show code</summary>
+              <button class="copy-btn" data-copy="code-prosail">Copy</button>
+          <pre id="code-prosail">
+
+            <code>
 library(ToolsRTM)
 # Launch Shiny simulators for different RTMs
 
@@ -1872,11 +1997,16 @@ ToolsRTM::get.simulator(app = "SCOPE")
 ToolsRTM::get.simulator(app = "getLUT")
 ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
 # Type ?get.simulator to see more options
-            </code></pre>
-          </details>
+              </code>
+              </details>
+          </pre>
         </div>
+
+
       </div>
 
+
+      <!-- TOOLSRTM CODE CARD -->
       <div class="code-card">
         <div class="code-card-header">
           <span class="code-badge">R · ToolsRTM</span>
@@ -1885,8 +2015,9 @@ ToolsRTM::get.simulator(app = "PROSAIL-BRDF")
         <div class="code-card-body">
           <details class="code-collapse">
             <summary>Show code</summary>
-            <button class="copy-btn" data-copy="code-prosail2">Copy</button>
-            <pre id="code-prosail2"><code>
+              <button class="copy-btn" data-copy="code-prosail2">Copy</button>
+          <pre id="code-prosail2">
+            <code>
 library(ToolsRTM)
 #Get default PROSAIL input list
 inputs <- ToolsRTM::inputsPROSAIL
@@ -1923,7 +2054,7 @@ sims <- lapply(seq_len(nrow(LUT)), function(i) {
     LeafModel   = "PROSPECT-PRO",
     spectrum.all = TRUE
   ))
-  # out has rdot, rsot, rddt, rsdt; combine to BRF using solar zenith (tts)
+    # out has rdot, rsot, rddt, rsdt; combine to BRF using solar zenith (tts)
   brf <- ToolsRTM::Compute_BRF(
     rdot = out$rdot,
     rsot = out$rsot,
@@ -1933,11 +2064,14 @@ sims <- lapply(seq_len(nrow(LUT)), function(i) {
   # Return tidy tibble for this run
   tibble(run = i, wl = wl_grid, rho = as.numeric(brf))
 })
-            </code></pre>
-          </details>
+
+              </code>
+        </details>
+          </pre>
         </div>
       </div>
 
+      <!-- SCOPEinR CODE CARD -->
       <div class="code-card">
         <div class="code-card-header">
           <span class="code-badge">R · SCOPEinR</span>
@@ -1946,50 +2080,61 @@ sims <- lapply(seq_len(nrow(LUT)), function(i) {
         <div class="code-card-body">
           <details class="code-collapse">
             <summary>Show code</summary>
-            <button class="copy-btn" data-copy="code-scope">Copy</button>
-            <pre id="code-scope"><code>
+              <button class="copy-btn" data-copy="code-scope">Copy</button>
+          <pre id="code-scope">
+            <code>
 library(SCOPEinR)
 
 # Read configuration and LUT tables
-setopts  <- read.table("input/setoptions.csv", header = TRUE, sep = ",")
-inputLUT <- read.table("input/LUT_input.csv", header = TRUE, sep = ",")
+setopts  &lt;- read.table("input/setoptions.csv", header = TRUE, sep = ",")
+inputLUT &lt;- read.table("input/LUT_input.csv", header = TRUE, sep = ",")
 
 # Execute the SCOPE model
-db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
-  options.SCOPE = setopts, get.outputs = "ALL", get.plots = FALSE)
-            </code></pre>
-          </details>
+db.sim &lt;- SCOPEinR::get.SCOPE(LUT = inputLUT,
+options.SCOPE = setopts, get.outputs   = "ALL", get.plots = FALSE)
+              </code>
+              </details>
+          </pre>
         </div>
       </div>
 
-      <div class="mission-image-strip">
-        <div class="img-strip">
-          <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
-            <img src="assets/1-rtm_sims.png" alt="Simulations"
-                 style="width:100%; height:100%; object-fit:cover;">
-            <div class="img-caption">Simulations using ToolsRTM package</div>
-          </div>
-          
-          <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
-            <img src="assets/2-fluorescence.png" alt="Fluorescence emission"
-                 style="width:100%; height:100%; object-fit:cover;">
-            <div class="img-caption">Fluorescence emission</div>
-          </div>
-          
-          <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
-            <img src="assets/3-rfl.png" alt="ScopeinR reflectance"
-                 style="width:100%; height:100%; object-fit:cover;">
-            <div class="img-caption">Simulations using SCOPEinR</div>
-          </div>
+<!-- IMAGE STRIP INTEGRATED BELOW -->
+    <div class="mission-image-strip">
+      <h3 class="mission-strip-title"></h3>
+      <p class="mission-strip-subtitle"></p>
+      <div class="img-strip">
+        <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
+           <img src="assets/1-rtm_sims.png" alt="Simulations"
+           style="width:100%; height:100%; object-fit:cover;">
+           <div class="img-caption">Simulations using ToolsRTM package</div>
         </div>
+        
+        <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
+          <img src="assets/2-fluorescence.png" alt="Fluorescence emission"
+          style="width:100%; height:100%; object-fit:cover;">
+        <div class="img-caption">Fluorescence emission</div>
+        </div>
+        
+        <div class="img-frame" style="height:280px; overflow:hidden; border-radius:18px;">
+          <img src="assets/3-rfl.png" alt="ScopeinR reflectance"
+          style="width:100%; height:100%; object-fit:cover;">
+          <div class="img-caption">Simulations using SCOPEinR</div>
+        </div>
+
+     
       </div>
     </div>
+
+
+
+    </div> <!-- /tutorials-content -->
   </div>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
   <div class="section-inner">
+    
     <div class="section-header">
       <div class="section-kicker">Contact</div>
       <h2 class="section-title"></h2>
@@ -1997,7 +2142,7 @@ db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
         HYDRA-EO is currently in preparation for the ESA Kick-off meeting.
         For questions regarding the project, collaboration opportunities,
         datasets or technical details, please contact the project coordinator
-        at Wageningen University &amp; Research.
+        at Wageningen University & Research.
       </p>
     </div>
 
@@ -2016,8 +2161,10 @@ db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
         </a>
       </p>
     </div>
+
   </div>
 </section>
+
 
 <!-- FOOTER -->
 <footer>
@@ -2038,7 +2185,7 @@ db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
     </div>
 
     <div class="footer-credit">
-      <!-- extra info -->
+      <!-- extra info:..... -->
     </div>
   </div>
 </footer>
@@ -2046,7 +2193,7 @@ db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  // Toggle tutorials
+  // 1) Toggle tutorials
   const toggleBtn = document.getElementById("toggle-tutorials");
   const tutorialsContent = document.getElementById("tutorials-content");
 
@@ -2057,7 +2204,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Scroll to top
+  // 2) Scroll to top (Top link en footer)
   document.querySelectorAll('a[href="#top"]').forEach(link => {
     link.addEventListener("click", (e) => {
       e.preventDefault();
@@ -2065,29 +2212,29 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Copy code buttons
+  // 3) Copy code buttons
   document.querySelectorAll(".copy-btn").forEach((btn) => {
     btn.addEventListener("click", async () => {
-      const targetId = btn.getAttribute("data-copy");
-      const el = document.getElementById(targetId);
-      if (!el) return;
+    const targetId = btn.getAttribute("data-copy");
+    const el = document.getElementById(targetId);
+    if (!el) return;
 
-      const text = el.textContent.replace(/^\n+|\s+$/g, "");
+    const text = el.textContent.replace(/^\n+|\s+$/g, "");
 
-      try {
-        await navigator.clipboard.writeText(text);
-        const old = btn.textContent;
-        btn.textContent = "Copied!";
-        setTimeout(() => (btn.textContent = old), 1200);
-      } catch (e) {
-        console.error("Clipboard error", e);
-        btn.textContent = "Error";
-        setTimeout(() => (btn.textContent = "Copy"), 1200);
-      }
-    });
+    try {
+      await navigator.clipboard.writeText(text);
+      const old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => (btn.textContent = old), 1200);
+    } catch (e) {
+      console.error("Clipboard error", e);
+      btn.textContent = "Error";
+      setTimeout(() => (btn.textContent = "Copy"), 1200);
+    }
   });
+});
 
-  // Footer aparece tras hacer scroll
+  // 4) Footer aparece tras hacer scroll
   const footer = document.querySelector("footer");
   if (footer) {
     window.addEventListener("scroll", () => {
@@ -2099,7 +2246,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // MOBILE NAV TOGGLE
+  // 5) MOBILE NAV TOGGLE
   const navToggle = document.getElementById("navToggle");
   const navMobile = document.getElementById("navMobile");
 
@@ -2109,8 +2256,10 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
   }
+
 });
 </script>
+
 
 <div id="domainModal" style="
   position: fixed;
