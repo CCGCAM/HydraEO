@@ -193,6 +193,56 @@ img {
   }
 }
 
+
+/* ===============================
+   ESA LOGO – Position & Sizing
+   =============================== */
+
+/* Container for the ESA logo */
+.esa-logo {
+  position: absolute;      /* Places the logo over the layout */
+  top: 20px;               /* Distance from the top */
+  left: 20px;              /* Distance from the left */
+  z-index: 2000;           /* Ensures visibility above other elements */
+}
+
+/* Default size of the ESA logo */
+.esa-logo-img {
+  width: 120px;            /* Standard small size */
+  height: auto;            /* Keeps original aspect ratio */  opacity: 0.95;           /* Slight transparency for a smooth look */
+}
+/* ESA logo fixed on top-left of the navbar */
+.esa-logo-fixed {
+  position: absolute;
+  top: 50%;              /* vertically centered in the navbar */
+  left: 150px;            /* distance from left edge */
+  transform: translateY(-50%);
+  width: 120px;           /* adjust size as you like */
+  height: auto9
+}
+
+/* Optional: Extra-small logo */
+.esa-logo.small .esa-logo-img {
+  width: 90px;
+}
+
+/* Optional: Medium size logo */
+.esa-logo.medium .esa-logo-img {
+  width: 150px;
+}
+
+/* Responsive adjustment for mobile devices */
+@media (max-width: 768px) {
+  .esa-logo-img {
+    width: 90px;           /* Smaller logo on phones */
+  }
+    .esa-logo-fixed {
+    width: 32px;   /* smaller ESA logo in mobile */
+    left: 12px;    /* optional: bring slightly closer to edge */
+  }
+}
+
+
 /* =========================================
    2. HERO SECTION (INTERNAL)
    ========================================= */
@@ -747,8 +797,9 @@ footer {
 <!-- NAVBAR -->
 <header class="navbar">
   <div class="nav-container">
+     <img src="assets/ESA_logo_2020_Deep.png" alt="ESA logo" class="esa-logo-fixed">
     <div class="nav-logo">
-      HYDRA-EO
+      HYDRA-EO project
       <span>Internal pipelines &amp; methods</span>
     </div>
 

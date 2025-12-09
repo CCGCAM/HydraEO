@@ -68,7 +68,7 @@ img {
   left: 0;
   width: 100%;
   z-index: 999;
-  background: #003f7d;  /* ESA deep blue */
+  background: #003247;  /* ESA deep blue */
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   color: #ffffff;
@@ -151,7 +151,7 @@ img {
 }
 
 .nav-cta:hover {
-  background: #66c7ff !important;
+  background: #003f7d !important;
   color: #ffffff !important;
   transform: translateY(-2px);
 }
@@ -178,7 +178,7 @@ img {
   flex-direction: column;
   gap: 14px;
   padding: 18px 24px 20px 24px;
-  background: #003f7d; /* mismo azul que la barra */
+  background: #003247; /* mismo azul que la barra */
   border-top: 1px solid rgba(255, 255, 255, 0.15);
 }
 
@@ -193,6 +193,55 @@ img {
 .nav-links-mobile.show {
   display: flex;
 }
+
+/* ===============================
+   ESA LOGO – Position & Sizing
+   =============================== */
+
+/* Container for the ESA logo */
+.esa-logo {
+  position: absolute;      /* Places the logo over the layout */
+  top: 20px;               /* Distance from the top */
+  left: 20px;              /* Distance from the left */
+  z-index: 2000;           /* Ensures visibility above other elements */
+}
+
+/* Default size of the ESA logo */
+.esa-logo-img {
+  width: 120px;            /* Standard small size */
+  height: auto;            /* Keeps original aspect ratio */  opacity: 0.95;           /* Slight transparency for a smooth look */
+}
+/* ESA logo fixed on top-left of the navbar */
+.esa-logo-fixed {
+  position: absolute;
+  top: 50%;              /* vertically centered in the navbar */
+  left: 150px;            /* distance from left edge */
+  transform: translateY(-50%);
+  width: 120px;           /* adjust size as you like */
+  height: auto9
+}
+
+/* Optional: Extra-small logo */
+.esa-logo.small .esa-logo-img {
+  width: 90px;
+}
+
+/* Optional: Medium size logo */
+.esa-logo.medium .esa-logo-img {
+  width: 150px;
+}
+
+/* Responsive adjustment for mobile devices */
+@media (max-width: 768px) {
+  .esa-logo-img {
+    width: 90px;           /* Smaller logo on phones */
+  }
+    .esa-logo-fixed {
+    width: 32px;   /* smaller ESA logo in mobile */
+    left: 12px;    /* optional: bring slightly closer to edge */
+  }
+}
+
 
 /* Mobile behavior: hide desktop links */
 @media (max-width: 768px) {
@@ -244,6 +293,17 @@ img {
   margin-bottom: 12px;
 }
 
+/* ESA Funding Banner above the hero title */
+.hero-funding {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: #005b9f;    /* ESA blue accent */
+  opacity: 0.9;
+  margin-bottom: 14px;
+  display: block;
+}
 .hero-title-main {
   background: linear-gradient(90deg, #003f7d 0%, #005aa3 100%);
   -webkit-background-clip: text;
@@ -1250,14 +1310,16 @@ footer.visible {
 
 <!-- NAVBAR -->
 <header class="navbar">
+   <img src="assets/ESA_logo_2020_White.png" alt="ESA logo" class="esa-logo-fixed">
   <div class="nav-container">
     <div class="nav-logo">
-      HYDRA-EO
+     
+      HYDRA-EO project
       <span>Hybrid ML &amp; RTM for crop stress</span>
     </div>
 
     <nav class="nav-links">
-      <a href="#about">Project</a>
+      <a href="#about">Overview</a>
       <a href="#mission">Mission</a>
       <a href="#workpackages">Goals</a>
       <a href="#methods">Pipeline</a>
@@ -1265,6 +1327,7 @@ footer.visible {
       <a href="#news">News</a>
       <a href="#tools">Tools</a>
       <a href="#contact">Contact</a>
+    
       <button class="nav-cta" onclick="document.getElementById('tutorials').scrollIntoView({behavior:'smooth'});">
         Tutorials
       </button>
@@ -1279,7 +1342,7 @@ footer.visible {
   </div>
 
   <div class="nav-links-mobile" id="navMobile">
-    <a href="#about">Project</a>
+    <a href="#about">Overview</a>
     <a href="#mission">Mission</a>
     <a href="#workpackages">Goals</a>
     <a href="#methods">Pipeline</a>
@@ -1297,18 +1360,31 @@ footer.visible {
 <section class="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-kicker">CROP MULTIPLE STRESSORS, PESTS AND DISEASES · ESA EXPRO+</div>
+      <div class="hero-funding">HYDRA-EO project · FUNDED by European Space Agency (ESA) </div>
+      <div class="hero-kicker">EXPRO+ TENDER “CROP MULTIPLE STRESSORS, PESTS AND DISEASES” </div>
+       <div class="hero-kicker">ACTION 1-12684 </div>
       <h1 class="hero-title">
         <span class="hero-title-main">Hybrid ML & Earth Observation</span><br>
         <span class="hero-title-accent">for multi-stressor crop</span><br>
         <span class="hero-title-sub"> disease detection</span>
       </h1>
        
-      <p class="hero-subtitle">
-        HYDRA-EO develops a hybrid framework that couples radiative transfer models with
-        machine learning to detect and attribute crop stress from field to satellite scales,
-        using hyperspectral, thermal and multi-sensor EO data.
-      </p>
+     <p class="hero-subtitle">
+       HYDRA-EO is a European Space Agency project that develops an operational 
+       framework to detect, quantify and differentiate abiotic and biotic crop stress. 
+       The project targets priority plant pathogens, including <i>Flavescence Dorée</i> 
+       in grapevine, Potato Virus Y in potato, and fungal diseases such as <i>Septoria</i>,
+       while also assessing stress interactions under variable water and environmental conditions.
+       </p>
+    <p class="hero-subtitle">
+      HYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms 
+      to identify the spectral and spatial resolutions required to capture biotic stress 
+      signals effectively. By combining hyperspectral, thermal and multi-sensor Earth 
+      Observation data from field, airborne and satellite platforms, the project delivers 
+      early and reliable indicators to support agricultural resilience and evidence-based 
+      decision-making across Europe.
+    </p>
+
 
       <div class="hero-tags">
         <span class="hero-tag">Hyperspectral &amp; thermal</span>
