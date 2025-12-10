@@ -91,6 +91,16 @@ img {
   justify-content: space-between;
 }
 
+/* left container: logo ESA + title */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0; 
+  padding-right: 32px;  
+    
+}
+
 .nav-logo {
   display: flex;
   flex-direction: column;
@@ -200,49 +210,11 @@ img {
 
 /* Container for the ESA logo */
 .esa-logo {
-  position: absolute;      /* Places the logo over the layout */
-  top: 20px;               /* Distance from the top */
-  left: 20px;              /* Distance from the left */
-  z-index: 2000;           /* Ensures visibility above other elements */
-}
-
-/* Default size of the ESA logo */
-.esa-logo-img {
-  width: 120px;            /* Standard small size */
-  height: auto;            /* Keeps original aspect ratio */  opacity: 0.95;           /* Slight transparency for a smooth look */
-}
-/* ESA logo fixed on top-left of the navbar */
-.esa-logo-fixed {
-  position: absolute;
-  top: 50%;              /* vertically centered in the navbar */
-  left: 150px;            /* distance from left edge */
-  transform: translateY(-50%);
-  width: 120px;           /* adjust size as you like */
-  height: auto9
-}
-
-/* Optional: Extra-small logo */
-.esa-logo.small .esa-logo-img {
-  width: 90px;
-}
-
-/* Optional: Medium size logo */
-.esa-logo.medium .esa-logo-img {
-  width: 150px;
-}
-
-/* Responsive adjustment for mobile devices */
-@media (max-width: 768px) {
-  .esa-logo-img {
-    width: 90px;           /* Smaller logo on phones */
-  }
-    .esa-logo-fixed {
-    width: 32px;   /* smaller ESA logo in mobile */
-    left: 12px;    /* optional: bring slightly closer to edge */
-  }
-}
+  width: 120px;
+  flex-shrink: 0;
 
 
+}
 
 /* Mobile behavior: hide desktop links */
 @media (max-width: 768px) {
@@ -253,6 +225,10 @@ img {
   .nav-toggle {
     display: flex;
   }
+  .esa-logo {
+    width: 44px;
+  }
+  
 }
 
 /* =========================================
@@ -1312,14 +1288,15 @@ footer.visible {
 
 <!-- NAVBAR -->
 <header class="navbar">
-   <img src="assets/ESA_logo_2020_White.png" alt="ESA logo" class="esa-logo-fixed">
-  <div class="nav-container">
-    <div class="nav-logo">
-     
-      HYDRA-EO project
-      <span>Hybrid ML &amp; RTM for crop stress</span>
-    </div>
 
+  <div class="nav-container">
+       <div class="nav-left">
+         
+       <img src="assets/ESA_logo_2020_White.png" alt="ESA logo" class="esa-logo">
+         <div class="nav-logo">HYDRA-EO project
+         <span>Hybrid ML &amp; RTM for crop stress</span>
+         </div>
+         </div>
     <nav class="nav-links">
       <a href="#about">Overview</a>
       <a href="#mission">Mission</a>
