@@ -1,0 +1,49 @@
+---
+title: "Contact"
+format: html
+---
+
+<div class="section-label">Section · Contact</div>
+
+## Contact & contributions
+
+If you would like to contribute examples, report issues, or reuse the tutorials for teaching, please contact the HYDRA-EO team or open an issue in the relevant repositories.
+
+::: {.card-grid}
+
+::: {.vbl-card}
+<div class="pill-mini">Coordination</div>
+
+### Project lead
+
+Dr. Carlos  Camino (Wageningen University): coordination of HYDRA-EO scientific activities and tutorial material.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">Code &amp; issues</div>
+
+### Repositories & support
+
+Open issues and contribute via the project repositories:
+- <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">HYDRA-EO workflow (tutorial site)</a>  
+- <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">ToolsRTM (GitLab)</a>  
+- <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">SCOPEinR (GitLab)</a>
+:::
+
+:::
+
+<div class="text-center small text-secondary vbl-footer-classic">
+  <div class="vbl-footer-line"></div>
+  <p class="mb-1">© 2026 HYDRA-EO.</p>
+  <p class="mb-2">
+    HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+    “Crop Multiple Stressors, Pests and Diseases”.
+  </p>
+  <p class="mb-3">Action 1-12684.</p>
+  <p class="mb-4">
+    Source repository:
+    <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
+      HYDRA-EO project
+    </a>
+  </p>
+</div>

@@ -1,0 +1,78 @@
+---
+title: "News"
+format: html
+---
+
+<div class="section-label">Section · News</div>
+
+## Upcoming conferences & dissemination activities
+
+The HYDRA-EO project is presented and discussed at selected scientific meetings and mission-oriented workshops. These venues are used to share methodological advances, prototype tools, and reproducible examples related to hybrid RTM–ML approaches, imaging spectroscopy, and EO-based crop stress detection.
+
+::: {.card .shadow-sm .border-0}
+::: {.card-body}
+
+<ul class="list-unstyled mt-3 mb-0">
+
+  <li class="py-2 border-top">
+    <strong>
+      <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/"
+         target="_blank" rel="noopener">
+        ESA Digital Twin Earth Components – Open Science Meeting 2026
+      </a>
+    </strong>
+    · <span class="text-secondary">2–5 February 2026 · ESA-ESRIN, Frascati, Italy</span><br>
+    <span class="text-secondary">
+      ESA open science meeting dedicated to Digital Twin Earth components, mission-oriented methods,
+      Cal/Val readiness, and multi-sensor integration for Earth Observation workflows.
+    </span>
+  </li>
+
+  <li class="py-2 border-top">
+    <strong>
+      <a href="https://flex-fluorescence-workshop-2026.esa.int/"
+         target="_blank" rel="noopener">
+        FLEX-Fluorescence 2026 Workshop
+      </a>
+    </strong>
+    · <span class="text-secondary">3–6 March 2026 · Bonn, Germany</span><br>
+    <span class="text-secondary">
+      International ESA workshop focused on the latest developments in fluorescence remote sensing,
+      including updates on the Fluorescence Explorer (FLEX) – Sentinel-3 tandem mission.
+    </span>
+  </li>
+
+  <li class="py-2 border-top">
+    <strong>
+      <a href="https://is.earsel.org/workshop/14-IS-Helsinki2026/"
+         target="_blank" rel="noopener">
+        14th EARSeL Workshop on Imaging Spectroscopy
+      </a>
+    </strong>
+    · <span class="text-secondary">2–4 June 2026 · Helsinki, Finland</span><br>
+    <span class="text-secondary">
+      International scientific workshop on imaging spectroscopy, covering methods, sensors,
+      applications, and reproducible workflows across environmental and agricultural monitoring.
+    </span>
+  </li>
+
+</ul>
+
+:::
+:::
+
+<div class="text-center small text-secondary vbl-footer-classic">
+  <div class="vbl-footer-line"></div>
+  <p class="mb-1">© 2026 HYDRA-EO.</p>
+  <p class="mb-2">
+    HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+    “Crop Multiple Stressors, Pests and Diseases”.
+  </p>
+  <p class="mb-3">Action 1-12684.</p>
+  <p class="mb-4">
+    Source repository:
+    <a href="https://ccgcam.github.io/HydraEO/index.html" target="_blank" rel="noopener">
+      HYDRA-EO project
+    </a>
+  </p>
+</div>

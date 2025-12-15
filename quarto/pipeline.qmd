@@ -1,0 +1,66 @@
+---
+title: "Pipeline"
+format: html
+---
+
+<div class="section-label">Section · Pipeline</div>
+
+## Processing pipelines by data source
+
+This section documents key methodological blocks: radiative transfer configurations, trait retrieval strategies and disease scoring.
+
+::: {.card-grid}
+
+::: {.vbl-card}
+<div class="pill-mini">UAV-airborne processing</div>
+
+### UAV & airborne processing
+
+Radiometric and geometric correction of UAV and airborne hyperspectral and thermal data,
+including mosaicking, BRDF normalisation, and co-registration with field plots.
+Output products include surface reflectance cubes, temperature maps, and quality masks.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">Satellite</div>
+
+### Satellite EO processing
+
+Sentinel-2, PRISMA, and EnMAP workflows (e.g. Sen2Cor atmospheric correction, spectral resampling,
+tiling, and time-series aggregation), harmonised across sites for crop-stressor analysis
+and EO upscaling.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">RTM-ML</div>
+
+### RTM library & hybrid ML
+
+PROSAIL and SCOPE forward simulations via **ToolsRTM** and **SCOPEinR**, LUT generation,
+plant trait retrieval, and hybrid ML models trained on combined RTM–EO features
+for crop stress detection.
+:::
+
+:::
+
+<div class="text-center small text-secondary vbl-footer-classic">
+
+<div class="vbl-footer-line"></div>
+
+<p class="mb-1">© 2026 HYDRA-EO.</p>
+
+<p class="mb-2">
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+“Crop Multiple Stressors, Pests and Diseases”.
+</p>
+
+<p class="mb-3">Action 1-12684.</p>
+
+<p class="mb-4">
+Source repository:
+<a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
+HYDRA-EO pipeline
+</a>
+</p>
+
+</div>

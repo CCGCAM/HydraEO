@@ -1,0 +1,94 @@
+
+---
+title: "Overview"
+format:
+  html:
+    toc: false
+    embed-resources: true
+---
+
+<div class="hero-card">
+
+# Hybrid ML & Earth Observation for multi-stressor crop disease detection <span></span>
+
+<p class="hero-text">
+HYDRA-EO is a European Space Agency project that develops an operational framework to detect, quantify and differentiate abiotic and biotic crop stress. The project targets priority plant pathogens, including Flavescence Dorée in grapevine, Potato Virus Y in potato, and fungal diseases such as Septoria, while also assessing stress interactions under variable water and environmental conditions.
+
+HYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms to identify the spectral and spatial resolutions required to capture biotic stress signals effectively. By combining hyperspectral, thermal and multi-sensor Earth Observation data from field, airborne and satellite platforms, the project delivers early and reliable indicators to support agricultural resilience and evidence-based decision-making across Europe.
+</p>
+
+<div class="hero-tags">
+  <div class="pill-mini">Hybrid ML &amp; RTMs</div>
+  <div class="pill-mini">Crop stress &amp; pests</div>
+  <div class="pill-mini">Hyperspectral &amp; thermal</div>
+  <div class="pill-mini">ESA EXPRO+ project</div>
+</div>
+
+</div>
+
+<div class="section-label">Section · Overview</div>
+
+## Understanding crop stress across spectral and spatial scales
+
+HYDRA-EO is a European Space Agency project that develops an operational framework to detect, quantify and differentiate abiotic and biotic crop stress. The project targets priority plant pathogens, including Flavescence Dorée in grapevine, Potato Virus Y in potato, and fungal diseases such as Septoria, while also assessing stress interactions under variable water and environmental conditions.
+
+HYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms to identify the spectral and spatial resolutions required to capture biotic stress signals effectively. By combining hyperspectral, thermal and multi-sensor Earth Observation data from field, airborne and satellite platforms, the project delivers early and reliable indicators to support agricultural resilience and evidence-based decision-making across Europe.
+
+```{=html}
+  <div style="text-align: center; width: 100%; margin-top: 10px;">
+          <img src="../assets/potato.png" alt="UAV flight"
+               style="width:60%; height:auto; display:block; margin-left:auto; margin-right:auto;">
+          <div class="img-caption" style="margin-top:8px;">Phenotyping potato site </div>
+        </div>
+```
+
+
+::: {.card-grid}
+
+::: {.vbl-card}
+<div class="pill-mini">UAV/airborne</div>
+
+### UAV & airborne processing
+
+Radiometric and geometric correction of UAV and airborne hyperspectral/thermal data, mosaicking, BRDF normalisation and co-registration with field plots. Output products include surface reflectance cubes, temperature maps and quality masks.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">Satellite EO processing</div>
+
+### Satellite EO processing
+
+Sentinel-2, PRISMA and EnMAP workflows (e.g. Sen2Cor atmospheric correction, spectral resampling, tiling and time-series aggregation), harmonised across sites for crop-stressor analysis and EO upscaling.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">RTM library & hybrid ML</div>
+
+### Hybrid ML methods
+
+PROSAIL / SCOPE forward simulations via ToolsRTM and SCOPEinR, LUT generation, plant trait retrieval, and hybrid ML models trained on combined RTM–EO features for stress detection
+:::
+
+:::
+
+<div class="text-center small text-secondary vbl-footer-classic">
+
+<div class="vbl-footer-line"></div>
+
+<p class="mb-1">© 2026 HYDRA-EO.</p>
+
+<p class="mb-2">
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+“Crop Multiple Stressors, Pests and Diseases”.
+</p>
+
+<p class="mb-3">Action 1-12684.</p>
+
+<p class="mb-4">
+Source repository:
+<a href="https://ccgcam.github.io/HydraEO/index.html" target="_blank" rel="noopener">
+HYDRA-EO project
+</a>
+</p>
+
+</div>

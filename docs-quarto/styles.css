@@ -1,0 +1,357 @@
+/* ====== HYDRA-EO base palette ====== */
+:root {
+  --hydra-navy: #003247;   /* barra superior */
+  --hydra-blue: #003f7d;   /* títulos */
+  --hydra-blue-soft: #003f7d;
+  --hydra-pill-bg: #ffffff;
+  --hydra-pill-border: #ffffff;
+  --hydra-text-dark: #0f172a;
+  --hydra-text-muted: #4b5563;
+  --hydra-bg-page: #f4f6fb;
+  --hydra-card-bg: #ffffff;
+  --hydra-border: #dde3ee;
+}
+
+/* Página y navegación */
+body {
+  background: var(--hydra-bg-page);
+  color: var(--hydra-text-dark);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Navbar Quarto -> estilo ESA */
+.navbar {
+  background-color: var(--hydra-navy) !important;
+  border-bottom: none !important;
+}
+
+.navbar-brand,
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-size: .8rem;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+  color: var(--hydra-blue-soft) !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+}
+
+/* Botón "Main site" */
+.navbar .navbar-nav.ms-auto .nav-link {
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  padding: .25rem 1rem;
+  font-weight: 600;
+}
+
+/* Contenido principal */
+main.content {
+  padding-top: 2rem;
+}
+
+/* Hero card */
+.hero-card {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 2rem 2.5rem;
+  box-shadow: 0 14px 40px rgba(15, 23, 42, 0.08);
+  border: 1px solid var(--hydra-border);
+  margin-bottom: 2.5rem;
+}
+
+.hero-card h1 {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--hydra-blue);
+  margin-bottom: .7rem;
+}
+
+.hero-card h1 span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--hydra-text-muted);
+  margin-left: .4rem;
+}
+
+.hero-text {
+  color: var(--hydra-text-muted);
+  max-width: 760px;
+}
+
+/* Pills */
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin-top: 1.2rem;
+}
+
+.tag-pill {
+  background: var(--hydra-pill-bg);
+  color: var(--hydra-navy);
+  border-radius: 999px;
+  border: 1px solid var(--hydra-pill-border);
+  padding: .2rem .9rem;
+  font-size: .75rem;
+  font-weight: 600;
+}
+
+/* Section styling */
+.section-label {
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  font-size: .7rem;
+  color: var(--hydra-blue-soft);
+  margin-bottom: .25rem;
+}
+
+.section-title-strong {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--hydra-navy);
+  margin-bottom: .7rem;
+}
+
+.section-intro {
+  color: var(--hydra-text-muted);
+  max-width: 740px;
+  margin-bottom: 1.6rem;
+}
+
+/* Cards grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.4rem;
+  margin-bottom: 2.2rem;
+}
+
+.vbl-card {
+  background: var(--hydra-card-bg);
+  border-radius: 14px;
+  border: 1px solid var(--hydra-border);
+  padding: 1.3rem 1.4rem;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+}
+
+.vbl-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--hydra-navy);
+  margin-bottom: .4rem;
+}
+
+.vbl-card p {
+  font-size: .92rem;
+  color: var(--hydra-text-muted);
+}
+
+.pill-mini {
+  display: inline-block;
+  padding: .15rem .7rem;
+  border-radius: 999px;
+  border: 1px solid var(--hydra-border);
+  background: #f8fafc;
+  color: var(--hydra-text-muted);
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  margin-bottom: .5rem;
+}
+
+/* Footer */
+.vbl-footer {
+  margin-top: 3rem;
+  padding: 1.8rem 0 0.8rem;
+  text-align: center;
+  color: var(--hydra-text-muted);
+  font-size: .85rem;
+}
+
+.footer-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--hydra-border), transparent);
+  margin-bottom: 1rem;
+}
+
+.footer-text a {
+  color: var(--hydra-blue);
+  font-weight: 500;
+}
+
+
+/* Timeline container */
+.wp-timeline {
+  margin: 2rem 0 1.5rem;
+}
+
+.wp-timeline-track {
+  position: relative;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #d1d5db, #9ca3af, #d1d5db);
+  overflow: visible;
+}
+
+/* Moving marker */
+.wp-timeline-marker {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  background: #0069a8; /* HYDRA blue */
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 4px rgba(0, 105, 168, 0.25);
+  transition: left 0.35s ease, box-shadow 0.25s ease;
+}
+
+/* Labels under the bar */
+.wp-timeline-labels {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: .5rem;
+  gap: .5rem;
+  text-align: center;
+  font-size: .8rem;
+  color: #4b5563;
+}
+
+.wp-timeline-label span {
+  display: block;
+  font-size: .75rem;
+  color: #6b7280;
+}
+
+.wp-timeline-label.active {
+  color: #0069a8;
+  font-weight: 600;
+}
+
+/* WP cards list */
+.wp-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.wp-phase-title {
+  font-weight: 600;
+  display: block;
+}
+
+.wp-phase-subtitle {
+  font-size: 0.75rem;
+  color: #6b7280;
+  display: block;
+}
+
+/* Make each WP card slightly “sticky” when scrolling for a nice effect (optional) */
+@media (min-width: 900px) {
+  .wp-card {
+    scroll-margin-top: 5rem;
+  }
+}
+
+/* ============================
+   GANTT / TIMELINE (HYDRA-EO)
+   ============================ */
+
+.vbl-gantt {
+  margin: 2rem 0 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+/* One row = label + bar */
+.vbl-gantt-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Left label */
+.vbl-gantt-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--hydra-text-dark, #0f172a);
+  line-height: 1.3;
+}
+
+.vbl-gantt-label span {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--hydra-text-muted, #4b5563);
+  margin-top: 2px;
+}
+
+/* Bar background */
+.vbl-gantt-bar {
+  height: 14px;
+  border-radius: 999px;
+  background: #e5e7eb;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Phase bars (length = duration) */
+.vbl-gantt-bar.phase1 {
+  width: 25%;
+  background: linear-gradient(
+    90deg,
+    #93c5fd,
+    #60a5fa
+  );
+}
+
+.vbl-gantt-bar.phase2 {
+  width: 10%;
+  background: linear-gradient(
+    90deg,
+    #003247,
+    #003f7d
+  );
+}
+.vbl-gantt-bar.phase3 {
+  width: 65%;
+  background: linear-gradient(
+    90deg,
+    #60a5fa,
+    #2563eb
+  );
+}
+
+.vbl-gantt-bar.phase4 {
+  width: 35%;
+  background: linear-gradient(
+    90deg,
+    #34d399,
+    #059669
+  );
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .vbl-gantt-row {
+    grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .vbl-gantt-bar {
+    width: 100% !important;
+  }
+}

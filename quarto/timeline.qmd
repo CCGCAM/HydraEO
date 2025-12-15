@@ -1,0 +1,150 @@
+---
+title: "Timeline"
+format: html
+---
+
+<div class="section-label">Section · Timeline</div>
+
+## Project timeline & work packages
+
+```{=html}
+
+<div class="vbl-gantt">
+
+  <div class="vbl-gantt-row">
+    <div class="vbl-gantt-label">
+      Start-up
+      <span>Jan–Jun 2026</span>
+    </div>
+    <div class="vbl-gantt-bar phase1"></div>
+  </div>
+
+<div class="vbl-gantt-row">
+    <div class="vbl-gantt-label">
+     Aerial & Field campaigns
+      <span>May–Sept 2026</span>
+    </div>
+    <div class="vbl-gantt-bar phase2"></div>
+  </div>
+  <div class="vbl-gantt-row">
+    <div class="vbl-gantt-label">
+      Core RTM &amp; ML
+      <span>Jul 2026–Dec 2027</span>
+    </div>
+    <div class="vbl-gantt-bar phase3"></div>
+  </div>
+
+  <div class="vbl-gantt-row">
+    <div class="vbl-gantt-label">
+      Integration &amp; dissemination
+      <span>Jan–Jun 2028</span>
+    </div>
+    <div class="vbl-gantt-bar phase4"></div>
+  </div>
+
+
+</div>
+
+```
+
+This section summarises the HYDRA-EO work packages (WPs), outlining their scope, role, and position within the overall project timeline. Each work package contributes a specific set of activities—ranging from scientific requirements and data collection to modelling, integration, and dissemination—together forming a coherent end-to-end workflow.
+
+::: {.card-grid}
+
+::: {.vbl-card}
+<div class="pill-mini">WP1</div>
+
+### Scientific requirement consolidation
+
+Definition of scientific objectives, use cases, trait–stressor matrix, and alignment with ESA requirements and parallel EU initiatives.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP2</div>
+
+### Dataset collection
+
+Field campaigns, UAV and airborne acquisitions, in-situ measurements, and harmonised dataset documentation across crops and sites.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP3</div>
+
+### Model development & validation
+
+Development and validation of RTMs and EO-based models, including spectral sensitivity and sensor intercomparison.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP4</div>
+
+### Experimental dataset generation
+
+Generation of experimental EO products, synthetic datasets, and stress-specific simulation libraries.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP5</div>
+
+### Earth system science exploitation
+
+Analysis of functional traits, stress dynamics, and scaling from UAV to satellite EO products.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP6</div>
+
+### Societal relevance & transfer
+
+Demonstration of applicability for agriculture, disease monitoring, and resilience, including stakeholder-oriented outputs.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP7</div>
+
+### Scientific roadmap
+
+Identification of knowledge gaps and recommendations for future EO missions (CHIME, FLEX, LSTM).
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP8</div>
+
+### Scientific collaboration
+
+Coordination with ESA activities and relevant Horizon Europe projects.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP9</div>
+
+### Promotion & dissemination
+
+Scientific communication, training material, workshops, and outreach activities.
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">WP10</div>
+
+### Project management
+
+Overall coordination, reporting, risk management, and contractual compliance.
+:::
+
+:::
+
+<div class="text-center small text-secondary vbl-footer-classic">
+  <div class="vbl-footer-line"></div>
+  <p class="mb-1">© 2026 HYDRA-EO.</p>
+  <p class="mb-2">
+    HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
+    “Crop Multiple Stressors, Pests and Diseases”.
+  </p>
+  <p class="mb-3">Action 1-12684.</p>
+  <p class="mb-4">
+    Source repository:
+    <a href="https://ccgcam.github.io/HydraEO/index.html" target="_blank" rel="noopener">
+      HYDRA-EO project
+    </a>
+  </p>
+</div>

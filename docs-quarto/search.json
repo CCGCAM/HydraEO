@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Overview",
+    "section": "",
+    "text": "HYDRA-EO is a European Space Agency project that develops an operational framework to detect, quantify and differentiate abiotic and biotic crop stress. The project targets priority plant pathogens, including Flavescence Dorée in grapevine, Potato Virus Y in potato, and fungal diseases such as Septoria, while also assessing stress interactions under variable water and environmental conditions.\nHYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms to identify the spectral and spatial resolutions required to capture biotic stress signals effectively. By combining hyperspectral, thermal and multi-sensor Earth Observation data from field, airborne and satellite platforms, the project delivers early and reliable indicators to support agricultural resilience and evidence-based decision-making across Europe.\n\n\n\nHybrid ML & RTMs\n\n\nCrop stress & pests\n\n\nHyperspectral & thermal\n\n\nESA EXPRO+ project"
+  },
+  {
+    "objectID": "index.html#understanding-crop-stress-across-spectral-and-spatial-scales",
+    "href": "index.html#understanding-crop-stress-across-spectral-and-spatial-scales",
+    "title": "Overview",
+    "section": "Understanding crop stress across spectral and spatial scales",
+    "text": "Understanding crop stress across spectral and spatial scales\nHYDRA-EO is a European Space Agency project that develops an operational framework to detect, quantify and differentiate abiotic and biotic crop stress. The project targets priority plant pathogens, including Flavescence Dorée in grapevine, Potato Virus Y in potato, and fungal diseases such as Septoria, while also assessing stress interactions under variable water and environmental conditions.\nHYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms to identify the spectral and spatial resolutions required to capture biotic stress signals effectively. By combining hyperspectral, thermal and multi-sensor Earth Observation data from field, airborne and satellite platforms, the project delivers early and reliable indicators to support agricultural resilience and evidence-based decision-making across Europe.\n  \n          \n          Phenotyping potato site \n        \n\n\n\nUAV/airborne\n\n\nUAV & airborne processing\nRadiometric and geometric correction of UAV and airborne hyperspectral/thermal data, mosaicking, BRDF normalisation and co-registration with field plots. Output products include surface reflectance cubes, temperature maps and quality masks.\n\n\n\n\nSatellite EO processing\n\n\nSatellite EO processing\nSentinel-2, PRISMA and EnMAP workflows (e.g. Sen2Cor atmospheric correction, spectral resampling, tiling and time-series aggregation), harmonised across sites for crop-stressor analysis and EO upscaling.\n\n\n\n\nRTM library & hybrid ML\n\n\nHybrid ML methods\nPROSAIL / SCOPE forward simulations via ToolsRTM and SCOPEinR, LUT generation, plant trait retrieval, and hybrid ML models trained on combined RTM–EO features for stress detection\n\n\n\n\n\n\n\n\n© 2026 HYDRA-EO.\n\n\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”.\n\n\nAction 1-12684.\n\n\nSource repository:  HYDRA-EO project"
+  },
+  {
+    "objectID": "tools.html",
+    "href": "tools.html",
+    "title": "Tools",
+    "section": "",
+    "text": "Section · Tools"
+  },
+  {
+    "objectID": "tools.html#software-used-in-hydra-eo-tutorials",
+    "href": "tools.html#software-used-in-hydra-eo-tutorials",
+    "title": "Tools",
+    "section": "Software used in HYDRA-EO tutorials",
+    "text": "Software used in HYDRA-EO tutorials\nThis page summarises the main R packages and tools used in the tutorials, with links to their Git repositories and simple usage examples.\n\n\n\nR · ToolsRTM\n\n\nCanopy & leaf RTMs\nForward simulations of PROSAIL, INFORM, SPART and MARMIT at satellite band resolution.\nGitLab: ToolsRTM\n\n\n\n\nR · SCOPEinR\n\n\nEnergy balance & SIF\nInterface to the SCOPE model for canopy fluxes, temperature and fluorescence.\nGitLab: SCOPEinR\n\n\n\n\n\n\n\n\n© 2026 HYDRA-EO.\n\n\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”\n\n\nAction 1-12684.\n\n\nSource repository:  HYDRA-EO pipeline"
+  },
+  {
+    "objectID": "consortium.html",
+    "href": "consortium.html",
+    "title": "Consortium",
+    "section": "",
+    "text": "Section · Consortium"
+  },
+  {
+    "objectID": "consortium.html#partners-roles",
+    "href": "consortium.html#partners-roles",
+    "title": "Consortium",
+    "section": "Partners & roles",
+    "text": "Partners & roles\nHYDRA-EO is coordinated by Wageningen University and brings together complementary expertise in Earth Observation services, radiative transfer modelling, plant pathology, genetics, and agronomy from the Netherlands, Italy, and Spain. The consortium covers the full chain from field experimentation to EO-based modelling, hybrid machine learning, and dissemination.\n\n\n\nCoordination · NL\n\n\nWageningen University & Research (WU-DES)\nThe Geoinformation Science and Remote Sensing (GRS) group leads overall project coordination and Work Packages WP1, WP2, WP5, WP6, and WP10. WU-DES develops the RTM and ML core (ToolsRTM, SCOPEinR), designs the scientific workflow, and manages the central Git repositories and Shiny-based tools.\nProject coordination is led by Dr. Carlos Luis Camino González, with scientific support from Prof. Dr. Lammert Kooistra and colleagues.\n\n\n\n\nOperations · NL\n\n\nWageningen Environmental Research (WENR)\nWENR leads WP8 (Scientific Collaboration) and WP9 (Promotion & Dissemination), and co-leads WP6. The team specialises in operational EO services, evapotranspiration, and agricultural applications, and is responsible for stakeholder engagement, outreach activities, and links with ESA platforms and services.\n\n\n\n\nModelling · IT\n\n\nConsiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE)\nCNR-IBE leads WP3 (Development & Validation), WP4 (Experimental Dataset Generation), and WP7 (Scientific Roadmap). The group coordinates Italian alfalfa and vineyard campaigns, hyperspectral validation and scaling studies, and contributes to trait retrieval modelling and the long-term scientific roadmap supporting future ESA missions.\n\n\n\n\nField trials · ES\n\n\nChaparrillo Agro-Environmental Research Center (CIAG-IRIAF)\nCIAG-IRIAF co-leads WP2 and is responsible for pistachio and olive trials in WP4. The centre provides experimental orchards with controlled inoculation of fungal and bacterial pathogens, conducts UAV and aircraft-borne campaigns, and integrates agronomic, spectral, and genetic data to support stress disaggregation and crop resilience studies.\n\n\n\n\n  \n    \n    Wageningen University & Research (WUR)\n  \n  \n    \n    Chaparrillo Agro-Environmental Research Center\n  \n  \n    \n    Consiglio Nazionale delle Ricerche – Institute of BioEconomy (CNR-IBE)\n  \n\n\n\n\n\n\n\n\n© 2026 HYDRA-EO.\n\n\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”.\n\n\nAction 1-12684.\n\n\nSource repository:  HYDRA-EO project"
+  },
+  {
+    "objectID": "contact.html",
+    "href": "contact.html",
+    "title": "Contact",
+    "section": "",
+    "text": "Section · Contact"
+  },
+  {
+    "objectID": "contact.html#contact-contributions",
+    "href": "contact.html#contact-contributions",
+    "title": "Contact",
+    "section": "Contact & contributions",
+    "text": "Contact & contributions\nIf you would like to contribute examples, report issues, or reuse the tutorials for teaching, please contact the HYDRA-EO team or open an issue in the relevant repositories.\n\n\n\nCoordination\n\n\nProject lead\nDr. Carlos Camino (Wageningen University): coordination of HYDRA-EO scientific activities and tutorial material.\n\n\n\n\nCode & issues\n\n\nRepositories & support\nOpen issues and contribute via the project repositories: - HYDRA-EO workflow (tutorial site)\n- ToolsRTM (GitLab)\n- SCOPEinR (GitLab)\n\n\n\n\n\n\n\n\n© 2026 HYDRA-EO.\n\n\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”.\n\n\nAction 1-12684.\n\n\nSource repository:  HYDRA-EO project"
+  },
+  {
+    "objectID": "timeline.html",
+    "href": "timeline.html",
+    "title": "Timeline",
+    "section": "",
+    "text": "Section · Timeline"
+  },
+  {
+    "objectID": "timeline.html#project-timeline-work-packages",
+    "href": "timeline.html#project-timeline-work-packages",
+    "title": "Timeline",
+    "section": "Project timeline & work packages",
+    "text": "Project timeline & work packages\n\n\n\n  \n    \n      Start-up\n      Jan–Jun 2026\n    \n    \n  \n\n\n    \n     Aerial & Field campaigns\n      May–Sept 2026\n    \n    \n  \n  \n    \n      Core RTM & ML\n      Jul 2026–Dec 2027\n    \n    \n  \n\n  \n    \n      Integration & dissemination\n      Jan–Jun 2028\n    \n    \n  \n\n\n\n\nThis section summarises the HYDRA-EO work packages (WPs), outlining their scope, role, and position within the overall project timeline. Each work package contributes a specific set of activities—ranging from scientific requirements and data collection to modelling, integration, and dissemination—together forming a coherent end-to-end workflow.\n\n\n\nWP1\n\n\nScientific requirement consolidation\nDefinition of scientific objectives, use cases, trait–stressor matrix, and alignment with ESA requirements and parallel EU initiatives.\n\n\n\n\nWP2\n\n\nDataset collection\nField campaigns, UAV and airborne acquisitions, in-situ measurements, and harmonised dataset documentation across crops and sites.\n\n\n\n\nWP3\n\n\nModel development & validation\nDevelopment and validation of RTMs and EO-based models, including spectral sensitivity and sensor intercomparison.\n\n\n\n\nWP4\n\n\nExperimental dataset generation\nGeneration of experimental EO products, synthetic datasets, and stress-specific simulation libraries.\n\n\n\n\nWP5\n\n\nEarth system science exploitation\nAnalysis of functional traits, stress dynamics, and scaling from UAV to satellite EO products.\n\n\n\n\nWP6\n\n\nSocietal relevance & transfer\nDemonstration of applicability for agriculture, disease monitoring, and resilience, including stakeholder-oriented outputs.\n\n\n\n\nWP7\n\n\nScientific roadmap\nIdentification of knowledge gaps and recommendations for future EO missions (CHIME, FLEX, LSTM).\n\n\n\n\nWP8\n\n\nScientific collaboration\nCoordination with ESA activities and relevant Horizon Europe projects.\n\n\n\n\nWP9\n\n\nPromotion & dissemination\nScientific communication, training material, workshops, and outreach activities.\n\n\n\n\nWP10\n\n\nProject management\nOverall coordination, reporting, risk management, and contractual compliance.\n\n\n\n\n\n\n\n\n© 2026 HYDRA-EO.\n\n\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”.\n\n\nAction 1-12684.\n\n\nSource repository:  HYDRA-EO project"
+  },
+  {
+    "objectID": "news.html",
+    "href": "news.html",
+    "title": "News",
+    "section": "",
+    "text": "Section · News"
+  },
+  {
+    "objectID": "news.html#upcoming-conferences-dissemination-activities",
+    "href": "news.html#upcoming-conferences-dissemination-activities",
+    "title": "News",
+    "section": "Upcoming conferences & dissemination activities",
+    "text": "Upcoming conferences & dissemination activities\nThe HYDRA-EO project is presented and discussed at selected scientific meetings and mission-oriented workshops. These venues are used to share methodological advances, prototype tools, and reproducible examples related to hybrid RTM–ML approaches, imaging spectroscopy, and EO-based crop stress detection.\n\n\n\n\n  ESA Digital Twin Earth Components – Open Science Meeting 2026   · 2–5 February 2026 · ESA-ESRIN, Frascati, Italy  ESA open science meeting dedicated to Digital Twin Earth components, mission-oriented methods, Cal/Val readiness, and multi-sensor integration for Earth Observation workflows. \n\n\n  FLEX-Fluorescence 2026 Workshop   · 3–6 March 2026 · Bonn, Germany  International ESA workshop focused on the latest developments in fluorescence remote sensing, including updates on the Fluorescence Explorer (FLEX) – Sentinel-3 tandem mission. \n\n\n  14th EARSeL Workshop on Imaging Spectroscopy   · 2–4 June 2026 · Helsinki, Finland  International scientific workshop on imaging spectroscopy, covering methods, sensors, applications, and reproducible workflows across environmental and agricultural monitoring. \n\n\n\n\n\n\n\n\n\n© 2026 HYDRA-EO.\n\n\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”.\n\n\nAction 1-12684.\n\n\nSource repository:  HYDRA-EO project"
+  }
+]

@@ -1,0 +1,45 @@
+---
+title: "Tools"
+format: html
+---
+
+<div class="section-label">Section · Tools</div>
+
+## Software used in HYDRA-EO tutorials
+
+This page summarises the main R packages and tools used in the tutorials, with links to their Git repositories and simple usage examples.
+
+::: {.card-grid}
+
+::: {.vbl-card}
+<div class="pill-mini">R · ToolsRTM</div>
+### Canopy & leaf RTMs
+Forward simulations of PROSAIL, INFORM, SPART and MARMIT at satellite band resolution.  
+GitLab: <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">ToolsRTM</a>
+:::
+
+::: {.vbl-card}
+<div class="pill-mini">R · SCOPEinR</div>
+
+### Energy balance & SIF
+
+Interface to the SCOPE model for canopy fluxes, temperature and fluorescence.  
+GitLab: <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">SCOPEinR</a>
+:::
+
+:::
+
+
+  <div class="text-center small text-secondary vbl-footer-classic">
+  <div class="vbl-footer-line"></div>
+  <p class="mb-1">© 2026 HYDRA-EO.</p>
+  <p class="mb-2">HYDRA-EO is funded by the European Space Agency (ESA) 
+    under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”</p>
+  <p class="mb-3">Action 1-12684.</p>
+  <p class="mb-4">
+    Source repository:
+    <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
+      HYDRA-EO pipeline
+    </a>
+  </p>
+</div>
