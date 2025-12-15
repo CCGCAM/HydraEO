@@ -14,7 +14,8 @@ This page summarises the main R packages and tools used in the tutorials, with l
 ::: {.vbl-card}
 <div class="pill-mini">R · ToolsRTM</div>
 ### Canopy & leaf RTMs
-Forward simulations of PROSAIL, INFORM, SPART and MARMIT at satellite band resolution.  
+ToolsRTM package provides a unified suite of radiative transfer models for simulating leaf, canopy and soil reflectance across multiple sensor resolutions. It integrates PROSPECT, FLUSPECT, Liberty, INFORM, fourSAIL and PROSAIL for detailed optical simulations and advance modelling as SPART and MARMIT for soil. These capabilities support flexible, physics-based workflows for EO data analysis and model–data integration.
+
 GitLab: <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">ToolsRTM</a>
 :::
 
@@ -23,7 +24,8 @@ GitLab: <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noo
 
 ### Energy balance & SIF
 
-Interface to the SCOPE model for canopy fluxes, temperature and fluorescence.  
+SCOPEinR implements the SCOPE model for simulating soil–canopy radiative transfer, photosynthesis, fluorescence and surface energy balance. It provides an R interface for producing consistent reflectance, SIF and photosynthesis products under varying stress, physiological and illumination conditions. This package supports detailed modelling of vegetation functioning in crop studies.
+
 GitLab: <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">SCOPEinR</a>
 :::
 

@@ -9,27 +9,44 @@ format: html
 
 If you would like to contribute examples, report issues, or reuse the tutorials for teaching, please contact the HYDRA-EO team or open an issue in the relevant repositories.
 
-::: {.card-grid}
+::: {.card-grid-1}
 
-::: {.vbl-card}
+::: {.vbl-card-1}
 <div class="pill-mini">Coordination</div>
 
 ### Project lead
 
-Dr. Carlos  Camino (Wageningen University): coordination of HYDRA-EO scientific activities and tutorial material.
+Dr. **Carlos Camino** (Wageningen University) is responsible for the overall scientific coordination of the HYDRA-EO project. His role includes leading the development of the methodological framework, coordinating the integration of radiative transfer modelling and hybrid machine learning approaches, and overseeing the design and maintenance of tutorial materials and open-source tools.
+
+He acts as the main interface with ESA and consortium partners, ensuring scientific coherence, timely delivery of project outputs, and alignment with project objectives.
+
+```{=html}
+<a href="https://ccgcam.github.io/Virtual-Biophysical-Lab/" target="_blank" rel="noopener">
+Go to the Virtual Biophysical Lab
+</a>
+```
+
+
 :::
 
-::: {.vbl-card}
+::: {.vbl-card-1}
 <div class="pill-mini">Code &amp; issues</div>
 
 ### Repositories & support
 
 Open issues and contribute via the project repositories:
-- <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">HYDRA-EO workflow (tutorial site)</a>  
-- <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">ToolsRTM (GitLab)</a>  
-- <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">SCOPEinR (GitLab)</a>
-:::
 
+```{=html}
+- <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
+  HYDRA-EO workflow (tutorial site)</a>
+- <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">
+  ToolsRTM (GitLab)</a>
+- <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">
+  SCOPEinR (GitLab)</a>
+```
+
+
+:::
 :::
 
 <div class="text-center small text-secondary vbl-footer-classic">

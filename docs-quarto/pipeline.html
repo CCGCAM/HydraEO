@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Tools – HYDRA-EO</title>
+<title>Pipeline – HYDRA-EO</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -98,7 +98,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Overview</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./tools.html" aria-current="page"> 
+    <a class="nav-link" href="./tools.html"> 
 <span class="menu-text">Tools</span></a>
   </li>  
   <li class="nav-item">
@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Tools</h1>
+<h1 class="title">Pipeline</h1>
 </div>
 
 
@@ -158,30 +158,37 @@ ul.task-list li input[type="checkbox"] {
 
 
 <div class="section-label">
-Section · Tools
+Section · Pipeline
 </div>
-<section id="software-used-in-hydra-eo-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="software-used-in-hydra-eo-tutorials">Software used in HYDRA-EO tutorials</h2>
-<p>This page summarises the main R packages and tools used in the tutorials, with links to their Git repositories and simple usage examples.</p>
+<section id="processing-pipelines-by-data-source" class="level2">
+<h2 class="anchored" data-anchor-id="processing-pipelines-by-data-source">Processing pipelines by data source</h2>
+<p>This section documents key methodological blocks: radiative transfer configurations, trait retrieval strategies and disease scoring.</p>
 <div class="card-grid">
 <div class="vbl-card">
 <div class="pill-mini">
-R · ToolsRTM
+UAV-airborne processing
 </div>
-<section id="canopy-leaf-rtms" class="level3">
-<h3 class="anchored" data-anchor-id="canopy-leaf-rtms">Canopy &amp; leaf RTMs</h3>
-<p>ToolsRTM package provides a unified suite of radiative transfer models for simulating leaf, canopy and soil reflectance across multiple sensor resolutions. It integrates PROSPECT, FLUSPECT, Liberty, INFORM, fourSAIL and PROSAIL for detailed optical simulations and advance modelling as SPART and MARMIT for soil. These capabilities support flexible, physics-based workflows for EO data analysis and model–data integration.</p>
-<p>GitLab: <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">ToolsRTM</a></p>
+<section id="uav-airborne-processing" class="level3">
+<h3 class="anchored" data-anchor-id="uav-airborne-processing">UAV &amp; airborne processing</h3>
+<p>Radiometric and geometric correction of UAV and airborne hyperspectral and thermal data, including mosaicking, BRDF normalisation, and co-registration with field plots. Output products include surface reflectance cubes, temperature maps, and quality masks.</p>
 </section>
 </div>
 <div class="vbl-card">
 <div class="pill-mini">
-R · SCOPEinR
+Satellite
 </div>
-<section id="energy-balance-sif" class="level3">
-<h3 class="anchored" data-anchor-id="energy-balance-sif">Energy balance &amp; SIF</h3>
-<p>SCOPEinR implements the SCOPE model for simulating soil–canopy radiative transfer, photosynthesis, fluorescence and surface energy balance. It provides an R interface for producing consistent reflectance, SIF and photosynthesis products under varying stress, physiological and illumination conditions. This package supports detailed modelling of vegetation functioning in crop studies.</p>
-<p>GitLab: <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">SCOPEinR</a></p>
+<section id="satellite-eo-processing" class="level3">
+<h3 class="anchored" data-anchor-id="satellite-eo-processing">Satellite EO processing</h3>
+<p>Sentinel-2, PRISMA, and EnMAP workflows (e.g.&nbsp;Sen2Cor atmospheric correction, spectral resampling, tiling, and time-series aggregation), harmonised across sites for crop-stressor analysis and EO upscaling.</p>
+</section>
+</div>
+<div class="vbl-card">
+<div class="pill-mini">
+RTM-ML
+</div>
+<section id="rtm-library-hybrid-ml" class="level3">
+<h3 class="anchored" data-anchor-id="rtm-library-hybrid-ml">RTM library &amp; hybrid ML</h3>
+<p>PROSAIL and SCOPE forward simulations via <strong>ToolsRTM</strong> and <strong>SCOPEinR</strong>, LUT generation, plant trait retrieval, and hybrid ML models trained on combined RTM–EO features for crop stress detection.</p>
 </section>
 </div>
 </div>
@@ -193,7 +200,7 @@ R · SCOPEinR
 © 2026 HYDRA-EO.
 </p>
 <p class="mb-2">
-HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”.
 </p>
 <p class="mb-3">
 Action 1-12684.

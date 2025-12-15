@@ -8,11 +8,10 @@ format: html
 ## Partners & roles
 
 HYDRA-EO is coordinated by Wageningen University and brings together complementary expertise
-in Earth Observation services, radiative transfer modelling, plant pathology, genetics, and agronomy
-from the Netherlands, Italy, and Spain. The consortium covers the full chain from field experimentation
-to EO-based modelling, hybrid machine learning, and dissemination.
+in Earth Observation services, radiative transfer modelling, plant pathology, genetics, and agronomy from the Netherlands, Italy, and Spain. The consortium covers the full chain from field experimentation to EO-based modelling, hybrid machine learning, and dissemination.
 
-::: {.card-grid}
+
+::: {.card-grid .card-grid-2}
 
 ::: {.vbl-card}
 <div class="pill-mini">Coordination · NL</div>
@@ -29,7 +28,7 @@ from <strong>Prof. Dr. Lammert Kooistra</strong> and colleagues.
 :::
 
 ::: {.vbl-card}
-<div class="pill-mini">Operations · NL</div>
+<div class="pill-mini">Difussion</div>
 
 ### Wageningen Environmental Research (WENR)
 

@@ -132,16 +132,33 @@ main.content {
   margin-bottom: 2.2rem;
 }
 
+
+.card-grid-1{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.4rem;
+  width: 100%;
+}
+.card-grid.card-grid-2{
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 900px){
+  .card-grid.card-grid-2{ grid-template-columns: 1fr; }
+}
 .vbl-card {
   background: var(--hydra-card-bg);
   border-radius: 14px;
   border: 1px solid var(--hydra-border);
   padding: 1.3rem 1.4rem;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.05);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
 }
 
 .vbl-card h3 {
   font-size: 1.05rem;
+  text-align: left;
   font-weight: 700;
   color: var(--hydra-navy);
   margin-bottom: .4rem;
@@ -150,7 +167,58 @@ main.content {
 .vbl-card p {
   font-size: .92rem;
   color: var(--hydra-text-muted);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+
 }
+
+@media (max-width: 768px){
+  .vbl-card p{
+    text-align: left;
+    hyphens: none;
+  }
+}
+
+
+/* =========================================
+   VBL CARD – FULL WIDTH (STACKED)
+   ========================================= */
+
+.vbl-card-1 {
+  width: 100%;
+  display: block;
+  background: var(--hydra-card-bg);
+  border-radius: 18px;
+  padding: 22px 24px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+  margin-bottom: 24px; /* spacing between stacked cards */
+}
+
+/* Optional: slightly larger text for narrative cards */
+.vbl-card-1 p {
+  font-size: .92rem;
+  color: var(--hydra-text-muted);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+/* Ensure links behave nicely */
+/* Links inside single-column cards */
+.vbl-card-1 a {
+  color: #003f7d
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+.vbl-card-1 a:hover {
+  color: #003247;
+  text-decoration: none;
+}
+
 
 .pill-mini {
   display: inline-block;
@@ -355,3 +423,44 @@ main.content {
     width: 100% !important;
   }
 }
+
+/* --- 3-image cards strip (HydraEO style) --- */
+.img-strip{
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.img-frame{
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 0.7rem;
+  border: 1px solid var(--border-subtle, #e4e8f4);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.06);
+}
+
+.img-frame img{
+  width: 100%;
+  height: 220px;          /* <-- CLAVE: fija el alto para “card look” */
+  border-radius: 14px;
+  object-fit: cover;      /* recorta sin deformar */
+  object-position: center;
+  display: block;
+}
+
+.img-caption{
+  margin-top: 0.55rem;
+  font-size: 0.85rem;
+  color: var(--text-muted, #666);
+  text-align: center;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .img-strip{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px){
+  .img-strip{ grid-template-columns: 1fr; }
+}
+
