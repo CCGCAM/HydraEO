@@ -3,64 +3,69 @@ title: "Contact"
 format: html
 ---
 
-<div class="section-label">Section · Contact</div>
+::: {.section-label}
+Section · Contact
+:::
 
 ## Contact & contributions
 
-If you would like to contribute examples, report issues, or reuse the tutorials for teaching, please contact the HYDRA-EO team or open an issue in the relevant repositories.
+If you would like to contribute examples, report issues, or reuse the
+tutorials for teaching, please contact the HYDRA-EO team or open an issue
+in the relevant repositories.
+
+---
 
 ::: {.card-grid-1}
 
 ::: {.vbl-card-1}
-<div class="pill-mini">Coordination</div>
+::: {.pill-mini}
+Coordination
+:::
 
 ### Project lead
 
-Dr. **Carlos Camino** (Wageningen University) is responsible for the overall scientific coordination of the HYDRA-EO project. His role includes leading the development of the methodological framework, coordinating the integration of radiative transfer modelling and hybrid machine learning approaches, and overseeing the design and maintenance of tutorial materials and open-source tools.
+Dr. **Carlos Camino** (Wageningen University) is responsible for the
+overall scientific coordination of the HYDRA-EO project. His role
+includes leading the development of the methodological framework,
+coordinating the integration of radiative transfer modelling and hybrid
+machine learning approaches, and overseeing the design and maintenance
+of tutorial materials and open-source tools.
 
-He acts as the main interface with ESA and consortium partners, ensuring scientific coherence, timely delivery of project outputs, and alignment with project objectives.
+He acts as the main interface with ESA and consortium partners, ensuring
+scientific coherence, timely delivery of project outputs, and alignment
+with project objectives.
 
-```{=html}
-<a href="https://ccgcam.github.io/Virtual-Biophysical-Lab/" target="_blank" rel="noopener">
-Go to the Virtual Biophysical Lab
-</a>
-```
-
-
+[Go to the Virtual Biophysical Lab](https://ccgcam.github.io/Virtual-Biophysical-Lab/)
 :::
 
 ::: {.vbl-card-1}
-<div class="pill-mini">Code &amp; issues</div>
+::: {.pill-mini}
+Code & issues
+:::
 
 ### Repositories & support
 
 Open issues and contribute via the project repositories:
 
-```{=html}
-- <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
-  HYDRA-EO workflow (tutorial site)</a>
-- <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">
-  ToolsRTM (GitLab)</a>
-- <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">
-  SCOPEinR (GitLab)</a>
-```
-
+- **[HYDRA-EO workflow (tutorial site)](https://ccgcam.github.io/HydraEO/)**
+- **[ToolsRTM (GitLab)](https://gitlab.com/caminoccg/toolsrtm)**
+- **[SCOPEinR (GitLab)](https://gitlab.com/caminoccg/scopeinr)**
 
 :::
+
 :::
 
-<div class="text-center small text-secondary vbl-footer-classic">
-  <div class="vbl-footer-line"></div>
-  <p class="mb-1">© 2026 HYDRA-EO.</p>
-  <p class="mb-2">
-    HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
-    “Crop Multiple Stressors, Pests and Diseases”.
-  </p>
-  <p class="mb-3">Action 1-12684.</p>
-  <p class="mb-4">
-    Source repository:
-    <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
-      HYDRA-EO project
-    </a>
-  </p>
-</div>
+---
+
+::: {.text-center .small .text-secondary .vbl-footer-classic}
+::: {.vbl-footer-line}
+:::
+
+© 2026 **HYDRA-EO**.  
+
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
+Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
+
+![](../assets/GitHub-Logo.png){.footer-logo} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
+:::
+

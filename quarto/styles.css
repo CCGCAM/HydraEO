@@ -218,7 +218,13 @@ main.content {
   color: #003247;
   text-decoration: none;
 }
-
+.footer-logo {
+  display: inline-block;
+  height: 40px;
+  vertical-align: middle; /
+  margin: 0 6px 0 0;     
+  opacity: 0.85;
+}
 
 .pill-mini {
   display: inline-block;
@@ -252,6 +258,20 @@ main.content {
 .footer-text a {
   color: var(--hydra-blue);
   font-weight: 500;
+}
+
+.vbl-footer-classic {
+  padding: 0.6rem 1rem;        /* reduce footer height */
+}
+
+.vbl-footer-classic p {
+  margin: 0.2rem 0;            /* remove big paragraph gaps */
+  line-height: 1.35;
+}
+
+
+.vbl-footer-line {
+  margin-bottom: 0.4rem;       /* tighten separator spacing */
 }
 
 

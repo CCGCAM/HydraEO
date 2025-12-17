@@ -1,4 +1,3 @@
-
 ---
 title: "Overview"
 format:
@@ -7,88 +6,131 @@ format:
     embed-resources: true
 ---
 
-<div class="hero-card">
+::: {.hero-card}
 
-# Hybrid ML & Earth Observation for multi-stressor crop disease detection <span></span>
+# Hybrid ML & Earth Observation for multi-stressor crop disease detection
 
-<p class="hero-text">
-HYDRA-EO is a European Space Agency project that develops an operational framework to detect, quantify and differentiate abiotic and biotic crop stress. The project targets priority plant pathogens, including Flavescence Dorée in grapevine, Potato Virus Y in potato, and fungal diseases such as Septoria, while also assessing stress interactions under variable water and environmental conditions.
+::: {.hero-text}
+**HYDRA-EO** is a European Space Agency project that develops an
+operational framework to detect, quantify, and differentiate abiotic
+and biotic crop stress. The project targets priority plant pathogens,
+including *Flavescence Dorée* in grapevine, *Potato Virus Y* in potato,
+and fungal diseases such as *Septoria*, while also assessing stress
+interactions under variable water and environmental conditions.
 
-HYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms to identify the spectral and spatial resolutions required to capture biotic stress signals effectively. By combining hyperspectral, thermal and multi-sensor Earth Observation data from field, airborne and satellite platforms, the project delivers early and reliable indicators to support agricultural resilience and evidence-based decision-making across Europe.
-</p>
+HYDRA-EO integrates physically based radiative transfer modelling
+approaches with machine learning algorithms to identify the spectral and
+spatial resolutions required to capture biotic stress signals
+effectively. By combining hyperspectral, thermal, and multi-sensor Earth
+Observation data from field, airborne, and satellite platforms, the
+project delivers early and reliable indicators to support agricultural
+resilience and evidence-based decision-making across Europe.
+:::
 
-<div class="hero-tags">
-  <div class="pill-mini">Hybrid ML &amp; RTMs</div>
-  <div class="pill-mini">Crop stress &amp; pests</div>
-  <div class="pill-mini">Hyperspectral &amp; thermal</div>
-  <div class="pill-mini">ESA EXPRO+ project</div>
-</div>
+::: {.hero-tags}
+::: {.pill-mini}
+Hybrid ML & RTMs
+:::
+::: {.pill-mini}
+Crop stress & pests
+:::
+::: {.pill-mini}
+Hyperspectral & thermal
+:::
+::: {.pill-mini}
+ESA EXPRO+ project
+:::
+:::
 
-</div>
+:::
 
-<div class="section-label">Section · Overview</div>
+---
+
+::: {.section-label}
+Section · Overview
+:::
 
 ## Understanding crop stress across spectral and spatial scales
 
-HYDRA-EO is a European Space Agency project that develops an operational framework to detect, quantify and differentiate abiotic and biotic crop stress. The project targets priority plant pathogens, including Flavescence Dorée in grapevine, Potato Virus Y in potato, and fungal diseases such as Septoria, while also assessing stress interactions under variable water and environmental conditions.
+HYDRA-EO develops an operational framework to detect, quantify, and
+differentiate abiotic and biotic crop stress across multiple spatial and
+spectral scales. The project focuses on priority plant pathogens,
+including *Flavescence Dorée* in grapevine, *Potato Virus Y* in potato,
+and fungal diseases such as *Septoria*, while also assessing interactions
+between disease pressure, water stress, and environmental variability.
 
-HYDRA-EO integrates Physically-based radiative transfer modelling approaches with machine learning algorithms to identify the spectral and spatial resolutions required to capture biotic stress signals effectively. By combining hyperspectral, thermal and multi-sensor Earth Observation data from field, airborne and satellite platforms, the project delivers early and reliable indicators to support agricultural resilience and evidence-based decision-making across Europe.
+By integrating physically based radiative transfer modelling approaches
+with machine learning algorithms, HYDRA-EO identifies the spectral and
+spatial resolutions required to robustly capture biotic stress signals.
+The combination of hyperspectral, thermal, and multi-sensor Earth
+Observation data from field, airborne, and satellite platforms enables
+the delivery of early and reliable indicators to support agricultural
+resilience and evidence-based decision-making across Europe.
 
-```{=html}
-  <div style="text-align: center; width: 100%; margin-top: 10px;">
-          <img src="../assets/potato.png" alt="UAV flight"
-               style="width:60%; height:auto; display:block; margin-left:auto; margin-right:auto;">
-          <div class="img-caption" style="margin-top:8px;">Phenotyping potato site </div>
-        </div>
-```
+---
 
+::: {.text-center}
+![](../assets/potato.png){width=60%}
+:::
+
+::: {.img-caption}
+Phenotyping potato site
+:::
+
+---
 
 ::: {.card-grid}
 
 ::: {.vbl-card}
-<div class="pill-mini">UAV/airborne</div>
+::: {.pill-mini}
+UAV / airborne
+:::
 
 ### UAV & airborne processing
 
-Radiometric and geometric correction of UAV and airborne hyperspectral/thermal data, mosaicking, BRDF normalisation and co-registration with field plots. Output products include surface reflectance cubes, temperature maps and quality masks.
+Radiometric and geometric correction of UAV and airborne hyperspectral
+and thermal data, including mosaicking, BRDF normalisation, and
+co-registration with field plots. Output products include surface
+reflectance cubes, temperature maps, and quality masks.
 :::
 
 ::: {.vbl-card}
-<div class="pill-mini">Satellite EO processing</div>
+::: {.pill-mini}
+Satellite EO processing
+:::
 
 ### Satellite EO processing
 
-Sentinel-2, PRISMA and EnMAP workflows (e.g. Sen2Cor atmospheric correction, spectral resampling, tiling and time-series aggregation), harmonised across sites for crop-stressor analysis and EO upscaling.
+Sentinel-2, PRISMA, and EnMAP workflows (e.g. Sen2Cor atmospheric
+correction, spectral resampling, tiling, and time-series aggregation),
+harmonised across sites for crop–stressor analysis and EO upscaling.
 :::
 
 ::: {.vbl-card}
-<div class="pill-mini">RTM library & hybrid ML</div>
+::: {.pill-mini}
+RTM library & hybrid ML
+:::
 
 ### Hybrid ML methods
 
-PROSAIL / SCOPE forward simulations via ToolsRTM and SCOPEinR, LUT generation, plant trait retrieval, and hybrid ML models trained on combined RTM–EO features for stress detection
+PROSAIL and SCOPE forward simulations via **ToolsRTM** and **SCOPEinR**,
+LUT generation, plant trait retrieval, and hybrid machine learning models
+trained on combined RTM–EO features for crop stress detection.
 :::
 
 :::
 
-<div class="text-center small text-secondary vbl-footer-classic">
+---
 
-<div class="vbl-footer-line"></div>
+::: {.text-center .small .text-secondary .vbl-footer-classic}
+::: {.vbl-footer-line}
+:::
 
-<p class="mb-1">© 2026 HYDRA-EO.</p>
+© 2026 **HYDRA-EO**.  
 
-<p class="mb-2">
-HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
-“Crop Multiple Stressors, Pests and Diseases”.
-</p>
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
+Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
 
-<p class="mb-3">Action 1-12684.</p>
+![](../assets/GitHub-Logo.png){.footer-logo} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
+:::
 
-<p class="mb-4">
-Source repository:
-<a href="https://ccgcam.github.io/HydraEO/index.html" target="_blank" rel="noopener">
-HYDRA-EO project
-</a>
-</p>
-
-</div>

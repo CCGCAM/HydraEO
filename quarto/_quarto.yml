@@ -11,6 +11,8 @@ website:
         href: index.qmd
       - text: "Tools"
         href: tools.qmd
+      - text: "Pipeline"
+        href: pipeline.qmd
       - text: "Consortium"
         href: consortium.qmd
       - text: "Timeline"

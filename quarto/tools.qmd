@@ -3,45 +3,72 @@ title: "Tools"
 format: html
 ---
 
-<div class="section-label">Section · Tools</div>
+::: {.section-label}
+Section · Tools
+:::
 
 ## Software used in HYDRA-EO tutorials
 
-This page summarises the main R packages and tools used in the tutorials, with links to their Git repositories and simple usage examples.
+This page summarises the main R packages and tools used in the tutorials,
+with links to their Git repositories and simple usage examples.
+
+---
 
 ::: {.card-grid}
 
 ::: {.vbl-card}
-<div class="pill-mini">R · ToolsRTM</div>
-### Canopy & leaf RTMs
-ToolsRTM package provides a unified suite of radiative transfer models for simulating leaf, canopy and soil reflectance across multiple sensor resolutions. It integrates PROSPECT, FLUSPECT, Liberty, INFORM, fourSAIL and PROSAIL for detailed optical simulations and advance modelling as SPART and MARMIT for soil. These capabilities support flexible, physics-based workflows for EO data analysis and model–data integration.
+::: {.pill-mini}
+R · ToolsRTM
+:::
 
-GitLab: <a href="https://gitlab.com/caminoccg/toolsrtm" target="_blank" rel="noopener">ToolsRTM</a>
+### Canopy & leaf RTMs
+
+The **ToolsRTM** package provides a unified suite of radiative transfer
+models for simulating leaf, canopy, and soil reflectance across multiple
+sensor resolutions. It integrates **PROSPECT**, **FLUSPECT**, **Liberty**,
+**INFORM**, **fourSAIL**, and **PROSAIL** for detailed optical simulations,
+as well as advanced modelling components such as **SPART** and
+**MARMIT** for soil reflectance.
+
+These capabilities support flexible, physics-based workflows for Earth
+Observation data analysis and model–data integration.
+
+![](../assets/Gitlab-Logo.png){.footer-logo}[ToolsRTM package](https://gitlab.com/caminoccg/toolsrtm)
+
 :::
 
 ::: {.vbl-card}
-<div class="pill-mini">R · SCOPEinR</div>
+::: {.pill-mini}
+R · SCOPEinR
+:::
 
 ### Energy balance & SIF
 
-SCOPEinR implements the SCOPE model for simulating soil–canopy radiative transfer, photosynthesis, fluorescence and surface energy balance. It provides an R interface for producing consistent reflectance, SIF and photosynthesis products under varying stress, physiological and illumination conditions. This package supports detailed modelling of vegetation functioning in crop studies.
+The **SCOPEinR** package implements the SCOPE model for simulating soil–canopy
+radiative transfer, photosynthesis, fluorescence, and surface energy
+balance. It provides tools and an R interface for producing consistent reflectance,radiance
+and fluoresence emission, and photosynthesis products under varying stress, physiological, canopy properties and
+illumination conditions.
 
-GitLab: <a href="https://gitlab.com/caminoccg/scopeinr" target="_blank" rel="noopener">SCOPEinR</a>
+
+This package supports detailed modelling of vegetation functioning in
+crop studies and stress analysis.
+
+![](../assets/Gitlab-Logo.png){.footer-logo}[SCOPEinR package](https://gitlab.com/caminoccg/scopeinr)
 :::
 
 :::
 
+---
 
-  <div class="text-center small text-secondary vbl-footer-classic">
-  <div class="vbl-footer-line"></div>
-  <p class="mb-1">© 2026 HYDRA-EO.</p>
-  <p class="mb-2">HYDRA-EO is funded by the European Space Agency (ESA) 
-    under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”</p>
-  <p class="mb-3">Action 1-12684.</p>
-  <p class="mb-4">
-    Source repository:
-    <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
-      HYDRA-EO pipeline
-    </a>
-  </p>
-</div>
+::: {.text-center .small .text-secondary .vbl-footer-classic}
+::: {.vbl-footer-line}
+:::
+© 2026 **HYDRA-EO**.  
+
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
+Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
+
+![](../assets/GitHub-Logo.png){.footer-logo} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
+
+:::
