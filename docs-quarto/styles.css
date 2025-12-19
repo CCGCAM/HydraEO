@@ -2,7 +2,7 @@
 :root {
   --hydra-navy: #003247;   /* barra superior */
   --hydra-blue: #003f7d;   /* títulos */
-  --hydra-blue-soft: #003f7d;
+  --hydra-blue-soft: #f2c94c;
   --hydra-pill-bg: #ffffff;
   --hydra-pill-border: #ffffff;
   --hydra-text-dark: #0f172a;
@@ -107,7 +107,7 @@ main.content {
   text-transform: uppercase;
   letter-spacing: .16em;
   font-size: .7rem;
-  color: var(--hydra-blue-soft);
+  color: var(--hydra-blue);
   margin-bottom: .25rem;
 }
 
