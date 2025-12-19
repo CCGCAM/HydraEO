@@ -168,11 +168,19 @@ lng = ~lon, lat = ~lat,
 popup = popups,
 label = ~site
 ) |>
-
+  
 fitBounds(
 lng1 = min(sites$lon), lat1 = min(sites$lat),
 lng2 = max(sites$lon), lat2 = max(sites$lat)
-)
+) |>
+    htmlwidgets::onRender("
+    function(el, x) {
+      var map = this;
+      map.on('popupopen', function(e) {
+        map.setView(e.popup.getLatLng(), 14);
+      });
+    }
+  ")
 
 ```
 
