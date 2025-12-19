@@ -71,11 +71,110 @@ resilience and evidence-based decision-making across Europe.
 
 ::: {.text-center}
 ![](../assets/potato.png){width=60%}
+
+
 :::
 
 ::: {.img-caption}
 Phenotyping potato site
 :::
+
+---
+
+::: {.section-label}
+Section · Overview
+:::
+
+## Interactive maps
+
+HYDRA-EO investigates crop stress processes across contrasting agroecosystems in Southern and Central Europe. The interactive map highlights the core study areas, including pistachio and olive orchards in Spain, a potato cropping system in the Netherlands, and an vineyard and alfalfa field sites in Central-Northern Italy. These sites represent diverse climatic conditions, crop types, and management practices, providing a robust basis to analyse how biotic stressors—such as Flavescence Dorée, Potato Virus Y, and fungal diseases like Septoria—interact with water stress and environmental variability.
+
+
+```{r, echo=FALSE, message=FALSE}
+#| label: map-sites
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 11
+#| fig-height: 5
+
+library(leaflet)
+library(htmltools)
+library(knitr)
+
+sites <- data.frame(
+site = c("Pistachio orchards", "Olive orchard", "Potato crop", "Vynards"),
+lat  = c(39.031111, 39.033333, 52.545556, 45.011667),
+lon  = c(-3.944722, -3.945000,  5.543611, 10.863333),
+img  = c("../assets/figure1.png",
+"../assets/figure4.png",
+"../assets/figure6.png",
+"../assets/figure3.png"),
+stringsAsFactors = FALSE
+)
+
+
+make_popup <- function(title, img_path){
+img_src <- if (file.exists(img_path)) knitr::image_uri(img_path) else NULL
+
+as.character(
+tags$div(
+style = "
+max-width:320px;
+padding:6px;
+text-align:center;
+",
+tags$div(
+style = "
+font-weight:700;
+font-size:15px;
+margin-bottom:8px;
+",
+title
+),
+if (!is.null(img_src))
+tags$img(
+src = img_src,
+style = "
+width:280px;
+height:auto;
+border-radius:14px;
+box-shadow:0 4px 12px rgba(0,0,0,0.25);
+"
+)
+)
+)
+}
+
+popups <- mapply(make_popup, sites$site, sites$img, USE.NAMES = FALSE)
+
+leaflet(sites) |>
+
+# --- Satellite basemap ---
+
+addProviderTiles(providers$Esri.WorldImagery, group = "Satellite") |>
+
+# Optional light basemap toggle
+
+addProviderTiles(providers$CartoDB.Positron, group = "Light") |>
+
+addLayersControl(
+baseGroups = c("Satellite", "Light"),
+options = layersControlOptions(collapsed = TRUE)
+) |>
+
+addMarkers(
+lng = ~lon, lat = ~lat,
+popup = popups,
+label = ~site
+) |>
+
+fitBounds(
+lng1 = min(sites$lon), lat1 = min(sites$lat),
+lng2 = max(sites$lon), lat2 = max(sites$lat)
+)
+
+```
 
 ---
 
@@ -116,6 +215,10 @@ RTM library & hybrid ML
 PROSAIL and SCOPE forward simulations via **ToolsRTM** and **SCOPEinR**,
 LUT generation, plant trait retrieval, and hybrid machine learning models
 trained on combined RTM–EO features for crop stress detection.
+
+
+
+
 :::
 
 :::

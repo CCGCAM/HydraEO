@@ -83,18 +83,15 @@ disaggregation and crop resilience studies.
 
 
 
-<div class="text-center small text-secondary vbl-footer-classic">
-  <div class="vbl-footer-line"></div>
-  <p class="mb-1">© 2026 HYDRA-EO.</p>
-  <p class="mb-2">
-    HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender
-    “Crop Multiple Stressors, Pests and Diseases”.
-  </p>
-  <p class="mb-3">Action 1-12684.</p>
-  <p class="mb-4">
-    Source repository:
-    <a href="https://ccgcam.github.io/HydraEO/" target="_blank" rel="noopener">
-      HYDRA-EO project
-    </a>
-  </p>
-</div>
+
+::: {.text-center .small .text-secondary .vbl-footer-classic}
+::: {.vbl-footer-line}
+:::
+
+© 2026 **HYDRA-EO**.  
+
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
+Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
+
+![](../assets/GitHub-Logo.png){.footer-logo} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
+:::
