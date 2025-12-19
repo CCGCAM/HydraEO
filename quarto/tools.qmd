@@ -33,7 +33,7 @@ as well as advanced modelling components such as **SPART** and
 These capabilities support flexible, physics-based workflows for Earth
 Observation data analysis and model–data integration.
 
-![](../assets/Gitlab-Logo.png){.footer-logo}[ToolsRTM package](https://gitlab.com/caminoccg/toolsrtm)
+![](../assets/GitLab-Logo.png){.footer-logo}[ToolsRTM package](https://gitlab.com/caminoccg/toolsrtm)
 
 :::
 
@@ -54,7 +54,7 @@ illumination conditions.
 This package supports detailed modelling of vegetation functioning in
 crop studies and stress analysis.
 
-![](../assets/Gitlab-Logo.png){.footer-logo}[SCOPEinR package](https://gitlab.com/caminoccg/scopeinr)
+![](../assets/GitLab-Logo.png){.footer-logo}[SCOPEinR package](https://gitlab.com/caminoccg/scopeinr)
 :::
 
 :::
