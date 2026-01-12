@@ -29,8 +29,8 @@ crop stress detection.
   crop monitoring and modelling frameworks, aligned with ongoing
   ESA- and EU-funded projects.
 
-  **Vacancy details and application:**  
-  https://www.wur.nl/en/vacancy/postdoc-integrated-agronomic-genomic-remote-sensing-data-fusion
+  **[Vacancy details and application](https://www.wur.nl/en/vacancy/postdoc-integrated-agronomic-genomic-remote-sensing-data-fusion)**  
+
 
 :::
 
