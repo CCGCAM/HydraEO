@@ -93,5 +93,5 @@ disaggregation and crop resilience studies.
 HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
 Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
 
-![](../assets/GitHub-Logo.png){.footer-logo} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
+![](../assets/GitHub-Logo.png){.footer-logo width=80px} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
 :::
