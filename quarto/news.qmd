@@ -19,6 +19,25 @@ crop stress detection.
 
 ::: {.vbl-card}
 
+### Open Postdoctoral Position
+
+- **Postdoctoral Researcher – Integrated Agronomic, Genomic and Remote Sensing Data Fusion**  
+  Wageningen University & Research (WUR)
+
+  This postdoctoral position focuses on the integration of
+  **remote sensing, agronomic, and genomic data** to support advanced
+  crop monitoring and modelling frameworks, aligned with ongoing
+  ESA- and EU-funded projects.
+
+  **Vacancy details and application:**  
+  https://www.wur.nl/en/vacancy/postdoc-integrated-agronomic-genomic-remote-sensing-data-fusion
+
+:::
+
+---
+
+::: {.vbl-card}
+
 - **[ESA Digital Twin Earth Components – Open Science Meeting 2026](https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/)**  
   *2–5 February 2026 · ESA-ESRIN, Frascati, Italy*  
   ESA open science meeting dedicated to **Digital Twin Earth** components,
