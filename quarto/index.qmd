@@ -103,13 +103,13 @@ library(htmltools)
 library(knitr)
 
 sites <- data.frame(
-site = c("Pistachio orchards", "Olive orchard", "Potato crop", "Vynards"),
+site = c("Pistachio orchards", "Olive orchard", "Potato crop", "Alfafa trial"),
 lat  = c(39.031111, 39.033333, 52.545556, 45.011667),
 lon  = c(-3.944722, -3.945000,  5.543611, 10.863333),
 img  = c("../assets/figure_pistachio.png",
 "../assets/figure_olives.png",
 "../assets/figure6.png",
-"../assets/figure3.png"),
+"../assets/Alfafa_crops.png"),
 stringsAsFactors = FALSE
 )
 
