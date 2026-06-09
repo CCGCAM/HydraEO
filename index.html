@@ -7,6 +7,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/eo-explorer.css">
 
   <style>
   /* =========================================
@@ -1140,20 +1141,16 @@ footer {
   color: #d9e2ff;
   padding: 30px 20px;
   font-size: 12px;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+  position: static;
   width: 100%;
-  transform: translateY(10px);
-  opacity: 0;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  z-index: 9999;
-  pointer-events: none; /* no clics cuando está oculto */
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
 }
 
 footer.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: none;
   pointer-events: auto;
 }
 
@@ -1302,6 +1299,7 @@ footer.visible {
       <a href="#mission">Mission</a>
       <a href="#workpackages">Goals</a>
       <a href="#methods">Pipeline</a>
+      <a href="#eo-explorer">Explorer</a>
       <a href="#consortium">Consortium</a>
       <a href="#news">News</a>
       <a href="#tools">Tools</a>
@@ -1329,6 +1327,7 @@ footer.visible {
     <a href="#mission">Mission</a>
     <a href="#workpackages">Goals</a>
     <a href="#methods">Pipeline</a>
+    <a href="#eo-explorer">EO Explorer</a>
     <a href="#consortium">Consortium</a>
     <a href="#news">News</a>
     <a href="#tools">Tools</a>
@@ -1692,6 +1691,171 @@ footer.visible {
     </div>
   </div>
 </section>
+
+<!-- EO Explorer -->
+<section id="eo-explorer" aria-labelledby="eo-explorer-title">
+  <div class="eo-shell" id="eo-explorer-app" aria-live="polite" aria-busy="false">
+    <div class="eo-heading">
+      <div>
+        <div class="eo-kicker">Research data interface · catalog controlled</div>
+        <h2 id="eo-explorer-title">HYDRA-EO evidence, inspected at source</h2>
+        <p>
+          Interactive exploration of HYDRA-EO orthomosaics, multispectral products, thermal layers, plot boundaries, and derived stress indicators. Public datasets appear here only when they are explicitly configured in the replaceable visualization-data catalog.
+        </p>
+      </div>
+      <div class="eo-status" data-eo-status>Checking visualization catalog</div>
+    </div>
+
+    <div class="eo-frame">
+      <div class="eo-toolbar" aria-label="EO Explorer controls">
+        <select class="eo-dataset-select" data-eo-dataset data-requires-data disabled aria-label="Active public dataset">
+          <option>No public datasets</option>
+        </select>
+        <div class="eo-modes" role="toolbar" aria-label="Explorer mode">
+          <button class="eo-mode active" data-eo-mode="Overview" type="button">Overview</button>
+          <button class="eo-mode" data-eo-mode="RGB" data-requires-data type="button" disabled>RGB</button>
+          <button class="eo-mode" data-eo-mode="False color" data-requires-data type="button" disabled>False color</button>
+          <button class="eo-mode" data-eo-mode="Indices" data-requires-data type="button" disabled>Indices</button>
+          <button class="eo-mode" data-eo-mode="Thermal" data-requires-data type="button" disabled>Thermal</button>
+          <button class="eo-mode" data-eo-mode="Plots" data-requires-data type="button" disabled>Plots</button>
+          <button class="eo-mode" data-eo-mode="Change" data-requires-data type="button" disabled>Change</button>
+          <button class="eo-mode" data-eo-mode="Spectra" data-requires-data type="button" disabled>Spectra</button>
+          <button class="eo-mode" data-eo-mode="3D / canopy" data-requires-data type="button" disabled>3D / canopy</button>
+        </div>
+        <div class="eo-toolbar-actions">
+          <button class="eo-button" data-eo-compare data-requires-data type="button" disabled>Swipe</button>
+          <button class="eo-button" data-eo-export-view data-requires-data type="button" disabled>Export view</button>
+        </div>
+      </div>
+
+      <div class="eo-empty" data-eo-empty>
+        <div class="eo-empty-visual">
+          <div class="eo-orbit" aria-hidden="true"></div>
+          <div class="eo-scan" aria-hidden="true"></div>
+          <div class="eo-empty-copy">
+            <div class="eo-panel-label">Visualization engine ready</div>
+            <h3 data-eo-empty-title>No public HYDRA-EO visualization datasets are configured yet.</h3>
+            <p data-eo-empty-detail>Add real assets to visualization-data/ and register them in catalog.json.</p>
+          </div>
+        </div>
+        <aside class="eo-data-contract" aria-label="Expected visualization data">
+          <div class="eo-panel-label">Expected evidence package</div>
+          <h3>Publication-grade inputs</h3>
+          <ul>
+            <li>COG rasters with nodata, scale, units, and display metadata</li>
+            <li>Plot GeoJSON or PMTiles with owner-supplied attributes</li>
+            <li>Spectra tables with named axes and measurement units</li>
+            <li>Public plot statistics with documented columns</li>
+            <li>Processing provenance, quality, license, and citation</li>
+          </ul>
+          <button class="eo-button" type="button" onclick="document.getElementById('eo-data-contract').showModal()">Data contract</button>
+        </aside>
+      </div>
+
+      <div data-eo-cockpit hidden>
+        <div class="eo-cockpit-grid">
+          <aside class="eo-side-panel left" aria-label="Layer and display controls">
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Layer stack</div>
+              <h3>Registered assets</h3>
+              <div class="eo-layer-list" data-eo-layers></div>
+            </div>
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Feature filters</div>
+              <div data-eo-filters><small>Filters appear when registered vector attributes are available.</small></div>
+            </div>
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Band composer</div>
+              <label class="eo-control">Red channel<select data-eo-band-red disabled></select></label>
+              <label class="eo-control">Green channel<select data-eo-band-green disabled></select></label>
+              <label class="eo-control">Blue channel<select data-eo-band-blue disabled></select></label>
+              <label class="eo-control">Gamma<input type="number" value="1" min="0.1" max="4" step="0.1" disabled aria-label="Display gamma"></label>
+              <small>Presets and stretches activate only when required band names and owner-provided statistics exist.</small>
+            </div>
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Scientific processing</div>
+              <p data-eo-index-note>Browser-side index computation is disabled.</p>
+            </div>
+          </aside>
+
+          <div class="eo-map-stage">
+            <div class="eo-map" data-eo-map aria-label="Geospatial visualization canvas" tabindex="0"></div>
+            <div class="eo-map-message" data-eo-map-message hidden></div>
+            <div class="eo-map-hud">
+              <div class="eo-legend" data-eo-legend>Legend metadata will appear with a raster layer.</div>
+              <div class="eo-swipe-control" data-eo-swipe-control hidden>
+                <div><span data-eo-swipe-left>Layer A</span><span data-eo-swipe-right>Layer B</span></div>
+                <input class="eo-swipe" data-eo-swipe type="range" min="0" max="100" value="50" disabled aria-label="Swipe comparison position">
+              </div>
+            </div>
+          </div>
+
+          <aside class="eo-side-panel right" aria-label="Inspector and provenance">
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Pixel / plot inspector</div>
+              <div class="eo-inspector" data-eo-inspector>
+                <h4>Select map evidence</h4>
+                <p>Values, units, nodata status, and feature attributes appear only when readable from active assets.</p>
+              </div>
+            </div>
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Provenance</div>
+              <dl class="eo-metadata" data-eo-metadata></dl>
+              <details>
+                <summary>Metadata warnings</summary>
+                <ul class="eo-warnings" data-eo-warnings></ul>
+              </details>
+            </div>
+            <div class="eo-panel-section">
+              <div class="eo-panel-label">Publication export</div>
+              <button class="eo-button" data-eo-export-metadata type="button">Dataset metadata · JSON</button>
+              <button class="eo-button" data-eo-export-legend type="button">Legend · SVG</button>
+              <button class="eo-button" data-eo-copy-citation type="button">Copy citation</button>
+              <p>Raw-data download remains controlled by each catalog asset and its public access condition.</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="eo-bottom-strip">
+          <div class="eo-temporal">
+            <div class="eo-panel-label">Temporal record</div>
+            <button class="eo-button" data-eo-play type="button" disabled>Play acquisitions</button>
+            <div class="eo-timeline" data-eo-timeline></div>
+          </div>
+          <div class="eo-spectral-panel">
+            <div class="eo-panel-label">Spectral fingerprint</div>
+            <div class="eo-spectral" data-eo-spectral>No real spectral values are registered.</div>
+          </div>
+        </div>
+        <div class="eo-table-panel" data-eo-table-panel hidden>
+          <div class="eo-panel-label">Source table preview</div>
+          <label class="eo-control eo-table-picker">Table<select data-eo-table-select aria-label="Source table"></select></label>
+          <div class="eo-table-meta" data-eo-table-meta></div>
+          <div class="eo-table-wrap" data-eo-table></div>
+        </div>
+      </div>
+
+      <div class="eo-loading" data-eo-loading>
+        <div><i class="eo-spinner" aria-hidden="true"></i><span>Preparing visualization engine</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<dialog class="eo-dialog" id="eo-data-contract">
+  <article>
+    <h3>HYDRA-EO visualization data contract</h3>
+    <p>The Explorer reads datasets only through <code>visualization-data/catalog.json</code>. Local files must remain under <code>visualization-data/</code>; remote assets must use HTTPS and support the required CORS and range-request behavior.</p>
+    <ul>
+      <li>Only datasets marked <code>public</code> appear on this website.</li>
+      <li>Every asset requires an ID, type, scientific role, and safe URL.</li>
+      <li>Units, nodata, calibration, quality, provenance, license, and citation are supplied by the dataset owner and are never guessed.</li>
+      <li>Comparison and computation controls remain disabled until compatible assets and metadata are present.</li>
+    </ul>
+    <p>Full replacement and validation instructions are in <a href="visualization-data/README.md">visualization-data/README.md</a>.</p>
+    <form method="dialog"><button class="eo-button">Close</button></form>
+  </article>
+</dialog>
 
 <section id="news">
   <div class="section-inner">
@@ -2274,6 +2438,8 @@ function closeDomainModal() {
   document.getElementById('domainModal').style.display = 'none';
 }
 </script>
+
+<script type="module" src="assets/js/eo-explorer.js"></script>
 
 </body>
 </html>

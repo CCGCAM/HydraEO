@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Alfalfa_sites_2",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Name": "Alfalfa", "descriptio": "Irrigated crop", "timestamp": null, "begin": null, "end": null, "altitudeMo": null, "tessellate": null, "extrude": null, "visibility": null, "drawOrder": null, "icon": null, "stationId": null, "stationNam": null, "country": null, "Position": null, "pi": null, "siteType": null, "seaElev": null, "stationCla": null, "labelingDa": null, "fill": null, "stroke_wid": null, "stroke": null }, "geometry": { "type": "Point", "coordinates": [ 10.770354807568612, 44.710099774963197 ] } }
+]
+}

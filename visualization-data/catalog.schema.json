@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hydra-eo.eu/visualization-data/catalog.schema.json",
+  "title": "HYDRA-EO visualization catalog",
+  "type": "object",
+  "required": ["version", "title", "description", "datasets"],
+  "properties": {
+    "version": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "description": { "type": "string", "minLength": 1 },
+    "datasets": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/dataset" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "nullableString": { "type": ["string", "null"] },
+    "asset": {
+      "type": "object",
+      "required": ["id", "type", "role", "href"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "type": { "enum": ["raster", "vector", "table", "spectra", "thumbnail", "provenance", "stac", "metadata"] },
+        "role": { "type": "string", "minLength": 1 },
+        "href": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "media_type": { "type": "string" },
+        "units": { "$ref": "#/$defs/nullableString" },
+        "nodata": { "type": ["number", "string", "null"] },
+        "scale": { "type": ["number", "null"] },
+        "offset": { "type": ["number", "null"] },
+        "display": {
+          "type": "object",
+          "properties": {
+            "min": { "type": ["number", "null"] },
+            "max": { "type": ["number", "null"] },
+            "percentiles": {
+              "type": "object",
+              "additionalProperties": { "type": "number" }
+            },
+            "palette": { "type": "array", "items": { "type": "string" }, "minItems": 2 },
+            "nodata_color": { "type": "string" }
+          },
+          "additionalProperties": true
+        },
+        "public_download": { "type": "boolean" },
+        "harmonization": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "band": {
+      "type": "object",
+      "required": ["name"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "common_name": { "type": ["string", "null"] },
+        "center_wavelength": { "type": ["number", "null"] },
+        "fwhm": { "type": ["number", "null"] },
+        "wavelength_unit": { "type": ["string", "null"] },
+        "units": { "type": ["string", "null"] },
+        "scale": { "type": ["number", "null"] },
+        "offset": { "type": ["number", "null"] },
+        "nodata": { "type": ["number", "string", "null"] },
+        "valid_range": {
+          "type": ["array", "null"],
+          "items": { "type": "number" },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "calibrated": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    },
+    "index": {
+      "type": "object",
+      "required": ["id", "title", "method"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string", "minLength": 1 },
+        "method": { "enum": ["precomputed", "client"] },
+        "asset_id": { "type": ["string", "null"] },
+        "formula": { "type": ["string", "null"] },
+        "bands_used": { "type": "array", "items": { "type": "string" } },
+        "units": { "type": ["string", "null"] },
+        "parameters": { "type": "object", "additionalProperties": true }
+      },
+      "additionalProperties": true
+    },
+    "provenance": {
+      "type": "object",
+      "properties": {
+        "processing_chain": { "$ref": "#/$defs/nullableString" },
+        "processing_level": { "$ref": "#/$defs/nullableString" },
+        "software": { "$ref": "#/$defs/nullableString" },
+        "software_version": { "$ref": "#/$defs/nullableString" },
+        "doi": { "$ref": "#/$defs/nullableString" },
+        "repository": { "$ref": "#/$defs/nullableString" },
+        "commit_hash": { "$ref": "#/$defs/nullableString" },
+        "calibration": { "$ref": "#/$defs/nullableString" },
+        "atmospheric_correction": { "$ref": "#/$defs/nullableString" },
+        "georeferencing": { "$ref": "#/$defs/nullableString" },
+        "field_protocol": { "$ref": "#/$defs/nullableString" },
+        "quality": { "$ref": "#/$defs/nullableString" },
+        "uncertainty": { "$ref": "#/$defs/nullableString" },
+        "known_limitations": { "$ref": "#/$defs/nullableString" },
+        "contact": { "$ref": "#/$defs/nullableString" }
+      },
+      "additionalProperties": true
+    },
+    "dataset": {
+      "type": "object",
+      "required": ["id", "title", "status", "data_class", "assets", "license", "citation"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]*$" },
+        "title": { "type": "string", "minLength": 1 },
+        "version": { "$ref": "#/$defs/nullableString" },
+        "status": { "enum": ["public", "embargoed", "internal", "draft"] },
+        "data_class": { "enum": ["observational", "methodological", "example", "synthetic", "unverified"] },
+        "site": { "$ref": "#/$defs/nullableString" },
+        "country": { "$ref": "#/$defs/nullableString" },
+        "crop": { "$ref": "#/$defs/nullableString" },
+        "stressors": { "type": "array", "items": { "type": "string" } },
+        "platform": { "enum": ["UAV", "airborne", "satellite", "field", "mixed", null] },
+        "sensor": { "$ref": "#/$defs/nullableString" },
+        "acquisition_date": { "type": ["string", "null"], "format": "date" },
+        "bbox": {
+          "type": ["array", "null"],
+          "items": { "type": "number" },
+          "minItems": 4,
+          "maxItems": 4
+        },
+        "crs": { "$ref": "#/$defs/nullableString" },
+        "spatial_resolution": {
+          "type": ["object", "null"],
+          "properties": {
+            "value": { "type": "number" },
+            "unit": { "type": "string" }
+          },
+          "required": ["value", "unit"],
+          "additionalProperties": false
+        },
+        "assets": { "type": "array", "items": { "$ref": "#/$defs/asset" } },
+        "bands": { "type": "array", "items": { "$ref": "#/$defs/band" } },
+        "indices": { "type": "array", "items": { "$ref": "#/$defs/index" } },
+        "plot_statistics": { "type": "array", "items": { "type": "string" } },
+        "provenance": { "$ref": "#/$defs/provenance" },
+        "license": { "$ref": "#/$defs/nullableString" },
+        "citation": { "$ref": "#/$defs/nullableString" },
+        "client_computation": {
+          "type": "object",
+          "properties": { "allowed": { "type": "boolean" } },
+          "additionalProperties": true
+        },
+        "comparability_group": { "$ref": "#/$defs/nullableString" },
+        "harmonized": { "type": "boolean" }
+      },
+      "additionalProperties": true
+    }
+  }
+}

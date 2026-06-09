@@ -1,0 +1,1105 @@
+{
+  "source_repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+  "source_commit": "f33b294f0d3e364afade6a739fc4fea473fff090",
+  "generated_at": "2026-06-09T13:48:49.308Z",
+  "summary": {
+    "companion_rendered_document": 17,
+    "converted_all_sheets": 1,
+    "deduplicated_unverified": 9,
+    "duplicate": 15,
+    "imported": 7,
+    "imported_shapefile_component": 78,
+    "imported_synthetic": 6,
+    "preserved_source_project": 2,
+    "preserved_unresolved_crs": 10,
+    "raster_statistics_sidecar": 1,
+    "source_documentation": 9
+  },
+  "files": [
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_300Flex_reproject.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-flex-300m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_300Flex_reproject.dbf",
+      "bytes": 13064,
+      "sha256": "1b3bad66fcd2749c8a73d3caa7dc37c80fd3e9399dbee07c68ddb64e8c055485",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-flex-300m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_300Flex_reproject.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-flex-300m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_300Flex_reproject.qmd",
+      "bytes": 666,
+      "sha256": "e3b1998cc1b02393fb0e6d2cf0cf7159f7af5e0cbcc28d0e4013e37973d96c67",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_300Flex_reproject.shp",
+      "bytes": 15060,
+      "sha256": "d3861711bafcca54cc15d8c0c45e4ba72b85b3472e4ce493ee9a1b37265cb4a8",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-flex-300m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_300Flex_reproject.shx",
+      "bytes": 980,
+      "sha256": "dc20fbd206778278506594e9ab76c69b9ef384071c6e58732eb5e7f58fd81461",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-flex-300m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_30PRISMA.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-prisma-30m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_30PRISMA.dbf",
+      "bytes": 1205528,
+      "sha256": "81d927e9b0870f6081a2ef01a751ec5f1812d8d17c9d12aa87686c147b445e16",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-prisma-30m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_30PRISMA.prj",
+      "bytes": 400,
+      "sha256": "0bca38f3b0c76147278cd2be9e583eeeca2f15ffb9c69e10dfb4f1e1e80e8fc9",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-prisma-30m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_30PRISMA.qmd",
+      "bytes": 1100,
+      "sha256": "9e1976cb3791d2a438a1a625808fe38a23d61284bf95276459f1fd4d8506cb23",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_30PRISMA.shp",
+      "bytes": 1401172,
+      "sha256": "30abf3907105b92e48472861add6d9bfd751303d3feaa2f2622d1dcd486a01b3",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-prisma-30m-grid.geojson"
+    },
+    {
+      "source_path": "data/grids/Grid_Lelystad_3x3km_30PRISMA.shx",
+      "bytes": 82516,
+      "sha256": "8b1f49c9e4032e81b52f6817a3dfc33c6b7714c6b7d1faea2d131345c9a9b205",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/grids/lelystad-prisma-30m-grid.geojson"
+    },
+    {
+      "source_path": "data/HYDRA-EO.qgz",
+      "bytes": 129529,
+      "sha256": "3a285c61ee538ce907085c356802f2344aafef4640343fb4e7fd408c67963232",
+      "disposition": "preserved_source_project",
+      "imported_as": "visualization-data/provenance/source-archives/HYDRA-EO.qgz"
+    },
+    {
+      "source_path": "data/interim/Readme.txt",
+      "bytes": 238,
+      "sha256": "46785fc39896751382a430cbbba0db69d47cd3758b956566338b9568c5f38586",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/interim/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/matchup/Readme.txt",
+      "bytes": 264,
+      "sha256": "22690c1b3f03af0bc8e764aeea5b0373ca1f5664dc0d40e18028d886e439bad9",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/processed/Readme.txt",
+      "bytes": 245,
+      "sha256": "a161be8d6211807a59518228253abfc040729bc4ba5e3831a3839522996b0a3e",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/processed/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "imported",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/processed/s2_to_rm.tif.aux.xml",
+      "bytes": 4074,
+      "sha256": "8a8e76f50d62e4524bfe9d2554dcd6084dc13a1f4126e6438fbd2e0825e918e6",
+      "disposition": "raster_statistics_sidecar",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/processed/satellite/chime_sim/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/processed/satellite/enmap/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/processed/satellite/prisma/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/processed/satellite/Readme.txt",
+      "bytes": 415,
+      "sha256": "8391702c27f46cda32ab29816e934a612a7b15fe41ac7381c9c773c522184d93",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/processed/satellite/sentinel2/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/processed/satellite/thermal/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/rasters/EnMAP_30m_30m_200b.tif",
+      "bytes": 85984,
+      "sha256": "d82c56a11a349c2f8ad53c936c3eb47a35d96ad7e223b45ca0f90cbf312f63ac",
+      "disposition": "imported_synthetic",
+      "imported_as": "visualization-data/rasters/synthetic/enmap-prisma-30m-200band.tif"
+    },
+    {
+      "source_path": "data/rasters/FLEX_300m_300m_1b.tif",
+      "bytes": 1252,
+      "sha256": "a65d9d780f3ddf1b20039759ed68161a66b56630a7ea8d9ce936ba10f203be8c",
+      "disposition": "imported_synthetic",
+      "imported_as": "visualization-data/rasters/synthetic/flex-300m.tif"
+    },
+    {
+      "source_path": "data/rasters/PRISMA_30m_30m_200b.tif",
+      "bytes": 85984,
+      "sha256": "d82c56a11a349c2f8ad53c936c3eb47a35d96ad7e223b45ca0f90cbf312f63ac",
+      "disposition": "imported_synthetic",
+      "imported_as": "visualization-data/rasters/synthetic/enmap-prisma-30m-200band.tif"
+    },
+    {
+      "source_path": "data/rasters/S2_20m_20m_12b.tif",
+      "bytes": 7898,
+      "sha256": "d90edacc11a335caa1343fd661d479822d3a242d8f03b20e4c6c63ce700f9615",
+      "disposition": "imported_synthetic",
+      "imported_as": "visualization-data/rasters/synthetic/sentinel2-20m-12band.tif"
+    },
+    {
+      "source_path": "data/rasters/THERM_70m_70m_1b.tif",
+      "bytes": 1239,
+      "sha256": "74fa590d0e1f86989381886e3008705accddf9155d84fb395d99e815c49bf0f5",
+      "disposition": "imported_synthetic",
+      "imported_as": "visualization-data/rasters/synthetic/thermal-70m.tif"
+    },
+    {
+      "source_path": "data/rasters/UAV_1m_1m_200b.tif",
+      "bytes": 42840366,
+      "sha256": "fca21ec62e0e81cceb355be8ddbca73bd12a95d06ac80bdb055700e9c207cbec",
+      "disposition": "imported_synthetic",
+      "imported_as": "visualization-data/rasters/synthetic/uav-1m-200band.tif"
+    },
+    {
+      "source_path": "data/raw/airborne/CHI/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/airborne/CRE/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/airborne/LEL/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/airborne/LOM/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/airborne/Readme.txt",
+      "bytes": 313,
+      "sha256": "71176c1d0b17dd9456ba4a3b1815bc95ada1c2dd2370f2e59242632beda1a7de",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/raw/field/biochemistry/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/field/calibration/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/field/genomics/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/field/leaf_physiology/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/field/metabolomics/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/field/qpcr/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/field/Readme.txt",
+      "bytes": 503,
+      "sha256": "b5164d44fe53f44dd91f441a1ac50d468c821992d6cc07bb4866ede4b2d981c5",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/raw/field/visual_scoring/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/metadata/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/metadata/plant_positions/HYDRA_CRE_20260505_scoring_v1..csv",
+      "bytes": 383,
+      "sha256": "09a77c574c60c993613afbaacf8bb4e284d2eb6aec1416f6ec52e1a5d997f89a",
+      "disposition": "deduplicated_unverified",
+      "imported_as": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv"
+    },
+    {
+      "source_path": "data/raw/Readme.txt",
+      "bytes": 331,
+      "sha256": "3f8b5ec66b2e5d69b62a96f4c197c9ec8b6e979bf4f99b984620b4ca95446bea",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/raw/satellite/chime_sim/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/satellite/enmap/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/satellite/prisma/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/satellite/Readme.txt",
+      "bytes": 415,
+      "sha256": "8391702c27f46cda32ab29816e934a612a7b15fe41ac7381c9c773c522184d93",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/raw/satellite/sentinel2/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/raw/satellite/thermal/s2_to_rm.tif",
+      "bytes": 4166846,
+      "sha256": "fc7d949d40b613dcef828a8c82e7ae4a58f115b7e7608442b6d66d4fcae51a41",
+      "disposition": "duplicate",
+      "imported_as": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif"
+    },
+    {
+      "source_path": "data/Readme.txt",
+      "bytes": 1581,
+      "sha256": "a6933d1ad1f84ca8312891e8085870e9daa41fba439755d0ad82e9350d8996a9",
+      "disposition": "source_documentation",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/Sentinel-2/GeoJSON/Alfalfa_sites_1.geojson",
+      "bytes": 713,
+      "sha256": "1f1746c476de2dac717dff2b443bd93950633cb23c9e5aeea8e18140f2857cad",
+      "disposition": "imported",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-site-1-point.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/GeoJSON/Alfalfa_sites_1.qmd",
+      "bytes": 2762,
+      "sha256": "62b3a7aa0206a558d8c0b88e0ff1a4a3ba0e00a3b8dfe3e7480bc3acdf130771",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/Sentinel-2/GeoJSON/Alfalfa_sites_2.geojson",
+      "bytes": 713,
+      "sha256": "2bc78babe23639897cdc43916d5f9e0e6f0d9fd1abf465301e47e80b3b2af13a",
+      "disposition": "imported",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-site-2-point.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/GeoJSON/Alfalfa_sites_2.qmd",
+      "bytes": 2762,
+      "sha256": "62b3a7aa0206a558d8c0b88e0ff1a4a3ba0e00a3b8dfe3e7480bc3acdf130771",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/Sentinel-2/GeoJSON/Olives_orchards.geojson",
+      "bytes": 739,
+      "sha256": "82b010fe85ad851bc11a73d70b375824c1829f06c72bbf1a55ed0cd14c9593cf",
+      "disposition": "imported",
+      "imported_as": "visualization-data/vectors/sites/chaparrillo-center-point.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/GeoJSON/Olives_orchards.qmd",
+      "bytes": 2762,
+      "sha256": "62b3a7aa0206a558d8c0b88e0ff1a4a3ba0e00a3b8dfe3e7480bc3acdf130771",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa__point_2.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-sites-points.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa__point_2.dbf",
+      "bytes": 4947,
+      "sha256": "e736c1751fdc69a8303d91ac23cea0cf3aaeaa9f51b3bd787386ea48e018dfcd",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-sites-points.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa__point_2.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-sites-points.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa__point_2.qmd",
+      "bytes": 2762,
+      "sha256": "62b3a7aa0206a558d8c0b88e0ff1a4a3ba0e00a3b8dfe3e7480bc3acdf130771",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa__point_2.shp",
+      "bytes": 128,
+      "sha256": "7592fdc5791c05eb364d6ec90be2ba934967430fc534567d40683812c85ab8ff",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-sites-points.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa__point_2.shx",
+      "bytes": 108,
+      "sha256": "018bbcf5d9adc7affed3f3f7d3f029932180ddde59ef0211061f9cc384a7c3ca",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-sites-points.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site1.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-1-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site1.dbf",
+      "bytes": 77,
+      "sha256": "aa4386c962b4d59d90ca11639cb1067e09fbe17bb027a8ffdfa0c27f05305c51",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-1-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site1.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-1-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site1.shp",
+      "bytes": 236,
+      "sha256": "f6abddf24577a3ef67546e9a2b3b6f943f42e54e04b51f032747024fc9d1ad57",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-1-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site1.shx",
+      "bytes": 108,
+      "sha256": "393d5f1bac09d82c625d7dfc86c8481f209745e37f82adb45ec7f92a55b7d23e",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-1-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site2.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-2-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site2.dbf",
+      "bytes": 77,
+      "sha256": "aa4386c962b4d59d90ca11639cb1067e09fbe17bb027a8ffdfa0c27f05305c51",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-2-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site2.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-2-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site2.qmd",
+      "bytes": 1565,
+      "sha256": "844b350b5d6d3b31ef75d0a796b5e07434c379929c9f00ebf0ad0a08ef640b8e",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site2.shp",
+      "bytes": 236,
+      "sha256": "c38a7fecc29a61b3932f4228db3eeb894ee498e548e942a952521534be63f8b0",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-2-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Alfalfa_site2.shx",
+      "bytes": 108,
+      "sha256": "97fff1d62341644a9d4c410468b10f7cb357128c79ba96893ebc41d7220a1fb5",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/alfalfa-site-2-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Chaparrilo_site.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/chaparrillo-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Chaparrilo_site.dbf",
+      "bytes": 77,
+      "sha256": "c24523b518d5077ad8726fc847e70e435a4924e1384762636f515659dbea0fc8",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/chaparrillo-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Chaparrilo_site.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/chaparrillo-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Chaparrilo_site.shp",
+      "bytes": 236,
+      "sha256": "cb8353770b2de9eeb10679b3b94e0c87060a7b1aa6ac53ec9e2dd6ee43c106cb",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/chaparrillo-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Chaparrilo_site.shx",
+      "bytes": 108,
+      "sha256": "a453be9b643bc655d648d393c599bcfcec3edb8a11dfffbffc44c63765e07669",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/chaparrillo-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Lelystad_site.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/lelystad-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Lelystad_site.dbf",
+      "bytes": 77,
+      "sha256": "8c216bdf4944b8588c829182e1e32dd41445fe03583ddeed76dd501b801e4a51",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/lelystad-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Lelystad_site.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/lelystad-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Lelystad_site.shp",
+      "bytes": 236,
+      "sha256": "1ce9192404ffb150b8b97e175e74a5c960421d04df8e6b6c45bd7c422fd4d4cc",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/lelystad-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/Lelystad_site.shx",
+      "bytes": 108,
+      "sha256": "c48d694fe550f649e18009cca69ef9754ccf9aa40f9fc51f456aafb40972c2e1",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/lelystad-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/NL-Loobos.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/loobos-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/NL-Loobos.dbf",
+      "bytes": 77,
+      "sha256": "dc2b70917af71fd4fc0d9ed27d55cd72ea0fa9a4ad0a3fb78b023088f19631ad",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/loobos-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/NL-Loobos.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/loobos-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/NL-Loobos.shp",
+      "bytes": 236,
+      "sha256": "682c3d312eeab7a81b6b44ff066e55910a53b766d83b0903c33e74580d082f3d",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/loobos-roi.geojson"
+    },
+    {
+      "source_path": "data/Sentinel-2/ROIs/NL-Loobos.shx",
+      "bytes": 108,
+      "sha256": "4a4d0c26bdce4d87bb940e85366695e60f82d450ca72135b462e242ae922e5a2",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/rois/loobos-roi.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/additionals.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-additional-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/additionals.dbf",
+      "bytes": 77,
+      "sha256": "60bf80c28643bc939feeb6fd5656a7903e2a73ac4298a731527e6d4f21b1cc56",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-additional-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/additionals.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-additional-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/additionals.shp",
+      "bytes": 128,
+      "sha256": "134475785f7198a1ce1c5af7cd67df2d9682a4134d366f8ef5168548057c4711",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-additional-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/additionals.shx",
+      "bytes": 108,
+      "sha256": "e5e07e43760050c2d678e0bdb685c32b63cf80c53ec4d70a07dd14a29c4827c8",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-additional-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/alfaalfa_test.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/alfalfa-test-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/alfaalfa_test.dbf",
+      "bytes": 301,
+      "sha256": "472e93301b1e13c3758c85054e868b9556a13188ec73a7d9c3418ecc35c3f9e1",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/alfalfa-test-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/alfaalfa_test.prj",
+      "bytes": 425,
+      "sha256": "f2e7fb14d55bdd8d6a3bc2c272a48729d8f9d0ad72936e20eae6a9a81c2fccd0",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/alfalfa-test-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/alfaalfa_test.qmd",
+      "bytes": 2144,
+      "sha256": "00e182b057495f6412a46a1211b890704f57dfd65a19ebadec8a1bb6562ab312",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/alfaalfa_test.shp",
+      "bytes": 316,
+      "sha256": "75774baa8bc8314a78bd3355a04ae40c99fb5fd47d82be27dd8a52e51039dc7f",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/alfalfa-test-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/alfaalfa_test.shx",
+      "bytes": 108,
+      "sha256": "00084b230dfc42f4ea48c410858e44a3f9956854fd9fdacf089aadb292a405fb",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/alfalfa-test-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/Site_Alfalfa.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-primary-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/Site_Alfalfa.dbf",
+      "bytes": 4947,
+      "sha256": "d5c23a0bfbcfbd7c20acbbf5f38b0ec893c279d5b7122cf0be4c3894ef8d161c",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-primary-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/Site_Alfalfa.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-primary-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/Site_Alfalfa.qmd",
+      "bytes": 2762,
+      "sha256": "b50637f06389a35e102d93a1cdcd3269b4035e468b1924c36a6532ae73a07746",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/Site_Alfalfa.shp",
+      "bytes": 128,
+      "sha256": "429e56527536de999ac58113809871d7ab0458a9c6f59f5cccfe27de54882daf",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-primary-site.geojson"
+    },
+    {
+      "source_path": "data/sites/Alfalfa-CNR/Site_Alfalfa.shx",
+      "bytes": 108,
+      "sha256": "ec31143b4f7313089570081afa3ab3161b30713f856f519ba22fe6175d563322",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/alfalfa-primary-site.geojson"
+    },
+    {
+      "source_path": "data/sites/olive_orchard.geojson",
+      "bytes": 609,
+      "sha256": "b1383815651d7f202187949ebc263022867ebf75b317f732cfa018d4768994af",
+      "disposition": "imported",
+      "imported_as": "visualization-data/vectors/sites/olive-orchard-polygon.geojson"
+    },
+    {
+      "source_path": "data/sites/olive_orchard.qmd",
+      "bytes": 1565,
+      "sha256": "844b350b5d6d3b31ef75d0a796b5e07434c379929c9f00ebf0ad0a08ef640b8e",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Arbequina.dbf",
+      "bytes": 133029,
+      "sha256": "24ff6107deea84ad7136a4516fd1eee6ec3a281c93b4ae07aeac832471bbf237",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-arbequina-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Arbequina.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-arbequina-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Arbequina.shp",
+      "bytes": 27448,
+      "sha256": "7ae8a29a20faa4827ff41e842323be4676c3b606cfd3662d3a59960be31fb77e",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-arbequina-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Arbequina.shx",
+      "bytes": 8092,
+      "sha256": "ab8d26edc902a1e0c9d52975d3da14a1f85119ccca2966a2d34e7da79bd3996a",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-arbequina-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Cornicabra.dbf",
+      "bytes": 125922,
+      "sha256": "f41a3309d6bbeaaec61bd274ad9ddc970a4b2185551ab236e5bc77e0205f6713",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-cornicabra-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Cornicabra.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-cornicabra-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Cornicabra.shp",
+      "bytes": 26980,
+      "sha256": "8192975e340923bea67d51eeb09c1a29dcdc58a6464986cc374f2782f1a4ae91",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-cornicabra-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/Olive-Cornicabra.shx",
+      "bytes": 7780,
+      "sha256": "80796cfd073f517a99f2beb906191635f3ca4ae9f7d7c158b2ef04b2dffc7ef2",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/chaparrillo-olive-cornicabra-trees.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG_trees/proyectoESA-RMG.qgz",
+      "bytes": 13631,
+      "sha256": "26bcaad9ec803a15743e8edb314d5c8972f34d6e6c06bc011c6f28e8b4fefe3d",
+      "disposition": "preserved_source_project",
+      "imported_as": "visualization-data/provenance/source-archives/proyectoESA-RMG.qgz"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Areas_olive_pistacchio.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/chaparrillo-areas-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Areas_olive_pistacchio.dbf",
+      "bytes": 662,
+      "sha256": "129f969775c38e5f18067049ca81543c9279b75f3f2522a778db4eb9598a84c7",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/chaparrillo-areas-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Areas_olive_pistacchio.prj",
+      "bytes": 400,
+      "sha256": "0bca38f3b0c76147278cd2be9e583eeeca2f15ffb9c69e10dfb4f1e1e80e8fc9",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/chaparrillo-areas-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Areas_olive_pistacchio.qmd",
+      "bytes": 2755,
+      "sha256": "80dcc3dbe2e747f6f9ec576aac269a494b41e43cd9d9461a7023cee4059e2177",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Areas_olive_pistacchio.shp",
+      "bytes": 2340,
+      "sha256": "b9b8ba7873d0e260b5b6a66eaeff3dbe7bbcc7a508894f261ddc92c2c1eb6646",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/chaparrillo-areas-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Areas_olive_pistacchio.shx",
+      "bytes": 132,
+      "sha256": "f40556c9b1b12db459f62f5faeb6caa143981aa0065243e142d2f75f114f146c",
+      "disposition": "preserved_unresolved_crs",
+      "imported_as": "visualization-data/provenance/source-archives/chaparrillo-areas-unresolved-crs.zip"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Site_olive_pistacchio.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/chaparrillo-site-points.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Site_olive_pistacchio.dbf",
+      "bytes": 4947,
+      "sha256": "02af4015f8e13c016914edbf03d878b007040e2e494f14ba034c1d5cb8104265",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/chaparrillo-site-points.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Site_olive_pistacchio.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/chaparrillo-site-points.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Site_olive_pistacchio.qmd",
+      "bytes": 2762,
+      "sha256": "29ef018f35a0384701e26d7dcf320c48742882d2fdfcc2346390a7a07779520a",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Site_olive_pistacchio.shp",
+      "bytes": 128,
+      "sha256": "0b8357b5a7908a7692271b2309f61e7f319f7705f8095c4d7dc391773e9f08ef",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/chaparrillo-site-points.geojson"
+    },
+    {
+      "source_path": "data/sites/Olive-Pistachio-CIAG/Site_olive_pistacchio.shx",
+      "bytes": 108,
+      "sha256": "2ca96b09c0269f1eddaec7d8231a70afb0b077e61ba00ec006b9043de0172484",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/chaparrillo-site-points.geojson"
+    },
+    {
+      "source_path": "data/sites/Orchards.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/hydra-eo-study-sites.geojson"
+    },
+    {
+      "source_path": "data/sites/Orchards.dbf",
+      "bytes": 2234,
+      "sha256": "222c1d9b21436fc8272caedcf26539a992bcba5f84ad5e89ce55d556dcbfbac0",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/hydra-eo-study-sites.geojson"
+    },
+    {
+      "source_path": "data/sites/Orchards.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/hydra-eo-study-sites.geojson"
+    },
+    {
+      "source_path": "data/sites/Orchards.qmd",
+      "bytes": 1565,
+      "sha256": "844b350b5d6d3b31ef75d0a796b5e07434c379929c9f00ebf0ad0a08ef640b8e",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Orchards.shp",
+      "bytes": 1892,
+      "sha256": "dc12ce5af7ea1da6cff3a922c54afb315ef6687f0cea642df0b910d78719d5dc",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/hydra-eo-study-sites.geojson"
+    },
+    {
+      "source_path": "data/sites/Orchards.shx",
+      "bytes": 196,
+      "sha256": "ab0b1498ad2efec271d180ca35b5eb21c7ca5a069d6c54af25e72ccd02c22fcd",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/hydra-eo-study-sites.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad_area.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-area.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad_area.dbf",
+      "bytes": 311,
+      "sha256": "b99498e536773433678492fe8317776c2acb53f9f5a9b32d4093610788d78c34",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-area.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad_area.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-area.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad_area.qmd",
+      "bytes": 1565,
+      "sha256": "844b350b5d6d3b31ef75d0a796b5e07434c379929c9f00ebf0ad0a08ef640b8e",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad_area.shp",
+      "bytes": 236,
+      "sha256": "cb13c64d7f3d5f19b4c04b4cc54e2d3a3f55b5d74dae09e99049e9bf3dcdb3c2",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-area.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad_area.shx",
+      "bytes": 108,
+      "sha256": "4b1616e62a1e2946393fc9d90a52096ac602fb05d2381c9b360ddcb34034a552",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-area.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad.cpg",
+      "bytes": 5,
+      "sha256": "3ad3031f5503a4404af825262ee8232cc04d4ea6683d42c5dd0a2f2a27ac9824",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-point.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad.dbf",
+      "bytes": 4947,
+      "sha256": "cf52a0935a6931053b7bccb864da2667da0770c584a802ec8fa350579ac08c9f",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-point.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad.prj",
+      "bytes": 145,
+      "sha256": "a02a27b1d1982c8516d83398e85a3c8b1aef1713c13ef4d84d7bde17430c07c4",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-point.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad.qmd",
+      "bytes": 2762,
+      "sha256": "b50637f06389a35e102d93a1cdcd3269b4035e468b1924c36a6532ae73a07746",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad.shp",
+      "bytes": 128,
+      "sha256": "5f534e46f6acef17b29826a86a944415281f5712ca95e8a39ae4b25d892e7e09",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-point.geojson"
+    },
+    {
+      "source_path": "data/sites/Potato-Lelystad/Site_Lelystad.shx",
+      "bytes": 108,
+      "sha256": "c6312f4048663a734c5634a07ae012c8789186ddbc915648efc2309431d25516",
+      "disposition": "imported_shapefile_component",
+      "imported_as": "visualization-data/vectors/sites/lelystad-site-point.geojson"
+    },
+    {
+      "source_path": "Tables/Examples/Example_olives.xlsx",
+      "bytes": 34128,
+      "sha256": "c6dd2d80028e079b25c86abe17caa774a7597f8c0d52ee794601a6de59ca4b38",
+      "disposition": "converted_all_sheets",
+      "imported_as": "visualization-data/tables/examples/example-olives-*.csv"
+    },
+    {
+      "source_path": "Tables/Examples/Olive_arbequina.csv",
+      "bytes": 11921,
+      "sha256": "41c80d07d626be0b1c26cdf455fd35ea95ebee8948850d31e36aae2eeddcee6c",
+      "disposition": "imported",
+      "imported_as": "visualization-data/tables/examples/olive-arbequina-layout.csv"
+    },
+    {
+      "source_path": "Tables/Examples/Olive_arbequina.qmd",
+      "bytes": 1959,
+      "sha256": "a450ec6cb8bfc8344939c123ac6ae49a89f2ebf7e00b61523b857c6e5f633448",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    },
+    {
+      "source_path": "Tables/Examples/Olive_cornicabra.csv",
+      "bytes": 11576,
+      "sha256": "761319e1a58b343bee7d80aa442be9b454176c74beae4ee0dbce631034951e0d",
+      "disposition": "imported",
+      "imported_as": "visualization-data/tables/examples/olive-cornicabra-layout.csv"
+    },
+    {
+      "source_path": "Tables/Examples/Olive_cornicabra.qmd",
+      "bytes": 1565,
+      "sha256": "844b350b5d6d3b31ef75d0a796b5e07434c379929c9f00ebf0ad0a08ef640b8e",
+      "disposition": "companion_rendered_document",
+      "imported_as": null
+    }
+  ]
+}

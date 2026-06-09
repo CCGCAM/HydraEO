@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "olive_orchard",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 5.0, "left": null, "top": null, "right": null, "bottom": null, "crop": "Olive", "stress": "biotic", "country": "ES" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ -3.946438338290701, 39.030992825273785 ], [ -3.944872269384153, 39.032232890985362 ], [ -3.943528481225631, 39.03117334252164 ], [ -3.945023824439624, 39.029956804326261 ], [ -3.946438338290701, 39.030992825273785 ] ] ] ] } }
+]
+}

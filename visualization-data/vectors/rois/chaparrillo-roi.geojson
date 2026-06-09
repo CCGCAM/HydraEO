@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Chaparrilo_site",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ -3.970666063738678, 39.04656565748617 ], [ -3.906224283058394, 39.046362623955318 ], [ -3.905701428854093, 39.016104106811639 ], [ -3.970404636636526, 39.015697864111445 ], [ -3.970666063738678, 39.04656565748617 ] ] ] } }
+]
+}

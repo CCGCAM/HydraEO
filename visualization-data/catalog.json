@@ -1,0 +1,6256 @@
+{
+  "version": "0.3.0",
+  "title": "HYDRA-EO visualization data catalog",
+  "description": "Complete distinct dataset inventory imported from the public HYDRA-EO Geospatial Dataset repository, including explicit synthetic, example, duplicate, and unresolved classifications.",
+  "datasets": [
+    {
+      "id": "chaparrillo-sentinel2-reflectance",
+      "title": "Chaparrillo Sentinel-2 surface reflectance subset",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "observational",
+      "site": "Chaparrillo",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "satellite",
+      "sensor": "Sentinel-2 MSI",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9711593,
+        39.015096,
+        -3.9052427,
+        39.0471582
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 10,
+        "unit": "m"
+      },
+      "assets": [
+        {
+          "id": "surface-reflectance-rgb",
+          "type": "raster",
+          "role": "multispectral_reflectance",
+          "title": "Sentinel-2 surface reflectance · RGB view",
+          "href": "visualization-data/rasters/chaparrillo-sentinel2-reflectance.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            3,
+            2,
+            1
+          ],
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "display": {
+            "min": null,
+            "max": null,
+            "nodata_color": "transparent"
+          },
+          "observation_type": "raw observation",
+          "public_download": false
+        },
+        {
+          "id": "study-sites",
+          "type": "vector",
+          "role": "plot_boundaries",
+          "title": "HYDRA-EO study-site footprints",
+          "href": "visualization-data/vectors/hydra-eo-study-sites.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Import and exclusion record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown",
+          "public_download": true
+        },
+        {
+          "id": "source-manifest",
+          "type": "provenance",
+          "role": "source_inventory",
+          "title": "Complete source-file manifest",
+          "href": "visualization-data/provenance/source-manifest.json",
+          "media_type": "application/json",
+          "public_download": true
+        }
+      ],
+      "bands": [
+        {
+          "name": "B2",
+          "common_name": "blue",
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B3",
+          "common_name": "green",
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B4",
+          "common_name": "red",
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B5",
+          "common_name": "rededge",
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B6",
+          "common_name": null,
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B7",
+          "common_name": null,
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B8",
+          "common_name": "nir",
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B8A",
+          "common_name": null,
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B11",
+          "common_name": null,
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "B12",
+          "common_name": null,
+          "units": "surface reflectance",
+          "scale": 0.0001,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        },
+        {
+          "name": "SCL",
+          "common_name": null,
+          "units": "Sentinel-2 scene classification code",
+          "scale": 1,
+          "offset": 0,
+          "nodata": null,
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Copied from data/processed/s2_to_rm.tif and losslessly converted to a DEFLATE-compressed Cloud Optimized GeoTIFF with GDAL. RGB uses source bands B4, B3, and B2.",
+        "processing_level": "Source repository labels the file processed; exact Sentinel-2 processing level not provided.",
+        "software": "GDAL",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source GeoTIFF georeferencing retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": "Sentinel-2 SCL is present as source band 11; no quality mask is applied automatically.",
+        "uncertainty": null,
+        "known_limitations": "Acquisition date, product identifier, atmospheric-correction method, calibration record, and data license are not provided. No stress or disease inference is made. Sixteen source paths contain byte-identical copies and are represented once.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "synthetic-uav-1m-200band",
+      "title": "Synthetic UAV-like 1 m 200-band cube",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "synthetic",
+      "site": "Chaparrillo olive-orchard geometry",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "UAV",
+      "sensor": "UAV-like",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9464547,
+        39.0299454,
+        -3.9435125,
+        39.0322437
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 1,
+        "unit": "m nominal"
+      },
+      "assets": [
+        {
+          "id": "synthetic-raster",
+          "type": "raster",
+          "role": "hyperspectral_reflectance",
+          "title": "Synthetic UAV-like 1 m 200-band cube",
+          "href": "visualization-data/rasters/synthetic/uav-1m-200band.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            3,
+            2,
+            1
+          ],
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "display": {
+            "min": null,
+            "max": null,
+            "nodata_color": "transparent"
+          },
+          "observation_type": "synthetic simulation",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Source import record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown"
+        }
+      ],
+      "bands": [
+        {
+          "name": "B001",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B002",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B003",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B004",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B005",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B006",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B007",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B008",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B009",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B010",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B011",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B012",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B013",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B014",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B015",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B016",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B017",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B018",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B019",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B020",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B021",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B022",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B023",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B024",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B025",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B026",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B027",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B028",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B029",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B030",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B031",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B032",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B033",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B034",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B035",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B036",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B037",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B038",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B039",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B040",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B041",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B042",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B043",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B044",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B045",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B046",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B047",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B048",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B049",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B050",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B051",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B052",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B053",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B054",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B055",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B056",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B057",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B058",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B059",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B060",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B061",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B062",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B063",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B064",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B065",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B066",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B067",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B068",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B069",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B070",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B071",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B072",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B073",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B074",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B075",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B076",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B077",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B078",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B079",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B080",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B081",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B082",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B083",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B084",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B085",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B086",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B087",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B088",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B089",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B090",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B091",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B092",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B093",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B094",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B095",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B096",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B097",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B098",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B099",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B100",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B101",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B102",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B103",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B104",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B105",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B106",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B107",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B108",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B109",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B110",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B111",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B112",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B113",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B114",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B115",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B116",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B117",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B118",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B119",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B120",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B121",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B122",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B123",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B124",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B125",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B126",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B127",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B128",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B129",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B130",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B131",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B132",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B133",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B134",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B135",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B136",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B137",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B138",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B139",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B140",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B141",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B142",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B143",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B144",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B145",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B146",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B147",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B148",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B149",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B150",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B151",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B152",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B153",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B154",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B155",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B156",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B157",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B158",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B159",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B160",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B161",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B162",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B163",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B164",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B165",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B166",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B167",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B168",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B169",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B170",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B171",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B172",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B173",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B174",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B175",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B176",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B177",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B178",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B179",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B180",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B181",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B182",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B183",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B184",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B185",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B186",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B187",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B188",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B189",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B190",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B191",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B192",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B193",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B194",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B195",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B196",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B197",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B198",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B199",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B200",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Generated in the source repository by scripts/1-generate_multiresolution_rasters.R, then converted to COG without changing values.",
+        "processing_level": "Synthetic method-development raster",
+        "software": "R terra; GDAL COG conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source synthetic grid retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Explicitly generated by scripts/1-generate_multiresolution_rasters.R using runif(), rnorm(), and fixed random seeds. This is synthetic method-development material, not an observation, measurement, sensor product, or scientific result.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). Synthetic method-development raster from HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "synthetic-enmap-30m-200band",
+      "title": "Synthetic EnMAP-like 30 m 200-band cube",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "synthetic",
+      "site": "Chaparrillo olive-orchard geometry",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "mixed",
+      "sensor": "EnMAP-like",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9464547,
+        39.0299454,
+        -3.9435125,
+        39.0322437
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 30,
+        "unit": "m nominal"
+      },
+      "assets": [
+        {
+          "id": "synthetic-raster",
+          "type": "raster",
+          "role": "hyperspectral_reflectance",
+          "title": "Synthetic EnMAP-like 30 m 200-band cube",
+          "href": "visualization-data/rasters/synthetic/enmap-prisma-30m-200band.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            3,
+            2,
+            1
+          ],
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "display": {
+            "min": null,
+            "max": null,
+            "nodata_color": "transparent"
+          },
+          "observation_type": "synthetic simulation",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Source import record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown"
+        }
+      ],
+      "bands": [
+        {
+          "name": "B001",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B002",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B003",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B004",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B005",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B006",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B007",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B008",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B009",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B010",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B011",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B012",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B013",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B014",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B015",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B016",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B017",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B018",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B019",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B020",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B021",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B022",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B023",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B024",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B025",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B026",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B027",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B028",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B029",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B030",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B031",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B032",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B033",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B034",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B035",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B036",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B037",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B038",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B039",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B040",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B041",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B042",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B043",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B044",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B045",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B046",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B047",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B048",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B049",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B050",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B051",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B052",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B053",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B054",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B055",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B056",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B057",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B058",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B059",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B060",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B061",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B062",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B063",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B064",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B065",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B066",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B067",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B068",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B069",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B070",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B071",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B072",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B073",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B074",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B075",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B076",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B077",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B078",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B079",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B080",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B081",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B082",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B083",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B084",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B085",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B086",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B087",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B088",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B089",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B090",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B091",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B092",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B093",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B094",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B095",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B096",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B097",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B098",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B099",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B100",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B101",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B102",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B103",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B104",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B105",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B106",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B107",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B108",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B109",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B110",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B111",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B112",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B113",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B114",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B115",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B116",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B117",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B118",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B119",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B120",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B121",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B122",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B123",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B124",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B125",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B126",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B127",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B128",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B129",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B130",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B131",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B132",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B133",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B134",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B135",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B136",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B137",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B138",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B139",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B140",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B141",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B142",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B143",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B144",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B145",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B146",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B147",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B148",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B149",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B150",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B151",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B152",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B153",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B154",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B155",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B156",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B157",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B158",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B159",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B160",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B161",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B162",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B163",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B164",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B165",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B166",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B167",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B168",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B169",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B170",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B171",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B172",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B173",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B174",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B175",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B176",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B177",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B178",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B179",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B180",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B181",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B182",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B183",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B184",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B185",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B186",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B187",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B188",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B189",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B190",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B191",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B192",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B193",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B194",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B195",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B196",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B197",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B198",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B199",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B200",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Generated in the source repository by scripts/1-generate_multiresolution_rasters.R, then converted to COG without changing values.",
+        "processing_level": "Synthetic method-development raster",
+        "software": "R terra; GDAL COG conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source synthetic grid retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Explicitly generated by scripts/1-generate_multiresolution_rasters.R using runif(), rnorm(), and fixed random seeds. This is synthetic method-development material, not an observation, measurement, sensor product, or scientific result. The source EnMAP and PRISMA files are byte-identical and share one imported COG.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). Synthetic method-development raster from HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "synthetic-prisma-30m-200band",
+      "title": "Synthetic PRISMA-like 30 m 200-band cube",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "synthetic",
+      "site": "Chaparrillo olive-orchard geometry",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "mixed",
+      "sensor": "PRISMA-like",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9464547,
+        39.0299454,
+        -3.9435125,
+        39.0322437
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 30,
+        "unit": "m nominal"
+      },
+      "assets": [
+        {
+          "id": "synthetic-raster",
+          "type": "raster",
+          "role": "hyperspectral_reflectance",
+          "title": "Synthetic PRISMA-like 30 m 200-band cube",
+          "href": "visualization-data/rasters/synthetic/enmap-prisma-30m-200band.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            3,
+            2,
+            1
+          ],
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "display": {
+            "min": null,
+            "max": null,
+            "nodata_color": "transparent"
+          },
+          "observation_type": "synthetic simulation",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Source import record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown"
+        }
+      ],
+      "bands": [
+        {
+          "name": "B001",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B002",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B003",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B004",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B005",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B006",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B007",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B008",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B009",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B010",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B011",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B012",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B013",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B014",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B015",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B016",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B017",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B018",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B019",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B020",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B021",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B022",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B023",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B024",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B025",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B026",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B027",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B028",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B029",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B030",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B031",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B032",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B033",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B034",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B035",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B036",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B037",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B038",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B039",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B040",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B041",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B042",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B043",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B044",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B045",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B046",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B047",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B048",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B049",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B050",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B051",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B052",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B053",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B054",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B055",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B056",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B057",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B058",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B059",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B060",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B061",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B062",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B063",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B064",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B065",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B066",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B067",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B068",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B069",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B070",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B071",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B072",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B073",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B074",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B075",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B076",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B077",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B078",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B079",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B080",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B081",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B082",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B083",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B084",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B085",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B086",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B087",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B088",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B089",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B090",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B091",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B092",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B093",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B094",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B095",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B096",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B097",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B098",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B099",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B100",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B101",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B102",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B103",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B104",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B105",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B106",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B107",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B108",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B109",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B110",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B111",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B112",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B113",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B114",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B115",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B116",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B117",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B118",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B119",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B120",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B121",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B122",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B123",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B124",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B125",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B126",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B127",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B128",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B129",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B130",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B131",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B132",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B133",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B134",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B135",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B136",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B137",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B138",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B139",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B140",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B141",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B142",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B143",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B144",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B145",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B146",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B147",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B148",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B149",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B150",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B151",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B152",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B153",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B154",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B155",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B156",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B157",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B158",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B159",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B160",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B161",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B162",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B163",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B164",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B165",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B166",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B167",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B168",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B169",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B170",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B171",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B172",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B173",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B174",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B175",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B176",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B177",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B178",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B179",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B180",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B181",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B182",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B183",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B184",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B185",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B186",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B187",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B188",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B189",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B190",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B191",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B192",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B193",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B194",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B195",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B196",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B197",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B198",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B199",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B200",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Generated in the source repository by scripts/1-generate_multiresolution_rasters.R, then converted to COG without changing values.",
+        "processing_level": "Synthetic method-development raster",
+        "software": "R terra; GDAL COG conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source synthetic grid retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Explicitly generated by scripts/1-generate_multiresolution_rasters.R using runif(), rnorm(), and fixed random seeds. This is synthetic method-development material, not an observation, measurement, sensor product, or scientific result. The source EnMAP and PRISMA files are byte-identical and share one imported COG.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). Synthetic method-development raster from HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "synthetic-sentinel2-20m-12band",
+      "title": "Synthetic Sentinel-2-like 20 m 12-band cube",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "synthetic",
+      "site": "Chaparrillo olive-orchard geometry",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "mixed",
+      "sensor": "Sentinel-2-like",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9464547,
+        39.0299454,
+        -3.9435125,
+        39.0322437
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 20,
+        "unit": "m nominal"
+      },
+      "assets": [
+        {
+          "id": "synthetic-raster",
+          "type": "raster",
+          "role": "multispectral_reflectance",
+          "title": "Synthetic Sentinel-2-like 20 m 12-band cube",
+          "href": "visualization-data/rasters/synthetic/sentinel2-20m-12band.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            3,
+            2,
+            1
+          ],
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "display": {
+            "min": null,
+            "max": null,
+            "nodata_color": "transparent"
+          },
+          "observation_type": "synthetic simulation",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Source import record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown"
+        }
+      ],
+      "bands": [
+        {
+          "name": "B001",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B002",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B003",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B004",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B005",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B006",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B007",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B008",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B009",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B010",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B011",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        },
+        {
+          "name": "B012",
+          "units": "synthetic arbitrary units",
+          "scale": 1,
+          "offset": 0,
+          "nodata": "NaN",
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Generated in the source repository by scripts/1-generate_multiresolution_rasters.R, then converted to COG without changing values.",
+        "processing_level": "Synthetic method-development raster",
+        "software": "R terra; GDAL COG conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source synthetic grid retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Explicitly generated by scripts/1-generate_multiresolution_rasters.R using runif(), rnorm(), and fixed random seeds. This is synthetic method-development material, not an observation, measurement, sensor product, or scientific result.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). Synthetic method-development raster from HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "synthetic-thermal-70m",
+      "title": "Synthetic thermal-like 70 m raster",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "synthetic",
+      "site": "Chaparrillo olive-orchard geometry",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "mixed",
+      "sensor": "Thermal-like",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9464547,
+        39.0299454,
+        -3.9435125,
+        39.0322437
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 70,
+        "unit": "m nominal"
+      },
+      "assets": [
+        {
+          "id": "synthetic-raster",
+          "type": "raster",
+          "role": "thermal",
+          "title": "Synthetic thermal-like 70 m raster",
+          "href": "visualization-data/rasters/synthetic/thermal-70m.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            1
+          ],
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "display": {
+            "min": null,
+            "max": null,
+            "palette": [
+              "#2b2c7f",
+              "#21918c",
+              "#fde725"
+            ],
+            "nodata_color": "transparent"
+          },
+          "observation_type": "synthetic simulation",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Source import record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown"
+        }
+      ],
+      "bands": [
+        {
+          "name": "synthetic_value",
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Generated in the source repository by scripts/1-generate_multiresolution_rasters.R, then converted to COG without changing values.",
+        "processing_level": "Synthetic method-development raster",
+        "software": "R terra; GDAL COG conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source synthetic grid retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Explicitly generated by scripts/1-generate_multiresolution_rasters.R using runif(), rnorm(), and fixed random seeds. This is synthetic method-development material, not an observation, measurement, sensor product, or scientific result. The tracked source raster contains only nodata values after its focal operation.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). Synthetic method-development raster from HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "synthetic-flex-300m",
+      "title": "Synthetic FLEX-like 300 m single-cell raster",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "synthetic",
+      "site": "Chaparrillo olive-orchard geometry",
+      "country": "Spain",
+      "crop": null,
+      "stressors": [],
+      "platform": "mixed",
+      "sensor": "FLEX-like",
+      "acquisition_date": null,
+      "bbox": [
+        -3.9464547,
+        39.0299454,
+        -3.9435125,
+        39.0322437
+      ],
+      "crs": "EPSG:32630",
+      "spatial_resolution": {
+        "value": 300,
+        "unit": "m nominal"
+      },
+      "assets": [
+        {
+          "id": "synthetic-raster",
+          "type": "raster",
+          "role": "synthetic_single_band",
+          "title": "Synthetic FLEX-like 300 m single-cell raster",
+          "href": "visualization-data/rasters/synthetic/flex-300m.tif",
+          "media_type": "image/tiff; application=geotiff; profile=cloud-optimized",
+          "bands": [
+            1
+          ],
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "display": {
+            "min": 293.749,
+            "max": 293.749,
+            "palette": [
+              "#414487",
+              "#2a788e",
+              "#7ad151"
+            ],
+            "nodata_color": "transparent"
+          },
+          "observation_type": "synthetic simulation",
+          "public_download": false
+        },
+        {
+          "id": "source-provenance",
+          "type": "provenance",
+          "role": "processing_provenance",
+          "title": "Source import record",
+          "href": "visualization-data/provenance/geospatial-dataset-import.md",
+          "media_type": "text/markdown"
+        }
+      ],
+      "bands": [
+        {
+          "name": "synthetic_value",
+          "units": "synthetic arbitrary units",
+          "nodata": "NaN",
+          "calibrated": false
+        }
+      ],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Generated in the source repository by scripts/1-generate_multiresolution_rasters.R, then converted to COG without changing values.",
+        "processing_level": "Synthetic method-development raster",
+        "software": "R terra; GDAL COG conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "Source synthetic grid retained; EPSG:32630.",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Explicitly generated by scripts/1-generate_multiresolution_rasters.R using runif(), rnorm(), and fixed random seeds. This is synthetic method-development material, not an observation, measurement, sensor product, or scientific result.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). Synthetic method-development raster from HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "hydra-eo-study-site-footprints",
+      "title": "HYDRA-EO study-site footprints",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "observational",
+      "site": "HYDRA-EO field sites",
+      "country": "Spain, Italy, and the Netherlands",
+      "crop": "mixed",
+      "stressors": [],
+      "platform": "field",
+      "sensor": null,
+      "acquisition_date": null,
+      "bbox": [
+        -3.949139,
+        39.028081,
+        10.921949,
+        52.546827
+      ],
+      "crs": "EPSG:4326",
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "site-footprints",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Study-site polygons",
+          "href": "visualization-data/vectors/hydra-eo-study-sites.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Converted from data/sites/Orchards.shp to GeoJSON in EPSG:4326; source attributes retained.",
+        "processing_level": "Field-site geometry",
+        "software": "GDAL/OGR",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "EPSG:4326",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Survey method, positional uncertainty, acquisition date, and data license are not provided. Crop and stress attributes are owner-supplied labels, not measurements or diagnoses.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "chaparrillo-olive-tree-layouts",
+      "title": "Chaparrillo olive-tree position layers",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "observational",
+      "site": "Chaparrillo",
+      "country": "Spain",
+      "crop": "olive",
+      "stressors": [],
+      "platform": "field",
+      "sensor": null,
+      "acquisition_date": null,
+      "bbox": [
+        -3.946515,
+        39.030005,
+        -3.94355,
+        39.034235
+      ],
+      "crs": "EPSG:4326",
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "arbequina-trees",
+          "type": "vector",
+          "role": "plant_positions",
+          "title": "Arbequina tree positions",
+          "href": "visualization-data/vectors/chaparrillo-olive-arbequina-trees.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "cornicabra-trees",
+          "type": "vector",
+          "role": "plant_positions",
+          "title": "Cornicabra tree positions",
+          "href": "visualization-data/vectors/chaparrillo-olive-cornicabra-trees.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Converted source shapefiles to GeoJSON in EPSG:4326; Plot, Column, Line, and ID retained.",
+        "processing_level": "Field layout geometry",
+        "software": "GDAL/OGR",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "EPSG:4326",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Positioning method, uncertainty, survey date, completeness criteria, and data license are not provided.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "sentinel2-regions-of-interest",
+      "title": "Sentinel-2 regions of interest",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "observational",
+      "site": "Chaparrillo, Lelystad, Loobos, and Italian alfalfa sites",
+      "country": "Spain, Italy, and the Netherlands",
+      "crop": null,
+      "stressors": [],
+      "platform": "satellite",
+      "sensor": "Sentinel-2 ROI definitions",
+      "acquisition_date": null,
+      "bbox": null,
+      "crs": "EPSG:4326",
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "alfalfa-points",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Alfalfa site points",
+          "href": "visualization-data/vectors/rois/alfalfa-sites-points.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "alfalfa-roi-1",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Alfalfa site 1 ROI",
+          "href": "visualization-data/vectors/rois/alfalfa-site-1-roi.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "alfalfa-roi-2",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Alfalfa site 2 ROI",
+          "href": "visualization-data/vectors/rois/alfalfa-site-2-roi.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "chaparrillo-roi",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Chaparrillo ROI",
+          "href": "visualization-data/vectors/rois/chaparrillo-roi.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "lelystad-roi",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Lelystad ROI",
+          "href": "visualization-data/vectors/rois/lelystad-roi.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "loobos-roi",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Loobos ROI",
+          "href": "visualization-data/vectors/rois/loobos-roi.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Converted six source ROI shapefiles to GeoJSON in EPSG:4326.",
+        "processing_level": "Regions of interest",
+        "software": "GDAL/OGR",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "EPSG:4326",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "ROI creation method, dates, and positional uncertainty are not provided.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "lelystad-analysis-grids",
+      "title": "Lelystad PRISMA and FLEX analysis grids",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "methodological",
+      "site": "Lelystad region",
+      "country": "Netherlands",
+      "crop": null,
+      "stressors": [],
+      "platform": "mixed",
+      "sensor": null,
+      "acquisition_date": null,
+      "bbox": null,
+      "crs": "EPSG:4326",
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "prisma-grid",
+          "type": "vector",
+          "role": "analysis_grid",
+          "title": "PRISMA-scale grid · 10,302 cells",
+          "href": "visualization-data/vectors/grids/lelystad-prisma-30m-grid.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "flex-grid",
+          "type": "vector",
+          "role": "analysis_grid",
+          "title": "FLEX-scale grid · 110 cells",
+          "href": "visualization-data/vectors/grids/lelystad-flex-300m-grid.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Converted source grid shapefiles from EPSG:32631/EPSG:4326 metadata to GeoJSON in EPSG:4326.",
+        "processing_level": "Spatial analysis grids",
+        "software": "GDAL/OGR",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "EPSG:4326 output",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "The 30 m grid source extent covers a wider area than its filename suggests. Grid-generation parameters beyond source attributes are not documented.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "individual-site-geometries",
+      "title": "Individual HYDRA-EO site geometries",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "observational",
+      "site": "Chaparrillo, Lelystad, and Italian alfalfa sites",
+      "country": "Spain, Italy, and the Netherlands",
+      "crop": null,
+      "stressors": [],
+      "platform": "field",
+      "sensor": null,
+      "acquisition_date": null,
+      "bbox": null,
+      "crs": "EPSG:4326",
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "alfalfa-primary",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Alfalfa primary site",
+          "href": "visualization-data/vectors/sites/alfalfa-primary-site.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "alfalfa-additional",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Alfalfa additional site",
+          "href": "visualization-data/vectors/sites/alfalfa-additional-site.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "chaparrillo-points",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Chaparrillo site points",
+          "href": "visualization-data/vectors/sites/chaparrillo-site-points.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "lelystad-point",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Lelystad site point",
+          "href": "visualization-data/vectors/sites/lelystad-site-point.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "lelystad-area",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Lelystad site area",
+          "href": "visualization-data/vectors/sites/lelystad-site-area.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "alfalfa-1-point",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Alfalfa site 1 GeoJSON point",
+          "href": "visualization-data/vectors/sites/alfalfa-site-1-point.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "alfalfa-2-point",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Alfalfa site 2 GeoJSON point",
+          "href": "visualization-data/vectors/sites/alfalfa-site-2-point.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "chaparrillo-center",
+          "type": "vector",
+          "role": "site_points",
+          "title": "Chaparrillo center point",
+          "href": "visualization-data/vectors/sites/chaparrillo-center-point.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        },
+        {
+          "id": "olive-orchard",
+          "type": "vector",
+          "role": "site_boundaries",
+          "title": "Olive orchard polygon",
+          "href": "visualization-data/vectors/sites/olive-orchard-polygon.geojson",
+          "media_type": "application/geo+json",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Copied source GeoJSON files and converted source shapefiles to GeoJSON in EPSG:4326.",
+        "processing_level": "Site geometry",
+        "software": "GDAL/OGR",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": "EPSG:4326",
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "Several point and polygon layers overlap or represent alternate source encodings. Survey methods and dates are not provided.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "olive-layout-source-tables",
+      "title": "Olive layout source tables",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "example",
+      "site": "Chaparrillo",
+      "country": "Spain",
+      "crop": "olive",
+      "stressors": [],
+      "platform": "field",
+      "sensor": null,
+      "acquisition_date": null,
+      "bbox": null,
+      "crs": null,
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "arbequina-csv",
+          "type": "table",
+          "role": "plant_layout",
+          "title": "Arbequina layout CSV",
+          "href": "visualization-data/tables/examples/olive-arbequina-layout.csv",
+          "media_type": "text/csv",
+          "public_download": false
+        },
+        {
+          "id": "cornicabra-csv",
+          "type": "table",
+          "role": "plant_layout",
+          "title": "Cornicabra layout CSV",
+          "href": "visualization-data/tables/examples/olive-cornicabra-layout.csv",
+          "media_type": "text/csv",
+          "public_download": false
+        },
+        {
+          "id": "workbook-example",
+          "type": "table",
+          "role": "example_scoring",
+          "title": "Workbook Example sheet",
+          "href": "visualization-data/tables/examples/example-olives-example.csv",
+          "media_type": "text/csv",
+          "public_download": false
+        },
+        {
+          "id": "workbook-ol4",
+          "type": "table",
+          "role": "plant_layout",
+          "title": "Workbook OL4 sheet",
+          "href": "visualization-data/tables/examples/example-olives-ol4.csv",
+          "media_type": "text/csv",
+          "public_download": false
+        },
+        {
+          "id": "workbook-ol5",
+          "type": "table",
+          "role": "plant_layout",
+          "title": "Workbook OL5 sheet",
+          "href": "visualization-data/tables/examples/example-olives-ol5.csv",
+          "media_type": "text/csv",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Copied source CSVs and converted the three sheets of Tables/Examples/Example_olives.xlsx to CSV without changing cell values.",
+        "processing_level": "Source example tables",
+        "software": "Python openpyxl for XLSX-to-CSV conversion",
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": null,
+        "field_protocol": null,
+        "quality": null,
+        "uncertainty": null,
+        "known_limitations": "The source folder explicitly labels these as examples. They are not presented as validated field measurements. The table preview shows the first registered table and first 50 rows.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "unverified-field-scoring-table",
+      "title": "Unverified HYDRA CRE scoring table",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "unverified",
+      "site": "Source label: CRE / CIAG",
+      "country": null,
+      "crop": "olive",
+      "stressors": [
+        "Source label: Spilocaea oleagina"
+      ],
+      "platform": "field",
+      "sensor": null,
+      "acquisition_date": "2026-05-05",
+      "bbox": null,
+      "crs": null,
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "scoring-table",
+          "type": "table",
+          "role": "unverified_field_records",
+          "title": "Deduplicated source scoring table",
+          "href": "visualization-data/tables/unverified/hydra-cre-20260505-scoring.csv",
+          "media_type": "text/csv",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "One byte-identical copy retained from nine source paths under biochemistry, calibration, genomics, leaf physiology, metabolomics, qPCR, visual scoring, and metadata folders.",
+        "processing_level": "Unverified source table",
+        "software": null,
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": null,
+        "field_protocol": null,
+        "quality": "Not verified",
+        "uncertainty": null,
+        "known_limitations": "The nine files are identical despite representing different folder roles. Coordinates and field meanings are not supported by a protocol in the repository. Values are shown only as unverified source records and must not be interpreted as measurements, locations, disease diagnoses, or model outputs.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    },
+    {
+      "id": "unresolved-crs-source-geometries",
+      "title": "Source geometries with unresolved CRS",
+      "version": "source commit f33b294f0d3e364afade6a739fc4fea473fff090",
+      "status": "public",
+      "data_class": "unverified",
+      "site": "Italian alfalfa and Chaparrillo source labels",
+      "country": null,
+      "crop": null,
+      "stressors": [],
+      "platform": "field",
+      "sensor": null,
+      "acquisition_date": null,
+      "bbox": null,
+      "crs": null,
+      "spatial_resolution": null,
+      "assets": [
+        {
+          "id": "alfalfa-unresolved",
+          "type": "metadata",
+          "role": "unresolved_source_geometry",
+          "title": "Alfalfa test shapefile archive",
+          "href": "visualization-data/provenance/source-archives/alfalfa-test-unresolved-crs.zip",
+          "media_type": "application/zip",
+          "public_download": false
+        },
+        {
+          "id": "chaparrillo-unresolved",
+          "type": "metadata",
+          "role": "unresolved_source_geometry",
+          "title": "Chaparrillo areas shapefile archive",
+          "href": "visualization-data/provenance/source-archives/chaparrillo-areas-unresolved-crs.zip",
+          "media_type": "application/zip",
+          "public_download": false
+        },
+        {
+          "id": "qgis-project",
+          "type": "metadata",
+          "role": "source_project",
+          "title": "HYDRA-EO QGIS project",
+          "href": "visualization-data/provenance/source-archives/HYDRA-EO.qgz",
+          "media_type": "application/x-qgis-project",
+          "public_download": false
+        },
+        {
+          "id": "tree-qgis-project",
+          "type": "metadata",
+          "role": "source_project",
+          "title": "Chaparrillo tree-layout QGIS project",
+          "href": "visualization-data/provenance/source-archives/proyectoESA-RMG.qgz",
+          "media_type": "application/x-qgis-project",
+          "public_download": false
+        }
+      ],
+      "bands": [],
+      "indices": [],
+      "plot_statistics": [],
+      "client_computation": {
+        "allowed": false
+      },
+      "provenance": {
+        "processing_chain": "Source files preserved as archives; no coordinate transformation or map rendering applied.",
+        "processing_level": "Unresolved source geometry",
+        "software": null,
+        "software_version": null,
+        "doi": null,
+        "repository": "https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset",
+        "commit_hash": "f33b294f0d3e364afade6a739fc4fea473fff090",
+        "calibration": null,
+        "atmospheric_correction": null,
+        "georeferencing": null,
+        "field_protocol": null,
+        "quality": "Blocked from spatial rendering",
+        "uncertainty": null,
+        "known_limitations": "Coordinate values conflict with the declared CRS or expected named location. Rendering would invent a location, so these assets remain catalogued but non-spatial until corrected upstream.",
+        "contact": "Carlos Luis Camino González, Wageningen University & Research"
+      },
+      "license": "No data license stated in the source repository; public GitHub access only.",
+      "citation": "CCGCAM (2026). HYDRA-EO Geospatial Dataset, source commit f33b294f0d3e364afade6a739fc4fea473fff090. https://github.com/CCGCAM/HYDRA-EO-Geospatial-dataset"
+    }
+  ]
+}

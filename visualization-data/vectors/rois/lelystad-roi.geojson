@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "Lelystad_site",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": 1 }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 5.517477127214667, 52.549302807344539 ], [ 5.58191890789495, 52.549099773813687 ], [ 5.582441762099252, 52.518841256670008 ], [ 5.517738554316819, 52.518435013969814 ], [ 5.517477127214667, 52.549302807344539 ] ] ] } }
+]
+}
