@@ -4,3 +4,38 @@
 .Ruserdata
 
 /.quarto/
+
+# HYDRA-EO local data import inbox and imported source archive
+visualization-data/data-to-import/*
+!visualization-data/data-to-import/.gitkeep
+
+visualization-data/data-imported/*
+!visualization-data/data-imported/.gitkeep
+
+# Root-level raw data archives should not be committed
+/*.zip
+/*.tar
+/*.tar.gz
+/*.tgz
+/*.7z
+/*.rar
+
+# Large local raster/source data generated during import
+*.aux.xml
+*.ovr
+*.msk
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar
+*.tif
+*.tiff
+*.gpkg
+*.h5
+*.hdf5
+*.nc
+*.zarr
+
+# Keep intentional public placeholders and existing reviewed browser assets tracked.
+!visualization-data/**/.gitkeep
