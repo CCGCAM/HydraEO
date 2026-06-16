@@ -350,7 +350,21 @@ export function renderSpectralChart(container, rows, metadata = {}) {
   svg.setAttribute("viewBox", `0 0 ${width} ${height}`);
   svg.setAttribute("role", "img");
   svg.setAttribute("aria-label", `${metadata.title || "Spectrum"}: ${xKey} by ${yKey}`);
-  svg.innerHTML = `<path class="eo-chart-axis" d="M${pad.left},${pad.top}V${height-pad.bottom}H${width-pad.right}"/><path class="eo-chart-line" d="${path}"/><text x="${width/2}" y="${height-8}" text-anchor="middle">${metadata.x_label || xKey}${metadata.x_unit ? ` (${metadata.x_unit})` : ""}</text><text transform="translate(15 ${height/2}) rotate(-90)" text-anchor="middle">${metadata.y_label || yKey}${metadata.y_unit ? ` (${metadata.y_unit})` : ""}</text><text x="${pad.left}" y="${height-pad.bottom+18}">${minX}</text><text x="${width-pad.right}" y="${height-pad.bottom+18}" text-anchor="end">${maxX}</text><text x="${pad.left-8}" y="${pad.top+4}" text-anchor="end">${maxY}</text><text x="${pad.left-8}" y="${height-pad.bottom}" text-anchor="end">${minY}</text>`;
+  const ns = "http://www.w3.org/2000/svg";
+  const add = (name, attributes, value) => {
+    const node = document.createElementNS(ns, name);
+    Object.entries(attributes).forEach(([key, item]) => node.setAttribute(key, String(item)));
+    if (value !== undefined) node.textContent = String(value);
+    svg.append(node);
+  };
+  add("path", { class: "eo-chart-axis", d: `M${pad.left},${pad.top}V${height-pad.bottom}H${width-pad.right}` });
+  add("path", { class: "eo-chart-line", d: path });
+  add("text", { x: width / 2, y: height - 8, "text-anchor": "middle" }, `${metadata.x_label || xKey}${metadata.x_unit ? ` (${metadata.x_unit})` : ""}`);
+  add("text", { transform: `translate(15 ${height / 2}) rotate(-90)`, "text-anchor": "middle" }, `${metadata.y_label || yKey}${metadata.y_unit ? ` (${metadata.y_unit})` : ""}`);
+  add("text", { x: pad.left, y: height - pad.bottom + 18 }, minX);
+  add("text", { x: width - pad.right, y: height - pad.bottom + 18, "text-anchor": "end" }, maxX);
+  add("text", { x: pad.left - 8, y: pad.top + 4, "text-anchor": "end" }, maxY);
+  add("text", { x: pad.left - 8, y: height - pad.bottom, "text-anchor": "end" }, minY);
   container.append(svg);
   return true;
 }

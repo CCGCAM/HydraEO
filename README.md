@@ -24,9 +24,19 @@ The project is coordinated by the **Laboratory of Geo-information Science and Re
 This repository contains the **static website** for HYDRA-EO:
 
 -   `index.html`: main project page (project description, objectives, scenarios, methods, open tools, consortium, news).
+-   `explorer.html`: full static EO Explorer cockpit.
+-   `assets/css/scientific-home.css`: the single source of truth for the main page design. The readable `Homepage topbar` block near the top controls the ESA logo, project title, navigation text and responsive menu.
 -   `docs/`: documents, papers.
 -   `assets/`:figures, logos and icons used on the site.
 -   `tools/`: HTML pages describing open tools such as **ToolsRTM** and **SCOPEinR**.
+
+### Editing the website
+
+The public homepage is the root `index.html`. Do not edit `docs-quarto/`, `quarto/`, `versions/`, `Index-internal.html` or `Index-public.html` when changing the homepage; those are legacy or supplementary pages and do not control the main navigation shown at the project URL.
+
+For topbar changes, edit only the `Homepage topbar` block in `assets/css/scientific-home.css`. Avoid adding later overrides for `.site-header`, `.nav-wrap`, `.identity`, `.site-nav` or `.nav-toggle`.
+
+Visualization data are imported by placing files in `visualization-data/data-to-import/` and running `python scripts/import_visualization_data.py`. The generated `catalog.json` should not be edited manually. Imported raw sources move to the git-ignored `visualization-data/data-imported/`; large rasters require external HTTPS COG/STAC hosting. Validate before publishing with `python scripts/validate_visualization_site.py`.
 
 The site is deployed via **GitHub Pages** and is intended as a public entry point for the HYDRA-EO project.
 

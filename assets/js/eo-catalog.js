@@ -23,7 +23,10 @@ export function isSafeAssetHref(href) {
   if (/^[a-z][a-z0-9+.-]*:/i.test(href) || href.startsWith("//")) return false;
 
   const normalized = href.replace(/\\/g, "/").replace(/^\.\//, "");
-  return normalized.startsWith("visualization-data/") && !normalized.split("/").includes("..");
+  const parts = normalized.split("/");
+  const allowedFolders = new Set(["rasters", "vectors", "tables", "spectra", "thumbnails", "provenance", "derived", "demo"]);
+  return parts[0] === "visualization-data" && allowedFolders.has(parts[1]) &&
+    !parts.includes("..") && !parts.includes("data-imported") && !parts.includes("data-to-import");
 }
 
 function warning(datasetId, message) {
@@ -39,6 +42,9 @@ export function validateCatalog(catalog) {
   }
   if (!Array.isArray(catalog.datasets)) {
     throw new CatalogError("Catalog datasets must be an array.", "invalid_datasets");
+  }
+  if (catalog.detected_assets !== undefined && !Array.isArray(catalog.detected_assets)) {
+    throw new CatalogError("Catalog detected_assets must be an array.", "invalid_detected_assets");
   }
 
   const ids = new Set();

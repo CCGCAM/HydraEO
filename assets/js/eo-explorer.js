@@ -77,7 +77,15 @@ async function initExplorer(root) {
   ui.setLoading(false);
 
   if (!validated.publicDatasets.length) {
-    ui.showNoData(EMPTY_MESSAGE, EMPTY_DETAIL);
+    const detected = Array.isArray(validated.catalog.detected_assets) ? validated.catalog.detected_assets : [];
+    const external = detected.filter((item) => item.storage === "external_required");
+    if (external.length) {
+      ui.showNoData("External hosting required", `${external.length} imported large asset${external.length === 1 ? " is" : "s are"} retained locally. Publish HTTPS COG/STAC assets and rerun the importer.`, "warning");
+    } else if (detected.length) {
+      ui.showNoData("Detected but not publication-ready", `${detected.length} asset${detected.length === 1 ? " is" : "s are"} classified, but metadata or browser-ready hosting is incomplete.`, "warning");
+    } else {
+      ui.showNoData(EMPTY_MESSAGE, EMPTY_DETAIL);
+    }
     return;
   }
 
@@ -168,6 +176,25 @@ async function initExplorer(root) {
   }
 
   ui.nodes.datasetSelect.addEventListener("change", () => selectDataset(ui.nodes.datasetSelect.value));
+  root.querySelectorAll(".eo-inspector-tabs [role='tab']").forEach((tab) => tab.addEventListener("click", () => {
+    root.querySelectorAll(".eo-inspector-tabs [role='tab']").forEach((item) => item.setAttribute("aria-selected", String(item === tab)));
+    const name = tab.textContent.trim();
+    if (name === "Pixel") {
+      ui.nodes.inspector.replaceChildren();
+      const heading = document.createElement("h2");
+      const detail = document.createElement("p");
+      heading.textContent = "Select map evidence";
+      detail.textContent = "Coordinates, values, units, and nodata appear only when readable from active assets.";
+      ui.nodes.inspector.append(heading, detail);
+    } else {
+      ui.nodes.inspector.replaceChildren();
+      const heading = document.createElement("h2");
+      const detail = document.createElement("p");
+      heading.textContent = `${name} inspector`;
+      detail.textContent = `${name} evidence appears only when a registered source asset and its required metadata are available.`;
+      ui.nodes.inspector.append(heading, detail);
+    }
+  }));
   const bandSelects = ["red", "green", "blue"].map((channel) => root.querySelector(`[data-eo-band-${channel}]`));
   async function applyBandComposition() {
     if (!activeDataset || bandSelects.some((select) => !select.value)) return;
@@ -220,6 +247,10 @@ async function initExplorer(root) {
   root.querySelector("[data-eo-export-metadata]").addEventListener("click", () => {
     if (!activeDataset) return;
     downloadBlob(new Blob([metadataJson(activeDataset)], { type: "application/json" }), `${activeDataset.id}-metadata.json`);
+  });
+  root.querySelector("[data-eo-figure-mode]").addEventListener("click", (event) => {
+    const active = root.classList.toggle("eo-figure-mode-active");
+    event.currentTarget.textContent = active ? "Exit figure mode" : "Figure mode";
   });
   root.querySelector("[data-eo-copy-citation]").addEventListener("click", async (event) => {
     if (!activeDataset?.citation) return;

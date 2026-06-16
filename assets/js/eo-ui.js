@@ -35,6 +35,7 @@ export function createExplorerUI(root) {
     swipe: el(root, "[data-eo-swipe]"),
     loading: el(root, "[data-eo-loading]")
   };
+  let tableSelectHandler = null;
 
   return {
     nodes,
@@ -52,7 +53,7 @@ export function createExplorerUI(root) {
       nodes.cockpit.hidden = true;
       el(nodes.empty, "[data-eo-empty-title]").textContent = message;
       el(nodes.empty, "[data-eo-empty-detail]").textContent = detail;
-      this.setStatus(tone === "error" ? "Catalog attention required" : "Engine ready · no public data", tone);
+      this.setStatus(tone === "error" ? "Catalog attention required" : tone === "warning" ? message : "Engine ready · no public data", tone);
       nodes.root.querySelectorAll("[data-requires-data]").forEach((control) => control.disabled = true);
     },
     showCockpit() {
@@ -112,9 +113,11 @@ export function createExplorerUI(root) {
         check.setAttribute("aria-label", `Toggle ${asset.title || asset.role}`);
         check.addEventListener("change", () => onVisibility(asset.id, check.checked));
         const label = document.createElement("span");
-        label.innerHTML = `<strong></strong><small></small>`;
-        label.querySelector("strong").textContent = asset.title || asset.role;
-        label.querySelector("small").textContent = `${asset.type} · ${asset.units || NOT_PROVIDED}`;
+        const labelTitle = document.createElement("strong");
+        const labelDetail = document.createElement("small");
+        labelTitle.textContent = asset.title || asset.role;
+        labelDetail.textContent = `${asset.type} · ${asset.units || NOT_PROVIDED}`;
+        label.append(labelTitle, labelDetail);
         const opacity = document.createElement("input");
         opacity.type = "range";
         opacity.min = "0";
@@ -197,10 +200,11 @@ export function createExplorerUI(root) {
       if (!palette) scale.dataset.generic = "true";
       const labels = document.createElement("div");
       labels.className = "eo-colorbar-labels";
-      labels.innerHTML = `<span></span><span></span><span></span>`;
-      labels.children[0].textContent = text(asset.display?.min);
-      labels.children[1].textContent = asset.units || NOT_PROVIDED;
-      labels.children[2].textContent = text(asset.display?.max);
+      [text(asset.display?.min), asset.units || NOT_PROVIDED, text(asset.display?.max)].forEach((value) => {
+        const item = document.createElement("span");
+        item.textContent = value;
+        labels.append(item);
+      });
       const note = document.createElement("small");
       note.textContent = `Nodata: ${text(asset.nodata)}${palette ? "" : " · generic interface palette; dataset palette not provided"}`;
       nodes.legend.append(title, scale, labels, note);
@@ -273,7 +277,9 @@ export function createExplorerUI(root) {
       nodes.tableSelect.replaceChildren();
       assets.forEach((asset) => nodes.tableSelect.append(new Option(asset.title || asset.role, asset.id)));
       nodes.tableSelect.disabled = assets.length < 2;
-      nodes.tableSelect.onchange = () => onSelect(nodes.tableSelect.value);
+      if (tableSelectHandler) nodes.tableSelect.removeEventListener("change", tableSelectHandler);
+      tableSelectHandler = () => onSelect(nodes.tableSelect.value);
+      nodes.tableSelect.addEventListener("change", tableSelectHandler);
     }
   };
 }

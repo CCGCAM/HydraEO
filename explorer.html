@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive Sentinel-2 time-series explorer for five HYDRA-EO experiment sites.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://esm.sh; worker-src 'self' data: blob:; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' https: data: blob:; connect-src 'self' https: blob:; font-src 'self'; object-src 'none'; base-uri 'self'">
+  <title>Sentinel-2 Experiment Explorer | HYDRA-EO</title>
+  <link rel="stylesheet" href="assets/css/explorer-page.css">
+  <link rel="stylesheet" href="assets/css/sentinel-explorer.css">
+</head>
+<body class="explorer-page sentinel-page">
+  <header class="explorer-header">
+    <a class="explorer-brand" href="index.html"><img src="assets/Hydra-eo-logo.png" alt="HYDRA-EO"><span><strong>HYDRA-EO</strong><small>Sentinel-2 experiment explorer</small></span></a>
+    <nav aria-label="Site navigation"><a href="index.html">Home</a><a aria-current="page" href="explorer.html">Explorer</a><a href="https://github.com/CCGCAM/HYDRA-EO" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </header>
+
+  <main class="s2-app" data-s2-app aria-busy="true">
+    <section class="s2-hero">
+      <div><p class="s2-kicker">Sentinel-2 MSI · 2022–2025</p><h1>Follow every experiment through time.</h1><p class="s2-lead">Inspect surface-reflectance acquisitions, experiment boundaries, ROIs and illumination metadata from the local HYDRA-EO import archive.</p></div>
+      <div class="s2-source"><span>Source</span><strong>data-to-import/HYDRA-EO-data/Sentinel-2</strong><small data-s2-generated>Building acquisition index…</small></div>
+    </section>
+
+    <section class="s2-controls" aria-label="Experiment controls">
+      <label><span>Experiment place</span><select data-s2-site></select></label>
+      <label><span>Year</span><select data-s2-year></select></label>
+      <label><span>Scene-quality filter</span><select data-s2-cloud><option value="100">All scenes</option><option value="30">≤ 30% obscured</option><option value="10">≤ 10% obscured</option><option value="5">≤ 5% obscured</option><option value="1">≤ 1% obscured</option></select></label>
+      <label><span>Left visualizer</span><select data-s2-view-left><option value="natural">Natural colour · B4 B3 B2</option><option value="false">Vegetation false colour · B8 B4 B3</option><option value="moisture">Moisture false colour · B11 B8 B4</option><option value="ndvi">NDVI · (B8−B4)/(B8+B4)</option><option value="ndre">NDRE · (B8A−B5)/(B8A+B5)</option><option value="ndmi">NDMI · (B8−B11)/(B8+B11)</option><option value="evi">EVI · Sentinel-2 B8/B4/B2</option></select></label>
+      <label><span>Right visualizer</span><select data-s2-view-right><option value="ndvi">NDVI · (B8−B4)/(B8+B4)</option><option value="natural">Natural colour · B4 B3 B2</option><option value="false">Vegetation false colour · B8 B4 B3</option><option value="moisture">Moisture false colour · B11 B8 B4</option><option value="ndre">NDRE · (B8A−B5)/(B8A+B5)</option><option value="ndmi">NDMI · (B8−B11)/(B8+B11)</option><option value="evi">EVI · Sentinel-2 B8/B4/B2</option></select></label>
+      <button type="button" class="s2-play" data-s2-play aria-label="Play acquisitions">Play time series</button>
+    </section>
+
+    <section class="s2-summary" aria-label="Active experiment summary">
+      <article><span>Place</span><strong data-s2-place>—</strong><small data-s2-country>—</small></article>
+      <article><span>Experiment</span><strong data-s2-crop>—</strong><small>ROI and orchard geometry</small></article>
+      <article><span>Archive</span><strong data-s2-count>—</strong><small data-s2-range>—</small></article>
+      <article><span>Current scene</span><strong data-s2-date>—</strong><small data-s2-sensor>—</small></article>
+      <article><span>SCL quality</span><strong data-s2-quality>—</strong><small>Cloud + shadow + snow/ice</small></article>
+    </section>
+
+    <section class="s2-workspace">
+      <div class="s2-map-panel">
+        <div class="s2-map" data-s2-map aria-label="Sentinel-2 raster and experiment boundaries"></div>
+        <div class="s2-map-status" data-s2-map-status>Loading renderer…</div>
+        <div class="s2-map-key" data-s2-map-key></div>
+        <div class="s2-side-label left" data-s2-swipe-left-label>Natural colour</div>
+        <div class="s2-side-label right" data-s2-swipe-right-label>NDVI</div>
+        <div class="s2-swipe-divider" data-s2-swipe-divider role="separator" aria-label="Drag horizontally to compare visualizers" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0"></div>
+        <div class="s2-lens" data-s2-lens hidden><strong>Pixel spectrum</strong><span data-s2-lens-date></span><dl data-s2-lens-values></dl></div>
+      </div>
+
+      <aside class="s2-inspector">
+        <div class="s2-panel-head"><p class="s2-kicker">Acquisition evidence</p><h2 data-s2-scene-title>Select a date</h2></div>
+        <dl class="s2-metadata" data-s2-metadata></dl>
+        <div class="s2-index-summary"><div><h3>Scene medians</h3><small>Usable non-obscured pixels; no-data and saturated/defective pixels excluded.</small></div><dl data-s2-indices></dl></div>
+        <div class="s2-spectrum"><div><h3>Acquisition spectral context</h3><small>Recorded band-wise solar irradiance for this scene.</small></div><svg data-s2-spectrum viewBox="0 0 440 190" role="img" aria-label="Acquisition solar irradiance by Sentinel-2 band"></svg></div>
+        <a class="s2-file-link" data-s2-file href="#">Open source GeoTIFF</a>
+      </aside>
+    </section>
+
+    <section class="s2-story-panel">
+      <div class="s2-story-head"><div><p class="s2-kicker">Observation story</p><h2>Measured chapters from the archive</h2><p>Each chapter selects the least-obscured available acquisition in its period. Labels describe dates and measurements only; no crop stage is inferred.</p></div><button type="button" data-s2-story-play>Play observation story</button></div>
+      <div class="s2-story" data-s2-story></div>
+    </section>
+
+    <section class="s2-time-panel">
+      <div class="s2-time-head"><div><p class="s2-kicker">Temporal record</p><h2>Move through the acquisition history</h2></div><div class="s2-date-step"><button type="button" data-s2-prev aria-label="Previous acquisition">Previous</button><output data-s2-output>—</output><button type="button" data-s2-next aria-label="Next acquisition">Next</button></div></div>
+      <input class="s2-slider" data-s2-slider type="range" min="0" max="0" value="0" aria-label="Acquisition date">
+      <div class="s2-ticks" data-s2-ticks></div>
+      <div class="s2-observation-track" data-s2-observations aria-label="Recorded acquisition dates"><div class="s2-season-boundaries" data-s2-season-boundaries aria-hidden="true"></div></div>
+      <svg class="s2-season-chart" data-s2-season viewBox="0 0 1200 150" preserveAspectRatio="none" role="img" aria-label="Acquisition timeline and solar zenith"></svg>
+    </section>
+
+    <section class="s2-data-note"><strong>Scientific method</strong><p>Maps use small, fixed-stretch WebP quicklooks derived reproducibly from each source TIFF for fast display. Exact reflectance, SCL and index values remain read from the untouched GeoTIFF. Quality percentages cover the complete raster footprint. Scene medians exclude obscured, no-data and saturated/defective pixels. No stress, disease, yield or phenological stage is inferred.</p><code data-s2-folder></code></section>
+    <div class="s2-fatal" data-s2-fatal hidden></div>
+  </main>
+
+  <footer class="explorer-footer"><span>HYDRA-EO · ESA-supported Earth Observation research</span><span>Local Sentinel-2 experiment archive</span></footer>
+  <script type="module" src="assets/js/sentinel-explorer.js"></script>
+</body>
+</html>

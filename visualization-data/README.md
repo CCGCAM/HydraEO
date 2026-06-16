@@ -1,67 +1,76 @@
-# HYDRA-EO visualization data
+# HYDRA-EO visualization data workflow
 
-This folder is the only data interface used by the EO Explorer. It is intentionally
-replaceable: update this folder and `catalog.json`; do not edit the website code to
-publish a dataset. The catalog currently contains conservative imports from the
-public HYDRA-EO Geospatial Dataset repository. This includes observational,
-methodological, example, explicitly synthetic, unverified, duplicate, and
-unresolved-CRS source material. These classes are labeled in the interface and
-must not be conflated. See
-`provenance/geospatial-dataset-import.md` for source commits, exclusions, checksums,
-and metadata gaps. `provenance/source-manifest.json` accounts for every tracked
-file under the source repository's `data/` and `Tables/` directories.
+This folder is the generated data interface for the static, GitHub Pages-compatible EO Explorer. Do not edit `catalog.json` by hand.
 
-## Data contract
+## Import data
 
-1. Register every dataset in `catalog.json` and validate it against
-   `catalog.schema.json`.
-2. Use a stable, unique `id` and set `status` to `public` before it can appear in the
-   public Explorer. `draft`, `internal`, and `embargoed` entries are never rendered.
-3. Put local assets below this folder and reference them as paths such as
-   `visualization-data/rasters/flight-2026-05-01.tif`. Absolute remote assets must use
-   HTTPS. HTTP is accepted only from localhost during development.
-4. Provide an asset `type` and `role`. Supported types are `raster`, `vector`,
-   `table`, `spectra`, `thumbnail`, `provenance`, `stac`, and `metadata`.
-5. Do not infer scientific metadata from filenames. Supply units, nodata, scale,
-   offset, display ranges, calibration, quality information, and provenance where
-   applicable. Missing optional fields appear as `not provided`.
+1. Put raw rasters, vectors, tables, STAC JSON, metadata, citations, and sidecars in `data-to-import/`.
+2. Run `python scripts/import_visualization_data.py` from the repository root.
+3. Accepted source files move to `data-imported/`. That folder is intentionally excluded from git.
+4. Lightweight safe outputs are copied into public folders where appropriate.
+5. The script writes `catalog.json` and `import-report.md`, then runs validation.
 
-## Accepted formats
-
-- Raster: Cloud Optimized GeoTIFF (preferred), GeoTIFF, or an HTTPS STAC asset link.
-- Vector: GeoJSON, TopoJSON, or PMTiles. GeoJSON is supported directly in phase 1.
-- Tables and spectra: CSV or JSON with documented column names and units.
-- Metadata and provenance: JSON, Markdown, text, PDF, or a repository/DOI HTTPS URL.
-- Thumbnails: PNG, JPEG, WebP, or SVG; thumbnails are never treated as measurements.
-
-Remote COG servers must permit CORS and HTTP range requests. A STAC link may be
-registered as an asset, but the dataset entry still needs the metadata required by
-this catalog. Keep citations, licenses, calibration details, processing software,
-known limitations, and the responsible contact with the dataset.
-
-## Raster and band metadata
-
-Use `bands` for calibrated multispectral or hyperspectral products. Include band
-name, wavelength and units when known. Browser-side index computation remains
-disabled unless `client_computation.allowed` is true, calibrated reflectance bands
-are present, and the formula metadata is complete. Precomputed index rasters are
-preferred.
-
-Display ranges and percentiles must come from the dataset owner. The interface does
-not estimate ranges or substitute generic scientific values. NDVI's mathematical
-domain may be declared as `[-1, 1]`, but catalog display metadata takes precedence.
-
-## Local testing and validation
-
-Run:
+To safely process exactly one root-level zip, run:
 
 ```bash
-node scripts/validate-visualization-data.js
-python3 -m http.server 8000
+python scripts/import_visualization_data.py --from-root-zip
 ```
 
-Then open `http://localhost:8000/`. Do not open `index.html` via `file://`, because
-browser security rules prevent the catalog fetch.
+The zip is extracted in a temporary directory and removed only after import and validation succeed. If zero or multiple root zips exist, the command stops and removes none. Archive paths, symlinks, nested archives, executable/web-code files, member counts, and extracted sizes are checked before acceptance.
 
-The validator permits the default empty catalog. It reports metadata that is
-required before a public dataset can be publication-ready.
+Other commands:
+
+```bash
+python scripts/import_visualization_data.py --check
+python scripts/import_visualization_data.py --clean-generated
+python scripts/import_visualization_data.py --external-base-url https://example.org/eo-assets/
+python scripts/validate_visualization_site.py
+```
+
+`--clean-generated` removes only the generated catalog and report. It never deletes source data.
+
+## Size and hosting policy
+
+- Below 5 MB: small safe vectors, tables, metadata, and thumbnails may become tracked website assets.
+- 5-50 MB: retained in the ignored archive unless explicitly justified.
+- Above 50 MB: not committed to normal git history.
+- Above 100 MB: never committed to normal git history.
+- Large rasters remain in `data-imported/` and receive `external_required` status unless `--external-base-url` supplies an HTTPS destination.
+
+For browser raster viewing, publish a Cloud Optimized GeoTIFF on an HTTPS server that supports CORS and byte-range requests, or publish a suitable STAC item/catalog. Supplying an external URL does not make a non-COG raster web-ready.
+
+## Metadata sidecars
+
+Place sidecars beside their source asset:
+
+```text
+flight.tif
+flight.metadata.json
+flight.provenance.json
+flight.calibration.json
+flight.stac.json
+flight.citation.txt
+```
+
+Metadata may provide `title`, `units`, `nodata`, `crs`, `sensor`, `platform`, `acquisition_date`, `processing_level`, `calibration_method`, `provenance`, `citation`, `license`, `bands`, and `formula`. Filenames are never used to confirm crops, treatments, stress, disease, indices, or scientific validity.
+
+STAC files are detected from `stac_version`, `assets`, and `links`. Only same-origin public data paths and HTTPS remote assets pass the browser URL policy. Arbitrary STAC code/extensions are not executed and non-HTTPS links are not followed.
+
+## Scientific gate
+
+Browser-side NDVI, NDRE, GNDVI, SAVI, PRI, red-edge, chlorophyll, water, nitrogen, SIF, disease, stress, and anomaly computations remain blocked unless all required band identities, units, scale, offset, nodata, calibration method, processing level, acquisition, sensor/platform, formula, provenance, and CRS/registration metadata are complete.
+
+Real precomputed raster layers may be displayed when they include units, colorbar/display metadata, nodata status, provenance, citation/access information, and an intentional browser-safe asset. They must be labelled precomputed.
+
+## Readiness ladder
+
+- Level 0: No files detected.
+- Level 1: Files detected.
+- Level 2: Technical type identified.
+- Level 3: Browser preview available.
+- Level 4: Source product visualizable with metadata.
+- Level 5: Calibrated product with provenance.
+- Level 6: Computation-ready.
+- Level 7: Publication-ready with citation, license, quality, and validation notes.
+
+Troubleshooting starts with `import-report.md`. A detected asset may remain blocked because it is too large, unsupported by the static viewer, missing metadata, missing external hosting, or unsafe. Rejected files remain in the inbox when possible; root archives are retained after any failed run.
