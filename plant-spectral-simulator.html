@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browser-only RTM-lite plant canopy surface reflectance simulator for HYDRA-EO.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://esm.sh; worker-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self' blob: https://esm.sh; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; upgrade-insecure-requests">
+  <title>Plant Spectral Simulator | HYDRA-EO</title>
+  <link rel="stylesheet" href="assets/css/explorer-page.css">
+  <link rel="stylesheet" href="assets/css/plant-spectral-simulator.css">
+</head>
+<body class="explorer-page plant-sim-page">
+  <header class="explorer-header">
+    <a class="explorer-brand" href="index.html"><img src="assets/Hydra-eo-logo.png" alt="HYDRA-EO"><span><strong>HYDRA-EO</strong><small>Plant spectral simulator</small></span></a>
+    <nav aria-label="Site navigation"><a href="index.html">Home</a><a href="explorer.html">EO Explorer</a><a aria-current="page" href="plant-spectral-simulator.html">Plant Simulator</a><a href="https://github.com/CCGCAM/HYDRA-EO" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </header>
+
+  <main class="ps-app" data-ps-app>
+    <section class="ps-hero">
+      <div>
+        <p class="ps-kicker">Browser-only calculation · RTM-lite simulated outputs</p>
+        <h1>Plant canopy and spectrum simulator.</h1>
+        <p class="ps-lead">Explore how pistachio-style canopy structure, leaf optical traits, senescence, sun geometry and sensor-like resampling affect model-derived canopy surface reflectance from 400 to 2500 nm.</p>
+        <div class="ps-badges" aria-label="Scientific status">
+          <span>Simulated, not observed</span><span>RTM-lite approximation</span><span>Atmosphere not simulated</span><span>No backend</span>
+        </div>
+      </div>
+      <aside class="ps-guardrail">
+        <strong>Scientific guardrail</strong>
+        <p>This simulator generates model-derived canopy surface reflectance using RTM-lite, PROSAIL-parameterized approximation. It is intended for interactive understanding of parameter effects. It is not measured HYDRA-EO data, not observed satellite data, not a validated PROSAIL run, and not a substitute for sensor-calibrated satellite data.</p>
+      </aside>
+    </section>
+
+    <section class="ps-workspace">
+      <aside class="ps-controls" aria-label="Plant and canopy parameters">
+        <div class="ps-panel-head"><p class="ps-kicker">Controls</p><h2>Plant parameters</h2></div>
+        <form data-ps-form>
+          <label><span>Leaf area index <span class="ps-info" tabindex="0" role="note" aria-label="Leaf area index controls canopy density in the pistachio visualization and model." data-info="LAI in m2/m2. Visual effect: denser or sparser EZ-Tree foliage layer. Model effect: LAI, gap fraction, canopy cover and soil exposure. Warning range: below 0.3 or above 6.">i</span></span><output for="leafAreaIndex" data-output="leafAreaIndex">2.4</output><input id="leafAreaIndex" name="leafAreaIndex" type="range" min="0.2" max="6.5" step="0.1" value="2.4"></label>
+          <label><span>Cab (ug/cm2) <span class="ps-info" tabindex="0" role="note" aria-label="Cab controls chlorophyll pigment in leaves." data-info="Chlorophyll a+b content. Visual effect: leaf material tint from pale gray-green to saturated gray-green. Model effect: Cab absorption in blue and red wavelengths. Range: 5 to 80 ug/cm2.">i</span></span><output for="cab" data-output="cab">52</output><input id="cab" name="cab" type="range" min="5" max="80" step="1" value="52"></label>
+          <label><span>Cw (cm) <span class="ps-info" tabindex="0" role="note" aria-label="Cw controls equivalent leaf water thickness." data-info="Equivalent water thickness. Visual effect: turgid/desaturated foliage and subtle droop. Model effect: water absorption near 970, 1200, 1450 and 1950 nm. Range: 0.003 to 0.05 cm.">i</span></span><output for="cw" data-output="cw">0.020</output><input id="cw" name="cw" type="range" min="0.003" max="0.05" step="0.001" value="0.020"></label>
+          <label><span>Cm (g/cm2) <span class="ps-info" tabindex="0" role="note" aria-label="Cm controls dry matter content." data-info="Dry matter content. Visual effect: drier, slightly browner foliage surface. Model effect: dry-matter SWIR absorption terms and dry leaf material. Range: 0.002 to 0.02 g/cm2.">i</span></span><output for="cm" data-output="cm">0.009</output><input id="cm" name="cm" type="range" min="0.002" max="0.02" step="0.001" value="0.009"></label>
+          <label><span>Senescence (%) <span class="ps-info" tabindex="0" role="note" aria-label="Senescence controls brown pigment and leaf aging." data-info="Brown/senescent fraction. Visual effect: yellow-brown leaf tint and slightly more open canopy. Model effect: Cbrown increase, Cab reduction and Cm/Cw adjustment. Warning range: above 80 percent is extreme.">i</span></span><output for="senescence" data-output="senescence">14</output><input id="senescence" name="senescence" type="range" min="0" max="100" step="1" value="14"></label>
+          <label><span>Leaf angle (deg) <span class="ps-info" tabindex="0" role="note" aria-label="Leaf angle controls canopy leaf inclination." data-info="Average leaf inclination. Visual effect: foliage shell and leaf planes tilt more erect or horizontal. Model effect: ALA projection and Beer-Lambert extinction. Range: 10 to 80 degrees.">i</span></span><output for="leafAngle" data-output="leafAngle">42</output><input id="leafAngle" name="leafAngle" type="range" min="10" max="80" step="1" value="42"></label>
+          <label><span>Soil brightness <span class="ps-info" tabindex="0" role="note" aria-label="Soil brightness controls visual ground and model soil background." data-info="Soil/background brightness. Visual effect: dry orchard soil material brightness. Model effect: pSoil and soil background contribution, strongest at low LAI.">i</span></span><output for="soilBrightness" data-output="soilBrightness">36</output><input id="soilBrightness" name="soilBrightness" type="range" min="0" max="100" step="1" value="36"></label>
+          <label><span>Solar zenith <span class="ps-info" tabindex="0" role="note" aria-label="Solar zenith is the simulated solar angle away from the vertical direction." data-info="Solar angle from vertical/up direction. Larger values put the sun lower in the sky and increase model shadowing.">i</span></span><output for="solarZenith" data-output="solarZenith">32</output><input id="solarZenith" name="solarZenith" type="range" min="0" max="75" step="1" value="32"></label>
+          <label><span>Solar azimuth <span class="ps-info" tabindex="0" role="note" aria-label="Solar azimuth rotates the sun around the vertical axis." data-info="Horizontal sun direction around the vertical axis. Visual effect: sun disk, light and shadow direction rotate. Model effect: relative sun-view azimuth psi with fixed nadir-like view azimuth.">i</span></span><output for="solarAzimuth" data-output="solarAzimuth">35</output><input id="solarAzimuth" name="solarAzimuth" type="range" min="0" max="360" step="1" value="35"></label>
+          <label class="ps-select"><span>Sensor-like sampling</span><select id="sensor" name="sensor" data-ps-sensor aria-label="Sensor-like sampling"></select></label>
+        </form>
+        <div class="ps-actions">
+          <button type="button" data-ps-reset>Reset parameters</button>
+          <button type="button" data-ps-download>Download CSV</button>
+          <button type="button" data-ps-copy>Copy parameter JSON</button>
+        </div>
+      </aside>
+
+      <section class="ps-stage">
+        <div class="ps-visuals">
+          <article class="ps-plant-panel">
+            <div class="ps-panel-head"><p class="ps-kicker">Visual canopy</p><h2>EZ-Tree pistachio-style tree</h2></div>
+            <div class="ps-canvas-wrap">
+              <canvas data-ps-canvas aria-label="EZ-Tree pistachio-style canopy visualization driven by biophysical parameters"></canvas>
+              <p class="ps-webgl-fallback" data-ps-tree-status>Visual canopy: EZ-Tree pistachio-style tree driven by biophysical parameters. Spectrum computed separately by the canopy reflectance model.</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="ps-results">
+          <article class="ps-chart-panel">
+            <div class="ps-panel-head">
+              <div><p class="ps-kicker">Spectrum</p><h2>Reflectance profile</h2></div>
+              <span data-ps-sensor-badge>5 nm model grid</span>
+            </div>
+            <div class="ps-chart-wrap">
+              <svg data-ps-chart role="img" aria-label="Simulated model-derived canopy surface reflectance from 400 to 2500 nanometers"></svg>
+              <div class="ps-tooltip" data-ps-tooltip hidden></div>
+            </div>
+          </article>
+
+          <aside class="ps-inspector" aria-live="polite">
+          <article>
+            <div class="ps-panel-head"><p class="ps-kicker">Scientific status</p><h2>Model and output</h2></div>
+            <dl data-ps-status></dl>
+          </article>
+          <article>
+            <div class="ps-panel-head"><p class="ps-kicker">Inspector</p><h2>Derived parameters</h2></div>
+            <dl data-ps-derived></dl>
+          </article>
+          <article>
+            <div class="ps-panel-head"><p class="ps-kicker">Vegetation indices</p><h2>Sensor-compatible metrics</h2></div>
+            <div class="ps-index-grid" data-ps-indices></div>
+          </article>
+          <article class="ps-notes">
+            <div class="ps-panel-head"><p class="ps-kicker">Status</p><h2>Scientific notes</h2></div>
+            <ul data-ps-notes></ul>
+          </article>
+          <article class="ps-validation" data-ps-validation hidden>
+            <div class="ps-panel-head"><p class="ps-kicker">Validation mode</p><h2>Sanity checks</h2></div>
+            <dl></dl>
+            <ul></ul>
+          </article>
+          </aside>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="explorer-footer"><span>HYDRA-EO · ESA-supported Earth Observation research</span><span>Plant Spectral Simulator · browser-only simulated/model-derived outputs</span></footer>
+  <script type="module" src="assets/js/plant-spectral-simulator.js"></script>
+</body>
+</html>

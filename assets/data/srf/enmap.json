@@ -1,0 +1,7 @@
+{
+  "id": "enmap",
+  "displayName": "EnMAP-like hyperspectral sampling",
+  "srfStatus": "approximate Gaussian",
+  "sourceCitation": "Educational 10 nm spacing approximation; official EnMAP SRF is not included.",
+  "bandGeneration": {"prefix": "E", "startNm": 420, "endNm": 2450, "spacingNm": 10, "fwhmNm": 9}
+}

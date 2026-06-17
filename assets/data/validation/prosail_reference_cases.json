@@ -1,0 +1,21 @@
+{
+  "fixtureVersion": "2026-06-16-sanity-fixtures-v1",
+  "validationType": "qualitative sanity checks only",
+  "numericProsailReference": false,
+  "note": "These are not exact PROSAIL reference spectra. They document qualitative sanity cases used by the RTM-lite simulator.",
+  "sampleWavelengthsNm": [450, 550, 670, 705, 740, 800, 970, 1200, 1450, 1650, 1950, 2200],
+  "cases": [
+    {
+      "id": "healthy-canopy",
+      "expectedBehavior": ["red absorption lower than green", "NIR reflectance greater than red", "reflectance within 0-1"]
+    },
+    {
+      "id": "water-contrast",
+      "expectedBehavior": ["higher Cw produces deeper modeled water absorption at 1450 and 1950 nm"]
+    },
+    {
+      "id": "low-lai-soil",
+      "expectedBehavior": ["low LAI increases soil background influence"]
+    }
+  ]
+}

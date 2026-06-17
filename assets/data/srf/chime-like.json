@@ -1,0 +1,7 @@
+{
+  "id": "chime",
+  "displayName": "CHIME-like candidate hyperspectral sampling",
+  "srfStatus": "approximate Gaussian",
+  "sourceCitation": "Educational 10 nm spacing approximation; official CHIME candidate SRF is not included.",
+  "bandGeneration": {"prefix": "C", "startNm": 400, "endNm": 2500, "spacingNm": 10, "fwhmNm": 10}
+}

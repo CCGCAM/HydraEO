@@ -1,0 +1,7 @@
+{
+  "id": "prisma",
+  "displayName": "PRISMA-like hyperspectral sampling",
+  "srfStatus": "approximate Gaussian",
+  "sourceCitation": "Educational 10 nm spacing approximation; official PRISMA SRF is not included.",
+  "bandGeneration": {"prefix": "P", "startNm": 410, "endNm": 2450, "spacingNm": 10, "fwhmNm": 10}
+}

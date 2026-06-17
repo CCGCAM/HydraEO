@@ -1,0 +1,19 @@
+{
+  "id": "sentinel-2a-like",
+  "displayName": "Sentinel-2A-like approximate",
+  "srfStatus": "approximate Gaussian",
+  "sourceCitation": "Educational center/FWHM approximation only; official Sentinel-2A SRF is not included.",
+  "bands": [
+    {"name": "B1 Coastal aerosol", "centerNm": 442, "fwhmNm": 21},
+    {"name": "B2 Blue", "centerNm": 489, "fwhmNm": 65},
+    {"name": "B3 Green", "centerNm": 559, "fwhmNm": 35},
+    {"name": "B4 Red", "centerNm": 664, "fwhmNm": 30},
+    {"name": "B5 Red edge 1", "centerNm": 704, "fwhmNm": 15},
+    {"name": "B6 Red edge 2", "centerNm": 739, "fwhmNm": 15},
+    {"name": "B7 Red edge 3", "centerNm": 782, "fwhmNm": 20},
+    {"name": "B8 NIR", "centerNm": 841, "fwhmNm": 115},
+    {"name": "B8A Narrow NIR", "centerNm": 864, "fwhmNm": 20},
+    {"name": "B11 SWIR 1", "centerNm": 1609, "fwhmNm": 90},
+    {"name": "B12 SWIR 2", "centerNm": 2189, "fwhmNm": 180}
+  ]
+}

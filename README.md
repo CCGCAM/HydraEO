@@ -25,6 +25,7 @@ This repository contains the **static website** for HYDRA-EO:
 
 -   `index.html`: main project page (project description, objectives, scenarios, methods, open tools, consortium, news).
 -   `explorer.html`: full static EO Explorer cockpit.
+-   `plant-spectral-simulator.html`: browser-only pistachio canopy and spectral simulator. It generates simulated/model-derived canopy surface reflectance with an RTM-lite, PROSAIL-parameterized approximation and sensor-like spectral convolution. The visual canopy uses EZ-Tree/Three.js when available and a static-compatible pistachio fallback if the runtime import fails. Remaining plant controls are coupled to both the visual canopy and the reflectance parameter mapping. It does not use observed HYDRA-EO measurements, atmosphere simulation, a backend service, or a validated PROSAIL run. Model details are documented in `docs/PLANT_SPECTRAL_SIMULATOR_MODEL.md`.
 -   `assets/css/scientific-home.css`: the single source of truth for the main page design. The readable `Homepage topbar` block near the top controls the ESA logo, project title, navigation text and responsive menu.
 -   `docs/`: documents, papers.
 -   `assets/`:figures, logos and icons used on the site.
