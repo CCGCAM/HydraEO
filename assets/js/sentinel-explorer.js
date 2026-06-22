@@ -3,9 +3,12 @@ const OL = "https://esm.sh/ol@10.9.0";
 const GEOTIFF = "https://esm.sh/geotiff@2.1.3";
 const PROJ4 = "https://esm.sh/proj4@2.15.0";
 const REFLECTANCE_SCALE = 0.0001;
-const BAND_LABELS = ["B2", "B3", "B4", "B5", "B6", "B7", "B8", "B8A", "B11", "B12", "SCL"];
-const IRRADIANCE_BANDS = ["B2", "B3", "B4", "B5", "B6", "B7", "B8", "B9", "B11", "B12"];
-const WAVELENGTHS = [490, 560, 665, 705, 740, 783, 842, 945, 1610, 2190];
+const REFLECTANCE_BANDS = [
+  {label:"B2", wavelength:490}, {label:"B3", wavelength:560}, {label:"B4", wavelength:665},
+  {label:"B5", wavelength:705}, {label:"B6", wavelength:740}, {label:"B7", wavelength:783},
+  {label:"B8", wavelength:842}, {label:"B8A", wavelength:865}, {label:"B11", wavelength:1610},
+  {label:"B12", wavelength:2190}
+];
 const OBSCURED_CLASSES = new Set([3, 8, 9, 10, 11]);
 const SCL_LABELS = {
   0:"No data", 1:"Saturated/defective", 2:"Dark area", 3:"Cloud shadow", 4:"Vegetation",
@@ -20,13 +23,15 @@ const INDEX_INFO = {
 };
 
 const $ = (selector, root = document) => root.querySelector(selector);
+const SVG_NS = "http://www.w3.org/2000/svg";
 const app = $("[data-s2-app]");
-const nodeNames = ["site","year","cloud","view-left","view-right","swipe-divider","swipe-left-label","swipe-right-label","play","place","country","crop","count","range","date","sensor","quality","map","map-status","map-key","lens","lens-date","lens-values","scene-title","metadata","indices","spectrum","file","prev","next","output","slider","ticks","observations","season-boundaries","season","story","story-play","generated","folder","fatal"];
+const nodeNames = ["site","year","cloud","view-left","view-right","swipe-divider","swipe-left-label","swipe-right-label","play","place","country","crop","count","range","date","sensor","quality","map","map-status","map-key","selected-marker","lens","lens-date","lens-values","scene-title","metadata","indices","spectrum","spectrum-status","file","prev","next","output","slider","ticks","observations","season-boundaries","season","story","story-play","generated","folder","fatal"];
 const nodes = Object.fromEntries(nodeNames.map((name) => [name.replace(/-([a-z])/g, (_, letter) => letter.toUpperCase()), $(`[data-s2-${name}]`, app)]));
 
-let manifest, site, filtered = [], index = 0, map, ol, rasterLayers = [], vectorLayers = [], roiExtent, roiClipCoordinates;
-let playbackTimer, storyTimer, storyChapters = [], lensTimer, lensToken = 0;
+let manifest, site, filtered = [], index = 0, map, ol, rasterLayers = [], pendingRasterLayers = [], vectorLayers = [], roiExtent, roiClipCoordinates;
+let playbackTimer, storyTimer, storyChapters = [], lensTimer, lensToken = 0, pixelReaderToken = 0;
 let geotiffModulePromise, proj4Promise, pixelReader;
+let selectedCoordinate = null, selectedLonLat = null, selectedSpectrumToken = 0;
 let rasterRequestId = 0, sliderTimer;
 let swipePosition = 50, swipeDragging = false;
 const rasterCache = new Map();
@@ -114,6 +119,10 @@ async function initMap() {
     interactions:[]
   });
   map.on("pointermove", scheduleLens);
+  map.on("click", selectSpectrumPoint);
+  map.on("postrender", updateSelectedMarker);
+  nodes.map.addEventListener("click", selectSpectrumPointFromDom);
+  nodes.map.parentElement.addEventListener("click", selectSpectrumPointFromDom, true);
   nodes.map.addEventListener("pointerleave", () => { nodes.lens.hidden = true; });
 }
 
@@ -236,6 +245,15 @@ function prefetchUrl(key) {
   remember(prefetchCache,key,request,MAX_PREFETCH_CACHE);
 }
 
+function preloadImage(url) {
+  return new Promise((resolve,reject)=>{
+    const image=new Image();
+    image.onload=()=>resolve(url);
+    image.onerror=()=>reject(new Error(`Quicklook image failed to load: ${url}`));
+    image.src=url;
+  });
+}
+
 function comparisonViews() {
   return [nodes.viewLeft.value,nodes.viewRight.value];
 }
@@ -244,11 +262,17 @@ function viewLabel(view) {
   return {natural:"Natural colour",false:"Vegetation false colour",moisture:"Moisture false colour",ndvi:"NDVI",ndre:"NDRE",ndmi:"NDMI",evi:"EVI"}[view]||view;
 }
 
+function applySwipeToLayers(layers, position = swipePosition) {
+  if(!roiExtent||layers.length<2)return;
+  const cut=roiExtent[0]+(roiExtent[2]-roiExtent[0])*(position/100);
+  layers[1].setExtent([roiExtent[0],roiExtent[1],cut,roiExtent[3]]);
+}
+
 function updateSwipe(position = swipePosition) {
   if(!roiExtent||rasterLayers.length<2)return;
   swipePosition=Math.max(0,Math.min(100,Number(position)));
-  const cut=roiExtent[0]+(roiExtent[2]-roiExtent[0])*(swipePosition/100);
-  rasterLayers[1].setExtent([roiExtent[0],roiExtent[1],cut,roiExtent[3]]);
+  applySwipeToLayers(rasterLayers);
+  applySwipeToLayers(pendingRasterLayers);
   nodes.swipeDivider.style.left=`${swipePosition}%`;
   nodes.swipeDivider.setAttribute("aria-valuenow",String(Math.round(swipePosition)));
   nodes.swipeLeftLabel.textContent=viewLabel(nodes.viewLeft.value);
@@ -298,26 +322,58 @@ function prefetchNeighbors() {
 
 async function showRaster(acquisition) {
   const requestId=++rasterRequestId;
-  nodes.mapStatus.hidden = false;
-  nodes.mapStatus.textContent = `Loading fast display · ${acquisition.date}`;
+  if(!rasterLayers.length) {
+    nodes.mapStatus.hidden = false;
+    nodes.mapStatus.textContent = `Loading fast display · ${acquisition.date}`;
+  }
   nodes.lens.hidden = true;
   pixelReader = null;
+  pixelReaderToken += 1;
   lensToken += 1;
-  rasterLayers.forEach((layer)=>map.removeLayer(layer));
+  pendingRasterLayers.forEach((layer)=>map.removeLayer(layer));
+  pendingRasterLayers = [];
   const [leftView,rightView]=comparisonViews();
+  try {
+    await Promise.all([acquisition.quicklooks?.[rightView],acquisition.quicklooks?.[leftView]].filter(Boolean).map(preloadImage));
+  } catch(error) {
+    if(requestId===rasterRequestId) {
+      nodes.mapStatus.hidden=false;
+      nodes.mapStatus.textContent=error.message;
+    }
+    return;
+  }
+  if(requestId!==rasterRequestId)return;
   const right=createRaster(acquisition,rightView,"right");
   const left=createRaster(acquisition,leftView,"left");
-  rasterLayers=[right.layer,left.layer];
-  right.layer.setZIndex(1); left.layer.setZIndex(2);
-  map.getLayers().insertAt(0,right.layer);
-  map.getLayers().insertAt(1,left.layer);
-  updateSwipe();
+  const nextLayers=[right.layer,left.layer];
+  if(nextLayers.length===rasterLayers.length&&nextLayers.every((layer,layerIndex)=>layer===rasterLayers[layerIndex])) {
+    updateSwipe();
+    renderMapKey();
+    nodes.mapStatus.hidden=true;
+    prefetchNeighbors();
+    updateSelectedSpectrum(acquisition);
+    return;
+  }
+  pendingRasterLayers=nextLayers;
+  right.layer.setOpacity(0); left.layer.setOpacity(0);
+  right.layer.setZIndex(5); left.layer.setZIndex(6);
+  map.addLayer(right.layer);
+  map.addLayer(left.layer);
+  applySwipeToLayers(nextLayers);
   renderMapKey();
-  let loadedCount=0;
-  const loaded=()=>{loadedCount+=1;if(requestId===rasterRequestId&&loadedCount>=2){nodes.mapStatus.hidden=true;prefetchNeighbors();}};
-  [right.source,left.source].forEach((source)=>{source.once("imageloadend",loaded);source.once("imageloaderror",()=>{if(requestId===rasterRequestId){nodes.mapStatus.hidden=false;nodes.mapStatus.textContent="A comparison quicklook could not be loaded.";}});});
-  setTimeout(loaded,1200);
-  setTimeout(loaded,1200);
+  const finalize=()=>{
+    if(requestId!==rasterRequestId)return;
+    rasterLayers.forEach((layer)=>map.removeLayer(layer));
+    right.layer.setOpacity(.98); left.layer.setOpacity(.98);
+    right.layer.setZIndex(1); left.layer.setZIndex(2);
+    rasterLayers=nextLayers;
+    pendingRasterLayers=[];
+    updateSwipe();
+    nodes.mapStatus.hidden=true;
+    prefetchNeighbors();
+  };
+  requestAnimationFrame(finalize);
+  updateSelectedSpectrum(acquisition);
 }
 
 function metadataRows(acquisition) {
@@ -358,9 +414,7 @@ function renderMetadata(acquisition) {
   nodes.sensor.textContent = acquisition.properties?.Sensor || "Sentinel-2 MSI";
   nodes.quality.textContent = `${nice(acquisition.statistics?.obscured_percent,2)}% obscured`;
   nodes.output.textContent = `${index + 1} / ${filtered.length} · ${acquisition.date}`;
-  const irradiance = IRRADIANCE_BANDS.map((band) => acquisition.properties?.[`Solar_irradiance_${band}`]).map(Number);
-  if (irradiance.every(Number.isFinite)) renderIrradiance(irradiance);
-  else nodes.spectrum.innerHTML = '<text class="s2-chart-label" x="220" y="95" text-anchor="middle">Solar irradiance metadata are not available for this site.</text>';
+  if (!selectedLonLat) renderSpectrumPlaceholder("Click a point in the image to read source-pixel reflectance.");
 }
 
 function renderSeason() {
@@ -370,10 +424,29 @@ function renderSeason() {
   const start=Date.parse(`${filtered[0].date}T00:00:00Z`),end=Date.parse(`${filtered.at(-1).date}T00:00:00Z`),span=Math.max(end-start,86400000);
   const x=(item)=>((Date.parse(`${item.date}T00:00:00Z`)-start)/span)*width;
   const y=(value)=>height-pad-((value-min)/Math.max(max-min,1))*(height-pad*2);
-  const lines=[25,50,75,100,125].map((yy)=>`<line class="s2-chart-grid" x1="0" y1="${yy}" x2="${width}" y2="${yy}"/>`).join("");
   const points=filtered.map((item)=>Number.isFinite(Number(item.properties?.["Solar Zenith"]))?`${x(item)},${y(Number(item.properties["Solar Zenith"]))}`:null).filter(Boolean).join(" ");
-  const seasonLines=seasonDates(start,end).map(({date})=>`<line class="s2-chart-season" x1="${((date-start)/span)*width}" y1="0" x2="${((date-start)/span)*width}" y2="${height}"/>`).join("");
-  nodes.season.innerHTML=`${lines}${seasonLines}<polyline class="s2-chart-line" points="${points}"/><line class="s2-chart-current" x1="${x(filtered[index])}" y1="0" x2="${x(filtered[index])}" y2="${height}"/><text class="s2-chart-label" x="8" y="18">Solar zenith</text>`;
+  const elements = [];
+  [25,50,75,100,125].forEach((yy)=>{
+    const line=document.createElementNS(SVG_NS,"line");
+    line.setAttribute("class","s2-chart-grid");
+    line.setAttribute("x1","0"); line.setAttribute("y1",String(yy)); line.setAttribute("x2",String(width)); line.setAttribute("y2",String(yy));
+    elements.push(line);
+  });
+  seasonDates(start,end).forEach(({date})=>{
+    const line=document.createElementNS(SVG_NS,"line"),xx=((date-start)/span)*width;
+    line.setAttribute("class","s2-chart-season");
+    line.setAttribute("x1",String(xx)); line.setAttribute("y1","0"); line.setAttribute("x2",String(xx)); line.setAttribute("y2",String(height));
+    elements.push(line);
+  });
+  const polyline=document.createElementNS(SVG_NS,"polyline");
+  polyline.setAttribute("class","s2-chart-line");
+  polyline.setAttribute("points",points);
+  const current=document.createElementNS(SVG_NS,"line");
+  current.setAttribute("class","s2-chart-current");
+  current.setAttribute("x1",String(x(filtered[index]))); current.setAttribute("y1","0"); current.setAttribute("x2",String(x(filtered[index]))); current.setAttribute("y2",String(height));
+  const label=document.createElementNS(SVG_NS,"text");
+  label.setAttribute("class","s2-chart-label"); label.setAttribute("x","8"); label.setAttribute("y","18"); label.textContent="Solar zenith";
+  nodes.season.replaceChildren(...elements,polyline,current,label);
 }
 
 function seasonDates(start,end) {
@@ -423,11 +496,66 @@ function nearestAcquisitionIndex(timestamp) {
   return nearest;
 }
 
-function renderIrradiance(values) {
-  const width=440,height=190,pad=34,clean=values.slice(0,10).map(Number),max=Math.max(...clean,1);
-  const x=(itemIndex)=>pad+(itemIndex/(clean.length-1))*(width-pad*2),y=(value)=>height-pad-(value/max)*(height-pad*2);
-  const points=clean.map((value,itemIndex)=>`${x(itemIndex)},${y(value)}`).join(" ");
-  nodes.spectrum.innerHTML=`<line class="s2-chart-grid" x1="${pad}" y1="${height-pad}" x2="${width-pad}" y2="${height-pad}"/><polyline class="s2-spectrum-line" points="${points}"/>${clean.map((value,itemIndex)=>`<circle class="s2-spectrum-dot" cx="${x(itemIndex)}" cy="${y(value)}" r="3"><title>${IRRADIANCE_BANDS[itemIndex]} · ${value.toFixed(2)} W m⁻² μm⁻¹</title></circle>`).join("")}${[0,3,6,9].map((itemIndex)=>`<text class="s2-chart-label" x="${x(itemIndex)}" y="${height-8}" text-anchor="middle">${WAVELENGTHS[itemIndex]} nm</text>`).join("")}`;
+function renderSpectrumPlaceholder(message) {
+  const label = document.createElementNS(SVG_NS, "text");
+  label.setAttribute("class", "s2-chart-label");
+  label.setAttribute("x", "220");
+  label.setAttribute("y", "110");
+  label.setAttribute("text-anchor", "middle");
+  label.textContent = message;
+  nodes.spectrum.replaceChildren(label);
+  nodes.spectrumStatus.textContent = message;
+}
+
+function renderPixelSpectrum(pixel, acquisition, lonLat) {
+  const width=440,height=230,padLeft=48,padRight=18,padTop=18,padBottom=48;
+  const reflectance=pixel.slice(0,10).map((value)=>Number(value)*REFLECTANCE_SCALE);
+  if(!reflectance.every(Number.isFinite)) {
+    renderSpectrumPlaceholder("Selected pixel has non-finite reflectance values in this acquisition.");
+    return;
+  }
+  const scl=Math.round(pixel[10]),obscured=OBSCURED_CLASSES.has(scl)||scl===0||scl===1;
+  const max=Math.max(0.01,...reflectance);
+  const x=(wavelength)=>padLeft+((wavelength-REFLECTANCE_BANDS[0].wavelength)/(REFLECTANCE_BANDS.at(-1).wavelength-REFLECTANCE_BANDS[0].wavelength))*(width-padLeft-padRight);
+  const y=(value)=>height-padBottom-(value/max)*(height-padTop-padBottom);
+  const points=reflectance.map((value,itemIndex)=>`${x(REFLECTANCE_BANDS[itemIndex].wavelength)},${y(value)}`).join(" ");
+  const base=document.createElementNS(SVG_NS,"line");
+  base.setAttribute("class","s2-chart-grid");
+  base.setAttribute("x1",String(padLeft)); base.setAttribute("y1",String(height-padBottom)); base.setAttribute("x2",String(width-padRight)); base.setAttribute("y2",String(height-padBottom));
+  const axis=document.createElementNS(SVG_NS,"line");
+  axis.setAttribute("class","s2-chart-grid");
+  axis.setAttribute("x1",String(padLeft)); axis.setAttribute("y1",String(padTop)); axis.setAttribute("x2",String(padLeft)); axis.setAttribute("y2",String(height-padBottom));
+  const polyline=document.createElementNS(SVG_NS,"polyline");
+  polyline.setAttribute("class","s2-spectrum-line");
+  polyline.setAttribute("points",points);
+  const circles=reflectance.map((value,itemIndex)=>{
+    const circle=document.createElementNS(SVG_NS,"circle"),title=document.createElementNS(SVG_NS,"title");
+    circle.setAttribute("class",`s2-spectrum-dot${obscured?" obscured":""}`);
+    circle.setAttribute("cx",String(x(REFLECTANCE_BANDS[itemIndex].wavelength))); circle.setAttribute("cy",String(y(value))); circle.setAttribute("r","3.5");
+    title.textContent=`${REFLECTANCE_BANDS[itemIndex].label} · ${REFLECTANCE_BANDS[itemIndex].wavelength} nm · reflectance ${value.toFixed(4)}`;
+    circle.append(title);
+    return circle;
+  });
+  const labels=[0,2,4,6,8,9].map((itemIndex)=>{
+    const label=document.createElementNS(SVG_NS,"text");
+    label.setAttribute("class","s2-chart-label");
+    label.setAttribute("x",String(x(REFLECTANCE_BANDS[itemIndex].wavelength))); label.setAttribute("y",String(height-28)); label.setAttribute("text-anchor","middle");
+    label.textContent=REFLECTANCE_BANDS[itemIndex].label;
+    return label;
+  });
+  const xLabel=document.createElementNS(SVG_NS,"text");
+  xLabel.setAttribute("class","s2-axis-label"); xLabel.setAttribute("x","244"); xLabel.setAttribute("y",String(height-8)); xLabel.setAttribute("text-anchor","middle"); xLabel.textContent="Sentinel-2 MSI band centre wavelength (nm)";
+  const yLabel=document.createElementNS(SVG_NS,"text");
+  yLabel.setAttribute("class","s2-axis-label"); yLabel.setAttribute("x","10"); yLabel.setAttribute("y","105"); yLabel.setAttribute("transform","rotate(-90 10 105)"); yLabel.setAttribute("text-anchor","middle"); yLabel.textContent="Surface reflectance";
+  const maxLabel=document.createElementNS(SVG_NS,"text");
+  maxLabel.setAttribute("class","s2-chart-label"); maxLabel.setAttribute("x",String(padLeft-6)); maxLabel.setAttribute("y",String(padTop+4)); maxLabel.setAttribute("text-anchor","end"); maxLabel.textContent=max.toFixed(3);
+  const zeroLabel=document.createElementNS(SVG_NS,"text");
+  zeroLabel.setAttribute("class","s2-chart-label"); zeroLabel.setAttribute("x",String(padLeft-6)); zeroLabel.setAttribute("y",String(height-padBottom+4)); zeroLabel.setAttribute("text-anchor","end"); zeroLabel.textContent="0";
+  const quality=document.createElementNS(SVG_NS,"text");
+  quality.setAttribute("class","s2-chart-label"); quality.setAttribute("x",String(padLeft)); quality.setAttribute("y","14");
+  quality.textContent=`SCL ${scl}: ${SCL_LABELS[scl]||"Unknown"}${obscured?" · flagged for caution":""}`;
+  nodes.spectrum.replaceChildren(base,axis,polyline,...circles,...labels,xLabel,yLabel,maxLabel,zeroLabel,quality);
+  nodes.spectrumStatus.textContent=`${acquisition.date} · ${lonLat[1].toFixed(6)}, ${lonLat[0].toFixed(6)} · source GeoTIFF pixel · scaled by ${REFLECTANCE_SCALE}`;
 }
 
 function activeStoryCard(acquisition) {
@@ -485,12 +613,18 @@ function applyFilters() {
   nodes.range.textContent=filtered.length?`${filtered[0].date} – ${filtered.at(-1).date}`:"No scenes pass this filter";
   nodes.slider.disabled=!filtered.length;
   if(filtered.length){nodes.slider.min=String(Date.parse(`${filtered[0].date}T00:00:00Z`));nodes.slider.max=String(Date.parse(`${filtered.at(-1).date}T00:00:00Z`));nodes.slider.step="86400000";}
-  nodes.ticks.innerHTML=`<span>${filtered[0]?.date||"—"}</span><span>${filtered.at(-1)?.date||"—"}</span>`;
+  const firstTick=document.createElement("span"),lastTick=document.createElement("span");
+  firstTick.textContent=filtered[0]?.date||"—";
+  lastTick.textContent=filtered.at(-1)?.date||"—";
+  nodes.ticks.replaceChildren(firstTick,lastTick);
   renderStory();
   if (!filtered.length) {
+    pendingRasterLayers.forEach((layer)=>map.removeLayer(layer));
+    pendingRasterLayers=[];
     rasterLayers.forEach((layer)=>map.removeLayer(layer));
     rasterLayers=[]; nodes.mapStatus.hidden=false; nodes.mapStatus.textContent="No acquisitions pass the selected SCL quality filter.";
     nodes.date.textContent="No scene"; nodes.quality.textContent="—"; nodes.story.replaceChildren();
+    renderSpectrumPlaceholder("No scene passes the active filter; selected-pixel reflectance is unavailable.");
     return;
   }
   index=filtered.length-1;
@@ -502,6 +636,8 @@ function selectSite(id) {
   stopPlayback(); stopStory();
   site=manifest.sites.find((item)=>item.id===id);
   rasterCache.clear(); prefetchCache.clear();
+  selectedCoordinate=null; selectedLonLat=null; nodes.selectedMarker.hidden=true;
+  renderSpectrumPlaceholder("Click a point in the image to read source-pixel reflectance.");
   nodes.place.textContent=site.label; nodes.country.textContent=site.country; nodes.crop.textContent=site.crop; nodes.folder.textContent=site.series_folder;
   const years=[...new Set(site.acquisitions.map((item)=>item.date.slice(0,4)))];
   nodes.year.replaceChildren(option("all","All years"),...years.map((year)=>option(year)));
@@ -511,14 +647,14 @@ function selectSite(id) {
 }
 
 async function createPixelReader(acquisition) {
-  const token=++lensToken;
+  const token=pixelReaderToken;
   geotiffModulePromise ||= import(GEOTIFF);
   proj4Promise ||= import(PROJ4).then((module)=>module.default);
   const [geotiff,proj4,response]=await Promise.all([geotiffModulePromise,proj4Promise,fetch(acquisition.href)]);
   if (!response.ok) throw new Error(`Pixel source request failed (${response.status})`);
   const tiff=await geotiff.fromArrayBuffer(await response.arrayBuffer());
   const image=await tiff.getImage();
-  if (token!==lensToken) return null;
+  if (token!==pixelReaderToken) return null;
   const geoKeys=image.getGeoKeys(),epsg=geoKeys.ProjectedCSTypeGeoKey||geoKeys.GeographicTypeGeoKey;
   const bbox=image.getBoundingBox(),width=image.getWidth(),height=image.getHeight();
   let projection="WGS84";
@@ -532,6 +668,60 @@ async function createPixelReader(acquisition) {
     const values=await image.readRasters({window:[column,row,column+1,row+1],samples:[0,1,2,3,4,5,6,7,8,9,10],interleave:true});
     return Array.from(values);
   };
+}
+
+function updateSelectedMarker() {
+  if(!selectedCoordinate||!map) {
+    nodes.selectedMarker.hidden=true;
+    return;
+  }
+  const pixel=map.getPixelFromCoordinate(selectedCoordinate);
+  if(!pixel) {
+    nodes.selectedMarker.hidden=true;
+    return;
+  }
+  nodes.selectedMarker.style.left=`${pixel[0]}px`;
+  nodes.selectedMarker.style.top=`${pixel[1]}px`;
+  nodes.selectedMarker.hidden=false;
+}
+
+function selectSpectrumPoint(event) {
+  if(!filtered.length||swipeDragging)return;
+  selectedCoordinate=[...event.coordinate];
+  selectedLonLat=ol.proj.toLonLat(event.coordinate);
+  updateSelectedMarker();
+  updateSelectedSpectrum(filtered[index]);
+}
+
+function selectSpectrumPointFromDom(event) {
+  if(!filtered.length||swipeDragging)return;
+  if(event.target.closest?.(".s2-swipe-divider,.s2-map-key,.s2-lens,.s2-side-label"))return;
+  const pixel=map.getEventPixel(event);
+  const coordinate=map.getCoordinateFromPixel(pixel);
+  if(!coordinate)return;
+  selectedCoordinate=[...coordinate];
+  selectedLonLat=ol.proj.toLonLat(coordinate);
+  updateSelectedMarker();
+  updateSelectedSpectrum(filtered[index]);
+}
+
+async function updateSelectedSpectrum(acquisition) {
+  const token=++selectedSpectrumToken;
+  if(!selectedLonLat) {
+    renderSpectrumPlaceholder("Click a point in the image to read source-pixel reflectance.");
+    return;
+  }
+  nodes.spectrumStatus.textContent=`Reading selected source pixel for ${acquisition.date}...`;
+  try {
+    pixelReader ||= await createPixelReader(acquisition);
+    if(token!==selectedSpectrumToken||!pixelReader)return;
+    const pixel=await pixelReader(selectedLonLat);
+    if(token!==selectedSpectrumToken)return;
+    if(pixel) renderPixelSpectrum(pixel,acquisition,selectedLonLat);
+    else renderSpectrumPlaceholder("Selected point is outside this acquisition raster.");
+  } catch(error) {
+    if(token===selectedSpectrumToken) renderSpectrumPlaceholder(`Selected pixel read unavailable: ${error.message}`);
+  }
 }
 
 function pixelIndices(values) {

@@ -1,0 +1,120 @@
+{
+  "version": "1.0.0",
+  "title": "Lelystad drone RGB orthomosaic",
+  "generated_at": "2026-06-22T09:15:43Z",
+  "source_name": "20260511T110230Z_Lelystad-HydraEO_ortho_202605211601.tif",
+  "source_size_bytes": 6377853364,
+  "width": 48268,
+  "height": 47396,
+  "tile_size": 256,
+  "max_zoom": 5,
+  "native_max_zoom": 8,
+  "source_downsample": 4,
+  "max_display_width": 12067,
+  "max_display_height": 11849,
+  "display_stretch_mode": "none_raw_rgb",
+  "display_stretch": [],
+  "tile_template": "visualization-data/derived/drone-orthomosaic/tiles/{z}/{x}/{y}.webp",
+  "preview": "visualization-data/derived/drone-orthomosaic/preview.webp",
+  "poster": "visualization-data/derived/drone-orthomosaic/poster.webp",
+  "overlays": {
+    "exg": "visualization-data/derived/drone-orthomosaic/overlays/exg.webp",
+    "vari": "visualization-data/derived/drone-orthomosaic/overlays/vari.webp",
+    "texture": "visualization-data/derived/drone-orthomosaic/overlays/texture.webp"
+  },
+  "bbox": [
+    5.536943,
+    52.5442047,
+    5.541292,
+    52.5468082
+  ],
+  "crs": "EPSG:4326",
+  "pixel_size_degrees": [
+    9.01015197e-08,
+    -5.49301074e-08
+  ],
+  "levels": [
+    {
+      "z": 0,
+      "width": 378,
+      "height": 371,
+      "cols": 2,
+      "rows": 2,
+      "created": 4
+    },
+    {
+      "z": 1,
+      "width": 755,
+      "height": 741,
+      "cols": 3,
+      "rows": 3,
+      "created": 9
+    },
+    {
+      "z": 2,
+      "width": 1509,
+      "height": 1482,
+      "cols": 6,
+      "rows": 6,
+      "created": 36
+    },
+    {
+      "z": 3,
+      "width": 3017,
+      "height": 2963,
+      "cols": 12,
+      "rows": 12,
+      "created": 144
+    },
+    {
+      "z": 4,
+      "width": 6034,
+      "height": 5925,
+      "cols": 24,
+      "rows": 24,
+      "created": 576
+    },
+    {
+      "z": 5,
+      "width": 12067,
+      "height": 11849,
+      "cols": 48,
+      "rows": 47,
+      "created": 2256
+    }
+  ],
+  "hotspots": [
+    {
+      "id": "overview",
+      "label": "Full field mosaic",
+      "x": 24134.0,
+      "y": 23698.0,
+      "zoom": 0.9
+    },
+    {
+      "id": "northwest",
+      "label": "North-west crop texture",
+      "x": 11101.640000000001,
+      "y": 10427.12,
+      "zoom": 2.8
+    },
+    {
+      "id": "central",
+      "label": "Central row structure",
+      "x": 25582.04,
+      "y": 21802.16,
+      "zoom": 3.7
+    },
+    {
+      "id": "southeast",
+      "label": "South-east detail",
+      "x": 34752.96,
+      "y": 34125.119999999995,
+      "zoom": 3.1
+    }
+  ],
+  "notes": [
+    "RGB orthomosaic display product. RGB-derived overlays are visual diagnostics, not NDVI or calibrated physiology.",
+    "Raw 6 GB TIFF is not loaded by the browser; the active natural-RGB tile pyramid preserves source byte values and is downsampled by 4x for fast static delivery."
+  ]
+}

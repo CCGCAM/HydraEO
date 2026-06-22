@@ -12,7 +12,7 @@
 <body class="explorer-page sentinel-page">
   <header class="explorer-header">
     <a class="explorer-brand" href="index.html"><img src="assets/Hydra-eo-logo.png" alt="HYDRA-EO"><span><strong>HYDRA-EO</strong><small>Sentinel-2 experiment explorer</small></span></a>
-    <nav aria-label="Site navigation"><a href="index.html">Home</a><a aria-current="page" href="explorer.html">Explorer</a><a href="plant-spectral-simulator.html">Plant Simulator</a><a href="https://github.com/CCGCAM/HYDRA-EO" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+    <nav aria-label="Site navigation"><a href="index.html">Home</a><a href="drone-orthomosaic-visualizer.html">Drone Mosaic</a><a aria-current="page" href="explorer.html">Satellite Images</a><a href="plant-spectral-simulator.html">Plant Simulator</a><a href="https://github.com/CCGCAM/HYDRA-EO" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
   </header>
 
   <main class="s2-app" data-s2-app aria-busy="true">
@@ -46,14 +46,15 @@
         <div class="s2-side-label left" data-s2-swipe-left-label>Natural colour</div>
         <div class="s2-side-label right" data-s2-swipe-right-label>NDVI</div>
         <div class="s2-swipe-divider" data-s2-swipe-divider role="separator" aria-label="Drag horizontally to compare visualizers" aria-orientation="vertical" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0"></div>
+        <div class="s2-selected-point" data-s2-selected-marker hidden aria-hidden="true"></div>
         <div class="s2-lens" data-s2-lens hidden><strong>Pixel spectrum</strong><span data-s2-lens-date></span><dl data-s2-lens-values></dl></div>
       </div>
 
       <aside class="s2-inspector">
         <div class="s2-panel-head"><p class="s2-kicker">Acquisition evidence</p><h2 data-s2-scene-title>Select a date</h2></div>
         <dl class="s2-metadata" data-s2-metadata></dl>
+        <div class="s2-spectrum"><div><h3>Selected pixel spectrum</h3><small data-s2-spectrum-status>Click a point in the image to read source-pixel Sentinel-2 reflectance through time.</small></div><svg data-s2-spectrum viewBox="0 0 440 230" role="img" aria-label="Selected source-pixel Sentinel-2 reflectance spectrum"></svg></div>
         <div class="s2-index-summary"><div><h3>Scene medians</h3><small>Usable non-obscured pixels; no-data and saturated/defective pixels excluded.</small></div><dl data-s2-indices></dl></div>
-        <div class="s2-spectrum"><div><h3>Acquisition spectral context</h3><small>Recorded band-wise solar irradiance for this scene.</small></div><svg data-s2-spectrum viewBox="0 0 440 190" role="img" aria-label="Acquisition solar irradiance by Sentinel-2 band"></svg></div>
         <a class="s2-file-link" data-s2-file href="#">Open source GeoTIFF</a>
       </aside>
     </section>

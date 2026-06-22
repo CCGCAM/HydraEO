@@ -168,7 +168,12 @@ function createLoadingOverlay(parent) {
   overlay.className = "ps-tree-loading";
   overlay.setAttribute("role", "status");
   overlay.setAttribute("aria-live", "polite");
-  overlay.innerHTML = "<span></span><strong>Loading EZ-Tree scene</strong><small>Generating tree and loading grass asset</small>";
+  const marker = document.createElement("span");
+  const title = document.createElement("strong");
+  const detail = document.createElement("small");
+  title.textContent = "Loading EZ-Tree scene";
+  detail.textContent = "Generating tree and loading grass asset";
+  overlay.append(marker, title, detail);
   parent.append(overlay);
   return overlay;
 }

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Interactive static deep-zoom visualizer for the HYDRA-EO Lelystad drone RGB orthomosaic.">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-src 'none'; upgrade-insecure-requests">
+  <title>Drone Orthomosaic Visualizer | HYDRA-EO</title>
+  <link rel="stylesheet" href="assets/css/explorer-page.css">
+  <link rel="stylesheet" href="assets/css/drone-orthomosaic-visualizer.css">
+</head>
+<body class="explorer-page drone-page">
+  <header class="explorer-header">
+    <a class="explorer-brand" href="index.html"><img src="assets/Hydra-eo-logo.png" alt="HYDRA-EO"><span><strong>HYDRA-EO</strong><small>Drone orthomosaic visualizer</small></span></a>
+    <nav aria-label="Site navigation"><a href="index.html">Home</a><a aria-current="page" href="drone-orthomosaic-visualizer.html">Drone Mosaic</a><a href="explorer.html">Satellite Images</a><a href="plant-spectral-simulator.html">Plant Simulator</a><a href="https://github.com/CCGCAM/HYDRA-EO" target="_blank" rel="noopener noreferrer">GitHub</a></nav>
+  </header>
+
+  <main class="drone-app" data-drone-app aria-busy="true">
+    <section class="drone-hero">
+      <div>
+        <p class="drone-kicker">Lelystad UAV · RGB orthomosaic</p>
+        <h1>Fly into the drone mosaic.</h1>
+        <p class="drone-lead">A static, tile-based visualizer for a 48,268 × 47,396 pixel orthomosaic. The page loads a small preview first, then streams only the map tiles needed for the current view.</p>
+      </div>
+      <aside class="drone-source">
+        <span>Browser payload</span>
+        <strong>Derived tiles, preview and RGB visual overlays</strong>
+        <small data-drone-build>Loading manifest...</small>
+      </aside>
+    </section>
+
+    <section class="drone-workspace">
+      <div class="drone-stage" data-drone-stage>
+        <img class="drone-poster" data-drone-poster alt="" decoding="async">
+        <div class="drone-world" data-drone-world>
+          <div class="drone-tiles" data-drone-tiles></div>
+          <img class="drone-overlay" data-drone-overlay alt="" decoding="async">
+        </div>
+        <div class="drone-reticle" aria-hidden="true"></div>
+        <div class="drone-zoom-readout" data-drone-readout>Zoom 1.0x</div>
+        <div class="drone-scale" data-drone-scale></div>
+        <div class="drone-status" data-drone-status>Loading derived assets...</div>
+      </div>
+
+      <aside class="drone-panel">
+        <div class="drone-panel-head">
+          <p class="drone-kicker">Controls</p>
+          <h2>Orthomosaic cockpit</h2>
+        </div>
+        <div class="drone-actions">
+          <button type="button" data-drone-fly>Play flyover</button>
+          <button type="button" data-drone-fit>Fit mosaic</button>
+          <button type="button" data-drone-zoom-in aria-label="Zoom in">+</button>
+          <button type="button" data-drone-zoom-out aria-label="Zoom out">-</button>
+        </div>
+        <fieldset class="drone-modes">
+          <legend>Visual layer</legend>
+          <label><input type="radio" name="drone-layer" value="natural" checked><span>Natural RGB</span></label>
+          <label><input type="radio" name="drone-layer" value="exg"><span>ExG vegetation emphasis</span></label>
+          <label><input type="radio" name="drone-layer" value="vari"><span>VARI green emphasis</span></label>
+          <label><input type="radio" name="drone-layer" value="texture"><span>Texture / row edges</span></label>
+        </fieldset>
+        <label class="drone-slider"><span>Overlay opacity</span><output data-drone-opacity-output>70%</output><input type="range" min="0" max="100" value="70" data-drone-opacity></label>
+        <div class="drone-hotspots" data-drone-hotspots></div>
+        <dl class="drone-meta" data-drone-meta></dl>
+        <p class="drone-note">RGB-derived overlays are visual diagnostics from the RGB mosaic only. They are not calibrated vegetation indices and should not be interpreted as NDVI, stress, yield or physiology.</p>
+      </aside>
+    </section>
+
+    <section class="drone-story">
+      <div>
+        <p class="drone-kicker">Implementation</p>
+        <h2>Fast static delivery, high-resolution feel</h2>
+      </div>
+      <div class="drone-story-grid">
+        <article><span>01</span><h3>Preview first</h3><p>A small poster appears immediately while tiles fill the viewport.</p></article>
+        <article><span>02</span><h3>Tile pyramid</h3><p>Only visible WebP tiles are requested as the user pans and zooms.</p></article>
+        <article><span>03</span><h3>Flyover path</h3><p>The cinematic mode animates between registered hotspots without downloading the source TIFF.</p></article>
+        <article><span>04</span><h3>RGB overlays</h3><p>ExG, VARI and texture layers are precomputed display products for rapid comparison.</p></article>
+      </div>
+    </section>
+
+    <div class="drone-fatal" data-drone-fatal hidden></div>
+  </main>
+
+  <footer class="explorer-footer"><span>HYDRA-EO · ESA-supported Earth Observation research</span><span>Lelystad drone orthomosaic · static derived visualizer</span></footer>
+  <script type="module" src="assets/js/drone-orthomosaic-visualizer.js"></script>
+</body>
+</html>
