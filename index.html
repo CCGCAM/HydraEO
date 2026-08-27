@@ -873,6 +873,19 @@ section {
   color: var(--text-muted);
 }
 
+#news .rtm-language-badges {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+
+#news .rtm-language-badges img {
+  display: block;
+  height: 24px;
+  width: auto;
+}
+
 #news .wp-card a {
   color: var(--esa-light-blue);
   font-weight: 500;
@@ -1709,83 +1722,84 @@ footer.visible {
 
     <div class="wp-grid">
       <div class="wp-card">
-        <div class="wp-label">Next comming events </div>
-        <div class="wp-title">ESA Digital Twin Earth Open Science Meeting</div>
-        <p class="wp-text"></p>
-        <p>
-          The HYDRA-EO project will be presented during the
-          <strong>ESA Digital Twin Earth Components: Open Science Meeting 2026</strong>.
+        <div class="wp-label">Upcoming conference</div>
+        <div class="wp-title">ICOS Science Conference 2026</div>
+        <p class="wp-text">
+          <strong>15–17 September 2026 · Lund, Sweden</strong>
         </p>
         <p>
-          <strong>Date:</strong> 2–5 February 2026 (ESRIN, Frascati, Italy).<br />
-          <strong>Meeting link:</strong><br />
-          <a href="https://nikal.eventsair.com/esa-digital-twin-earth-components-open-science-meeting-2026/#introduction"
-             target="_blank" class="card-link">ESA Digital Twin Earth – Open Science Meeting </a>
+          <strong>José Luis Pancorbo</strong> will present two accepted contributions:
         </p>
+        <ul class="wp-text">
+          <li><strong>Abstract 151:</strong> “Assessing PROSAIL Model Performance to Estimate Carbon-Based Constituents in Alfalfa”</li>
+          <li><strong>Abstract 233:</strong> “Linking Satellite Observations and ICOS Flux Towers: Integrating PRISMA and Sentinel-2 for Ecosystem Productivity Monitoring”</li>
+        </ul>
         <p>
-          <strong>Project presentation (PDF):</strong><br />
-          <a href="docs/ESA_Hydra_submitted.pdf"
-             target="_blank" class="card-link">
-            Download HYDRA-EO Presentation (PDF)
+          <a href="https://www.icos-cp.eu/news-and-events/news/icos-science-conference-2026-held-lund-sweden-15-17-september-2026"
+             target="_blank" rel="noopener" class="card-link">
+            ICOS Science Conference 2026 →
           </a>
         </p>
-        <br>
-        <div class="wp-title">Hyperspectral Remote Sensing and AI in Agriculture Workshop</div>
-        <p class="wp-text"></p>
-        <p>
-         Professor Dr. <strong>Lammert Kooistra</strong> presents a talk entitled "Disease detection in
-         potato crop fields using multi-modal sensing approaches from Uncrewed Aerial Vehicles"
-          at the <strong>Hyperspectral Remote Sensing and AI in Agriculture Workshop</strong>.
-        </p>
-        <p>
-          <strong>Date:</strong> 4–5 February 2026 (Faculty of Science, Technology and Medicine at the University of Luxembourg).<br />
-          <strong>Meeting link:</strong><br />
-          <a href="https://www.uni.lu/fstm-en/events/hyperspectral-remote-sensing-and-ai-in-agriculture/"
-             target="_blank" class="card-link">Hyperspectral Remote Sensing and AI in Agriculture</a>
-        </p>
-    
       </div>
 
       <div class="wp-card">
-        <div class="wp-label">Papers &amp; media</div>
-        <div class="wp-title">Scientific papers and media coverage</div>
-        <p class="wp-text"></p>
-        <p>
-          HYDRA-EO will generate peer-reviewed articles on radiative-transfer–ML inversion,
-          stress indicators for <em>Flavescence Dorée</em> and Potato Virus Y, and EO-based
-          disease early-warning systems.
+        <div class="wp-label">Conference contribution · completed</div>
+        <div class="wp-title">Two papers presented at IGARSS 2026</div>
+        <p class="wp-text">
+          <strong>9–14 August 2026 · Washington, D.C., USA</strong>
         </p>
         <p>
-          A curated list of accepted papers, conference contributions and media highlights
-          will be added here as the project progresses, providing references for ESA,
-          national agencies and the scientific community.
+          The HYDRA-EO team presented two studies on trait-based hybrid modelling,
+          ecosystem productivity, and forest-health monitoring:
         </p>
         <p>
-    <strong>News:</strong>
-    <a href="https://www.wur.nl/en/news/hydra-eo-grs-leads-esa-project-hybrid-modelling-and-ai-multi-stressor-crop-monitoring"
-       target="_blank" rel="noopener">
-      HYDRA-EO: GRS leads ESA project on hybrid modelling and AI for multi-stressor crop monitoring (WUR News)
-    </a>
-  </p>
+          <strong>Monitoring forest gross primary productivity with Sentinel-2 using plant trait-based hybrid radiative transfer and machine learning</strong><br>
+          Presenter: Dr. Carlos Camino<br>
+          <a href="docs/conference-template-a4_gpp.pdf" target="_blank" class="card-link">Read the conference paper (PDF) →</a>
+        </p>
+        <p>
+          <strong>Early fungal detection in pine forest by fusing PRISMA and Sentinel-2 with biophysical models</strong><br>
+          Presenter: Dr. Carlos Camino<br>
+          <a href="docs/conference-template-SR2_prisma.pdf" target="_blank" class="card-link">Read the conference paper (PDF) →</a>
+        </p>
+        <p>
+          <a href="docs-quarto/news.html" class="card-link">
+            View all conferences and scientific contributions →
+          </a>
+        </p>
       </div>
-    </div>
     
      <div class="wp-card">
-        <div class="wp-label">Open position</div>
-        <div class="wp-title"> Postdoctoral Researcher – Integrated Agronomic, Genomic and Remote Sensing Data Fusion</div>
-        <p class="wp-text"></p>
-        <p>
-        Wageningen University &amp; Research (WUR) is recruiting a postdoctoral researcher
-        to work on the integration of remote sensing, agronomic, and genomic data
-        within ESA- and EU-funded Earth Observation research projects, including HYDRA-EO.
+        <div class="wp-label">Open-source software release</div>
+        <div class="wp-title">RTM-Suite is now available</div>
+        <div class="rtm-language-badges" aria-label="Available for R and Python">
+          <img
+            src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white"
+            alt="R">
+          <img
+            src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white"
+            alt="Python">
+        </div>
+        <p class="wp-text">
+          RTM-Suite brings leaf, canopy, soil, and atmosphere radiative transfer
+          modelling together with sensor convolution and plant-trait inversion in
+          one reproducible R and Python ecosystem. Explore 31 step-by-step tutorials,
+          interactive applications, and verified examples for vegetation and Earth
+          Observation research.
         </p>
-            <a
-        class="news-link"
-        href="https://www.wur.nl/en/vacancy/postdoc-integrated-agronomic-genomic-remote-sensing-data-fusion"
-        target="_blank"
-        rel="noopener">
-        View vacancy and apply (deadline 27 January)→
-      </a>
+        <p>
+          <a class="news-link" href="docs-quarto/news/rtm-suite.html">
+            Read the announcement →
+          </a>
+        </p>
+        <p>
+          <a class="news-link"
+             href="https://ccgcam.github.io/RTM-Suite/"
+             target="_blank"
+             rel="noopener">
+            Explore RTM-Suite →
+          </a>
+        </p>
       </div>
     </div>
     
