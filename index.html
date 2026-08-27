@@ -886,6 +886,86 @@ section {
   width: auto;
 }
 
+.tutorial-paths {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin: 20px 0 24px;
+}
+
+.tutorial-path-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 22px;
+  background: #fff;
+  border: 1px solid var(--border-soft);
+  border-radius: 18px;
+  box-shadow: var(--card-shadow);
+}
+
+.tutorial-path-card img {
+  width: auto;
+  height: 26px;
+  align-self: flex-start;
+  margin-bottom: 12px;
+}
+
+.tutorial-path-card h3 {
+  margin: 0 0 8px;
+  color: var(--esa-blue);
+  font-size: 18px;
+}
+
+.tutorial-path-card p {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.tutorial-path-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: auto;
+}
+
+@media (max-width: 700px) {
+  .tutorial-paths { grid-template-columns: 1fr; }
+}
+
+#news .campaign-feature {
+  grid-column: 1 / -1;
+}
+
+#news .campaign-feature-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);
+  gap: 26px;
+  align-items: center;
+}
+
+#news .campaign-preview {
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  grid-template-rows: repeat(2, 125px);
+  gap: 8px;
+}
+
+#news .campaign-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+#news .campaign-preview img:first-child {
+  grid-row: 1 / 3;
+}
+
+@media (max-width: 800px) {
+  #news .campaign-feature-inner { grid-template-columns: 1fr; }
+}
+
 #news .wp-card a {
   color: var(--esa-light-blue);
   font-weight: 500;
@@ -1601,6 +1681,38 @@ footer.visible {
     </div>
 
     <div class="wp-grid">
+      <div class="wp-card campaign-feature">
+        <div class="wp-label">2026 field &amp; airborne campaigns</div>
+        <div class="campaign-feature-inner">
+          <div>
+            <div class="wp-title">From field measurements to airborne and satellite observations</div>
+            <p class="wp-text">
+              Across the Netherlands, Spain, and Italy, HYDRA-EO is combining
+              field measurements with UAV, airborne hyperspectral and thermal
+              imaging, fluorescence observations, and satellite acquisitions to
+              understand how crop disease and stress become detectable across scales.
+            </p>
+            <p class="wp-text">
+              The 2026 campaign includes potato monitoring in Lelystad, olive and
+              pistachio experiments at El Chaparrillo, vineyard observations in
+              Italy, and collaborative activities with CERBERUS and regional
+              plant-health partners.
+            </p>
+            <a href="docs-quarto/news/hydra-eo-campaigns-2026.html" class="card-link">
+              Explore the full campaign story and image gallery →
+            </a>
+          </div>
+          <div class="campaign-preview" aria-label="HYDRA-EO 2026 campaign imagery">
+            <img src="assets/aerials/lelystad_June%20Hyperspectral.png"
+                 alt="Hyperspectral UAV mosaic of potato experiments in Lelystad">
+            <img src="assets/aerials/Chaparrillo_20260612_zoom.png"
+                 alt="Detailed airborne observation over orchards at El Chaparrillo">
+            <img src="assets/aerials/Valencia_20260703.png"
+                 alt="Airborne hyperspectral observation over agricultural sites in Valencia">
+          </div>
+        </div>
+      </div>
+
       <div class="wp-card">
         <div class="wp-label">Functional plant traits</div>
         <div class="wp-title">Retrieve key functional traits</div>
@@ -1964,6 +2076,34 @@ footer.visible {
         <span class="text-accent">ToolsRTM</span> and <span class="text-accent">SCOPEinR</span>. You can copy, paste
         and adapt them in your own R scripts or RStudio projects.
       </p>
+    </div>
+
+    <div class="tutorial-paths" aria-label="RTM-Suite learning paths">
+      <article class="tutorial-path-card">
+        <img src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white" alt="R">
+        <h3>ToolsRTM in R</h3>
+        <p>
+          Function documentation and reproducible tutorials for leaf and canopy
+          simulation, sensor convolution, inversion, and sensitivity analysis.
+        </p>
+        <div class="tutorial-path-links">
+          <a class="card-link" href="https://ccgcam.github.io/RTM-Suite/toolsrtm/index.html" target="_blank" rel="noopener">R documentation →</a>
+          <a class="card-link" href="https://ccgcam.github.io/RTM-Suite/toolsrtm/articles/t10-sensitivity.html" target="_blank" rel="noopener">Sensitivity tutorial →</a>
+        </div>
+      </article>
+
+      <article class="tutorial-path-card">
+        <img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white" alt="Python">
+        <h3>toolsrtm in Python</h3>
+        <p>
+          Python API documentation and a guided sensitivity-analysis chapter
+          showing which traits dominate different spectral regions.
+        </p>
+        <div class="tutorial-path-links">
+          <a class="card-link" href="https://ccgcam.github.io/RTM-Suite/python/toolsrtm/index.html" target="_blank" rel="noopener">Python documentation →</a>
+          <a class="card-link" href="https://ccgcam.github.io/RTM-Suite/python/t10-sensitivity-analysis.html" target="_blank" rel="noopener">Sensitivity tutorial →</a>
+        </div>
+      </article>
     </div>
 
     <button id="toggle-tutorials" class="btn btn-ghost" style="margin-top:0.6rem;">

@@ -20,8 +20,8 @@ aligned implementations in **R and Python**, interactive applications, reference
 documentation, and reproducible tutorials.
 
 ::: {.tools-hero-badges aria-label="Available for R and Python"}
-![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-r.svg){.rtm-language-badge fig-alt="R"}
+![](../assets/rtm-suite/badge-python.svg){.rtm-language-badge fig-alt="Python"}
 :::
 
 ::: {.tools-actions}
@@ -58,7 +58,7 @@ connected ecosystem.
 
 ::: {.tools-package-grid}
 ::: {.tools-package-card}
-![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-r.svg){.rtm-language-badge fig-alt="R"}
 
 ### ToolsRTM
 
@@ -70,7 +70,7 @@ with classical machine learning and deep learning.
 :::
 
 ::: {.tools-package-card}
-![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-r.svg){.rtm-language-badge fig-alt="R"}
 
 ### SCOPEinR
 
@@ -82,7 +82,7 @@ chlorophyll fluorescence.
 :::
 
 ::: {.tools-package-card}
-![R + Shiny](https://img.shields.io/badge/R-Shiny-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-r-shiny.svg){.rtm-language-badge fig-alt="R and Shiny"}
 
 ### ToolsRTM.app
 
@@ -93,7 +93,7 @@ look-up tables, RTM comparison, trait inversion, and STAC satellite workflows.
 :::
 
 ::: {.tools-package-card}
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-python.svg){.rtm-language-badge fig-alt="Python"}
 
 ### toolsrtm
 
@@ -105,7 +105,7 @@ STAC-based satellite data retrieval.
 :::
 
 ::: {.tools-package-card}
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-python.svg){.rtm-language-badge fig-alt="Python"}
 
 ### scopeinpython
 
@@ -226,7 +226,7 @@ inversion, and satellite data access.
 
 ::: {.tools-learning-grid}
 ::: {.tools-learning-card}
-![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-r.svg){.rtm-language-badge fig-alt="R"}
 
 ### R learning path
 
@@ -236,7 +236,7 @@ Tutorials for ToolsRTM and SCOPEinR, grouped by topic and level.
 :::
 
 ::: {.tools-learning-card}
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+![](../assets/rtm-suite/badge-python.svg){.rtm-language-badge fig-alt="Python"}
 
 ### Python learning path
 

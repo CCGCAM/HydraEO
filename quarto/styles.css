@@ -605,6 +605,25 @@ a.news-link {
 .tools-menu a { color: var(--hydra-navy); background: #fff; border: 1px solid var(--hydra-border); font-size: .85rem; }
 .tools-package-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.1rem; margin: 1.4rem 0 3rem; }
 .tools-package-card, .tools-learning-card { display: flex; flex-direction: column; padding: 1.25rem; background: #fff; border: 1px solid var(--hydra-border); border-radius: 16px; box-shadow: 0 9px 26px rgba(15, 23, 42, .06); }
+.tools-package-card > p:first-child,
+.tools-learning-card > p:first-child {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  margin: 0 0 .8rem;
+  text-align: left;
+}
+.tools-package-card .rtm-language-badge,
+.tools-learning-card .rtm-language-badge,
+.tools-hero-badges .rtm-language-badge {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: auto !important;
+  height: 24px !important;
+  max-width: none !important;
+  margin: 0 !important;
+  vertical-align: middle;
+}
 .tools-package-card h3, .tools-learning-card h3 { color: var(--hydra-navy); }
 .tools-package-card p, .tools-learning-card p { color: var(--hydra-text-muted); font-size: .9rem; }
 .tools-package-card .tools-card-link, .tools-learning-card .tools-card-link { margin-top: auto; align-self: flex-start; font-size: .82rem; }
@@ -627,4 +646,79 @@ a.news-link {
   .tools-hero { padding: 1.25rem; }
   .tools-package-grid, .tools-capability-grid, .tools-figure-pair { grid-template-columns: 1fr; }
   .tools-menu { position: static; justify-content: flex-start; }
+}
+
+/* HYDRA-EO 2026 campaign story */
+.campaign-lead {
+  margin: 1rem 0 1.5rem;
+  padding: 1.3rem 1.5rem;
+  border-left: 5px solid #2bb3a3;
+  background: linear-gradient(135deg, #eaf7f5, #f8fbff);
+  border-radius: 0 16px 16px 0;
+  color: var(--hydra-text-dark);
+  font-size: 1.08rem;
+}
+
+.campaign-scale {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  margin: 1.8rem 0 2.5rem;
+  padding: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--hydra-navy), var(--hydra-blue));
+  border-radius: 17px;
+}
+
+.campaign-scale span {
+  padding: .45rem .7rem;
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+}
+
+.campaign-scale b { color: #f2c94c; }
+
+.campaign-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 2.3rem;
+}
+
+.campaign-photo {
+  padding: .75rem;
+  background: #fff;
+  border: 1px solid var(--hydra-border);
+  border-radius: 17px;
+  box-shadow: 0 10px 28px rgba(15, 23, 42, .07);
+}
+
+.campaign-photo img {
+  display: block;
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 11px;
+  background: #eef2f6;
+}
+
+.campaign-photo p {
+  margin: .65rem .25rem .15rem;
+  color: var(--hydra-text-muted);
+  font-size: .84rem;
+  line-height: 1.5;
+}
+
+.campaign-photo-wide { margin: 1.25rem 0 2.3rem; }
+.campaign-photo-wide img { max-height: 620px; }
+
+@media (max-width: 700px) {
+  .campaign-gallery { grid-template-columns: 1fr; }
+  .campaign-scale { justify-content: flex-start; }
+  .campaign-scale b { transform: rotate(90deg); }
 }

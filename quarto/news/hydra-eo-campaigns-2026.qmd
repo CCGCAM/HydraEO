@@ -1,0 +1,189 @@
+---
+title: "HYDRA-EO 2026: From field measurements to airborne and satellite observations"
+subtitle: "A multi-country campaign connecting plant measurements, hyperspectral and thermal imaging, and satellite Earth Observation"
+date: 2026-08-27
+description: "HYDRA-EO's 2026 field, UAV, airborne and satellite campaigns across the Netherlands, Spain and Italy."
+image: ../../assets/aerials/lelystad_June Hyperspectral.png
+format:
+  html:
+    toc: true
+    toc-title: "Campaign locations"
+    page-layout: article
+---
+
+::: {.section-label}
+Campaign update · 27 August 2026
+:::
+
+::: {.campaign-lead}
+During the 2026 growing season, **HYDRA-EO** is carrying out an extensive
+series of field, UAV, airborne, and satellite campaigns across Europe to
+advance the early detection and monitoring of crop diseases and stress.
+:::
+
+The campaigns bring together researchers and partners across the Netherlands,
+Spain, and Italy. Hyperspectral, thermal, fluorescence, and RGB observations
+are combined with detailed measurements of plant physiology, biochemistry,
+crop development, and disease progression.
+
+The objective is to understand how stress and disease modify plant traits and
+functioning, and how those changes can be detected consistently from individual
+leaves and plants to UAV, aircraft, and satellite observations.
+
+::: {.campaign-scale aria-label="Observation scales connected by HYDRA-EO"}
+<span>Plant measurements</span><b>→</b><span>Field spectroscopy</span><b>→</b><span>UAV</span><b>→</b><span>Airborne hyperspectral & thermal</span><b>→</b><span>Satellite EO</span>
+:::
+
+## Monitoring potato health in the Netherlands
+
+In Lelystad, HYDRA-EO conducted five UAV campaigns between May and July 2026
+over experimental potato fields. Flights on **11 May, 16 June, 25 June, 1 July,
+and 21 July** followed crop development from early growth through flowering
+and early tuber development.
+
+The measurements combined VNIR hyperspectral imagery, thermal observations,
+fluorescence and SIF measurements, and RGB imagery with field disease
+assessments and plant measurements. Together, they provide a detailed time
+series for investigating how disease and physiological stress evolve during
+the season.
+
+The final UAV campaign also covered the cloud-free portion of an **EnMAP
+hyperspectral satellite acquisition from 19 July**, creating an important
+opportunity to compare ground, UAV, and satellite observations.
+
+::: {.campaign-gallery .campaign-gallery-feature}
+::: {.campaign-photo}
+![](../../assets/aerials/lelystad_June%20Hyperspectral.png){fig-alt="False-colour hyperspectral UAV mosaic of potato field experiments in Lelystad in June 2026"}
+
+**June hyperspectral campaign.** False-colour UAV mosaic showing the spatial structure of the experimental potato plots.
+:::
+
+::: {.campaign-photo}
+![](../../assets/aerials/lelystad_20260721.png){fig-alt="Detailed UAV mosaic of potato experiments in Lelystad on 21 July 2026"}
+
+**21 July UAV acquisition.** High-resolution view of the potato experiment during the final UAV campaign.
+:::
+:::
+
+::: {.campaign-photo .campaign-photo-wide}
+![](../../assets/aerials/lelystad_20260721_enmap.png){fig-alt="EnMAP satellite context with the Lelystad UAV potato experiment highlighted"}
+
+**Connecting UAV and satellite scales.** The UAV acquisition footprint is shown within the partly cloud-free EnMAP scene acquired on 19 July 2026.
+:::
+
+## Airborne monitoring of olive and pistachio in Spain
+
+At **El Chaparrillo in Ciudad Real**, HYDRA-EO is conducting repeated airborne
+and field campaigns over olive and pistachio orchards. A first major campaign
+was completed in June 2026, combining aircraft observations, extensive field
+measurements, and an EnMAP hyperspectral satellite acquisition.
+
+A second major campaign is scheduled for **31 August-5 September 2026**. The
+aircraft will simultaneously acquire VNIR and SWIR hyperspectral imagery and
+thermal observations, while teams on the ground collect complementary spectral,
+physiological, biochemical, and disease-related measurements.
+
+The pistachio experiments include trees affected by different fungal diseases.
+This creates an opportunity to investigate whether combinations of
+hyperspectral and thermal observations can separate disease-related changes
+from other sources of plant variability. Repeated measurements are essential:
+the challenge is not only to identify symptomatic plants, but to determine when
+physiological changes first become detectable.
+
+::: {.campaign-gallery}
+::: {.campaign-photo}
+![](../../assets/aerials/Chaparrillo_20260612.png){fig-alt="Airborne hyperspectral mosaic covering experimental fields and orchards at El Chaparrillo on 12 June 2026"}
+
+**El Chaparrillo campaign area.** Airborne coverage of the agricultural experiments and surrounding orchards on 12 June 2026.
+:::
+
+::: {.campaign-photo}
+![](../../assets/aerials/Chaparrillo_20260612_zoom.png){fig-alt="Detailed airborne view of orchard tree crowns at El Chaparrillo with sampling locations"}
+
+**From orchard to individual crowns.** Detailed imagery supports the connection between tree-level reference measurements and airborne signals.
+:::
+:::
+
+## Following disease development in Italian vineyards
+
+HYDRA-EO is also conducting campaigns in Italian vineyards, combining airborne
+VNIR-SWIR hyperspectral and thermal observations with field spectroscopy and
+physiological measurements. A coordinated campaign in the Bologna region in
+early August 2026 captured vineyards under different health conditions.
+
+Further measurements are planned for **1 September 2026**, targeting vineyards
+affected by *Flavescence dorée*. Repeated observations will help determine how
+disease affects canopy spectral properties, temperature, and plant functioning,
+and whether these signals remain detectable when moving from individual plants
+to larger spatial scales.
+
+## Expanding observations through European collaboration
+
+HYDRA-EO works with complementary European projects, research institutes, and
+regional plant-health services to extend observations beyond its core sites and
+test methods under real disease-management conditions.
+
+In Italy, collaboration with the **CERBERUS project** and research partners in
+Bologna supports repeated monitoring of vineyards affected by *Flavescence
+dorée*. The early-August and planned 1 September campaigns provide observations
+under different seasonal and physiological conditions.
+
+In Valencia, HYDRA-EO collaborates with CERBERUS and the **Servicio de Sanidad
+Vegetal of the Generalitat Valenciana**. Airborne observations cover olive
+orchards and other priority areas identified by plant-health authorities,
+including sites relevant to the surveillance of insect vectors associated with
+*Xylella fastidiosa*. This connects advanced Earth Observation technologies
+with operational plant-health surveillance.
+
+::: {.campaign-photo .campaign-photo-wide}
+![](../../assets/aerials/Valencia_20260703.png){fig-alt="Airborne hyperspectral mosaic of agricultural monitoring sites in Valencia on 3 July 2026"}
+
+**Valencia collaboration.** Airborne observations extend HYDRA-EO testing to additional crops, landscapes, and operational plant-health priorities.
+:::
+
+The El Chaparrillo campaigns are conducted with **CIAG-IRIAF** and **IAS-CSIC**,
+combining expertise in crop pathology, field experimentation, and plant
+physiology with HYDRA-EO airborne and satellite observations. These partners
+provide the field reference information needed to interpret hyperspectral and
+thermal signals from olive and pistachio systems.
+
+Together, these collaborations expand HYDRA-EO across crops, diseases,
+environmental conditions, and monitoring frameworks. They also provide
+independent datasets for testing whether methods developed at individual sites
+can transfer across locations, sensors, and disease systems.
+
+## Connecting observations across scales
+
+The 2026 campaigns are creating one of HYDRA-EO's core experimental datasets.
+By connecting plant measurements, field spectroscopy, UAV observations,
+airborne hyperspectral and thermal imagery, and satellite Earth Observation,
+the project can investigate the same biological processes at complementary
+spatial scales.
+
+These observations will support the development and validation of approaches
+that combine radiative transfer modelling, plant physiological information,
+and artificial intelligence to detect crop stress and disease while explaining
+the underlying changes in plant functioning.
+
+The campaign season will conclude with the late-summer acquisitions in Spain
+and Italy, completing a unique multi-country dataset for the next stages of
+HYDRA-EO research and development.
+
+::: {.press-actions}
+[Explore HYDRA-EO tools](../tools.qmd){.press-primary}
+[View all project news](../news.qmd){.press-secondary}
+:::
+
+---
+
+::: {.text-center .small .text-secondary .vbl-footer-classic}
+::: {.vbl-footer-line}
+:::
+
+© 2026 **HYDRA-EO**.  
+
+HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
+Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
+
+![](../../assets/GitHub-Logo.png){.footer-logo width=80px} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
+:::
