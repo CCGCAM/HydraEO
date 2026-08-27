@@ -1,74 +1,271 @@
 ---
 title: "Tools"
-format: html
+description: "Open radiative transfer modelling tools, applications and tutorials used by HYDRA-EO."
+format:
+  html:
+    toc: false
 ---
+
+::: {.tools-hero}
+::: {.tools-hero-copy}
+::: {.section-label}
+HYDRA-EO open modelling ecosystem
+:::
+
+# RTM-Suite tools for vegetation and Earth Observation
+
+**RTM-Suite** connects leaf, canopy, soil, and atmosphere radiative transfer
+models with sensor convolution and plant-trait inversion. The framework offers
+aligned implementations in **R and Python**, interactive applications, reference
+documentation, and reproducible tutorials.
+
+::: {.tools-hero-badges aria-label="Available for R and Python"}
+![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+:::
+
+::: {.tools-actions}
+[Open RTM-Suite](https://ccgcam.github.io/RTM-Suite/){.tools-primary}
+[Source on GitHub](https://github.com/CCGCAM/RTM-Suite){.tools-secondary}
+:::
+:::
+
+::: {.tools-hero-visual}
+![](../assets/rtm-suite/rtm-suite-model-comparison.png){fig-alt="Comparison of canopy simulations across five leaf radiative transfer models"}
+
+<span>Leaf-to-canopy model comparison across the RTM-Suite framework.</span>
+:::
+:::
+
+::: {.tools-menu aria-label="Tools page menu"}
+[Packages](#packages)
+[Models & capabilities](#models)
+[Interactive apps](#apps)
+[Tutorials](#tutorials)
+:::
+
+<div id="packages"></div>
 
 ::: {.section-label}
-Section · Tools
+Packages & libraries
 :::
 
-## Software used in HYDRA-EO tutorials
+## Five components, one modelling framework
 
-This page summarises the main R packages and tools used in the tutorials,
-with links to their Git repositories and simple usage examples.
+Choose the language and level of interaction that best match your workflow.
+The R and Python implementations are developed and numerically verified as a
+connected ecosystem.
 
----
+::: {.tools-package-grid}
+::: {.tools-package-card}
+![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
 
-::: {.card-grid}
+### ToolsRTM
 
-::: {.vbl-card}
+Leaf and canopy optics with PROSPECT, Liberty, Fluspect, fourSAIL, foursail2,
+and INFORM; soil modelling with MARMIT; sensor convolution; and trait inversion
+with classical machine learning and deep learning.
+
+[Package repository](https://gitlab.com/caminoccg/toolsrtm){.tools-card-link}
+:::
+
+::: {.tools-package-card}
+![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+
+### SCOPEinR
+
+R implementation of SCOPE 2.0 for soil-canopy radiative transfer,
+photosynthesis, surface energy balance, thermal emission, and sun-induced
+chlorophyll fluorescence.
+
+[Package repository](https://gitlab.com/caminoccg/scopeinr){.tools-card-link}
+:::
+
+::: {.tools-package-card}
+![R + Shiny](https://img.shields.io/badge/R-Shiny-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+
+### ToolsRTM.app
+
+Nine interactive applications for PROSAIL, BRDF, MARMIT, SPART, SCOPE,
+look-up tables, RTM comparison, trait inversion, and STAC satellite workflows.
+
+[Application source](https://github.com/CCGCAM/RTM-Suite/tree/main/ToolsRTM.app){.tools-card-link}
+:::
+
+::: {.tools-package-card}
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+
+### toolsrtm
+
+Python library for leaf and canopy simulation, real-soil modelling, spectral
+indices, sensor convolution, machine-learning inversion, deep learning, and
+STAC-based satellite data retrieval.
+
+[Library repository](https://github.com/CCGCAM/ToolsRTMinPython){.tools-card-link}
+:::
+
+::: {.tools-package-card}
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+
+### scopeinpython
+
+Python implementation of SCOPE for coupled optical, thermal, biochemical,
+energy-balance, photosynthesis, and fluorescence simulations.
+
+[Library repository](https://github.com/CCGCAM/SCOPEinPython){.tools-card-link}
+:::
+:::
+
+<div id="models"></div>
+
+::: {.section-label}
+Models & capabilities
+:::
+
+## From leaf constituents to satellite observations
+
+::: {.tools-capability-grid}
+::: {.tools-capability}
+**Leaf optics**
+
+PROSPECT-D, PROSPECT-PRO, Liberty, Fluspect-B, and Fluspect-Cx.
+:::
+
+::: {.tools-capability}
+**Canopy reflectance**
+
+fourSAIL, foursail2, INFORM, and coupled PROSAIL workflows.
+:::
+
+::: {.tools-capability}
+**Soil & atmosphere**
+
+MARMIT wet-soil modelling and SPART soil-plant-atmosphere radiative transfer.
+:::
+
+::: {.tools-capability}
+**Plant functioning**
+
+SCOPE energy balance, photosynthesis, thermal emission, and fluorescence.
+:::
+
+::: {.tools-capability}
+**Sensor simulation**
+
+Spectral convolution to multispectral and hyperspectral EO sensor responses.
+:::
+
+::: {.tools-capability}
+**Trait inversion**
+
+Look-up tables, 12 classical ML algorithms, neural networks, and deep learning.
+:::
+:::
+
+::: {.tools-figure-wide}
+![](../assets/rtm-suite/rtm-suite-all-models.png){fig-alt="Spectral comparison of the leaf and canopy radiative transfer models available in RTM-Suite"}
+
+<span>RTM-Suite provides a common environment for comparing model families and spectral responses.</span>
+:::
+
+::: {.tools-figure-pair}
+::: {.tools-figure-card}
+![](../assets/rtm-suite/rtm-suite-prospect-validation.png){fig-alt="Validation examples for PROSPECT-D leaf reflectance and transmittance simulations"}
+
+**Verified model behaviour.** PROSPECT-D validation examples against reference spectra.
+:::
+
+::: {.tools-figure-card}
+![](../assets/rtm-suite/rtm-suite-scope-sif.png){fig-alt="SCOPE simulation of canopy reflectance and sun-induced fluorescence across chlorophyll values"}
+
+**Coupled processes.** SCOPE simulations connect canopy reflectance with sun-induced fluorescence.
+:::
+:::
+
+<div id="apps"></div>
+
+::: {.section-label}
+Interactive applications
+:::
+
+## Explore the models without writing code
+
+ToolsRTM.app provides point-and-click interfaces for simulations, sensitivity
+analysis, look-up tables, inversion, and satellite workflows. The applications
+support teaching, rapid exploration, and the preparation of reproducible model
+experiments.
+
+::: {.tools-figure-pair}
+::: {.tools-figure-card}
+![](../assets/rtm-suite/rtm-suite-sensitivity-app.png){fig-alt="RTM-Suite interactive sensitivity-analysis application"}
+
+**Sensitivity analysis.** Explore how vegetation traits and observation geometry affect spectra.
+:::
+
+::: {.tools-figure-card}
+![](../assets/rtm-suite/rtm-suite-satellite-app.png){fig-alt="RTM-Suite application for accessing and analysing satellite observations"}
+
+**Satellite workflows.** Connect model-based analysis with EO observations and STAC catalogues.
+:::
+:::
+
+[Explore the interactive applications](https://ccgcam.github.io/RTM-Suite/#apps){.tools-primary}
+
+<div id="tutorials"></div>
+
+::: {.section-label}
+Learn & reproduce
+:::
+
+## Tutorials, manuals, and runnable examples
+
+RTM-Suite includes **31 step-by-step tutorials** with figures generated from
+working code. The learning paths cover first simulations, model comparison,
+sensitivity analysis, sensor convolution, SCOPE, look-up tables, trait
+inversion, and satellite data access.
+
+::: {.tools-learning-grid}
+::: {.tools-learning-card}
+![R](https://img.shields.io/badge/R-276DC3?logo=r&logoColor=white){.rtm-language-badge}
+
+### R learning path
+
+Tutorials for ToolsRTM and SCOPEinR, grouped by topic and level.
+
+[Browse R tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html){.tools-card-link}
+:::
+
+::: {.tools-learning-card}
+![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white){.rtm-language-badge}
+
+### Python learning path
+
+Tutorials for toolsrtm and scopeinpython, from core simulations to inversion.
+
+[Browse Python tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-python.html){.tools-card-link}
+:::
+
+::: {.tools-learning-card}
 ::: {.pill-mini}
-R · ToolsRTM
+Reference
 :::
 
-### Canopy & leaf RTMs
+### Documentation
 
-The **ToolsRTM** package provides a unified suite of radiative transfer
-models for simulating leaf, canopy, and soil reflectance across multiple
-sensor resolutions. It integrates **PROSPECT**, **FLUSPECT**, **Liberty**,
-**INFORM**, **fourSAIL**, and **PROSAIL** for detailed optical simulations,
-as well as advanced modelling components such as **SPART** and
-**MARMIT** for soil reflectance.
+Package manuals, function references, installation guidance, and tested code examples.
 
-These capabilities support flexible, physics-based workflows for Earth
-Observation data analysis and model–data integration.
-
-![](../assets/GitLab-Logo.png){.footer-logo}[ToolsRTM package](https://gitlab.com/caminoccg/toolsrtm)
-
+[Open documentation](https://ccgcam.github.io/RTM-Suite/#docs){.tools-card-link}
 :::
-
-::: {.vbl-card}
-::: {.pill-mini}
-R · SCOPEinR
 :::
-
-### Energy balance & SIF
-
-The **SCOPEinR** package implements the SCOPE model for simulating soil–canopy
-radiative transfer, photosynthesis, fluorescence, and surface energy
-balance. It provides tools and an R interface for producing consistent reflectance,radiance
-and fluoresence emission, and photosynthesis products under varying stress, physiological, canopy properties and
-illumination conditions.
-
-
-This package supports detailed modelling of vegetation functioning in
-crop studies and stress analysis.
-
-![](../assets/GitLab-Logo.png){.footer-logo}[SCOPEinR package](https://gitlab.com/caminoccg/scopeinr)
-:::
-
-:::
-
----
 
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
 :::
+
 © 2026 **HYDRA-EO**.  
 
 HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+
 Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.  
 
 ![](../assets/GitHub-Logo.png){.footer-logo width=80px} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
-
 :::

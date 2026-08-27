@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Open radiative transfer modelling tools, applications and tutorials used by HYDRA-EO.">
 
 <title>Tools – HYDRA-EO</title>
 <style>
@@ -151,6 +152,11 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Tools</h1>
 </div>
 
+<div>
+  <div class="description">
+    Open radiative transfer modelling tools, applications and tutorials used by HYDRA-EO.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
@@ -165,38 +171,224 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="tools-hero">
+<div class="tools-hero-copy">
 <div class="section-label">
-<p>Section · Tools</p>
+<p>HYDRA-EO open modelling ecosystem</p>
 </div>
-<section id="software-used-in-hydra-eo-tutorials" class="level2">
-<h2 class="anchored" data-anchor-id="software-used-in-hydra-eo-tutorials">Software used in HYDRA-EO tutorials</h2>
-<p>This page summarises the main R packages and tools used in the tutorials, with links to their Git repositories and simple usage examples.</p>
-<hr>
-<div class="card-grid">
-<div class="vbl-card">
-<div class="pill-mini">
-<p>R · ToolsRTM</p>
+<section id="rtm-suite-tools-for-vegetation-and-earth-observation" class="level1">
+<h1>RTM-Suite tools for vegetation and Earth Observation</h1>
+<p><strong>RTM-Suite</strong> connects leaf, canopy, soil, and atmosphere radiative transfer models with sensor convolution and plant-trait inversion. The framework offers aligned implementations in <strong>R and Python</strong>, interactive applications, reference documentation, and reproducible tutorials.</p>
+<div class="tools-hero-badges" aria-label="Available for R and Python">
+<p><img src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white.png" class="rtm-language-badge img-fluid" alt="R"> <img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white.png" class="rtm-language-badge img-fluid" alt="Python"></p>
 </div>
-<section id="canopy-leaf-rtms" class="level3">
-<h3 class="anchored" data-anchor-id="canopy-leaf-rtms">Canopy &amp; leaf RTMs</h3>
-<p>The <strong>ToolsRTM</strong> package provides a unified suite of radiative transfer models for simulating leaf, canopy, and soil reflectance across multiple sensor resolutions. It integrates <strong>PROSPECT</strong>, <strong>FLUSPECT</strong>, <strong>Liberty</strong>, <strong>INFORM</strong>, <strong>fourSAIL</strong>, and <strong>PROSAIL</strong> for detailed optical simulations, as well as advanced modelling components such as <strong>SPART</strong> and <strong>MARMIT</strong> for soil reflectance.</p>
-<p>These capabilities support flexible, physics-based workflows for Earth Observation data analysis and model–data integration.</p>
-<p><img src="../assets/GitLab-Logo.png" class="footer-logo img-fluid"><a href="https://gitlab.com/caminoccg/toolsrtm">ToolsRTM package</a></p>
+<div class="tools-actions">
+<p><a href="https://ccgcam.github.io/RTM-Suite/" class="tools-primary">Open RTM-Suite</a> <a href="https://github.com/CCGCAM/RTM-Suite" class="tools-secondary">Source on GitHub</a></p>
+</div>
 </section>
 </div>
-<div class="vbl-card">
-<div class="pill-mini">
-<p>R · SCOPEinR</p>
+<div class="tools-hero-visual">
+<p><img src="../assets/rtm-suite/rtm-suite-model-comparison.png" class="img-fluid" alt="Comparison of canopy simulations across five leaf radiative transfer models"></p>
+<p><span>Leaf-to-canopy model comparison across the RTM-Suite framework.</span></p>
 </div>
-<section id="energy-balance-sif" class="level3">
-<h3 class="anchored" data-anchor-id="energy-balance-sif">Energy balance &amp; SIF</h3>
-<p>The <strong>SCOPEinR</strong> package implements the SCOPE model for simulating soil–canopy radiative transfer, photosynthesis, fluorescence, and surface energy balance. It provides tools and an R interface for producing consistent reflectance,radiance and fluoresence emission, and photosynthesis products under varying stress, physiological, canopy properties and illumination conditions.</p>
-<p>This package supports detailed modelling of vegetation functioning in crop studies and stress analysis.</p>
-<p><img src="../assets/GitLab-Logo.png" class="footer-logo img-fluid"><a href="https://gitlab.com/caminoccg/scopeinr">SCOPEinR package</a></p>
+</div>
+<div class="tools-menu" aria-label="Tools page menu">
+<p><a href="#packages">Packages</a> <a href="#models">Models &amp; capabilities</a> <a href="#apps">Interactive apps</a> <a href="#tutorials">Tutorials</a></p>
+</div>
+<div id="packages">
+
+</div>
+<div class="section-label">
+<p>Packages &amp; libraries</p>
+</div>
+<section id="five-components-one-modelling-framework" class="level2">
+<h2 class="anchored" data-anchor-id="five-components-one-modelling-framework">Five components, one modelling framework</h2>
+<p>Choose the language and level of interaction that best match your workflow. The R and Python implementations are developed and numerically verified as a connected ecosystem.</p>
+<div class="tools-package-grid">
+<div class="tools-package-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>R</figcaption>
+</figure>
+</div>
+<section id="toolsrtm" class="level3">
+<h3 class="anchored" data-anchor-id="toolsrtm">ToolsRTM</h3>
+<p>Leaf and canopy optics with PROSPECT, Liberty, Fluspect, fourSAIL, foursail2, and INFORM; soil modelling with MARMIT; sensor convolution; and trait inversion with classical machine learning and deep learning.</p>
+<p><a href="https://gitlab.com/caminoccg/toolsrtm" class="tools-card-link">Package repository</a></p>
+</section>
+</div>
+<div class="tools-package-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>R</figcaption>
+</figure>
+</div>
+<section id="scopeinr" class="level3">
+<h3 class="anchored" data-anchor-id="scopeinr">SCOPEinR</h3>
+<p>R implementation of SCOPE 2.0 for soil-canopy radiative transfer, photosynthesis, surface energy balance, thermal emission, and sun-induced chlorophyll fluorescence.</p>
+<p><a href="https://gitlab.com/caminoccg/scopeinr" class="tools-card-link">Package repository</a></p>
+</section>
+</div>
+<div class="tools-package-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/R-Shiny-276DC3?logo=r&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>R + Shiny</figcaption>
+</figure>
+</div>
+<section id="toolsrtm.app" class="level3">
+<h3 class="anchored" data-anchor-id="toolsrtm.app">ToolsRTM.app</h3>
+<p>Nine interactive applications for PROSAIL, BRDF, MARMIT, SPART, SCOPE, look-up tables, RTM comparison, trait inversion, and STAC satellite workflows.</p>
+<p><a href="https://github.com/CCGCAM/RTM-Suite/tree/main/ToolsRTM.app" class="tools-card-link">Application source</a></p>
+</section>
+</div>
+<div class="tools-package-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>Python</figcaption>
+</figure>
+</div>
+<section id="toolsrtm-1" class="level3">
+<h3 class="anchored" data-anchor-id="toolsrtm-1">toolsrtm</h3>
+<p>Python library for leaf and canopy simulation, real-soil modelling, spectral indices, sensor convolution, machine-learning inversion, deep learning, and STAC-based satellite data retrieval.</p>
+<p><a href="https://github.com/CCGCAM/ToolsRTMinPython" class="tools-card-link">Library repository</a></p>
+</section>
+</div>
+<div class="tools-package-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>Python</figcaption>
+</figure>
+</div>
+<section id="scopeinpython" class="level3">
+<h3 class="anchored" data-anchor-id="scopeinpython">scopeinpython</h3>
+<p>Python implementation of SCOPE for coupled optical, thermal, biochemical, energy-balance, photosynthesis, and fluorescence simulations.</p>
+<p><a href="https://github.com/CCGCAM/SCOPEinPython" class="tools-card-link">Library repository</a></p>
 </section>
 </div>
 </div>
-<hr>
+<div id="models">
+
+</div>
+<div class="section-label">
+<p>Models &amp; capabilities</p>
+</div>
+</section>
+<section id="from-leaf-constituents-to-satellite-observations" class="level2">
+<h2 class="anchored" data-anchor-id="from-leaf-constituents-to-satellite-observations">From leaf constituents to satellite observations</h2>
+<div class="tools-capability-grid">
+<div class="tools-capability">
+<p><strong>Leaf optics</strong></p>
+<p>PROSPECT-D, PROSPECT-PRO, Liberty, Fluspect-B, and Fluspect-Cx.</p>
+</div>
+<div class="tools-capability">
+<p><strong>Canopy reflectance</strong></p>
+<p>fourSAIL, foursail2, INFORM, and coupled PROSAIL workflows.</p>
+</div>
+<div class="tools-capability">
+<p><strong>Soil &amp; atmosphere</strong></p>
+<p>MARMIT wet-soil modelling and SPART soil-plant-atmosphere radiative transfer.</p>
+</div>
+<div class="tools-capability">
+<p><strong>Plant functioning</strong></p>
+<p>SCOPE energy balance, photosynthesis, thermal emission, and fluorescence.</p>
+</div>
+<div class="tools-capability">
+<p><strong>Sensor simulation</strong></p>
+<p>Spectral convolution to multispectral and hyperspectral EO sensor responses.</p>
+</div>
+<div class="tools-capability">
+<p><strong>Trait inversion</strong></p>
+<p>Look-up tables, 12 classical ML algorithms, neural networks, and deep learning.</p>
+</div>
+</div>
+<div class="tools-figure-wide">
+<p><img src="../assets/rtm-suite/rtm-suite-all-models.png" class="img-fluid" alt="Spectral comparison of the leaf and canopy radiative transfer models available in RTM-Suite"></p>
+<p><span>RTM-Suite provides a common environment for comparing model families and spectral responses.</span></p>
+</div>
+<div class="tools-figure-pair">
+<div class="tools-figure-card">
+<p><img src="../assets/rtm-suite/rtm-suite-prospect-validation.png" class="img-fluid" alt="Validation examples for PROSPECT-D leaf reflectance and transmittance simulations"></p>
+<p><strong>Verified model behaviour.</strong> PROSPECT-D validation examples against reference spectra.</p>
+</div>
+<div class="tools-figure-card">
+<p><img src="../assets/rtm-suite/rtm-suite-scope-sif.png" class="img-fluid" alt="SCOPE simulation of canopy reflectance and sun-induced fluorescence across chlorophyll values"></p>
+<p><strong>Coupled processes.</strong> SCOPE simulations connect canopy reflectance with sun-induced fluorescence.</p>
+</div>
+</div>
+<div id="apps">
+
+</div>
+<div class="section-label">
+<p>Interactive applications</p>
+</div>
+</section>
+<section id="explore-the-models-without-writing-code" class="level2">
+<h2 class="anchored" data-anchor-id="explore-the-models-without-writing-code">Explore the models without writing code</h2>
+<p>ToolsRTM.app provides point-and-click interfaces for simulations, sensitivity analysis, look-up tables, inversion, and satellite workflows. The applications support teaching, rapid exploration, and the preparation of reproducible model experiments.</p>
+<div class="tools-figure-pair">
+<div class="tools-figure-card">
+<p><img src="../assets/rtm-suite/rtm-suite-sensitivity-app.png" class="img-fluid" alt="RTM-Suite interactive sensitivity-analysis application"></p>
+<p><strong>Sensitivity analysis.</strong> Explore how vegetation traits and observation geometry affect spectra.</p>
+</div>
+<div class="tools-figure-card">
+<p><img src="../assets/rtm-suite/rtm-suite-satellite-app.png" class="img-fluid" alt="RTM-Suite application for accessing and analysing satellite observations"></p>
+<p><strong>Satellite workflows.</strong> Connect model-based analysis with EO observations and STAC catalogues.</p>
+</div>
+</div>
+<p><a href="https://ccgcam.github.io/RTM-Suite/#apps" class="tools-primary">Explore the interactive applications</a></p>
+<div id="tutorials">
+
+</div>
+<div class="section-label">
+<p>Learn &amp; reproduce</p>
+</div>
+</section>
+<section id="tutorials-manuals-and-runnable-examples" class="level2">
+<h2 class="anchored" data-anchor-id="tutorials-manuals-and-runnable-examples">Tutorials, manuals, and runnable examples</h2>
+<p>RTM-Suite includes <strong>31 step-by-step tutorials</strong> with figures generated from working code. The learning paths cover first simulations, model comparison, sensitivity analysis, sensor convolution, SCOPE, look-up tables, trait inversion, and satellite data access.</p>
+<div class="tools-learning-grid">
+<div class="tools-learning-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>R</figcaption>
+</figure>
+</div>
+<section id="r-learning-path" class="level3">
+<h3 class="anchored" data-anchor-id="r-learning-path">R learning path</h3>
+<p>Tutorials for ToolsRTM and SCOPEinR, grouped by topic and level.</p>
+<p><a href="https://ccgcam.github.io/RTM-Suite/tutorials-overview.html" class="tools-card-link">Browse R tutorials</a></p>
+</section>
+</div>
+<div class="tools-learning-card">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white.png" class="rtm-language-badge img-fluid figure-img"></p>
+<figcaption>Python</figcaption>
+</figure>
+</div>
+<section id="python-learning-path" class="level3">
+<h3 class="anchored" data-anchor-id="python-learning-path">Python learning path</h3>
+<p>Tutorials for toolsrtm and scopeinpython, from core simulations to inversion.</p>
+<p><a href="https://ccgcam.github.io/RTM-Suite/tutorials-python.html" class="tools-card-link">Browse Python tutorials</a></p>
+</section>
+</div>
+<div class="tools-learning-card">
+<div class="pill-mini">
+<p>Reference</p>
+</div>
+<section id="documentation" class="level3">
+<h3 class="anchored" data-anchor-id="documentation">Documentation</h3>
+<p>Package manuals, function references, installation guidance, and tested code examples.</p>
+<p><a href="https://ccgcam.github.io/RTM-Suite/#docs" class="tools-card-link">Open documentation</a></p>
+</section>
+</div>
+</div>
 <div class="text-center small text-secondary vbl-footer-classic">
 <div class="vbl-footer-line">
 
