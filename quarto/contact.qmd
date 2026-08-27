@@ -57,6 +57,15 @@ Open issues and contribute via the project repositories:
 
 ---
 
+::: {.quarto-next}
+### Continue exploring
+
+[Project overview](index.qmd){.quarto-next-primary}
+[RTM-Suite tools](tools.qmd)
+[2026 campaigns](news/hydra-eo-campaigns-2026.qmd)
+[Project news](news.qmd)
+:::
+
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
 :::

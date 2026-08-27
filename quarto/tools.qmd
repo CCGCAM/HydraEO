@@ -258,6 +258,16 @@ Package manuals, function references, installation guidance, and tested code exa
 :::
 :::
 
+::: {.quarto-next}
+### Continue exploring
+
+[Scientific pipeline](pipeline.qmd){.quarto-next-primary}
+[R tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html)
+[Python tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-python.html)
+[RTM-Suite documentation](https://ccgcam.github.io/RTM-Suite/#docs)
+[Project news](news.qmd)
+:::
+
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
 :::

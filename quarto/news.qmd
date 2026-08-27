@@ -181,6 +181,15 @@ Combined use of hyperspectral PRISMA and multispectral Sentinel-2 data with biop
 
 ---
 
+::: {.quarto-next}
+### Continue exploring
+
+[2026 campaign story](news/hydra-eo-campaigns-2026.qmd){.quarto-next-primary}
+[Scientific pipeline](pipeline.qmd)
+[RTM-Suite tools](tools.qmd)
+[Project timeline](timeline.qmd)
+:::
+
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
 :::

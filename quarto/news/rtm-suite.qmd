@@ -95,11 +95,15 @@ Geo-information Science and Remote Sensing at Wageningen University &
 Research and CNR-IBE in Florence, Italy, as part of the Virtual Biophysical
 Lab.
 
-::: {.press-actions}
-[Explore RTM-Suite](https://ccgcam.github.io/RTM-Suite/){.press-primary}
-[View the source code](https://github.com/CCGCAM/RTM-Suite){.press-secondary}
-[Browse the R tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html){.press-secondary}
-[Browse the Python tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-python.html){.press-secondary}
+::: {.quarto-next}
+### Continue exploring
+
+[Explore RTM-Suite](https://ccgcam.github.io/RTM-Suite/){.quarto-next-primary}
+[Source code](https://github.com/CCGCAM/RTM-Suite)
+[HYDRA-EO pipeline](../pipeline.qmd)
+[R tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html)
+[Python tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-python.html)
+[Project news](../news.qmd)
 :::
 
 ---

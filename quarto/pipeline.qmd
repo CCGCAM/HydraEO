@@ -277,10 +277,15 @@ information, transferable workflows, and open tools that connect biological
 processes with operational Earth Observation.
 :::
 
-::: {.press-actions}
-[Explore the RTM-Suite catalogue](tools.qmd){.press-primary}
-[Follow the 2026 campaigns](news/hydra-eo-campaigns-2026.qmd){.press-secondary}
-[Open RTM-Suite tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html){.press-secondary}
+::: {.quarto-next}
+### Continue exploring
+
+[Explore HYDRA-EO tools](tools.qmd){.quarto-next-primary}
+[RTM-Suite documentation](https://ccgcam.github.io/RTM-Suite/#docs)
+[R tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html)
+[Python tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-python.html)
+[Project timeline](timeline.qmd)
+[2026 campaigns](news/hydra-eo-campaigns-2026.qmd)
 :::
 
 ---

@@ -172,9 +172,14 @@ The campaign season will conclude with the late-summer acquisitions in Spain
 and Italy, completing a unique multi-country dataset for the next stages of
 HYDRA-EO research and development.
 
-::: {.press-actions}
-[Explore HYDRA-EO tools](../tools.qmd){.press-primary}
-[View all project news](../news.qmd){.press-secondary}
+::: {.quarto-next}
+### Continue exploring
+
+[Scientific pipeline](../pipeline.qmd){.quarto-next-primary}
+[RTM-Suite tools](../tools.qmd)
+[Project timeline](../timeline.qmd)
+[All project news](../news.qmd)
+[Consortium](../consortium.qmd)
 :::
 
 ---

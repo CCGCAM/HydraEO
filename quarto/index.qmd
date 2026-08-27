@@ -233,6 +233,15 @@ trained on combined RTM–EO features for crop stress detection.
 
 ---
 
+::: {.quarto-next}
+### Continue exploring
+
+[Scientific pipeline](pipeline.qmd){.quarto-next-primary}
+[RTM-Suite tools](tools.qmd)
+[2026 campaigns](news/hydra-eo-campaigns-2026.qmd)
+[Project timeline](timeline.qmd)
+:::
+
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
 :::

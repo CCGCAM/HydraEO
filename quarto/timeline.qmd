@@ -1,154 +1,282 @@
 ---
 title: "Timeline"
-format: html
+description: "HYDRA-EO project progress, campaign milestones, work-package status and roadmap from 2026 to 2028."
+format:
+  html:
+    toc: false
 ---
 
+::: {.timeline-hero}
 ::: {.section-label}
-Section · Timeline
+Project progress · Updated 27 August 2026
 :::
 
-## Project timeline & work packages
+# HYDRA-EO roadmap: campaigns, modelling, validation, and transfer
 
-::: {.vbl-gantt}
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Start-up  
-*Jan–Jun 2026*
-:::
-::: {.vbl-gantt-bar .phase1}
-:::
+HYDRA-EO is moving from its start-up and first campaign phase into the
+development of harmonised datasets, RTM-informed trait retrieval, and
+multi-site validation. This page connects project phases with concrete
+scientific and dissemination milestones.
 :::
 
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Aerial & Field campaigns  
-*May–Sept 2026*
+::: {.timeline-now}
+<span>Current position</span>
+
+**Late summer 2026** · Multi-country campaigns and RTM-Suite release completed or under way; dataset harmonisation and hybrid RTM-ML development are active.
 :::
-::: {.vbl-gantt-bar .phase2}
+
+## Project phases
+
+::: {.timeline-roadmap aria-label="HYDRA-EO project phases from 2026 to 2028"}
+::: {.timeline-year timeline-year-active}
+### 2026 · Observe & establish
+
+::: {.timeline-phase-status}
+Active
+:::
+
+- Scientific requirements and trait-stressor framework
+- Field, UAV, airborne, and satellite campaigns
+- RTM-Suite consolidation and public documentation
+- First simulation libraries and inversion workflows
+- Scientific dissemination and partner coordination
+:::
+
+::: {.timeline-year}
+### 2027 · Develop & validate
+
+::: {.timeline-phase-status timeline-status-planned}
+Next phase
+:::
+
+- Harmonised multi-country experimental datasets
+- RTM sensitivity and sensor intercomparison
+- Hybrid trait retrieval and disease-stress discrimination
+- Cross-date, cross-crop, and cross-site validation
+- UAV-to-satellite scaling and uncertainty assessment
+:::
+
+::: {.timeline-year}
+### 2028 · Integrate & transfer
+
+::: {.timeline-phase-status timeline-status-planned}
+Planned
+:::
+
+- Integrated HYDRA-EO processing framework
+- Operational demonstrations and stakeholder-oriented outputs
+- Scientific roadmap for FLEX, CHIME, LSTM, and related EO missions
+- Training, open tools, publications, and final dissemination
 :::
 :::
 
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Core RTM & ML  
-*Jul 2026–Dec 2027*
+## Milestones in 2026
+
+::: {.timeline-events}
+::: {.timeline-event timeline-complete}
+::: {.timeline-event-date}
+January-June 2026
 :::
-::: {.vbl-gantt-bar .phase3}
+
+### Project foundations
+
+Scientific requirements, use cases, crop-stressor priorities, consortium
+coordination, campaign design, and initial integration of modelling and Earth
+Observation workflows.
+
+::: {.timeline-event-tag}
+Completed
 :::
 :::
 
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Integration & dissemination  
-*Jan–Jun 2028*
+::: {.timeline-event timeline-complete}
+::: {.timeline-event-date}
+May-July 2026
 :::
-::: {.vbl-gantt-bar .phase4}
+
+### Five Lelystad potato UAV campaigns
+
+WU-DES conducted campaigns on 11 May, 16 June, 25 June, 1 July, and 21 July,
+combining VNIR hyperspectral, thermal, fluorescence/SIF, RGB, disease, and plant
+measurements. The final campaign supported comparison with the 19 July EnMAP
+acquisition.
+
+[Explore the campaign story](news/hydra-eo-campaigns-2026.qmd){.timeline-event-link}
+
+::: {.timeline-event-tag}
+Completed
 :::
 :::
 
+::: {.timeline-event timeline-complete}
+::: {.timeline-event-date}
+June-August 2026
 :::
 
----
+### First airborne campaign cycle
 
-This section summarises the HYDRA-EO work packages (WPs), outlining their
-scope, role, and position within the overall project timeline. Each work
-package contributes a specific set of activities—ranging from scientific
-requirements and data collection to modelling, integration, and
-dissemination—together forming a coherent end-to-end workflow.
+Campaigns at El Chaparrillo, Valencia, and the Bologna region expanded the
+project across potato, olive, pistachio, and vineyard systems, including
+collaboration with CERBERUS, CIAG-IRIAF, IAS-CSIC, and regional plant-health
+partners.
 
----
-
-::: {.card-grid}
-
-::: {.vbl-card}
-::: {.pill-mini}
-WP1
+::: {.timeline-event-tag}
+Completed
 :::
-### Scientific requirement consolidation
-Definition of scientific objectives, use cases, trait–stressor matrix,
-and alignment with ESA requirements and parallel EU initiatives.
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP2
-:::
-### Dataset collection
-Field campaigns, UAV and airborne acquisitions, in-situ measurements, and
-harmonised dataset documentation across crops and sites.
+::: {.timeline-event timeline-complete}
+::: {.timeline-event-date}
+9-14 August 2026
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP3
+### Two contributions presented at IGARSS 2026
+
+HYDRA-EO research on forest productivity and early fungal detection was
+presented in Washington, D.C. The conference papers are available from the
+project News page.
+
+[View the conference outputs](news.qmd#ieee-igarss-2026){.timeline-event-link}
+
+::: {.timeline-event-tag}
+Completed
 :::
-### Model development & validation
-Development and validation of RTMs and EO-based models, including spectral
-sensitivity and sensor intercomparison.
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP4
-:::
-### Experimental dataset generation
-Generation of experimental EO products, synthetic datasets, and
-stress-specific simulation libraries.
+::: {.timeline-event timeline-complete}
+::: {.timeline-event-date}
+27 August 2026
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP5
+### RTM-Suite public release
+
+The R and Python ecosystem now connects leaf, canopy, soil, atmosphere,
+energy-balance, fluorescence, sensor convolution, and plant-trait inversion
+with 31 reproducible tutorials and interactive applications.
+
+[Explore RTM-Suite tools](tools.qmd){.timeline-event-link}
+
+::: {.timeline-event-tag}
+Released
 :::
-### Earth system science exploitation
-Analysis of functional traits, stress dynamics, and scaling from UAV to
-satellite EO products.
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP6
-:::
-### Societal relevance & transfer
-Demonstration of applicability for agriculture, disease monitoring, and
-resilience, including stakeholder-oriented outputs.
+::: {.timeline-event timeline-active}
+::: {.timeline-event-date}
+31 August-5 September 2026
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP7
+### Late-summer campaign at El Chaparrillo
+
+Planned repeat airborne and field acquisitions over olive and pistachio systems,
+combining VNIR-SWIR hyperspectral and thermal observations with physiological,
+biochemical, and disease reference measurements.
+
+::: {.timeline-event-tag}
+Upcoming
 :::
-### Scientific roadmap
-Identification of knowledge gaps and recommendations for future EO
-missions (CHIME, FLEX, LSTM).
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP8
-:::
-### Scientific collaboration
-Coordination with ESA activities and relevant Horizon Europe projects.
+::: {.timeline-event timeline-active}
+::: {.timeline-event-date}
+1 September 2026
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP9
+### Repeat vineyard observations in Italy
+
+Follow-up campaign targeting vineyards affected by *Flavescence dorée* in
+collaboration with CERBERUS and Italian research partners.
+
+::: {.timeline-event-tag}
+Upcoming
 :::
-### Promotion & dissemination
-Scientific communication, training material, workshops, and outreach
-activities.
 :::
 
-::: {.vbl-card}
-::: {.pill-mini}
-WP10
-:::
-### Project management
-Overall coordination, reporting, risk management, and contractual
-compliance.
+::: {.timeline-event timeline-active}
+::: {.timeline-event-date}
+15-17 September 2026
 :::
 
+### ICOS Science Conference 2026
+
+José Luis Pancorbo will present accepted contributions on PROSAIL-based
+estimation of carbon constituents in alfalfa and the integration of PRISMA,
+Sentinel-2, and ICOS flux towers for ecosystem productivity monitoring.
+
+[View conference details](news.qmd#icos-science-conference-2026){.timeline-event-link}
+
+::: {.timeline-event-tag}
+Upcoming
+:::
+:::
+:::
+
+## Work-package status
+
+The ten work packages operate as a connected programme rather than a strictly
+sequential list. Their current emphasis is summarised below.
+
+::: {.timeline-wp-groups}
+::: {.timeline-wp-group}
+::: {.timeline-wp-heading}
+**Foundations & coordination** <span>Active throughout</span>
+:::
+
+- **WP1** - Scientific requirement consolidation
+- **WP10** - Project management, reporting, risk, and contractual coordination
+:::
+
+::: {.timeline-wp-group timeline-wp-current}
+::: {.timeline-wp-heading}
+**Observations & experimental data** <span>Primary 2026 focus</span>
+:::
+
+- **WP2** - Field, UAV, airborne, satellite, and in-situ dataset collection
+- **WP4** - Experimental EO products, synthetic data, and stress-specific libraries
+:::
+
+::: {.timeline-wp-group timeline-wp-current}
+::: {.timeline-wp-heading}
+**Models & scientific exploitation** <span>2026-2027</span>
+:::
+
+- **WP3** - RTM, sensitivity, sensor comparison, inversion, and validation
+- **WP5** - Trait analysis, stress dynamics, and UAV-to-satellite scaling
+:::
+
+::: {.timeline-wp-group}
+::: {.timeline-wp-heading}
+**Impact, collaboration & roadmap** <span>Growing toward 2028</span>
+:::
+
+- **WP6** - Agricultural relevance and stakeholder transfer
+- **WP7** - Scientific roadmap and recommendations for future missions
+- **WP8** - Collaboration with ESA, European projects, and research networks
+- **WP9** - Publications, conferences, training, open tools, and outreach
+:::
+:::
+
+::: {.timeline-visual-pair}
+::: {.timeline-visual}
+![](../assets/aerials/Chaparrillo_20260612.png){fig-alt="HYDRA-EO airborne campaign coverage at El Chaparrillo in June 2026"}
+
+<span>2026 observation phase: coordinated field, airborne, and satellite acquisitions.</span>
+:::
+
+::: {.timeline-visual}
+![](../assets/rtm-suite/rtm-suite-model-comparison.png){fig-alt="RTM-Suite model comparison supporting HYDRA-EO development"}
+
+<span>2026-2027 modelling phase: RTM simulation, sensitivity, inversion, and validation.</span>
+:::
+:::
+
+::: {.quarto-next}
+### Continue exploring
+
+[Scientific pipeline](pipeline.qmd){.quarto-next-primary}
+[2026 campaign update](news/hydra-eo-campaigns-2026.qmd)
+[RTM-Suite tools](tools.qmd)
+[Project news](news.qmd)
 :::
 
 ---
@@ -156,6 +284,7 @@ compliance.
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
 :::
+
 © 2026 **HYDRA-EO**.  
 
 HYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+

@@ -81,8 +81,14 @@ disaggregation and crop resilience studies.
 
 ```
 
+::: {.quarto-next}
+### Continue exploring
 
-
+[2026 campaign collaborations](news/hydra-eo-campaigns-2026.qmd){.quarto-next-primary}
+[Project timeline](timeline.qmd)
+[Scientific pipeline](pipeline.qmd)
+[Contact the team](contact.qmd)
+:::
 
 ::: {.text-center .small .text-secondary .vbl-footer-classic}
 ::: {.vbl-footer-line}
