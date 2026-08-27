@@ -1,59 +1,286 @@
 ---
 title: "Pipeline"
-format: html
+description: "The HYDRA-EO multi-scale processing pipeline, from field observations and EO data to RTM-informed trait retrieval and crop-stress detection."
+format:
+  html:
+    toc: false
 ---
 
+::: {.pipeline-hero}
 ::: {.section-label}
-Section · Pipeline
+HYDRA-EO scientific workflow
 :::
 
-## Processing pipelines by data source
+# From observations to explainable crop-stress information
 
-This section documents key methodological blocks, including radiative
-transfer configurations, trait retrieval strategies, and disease scoring
-approaches.
+HYDRA-EO connects field measurements, UAV and airborne imaging, satellite
+Earth Observation, radiative transfer modelling, and machine learning in one
+traceable pipeline. **RTM-Suite** provides the physical modelling layer that
+links measured spectra with plant traits and functioning.
 
----
+::: {.pipeline-actions}
+[Explore RTM-Suite](https://ccgcam.github.io/RTM-Suite/){.tools-primary}
+[Browse HYDRA-EO tools](tools.qmd){.tools-secondary}
+:::
+:::
 
-::: {.card-grid}
+::: {.pipeline-flow aria-label="HYDRA-EO processing sequence"}
+::: {.pipeline-step}
+<span>01</span>
 
-::: {.vbl-card}
+**Reference observations**
+
+Plant physiology, biochemistry, pathology, field spectroscopy, and campaign metadata.
+:::
+
+::: {.pipeline-arrow}
+→
+:::
+
+::: {.pipeline-step}
+<span>02</span>
+
+**EO preprocessing**
+
+Calibrated field, UAV, airborne, and satellite reflectance, temperature, and fluorescence.
+:::
+
+::: {.pipeline-arrow}
+→
+:::
+
+::: {.pipeline-step .pipeline-step-accent}
+<span>03</span>
+
+**RTM-Suite**
+
+Physically based simulations, sensor convolution, sensitivity analysis, and look-up tables.
+:::
+
+::: {.pipeline-arrow}
+→
+:::
+
+::: {.pipeline-step}
+<span>04</span>
+
+**Hybrid inversion**
+
+Trait retrieval using LUT matching, classical ML, neural networks, and deep learning.
+:::
+
+::: {.pipeline-arrow}
+→
+:::
+
+::: {.pipeline-step}
+<span>05</span>
+
+**Stress intelligence**
+
+Disease detection, stress discrimination, uncertainty, validation, and spatial upscaling.
+:::
+:::
+
+## 1. Multi-scale observations and reference data
+
+The pipeline begins with coordinated measurements that describe both the
+remote-sensing signal and the biological processes behind it.
+
+::: {.pipeline-card-grid}
+::: {.pipeline-card}
 ::: {.pill-mini}
-UAV–airborne processing
+Ground reference
 :::
 
-### UAV & airborne processing
+### Plant and disease measurements
 
-Radiometric and geometric correction of UAV and airborne hyperspectral and
-thermal data, including mosaicking, BRDF normalisation, and co-registration
-with field plots. Output products include surface reflectance cubes,
-temperature maps, and quality masks.
+Leaf pigments, water and dry matter, LAI, biomass, photosynthesis, fluorescence,
+canopy temperature, visual symptoms, pathogen assessments, and crop development.
 :::
 
-::: {.vbl-card}
+::: {.pipeline-card}
 ::: {.pill-mini}
-Satellite
+UAV & airborne
 :::
 
-### Satellite EO processing
+### High-resolution imaging
 
-Sentinel-2, PRISMA, and EnMAP workflows (e.g. Sen2Cor atmospheric correction,
-spectral resampling, tiling, and time-series aggregation), harmonised across
-sites for crop–stressor analysis and EO upscaling.
+VNIR-SWIR hyperspectral, thermal, fluorescence/SIF, and RGB acquisitions are
+radiometrically and geometrically corrected, mosaicked, quality-controlled,
+and co-registered with field plots.
 :::
 
-::: {.vbl-card}
+::: {.pipeline-card}
 ::: {.pill-mini}
-RTM–ML
+Satellite EO
 :::
 
-### RTM library & hybrid ML
+### Regional and temporal context
 
-PROSAIL and SCOPE forward simulations via **ToolsRTM** and **SCOPEinR**, LUT
-generation, plant trait retrieval, and hybrid ML models trained on combined
-RTM–EO features for crop stress detection.
+Sentinel-2, PRISMA, and EnMAP data are atmospherically corrected, cloud-masked,
+resampled, and harmonised to support time-series analysis and spatial upscaling.
+:::
 :::
 
+::: {.pipeline-image-wide}
+![](../assets/aerials/lelystad_June%20Hyperspectral.png){fig-alt="Hyperspectral UAV mosaic of the HYDRA-EO potato experiment in Lelystad"}
+
+<span>High-resolution hyperspectral campaign products provide the bridge between plot measurements and satellite observations.</span>
+:::
+
+## 2. RTM-Suite as the physical modelling core
+
+RTM-Suite brings the models used by HYDRA-EO into a consistent R and Python
+ecosystem. Instead of learning statistical relationships from observations
+alone, the project generates physically plausible combinations of plant traits,
+canopy structure, soil background, atmosphere, illumination, and viewing
+geometry.
+
+::: {.pipeline-rtm-layout}
+::: {.pipeline-rtm-copy}
+### Models used across the workflow
+
+- **Leaf optics:** PROSPECT-D, PROSPECT-PRO, Liberty, Fluspect-B, and Fluspect-Cx.
+- **Canopy reflectance:** fourSAIL, foursail2, INFORM, and PROSAIL configurations.
+- **Soil and atmosphere:** MARMIT and SPART.
+- **Plant functioning:** SCOPE energy balance, photosynthesis, thermal emission,
+  and sun-induced fluorescence.
+- **R and Python:** ToolsRTM, SCOPEinR, toolsrtm, and scopeinpython.
+
+The R and Python implementations are numerically cross-checked, supporting
+reproducible simulations and transferable workflows.
+
+[Open the RTM-Suite documentation](https://ccgcam.github.io/RTM-Suite/#docs){.tools-card-link}
+:::
+
+::: {.pipeline-image-card}
+![](../assets/rtm-suite/rtm-suite-model-comparison.png){fig-alt="Comparison of canopy and leaf radiative transfer models in RTM-Suite"}
+
+<span>Common inputs can be propagated through different leaf and canopy model combinations.</span>
+:::
+:::
+
+## 3. Simulation libraries, sensitivity, and sensor harmonisation
+
+::: {.pipeline-card-grid}
+::: {.pipeline-card}
+### Parameter design & LUTs
+
+Trait ranges and dependencies are defined from literature, field observations,
+and crop-specific knowledge. Sampling strategies generate look-up tables that
+cover healthy, water-stressed, nutrient-limited, and disease-affected conditions.
+:::
+
+::: {.pipeline-card}
+### Sensitivity analysis
+
+Local sweeps, Sobol indices, and relative-importance methods identify which
+traits affect specific spectral regions, thermal responses, or fluorescence
+signals. This guides feature selection and sensor requirements.
+
+[Sensitivity tutorial](https://ccgcam.github.io/RTM-Suite/toolsrtm/articles/t10-sensitivity.html){.tools-card-link}
+:::
+
+::: {.pipeline-card}
+### Sensor convolution
+
+Hyperspectral simulations are convolved to measured sensor response functions.
+This creates comparable inputs for field spectrometers, UAV cameras,
+Sentinel-2, PRISMA, EnMAP, FLEX, and future CHIME configurations.
+:::
+:::
+
+::: {.pipeline-image-pair}
+::: {.pipeline-image-card}
+![](../assets/rtm-suite/rtm-suite-all-models.png){fig-alt="Spectral simulations from multiple RTM-Suite model families"}
+
+<span>Model families describe complementary leaf, canopy, soil, atmosphere, and fluorescence processes.</span>
+:::
+
+::: {.pipeline-image-card}
+![](../assets/rtm-suite/rtm-suite-prospect-validation.png){fig-alt="PROSPECT-D validation examples against reference leaf spectra"}
+
+<span>Model verification and cross-language tests are part of the reproducible workflow.</span>
+:::
+:::
+
+## 4. Hybrid trait retrieval and stress discrimination
+
+The simulated libraries train inversion models that translate observations
+into functional plant traits. HYDRA-EO combines multiple approaches so that
+performance, interpretability, and uncertainty can be compared.
+
+::: {.pipeline-inversion-grid}
+::: {.pipeline-inversion-stage}
+**Forward modelling**
+
+Traits and environmental conditions → simulated optical, thermal, and fluorescence signals.
+:::
+
+::: {.pipeline-inversion-stage}
+**Sensor representation**
+
+Full spectra → sensor bands, indices, spectral features, and spatial metrics.
+:::
+
+::: {.pipeline-inversion-stage}
+**Inverse modelling**
+
+Observed signals → chlorophyll, water, LAI, biomass, photosynthetic and stress-related traits.
+:::
+
+::: {.pipeline-inversion-stage}
+**Stress interpretation**
+
+Trait trajectories and multi-sensor evidence → drought, disease, mixed stress, and healthy conditions.
+:::
+:::
+
+Methods include LUT matching, random forests, gradient boosting, Gaussian
+processes, neural networks, and deep learning. Physically based simulations
+provide constraints and training information, while empirical campaign data
+capture real crop, disease, and environmental variability.
+
+## 5. Validation, uncertainty, and transfer across scales
+
+Products are evaluated against independent plant measurements, disease labels,
+field spectra, flux observations, and withheld sites or dates. Validation is
+performed at the scale at which each product will be used.
+
+::: {.pipeline-output-grid}
+::: {.pipeline-output}
+**Plot and plant level**
+
+Trait accuracy, symptom sensitivity, early-detection timing, and physiological consistency.
+:::
+
+::: {.pipeline-output}
+**UAV and aircraft level**
+
+Spatial patterns, crown or row consistency, thermal-spectral complementarity, and uncertainty maps.
+:::
+
+::: {.pipeline-output}
+**Satellite level**
+
+Sensor transfer, temporal stability, mixed-pixel effects, regional scalability, and mission readiness.
+:::
+:::
+
+::: {.pipeline-final}
+### Pipeline outcome
+
+The final products are not limited to disease maps. HYDRA-EO delivers
+physically interpretable trait estimates, stress indicators, uncertainty
+information, transferable workflows, and open tools that connect biological
+processes with operational Earth Observation.
+:::
+
+::: {.press-actions}
+[Explore the RTM-Suite catalogue](tools.qmd){.press-primary}
+[Follow the 2026 campaigns](news/hydra-eo-campaigns-2026.qmd){.press-secondary}
+[Open RTM-Suite tutorials](https://ccgcam.github.io/RTM-Suite/tutorials-overview.html){.press-secondary}
 :::
 
 ---

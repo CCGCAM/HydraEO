@@ -6,6 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="The HYDRA-EO multi-scale processing pipeline, from field observations and EO data to RTM-informed trait retrieval and crop-stress detection.">
 
 <title>Pipeline – HYDRA-EO</title>
 <style>
@@ -151,6 +152,11 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">Pipeline</h1>
 </div>
 
+<div>
+  <div class="description">
+    The HYDRA-EO multi-scale processing pipeline, from field observations and EO data to RTM-informed trait retrieval and crop-stress detection.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page">
@@ -165,41 +171,190 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="pipeline-hero">
 <div class="section-label">
-<p>Section · Pipeline</p>
+<p>HYDRA-EO scientific workflow</p>
 </div>
-<section id="processing-pipelines-by-data-source" class="level2">
-<h2 class="anchored" data-anchor-id="processing-pipelines-by-data-source">Processing pipelines by data source</h2>
-<p>This section documents key methodological blocks, including radiative transfer configurations, trait retrieval strategies, and disease scoring approaches.</p>
-<hr>
-<div class="card-grid">
-<div class="vbl-card">
-<div class="pill-mini">
-<p>UAV–airborne processing</p>
+<section id="from-observations-to-explainable-crop-stress-information" class="level1">
+<h1>From observations to explainable crop-stress information</h1>
+<p>HYDRA-EO connects field measurements, UAV and airborne imaging, satellite Earth Observation, radiative transfer modelling, and machine learning in one traceable pipeline. <strong>RTM-Suite</strong> provides the physical modelling layer that links measured spectra with plant traits and functioning.</p>
+<div class="pipeline-actions">
+<p><a href="https://ccgcam.github.io/RTM-Suite/" class="tools-primary">Explore RTM-Suite</a> <a href="./tools.html" class="tools-secondary">Browse HYDRA-EO tools</a></p>
 </div>
-<section id="uav-airborne-processing" class="level3">
-<h3 class="anchored" data-anchor-id="uav-airborne-processing">UAV &amp; airborne processing</h3>
-<p>Radiometric and geometric correction of UAV and airborne hyperspectral and thermal data, including mosaicking, BRDF normalisation, and co-registration with field plots. Output products include surface reflectance cubes, temperature maps, and quality masks.</p>
 </section>
 </div>
-<div class="vbl-card">
-<div class="pill-mini">
-<p>Satellite</p>
+<div class="pipeline-flow" aria-label="HYDRA-EO processing sequence">
+<div class="pipeline-step">
+<p><span>01</span></p>
+<p><strong>Reference observations</strong></p>
+<p>Plant physiology, biochemistry, pathology, field spectroscopy, and campaign metadata.</p>
 </div>
-<section id="satellite-eo-processing" class="level3">
-<h3 class="anchored" data-anchor-id="satellite-eo-processing">Satellite EO processing</h3>
-<p>Sentinel-2, PRISMA, and EnMAP workflows (e.g.&nbsp;Sen2Cor atmospheric correction, spectral resampling, tiling, and time-series aggregation), harmonised across sites for crop–stressor analysis and EO upscaling.</p>
+<div class="pipeline-arrow">
+<p>→</p>
+</div>
+<div class="pipeline-step">
+<p><span>02</span></p>
+<p><strong>EO preprocessing</strong></p>
+<p>Calibrated field, UAV, airborne, and satellite reflectance, temperature, and fluorescence.</p>
+</div>
+<div class="pipeline-arrow">
+<p>→</p>
+</div>
+<div class="pipeline-step pipeline-step-accent">
+<p><span>03</span></p>
+<p><strong>RTM-Suite</strong></p>
+<p>Physically based simulations, sensor convolution, sensitivity analysis, and look-up tables.</p>
+</div>
+<div class="pipeline-arrow">
+<p>→</p>
+</div>
+<div class="pipeline-step">
+<p><span>04</span></p>
+<p><strong>Hybrid inversion</strong></p>
+<p>Trait retrieval using LUT matching, classical ML, neural networks, and deep learning.</p>
+</div>
+<div class="pipeline-arrow">
+<p>→</p>
+</div>
+<div class="pipeline-step">
+<p><span>05</span></p>
+<p><strong>Stress intelligence</strong></p>
+<p>Disease detection, stress discrimination, uncertainty, validation, and spatial upscaling.</p>
+</div>
+</div>
+<section id="multi-scale-observations-and-reference-data" class="level2">
+<h2 class="anchored" data-anchor-id="multi-scale-observations-and-reference-data">1. Multi-scale observations and reference data</h2>
+<p>The pipeline begins with coordinated measurements that describe both the remote-sensing signal and the biological processes behind it.</p>
+<div class="pipeline-card-grid">
+<div class="pipeline-card">
+<div class="pill-mini">
+<p>Ground reference</p>
+</div>
+<section id="plant-and-disease-measurements" class="level3">
+<h3 class="anchored" data-anchor-id="plant-and-disease-measurements">Plant and disease measurements</h3>
+<p>Leaf pigments, water and dry matter, LAI, biomass, photosynthesis, fluorescence, canopy temperature, visual symptoms, pathogen assessments, and crop development.</p>
 </section>
 </div>
-<div class="vbl-card">
+<div class="pipeline-card">
 <div class="pill-mini">
-<p>RTM–ML</p>
+<p>UAV &amp; airborne</p>
 </div>
-<section id="rtm-library-hybrid-ml" class="level3">
-<h3 class="anchored" data-anchor-id="rtm-library-hybrid-ml">RTM library &amp; hybrid ML</h3>
-<p>PROSAIL and SCOPE forward simulations via <strong>ToolsRTM</strong> and <strong>SCOPEinR</strong>, LUT generation, plant trait retrieval, and hybrid ML models trained on combined RTM–EO features for crop stress detection.</p>
+<section id="high-resolution-imaging" class="level3">
+<h3 class="anchored" data-anchor-id="high-resolution-imaging">High-resolution imaging</h3>
+<p>VNIR-SWIR hyperspectral, thermal, fluorescence/SIF, and RGB acquisitions are radiometrically and geometrically corrected, mosaicked, quality-controlled, and co-registered with field plots.</p>
 </section>
 </div>
+<div class="pipeline-card">
+<div class="pill-mini">
+<p>Satellite EO</p>
+</div>
+<section id="regional-and-temporal-context" class="level3">
+<h3 class="anchored" data-anchor-id="regional-and-temporal-context">Regional and temporal context</h3>
+<p>Sentinel-2, PRISMA, and EnMAP data are atmospherically corrected, cloud-masked, resampled, and harmonised to support time-series analysis and spatial upscaling.</p>
+</section>
+</div>
+</div>
+<div class="pipeline-image-wide">
+<p><img src="../assets/aerials/lelystad_June Hyperspectral.png" class="img-fluid" alt="Hyperspectral UAV mosaic of the HYDRA-EO potato experiment in Lelystad"></p>
+<p><span>High-resolution hyperspectral campaign products provide the bridge between plot measurements and satellite observations.</span></p>
+</div>
+</section>
+<section id="rtm-suite-as-the-physical-modelling-core" class="level2">
+<h2 class="anchored" data-anchor-id="rtm-suite-as-the-physical-modelling-core">2. RTM-Suite as the physical modelling core</h2>
+<p>RTM-Suite brings the models used by HYDRA-EO into a consistent R and Python ecosystem. Instead of learning statistical relationships from observations alone, the project generates physically plausible combinations of plant traits, canopy structure, soil background, atmosphere, illumination, and viewing geometry.</p>
+<div class="pipeline-rtm-layout">
+<section id="models-used-across-the-workflow" class="level3 pipeline-rtm-copy">
+<h3 class="anchored" data-anchor-id="models-used-across-the-workflow">Models used across the workflow</h3>
+<ul>
+<li><strong>Leaf optics:</strong> PROSPECT-D, PROSPECT-PRO, Liberty, Fluspect-B, and Fluspect-Cx.</li>
+<li><strong>Canopy reflectance:</strong> fourSAIL, foursail2, INFORM, and PROSAIL configurations.</li>
+<li><strong>Soil and atmosphere:</strong> MARMIT and SPART.</li>
+<li><strong>Plant functioning:</strong> SCOPE energy balance, photosynthesis, thermal emission, and sun-induced fluorescence.</li>
+<li><strong>R and Python:</strong> ToolsRTM, SCOPEinR, toolsrtm, and scopeinpython.</li>
+</ul>
+<p>The R and Python implementations are numerically cross-checked, supporting reproducible simulations and transferable workflows.</p>
+<p><a href="https://ccgcam.github.io/RTM-Suite/#docs" class="tools-card-link">Open the RTM-Suite documentation</a></p>
+</section>
+<div class="pipeline-image-card">
+<p><img src="../assets/rtm-suite/rtm-suite-model-comparison.png" class="img-fluid" alt="Comparison of canopy and leaf radiative transfer models in RTM-Suite"></p>
+<p><span>Common inputs can be propagated through different leaf and canopy model combinations.</span></p>
+</div>
+</div>
+</section>
+<section id="simulation-libraries-sensitivity-and-sensor-harmonisation" class="level2">
+<h2 class="anchored" data-anchor-id="simulation-libraries-sensitivity-and-sensor-harmonisation">3. Simulation libraries, sensitivity, and sensor harmonisation</h2>
+<div class="pipeline-card-grid">
+<section id="parameter-design-luts" class="level3 pipeline-card">
+<h3 class="anchored" data-anchor-id="parameter-design-luts">Parameter design &amp; LUTs</h3>
+<p>Trait ranges and dependencies are defined from literature, field observations, and crop-specific knowledge. Sampling strategies generate look-up tables that cover healthy, water-stressed, nutrient-limited, and disease-affected conditions.</p>
+</section>
+<section id="sensitivity-analysis" class="level3 pipeline-card">
+<h3 class="anchored" data-anchor-id="sensitivity-analysis">Sensitivity analysis</h3>
+<p>Local sweeps, Sobol indices, and relative-importance methods identify which traits affect specific spectral regions, thermal responses, or fluorescence signals. This guides feature selection and sensor requirements.</p>
+<p><a href="https://ccgcam.github.io/RTM-Suite/toolsrtm/articles/t10-sensitivity.html" class="tools-card-link">Sensitivity tutorial</a></p>
+</section>
+<section id="sensor-convolution" class="level3 pipeline-card">
+<h3 class="anchored" data-anchor-id="sensor-convolution">Sensor convolution</h3>
+<p>Hyperspectral simulations are convolved to measured sensor response functions. This creates comparable inputs for field spectrometers, UAV cameras, Sentinel-2, PRISMA, EnMAP, FLEX, and future CHIME configurations.</p>
+</section>
+</div>
+<div class="pipeline-image-pair">
+<div class="pipeline-image-card">
+<p><img src="../assets/rtm-suite/rtm-suite-all-models.png" class="img-fluid" alt="Spectral simulations from multiple RTM-Suite model families"></p>
+<p><span>Model families describe complementary leaf, canopy, soil, atmosphere, and fluorescence processes.</span></p>
+</div>
+<div class="pipeline-image-card">
+<p><img src="../assets/rtm-suite/rtm-suite-prospect-validation.png" class="img-fluid" alt="PROSPECT-D validation examples against reference leaf spectra"></p>
+<p><span>Model verification and cross-language tests are part of the reproducible workflow.</span></p>
+</div>
+</div>
+</section>
+<section id="hybrid-trait-retrieval-and-stress-discrimination" class="level2">
+<h2 class="anchored" data-anchor-id="hybrid-trait-retrieval-and-stress-discrimination">4. Hybrid trait retrieval and stress discrimination</h2>
+<p>The simulated libraries train inversion models that translate observations into functional plant traits. HYDRA-EO combines multiple approaches so that performance, interpretability, and uncertainty can be compared.</p>
+<div class="pipeline-inversion-grid">
+<div class="pipeline-inversion-stage">
+<p><strong>Forward modelling</strong></p>
+<p>Traits and environmental conditions → simulated optical, thermal, and fluorescence signals.</p>
+</div>
+<div class="pipeline-inversion-stage">
+<p><strong>Sensor representation</strong></p>
+<p>Full spectra → sensor bands, indices, spectral features, and spatial metrics.</p>
+</div>
+<div class="pipeline-inversion-stage">
+<p><strong>Inverse modelling</strong></p>
+<p>Observed signals → chlorophyll, water, LAI, biomass, photosynthetic and stress-related traits.</p>
+</div>
+<div class="pipeline-inversion-stage">
+<p><strong>Stress interpretation</strong></p>
+<p>Trait trajectories and multi-sensor evidence → drought, disease, mixed stress, and healthy conditions.</p>
+</div>
+</div>
+<p>Methods include LUT matching, random forests, gradient boosting, Gaussian processes, neural networks, and deep learning. Physically based simulations provide constraints and training information, while empirical campaign data capture real crop, disease, and environmental variability.</p>
+</section>
+<section id="validation-uncertainty-and-transfer-across-scales" class="level2">
+<h2 class="anchored" data-anchor-id="validation-uncertainty-and-transfer-across-scales">5. Validation, uncertainty, and transfer across scales</h2>
+<p>Products are evaluated against independent plant measurements, disease labels, field spectra, flux observations, and withheld sites or dates. Validation is performed at the scale at which each product will be used.</p>
+<div class="pipeline-output-grid">
+<div class="pipeline-output">
+<p><strong>Plot and plant level</strong></p>
+<p>Trait accuracy, symptom sensitivity, early-detection timing, and physiological consistency.</p>
+</div>
+<div class="pipeline-output">
+<p><strong>UAV and aircraft level</strong></p>
+<p>Spatial patterns, crown or row consistency, thermal-spectral complementarity, and uncertainty maps.</p>
+</div>
+<div class="pipeline-output">
+<p><strong>Satellite level</strong></p>
+<p>Sensor transfer, temporal stability, mixed-pixel effects, regional scalability, and mission readiness.</p>
+</div>
+</div>
+<section id="pipeline-outcome" class="level3 pipeline-final">
+<h3 class="anchored" data-anchor-id="pipeline-outcome">Pipeline outcome</h3>
+<p>The final products are not limited to disease maps. HYDRA-EO delivers physically interpretable trait estimates, stress indicators, uncertainty information, transferable workflows, and open tools that connect biological processes with operational Earth Observation.</p>
+</section>
+<div class="press-actions">
+<p><a href="./tools.html" class="press-primary">Explore the RTM-Suite catalogue</a> <a href="./news/hydra-eo-campaigns-2026.html" class="press-secondary">Follow the 2026 campaigns</a> <a href="https://ccgcam.github.io/RTM-Suite/tutorials-overview.html" class="press-secondary">Open RTM-Suite tutorials</a></p>
 </div>
 <hr>
 <div class="text-center small text-secondary vbl-footer-classic">

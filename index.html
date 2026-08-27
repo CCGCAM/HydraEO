@@ -1079,7 +1079,7 @@ section {
    ========================================= */
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 24px;
 }
 
@@ -1089,6 +1089,8 @@ section {
   border: 1px solid #e4e8f4;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
   padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
 }
 
 .tool-card-title {
@@ -1103,6 +1105,88 @@ section {
   line-height: 1.6;
   color: #5f646e;
   margin-bottom: 12px;
+}
+
+.tool-card .tool-lang-badge {
+  display: block;
+  width: auto;
+  height: 23px;
+  align-self: flex-start;
+  margin-bottom: 12px;
+}
+
+.tool-card .tool-repo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 9px 13px;
+  color: #fff;
+  background: var(--esa-blue);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.tool-card .tool-repo-link:hover {
+  color: #fff;
+  background: var(--esa-light-blue);
+  transform: translateY(-2px);
+}
+
+.rtm-suite-tool-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, .9fr);
+  gap: 28px;
+  align-items: center;
+  margin-bottom: 26px;
+  padding: 26px 28px;
+  background: linear-gradient(135deg, #fff 0%, #edf8f7 100%);
+  border: 1px solid #dbe8ea;
+  border-radius: 24px;
+  box-shadow: 0 16px 38px rgba(11, 61, 89, .08);
+}
+
+.rtm-suite-tool-feature h3 {
+  margin: 0 0 10px;
+  color: var(--esa-blue);
+  font-size: 24px;
+}
+
+.rtm-suite-packages {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 18px 0;
+}
+
+.rtm-suite-package {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 11px;
+  background: #fff;
+  border: 1px solid #dfe7ee;
+  border-radius: 11px;
+  color: var(--text-main);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.rtm-suite-package img { width: auto; height: 21px; }
+.rtm-suite-tool-visual img { display: block; width: 100%; border-radius: 14px; }
+.rtm-suite-tool-links { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+.rtm-suite-tool-links img { width: auto; height: 30px; }
+
+@media (max-width: 850px) {
+  .rtm-suite-tool-feature { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 520px) {
+  .rtm-suite-packages { grid-template-columns: 1fr; }
 }
 
 #consortium {
@@ -2143,56 +2227,105 @@ footer.visible {
       </p>
     </div>
 
+    <article class="rtm-suite-tool-feature">
+      <div>
+        <div class="section-kicker">Featured open framework</div>
+        <h3>RTM-Suite: radiative transfer modelling in R and Python</h3>
+        <p>
+          RTM-Suite connects leaf, canopy, soil, atmosphere, energy-balance and
+          fluorescence models with sensor convolution, sensitivity analysis,
+          look-up tables and plant-trait inversion. Its R and Python components
+          are developed and numerically verified as one reproducible ecosystem.
+        </p>
+        <div class="rtm-suite-packages" aria-label="RTM-Suite packages and libraries">
+          <div class="rtm-suite-package"><img src="assets/rtm-suite/badge-r.svg" alt="R">ToolsRTM</div>
+          <div class="rtm-suite-package"><img src="assets/rtm-suite/badge-r.svg" alt="R">SCOPEinR</div>
+          <div class="rtm-suite-package"><img src="assets/rtm-suite/badge-r-shiny.svg" alt="R and Shiny">ToolsRTM.app</div>
+          <div class="rtm-suite-package"><img src="assets/rtm-suite/badge-python.svg" alt="Python">toolsrtm</div>
+          <div class="rtm-suite-package"><img src="assets/rtm-suite/badge-python.svg" alt="Python">scopeinpython</div>
+        </div>
+        <div class="rtm-suite-tool-links">
+          <a class="card-link" href="https://ccgcam.github.io/RTM-Suite/" target="_blank" rel="noopener">Explore RTM-Suite →</a>
+          <a href="https://github.com/CCGCAM/RTM-Suite" target="_blank" rel="noopener" aria-label="RTM-Suite source code on GitHub">
+            <img src="assets/GitHub-Logo.png" alt="GitHub">
+          </a>
+        </div>
+      </div>
+      <a class="rtm-suite-tool-visual" href="https://ccgcam.github.io/RTM-Suite/" target="_blank" rel="noopener">
+        <img src="assets/rtm-suite/rtm-suite-model-comparison.png"
+             alt="RTM-Suite comparison of leaf and canopy radiative transfer models">
+      </a>
+    </article>
+
     <div class="tools-grid">
       <article class="tool-card">
-        <h3 class="tool-card-title">ToolsRTM package</h3>
+        <img class="tool-lang-badge" src="assets/rtm-suite/badge-r.svg" alt="R">
+        <h3 class="tool-card-title">ToolsRTM</h3>
         <p>
-          This package provides a unified suite of radiative transfer 
-          models for simulating leaf, canopy and soil reflectance
-          across multiple sensor resolutions. It integrates PROSPECT, 
-          FLUSPECT, Liberty, INFORM, fourSAIL and PROSAIL for detailed 
-          optical simulations and advance modelling as SPART and MARMIT for soil.
-          These capabilities support flexible, physics-based 
-          workflows for EO data analysis and model–data integration.
+          R package for leaf and canopy optics, real-soil modelling, sensor
+          convolution, spectral indices, look-up tables, and trait inversion
+          using classical machine learning and deep learning.
         </p>
         <a href="https://gitlab.com/caminoccg/toolsrtm"
-           class="card-link"
-           target="_blank">→ View ToolsRTM on GitLab</a>
+           class="tool-repo-link" target="_blank" rel="noopener">
+          GitLab repository ↗
+        </a>
       </article>
 
       <article class="tool-card">
-        <h3 class="tool-card-title">SCOPEinR package</h3>
+        <img class="tool-lang-badge" src="assets/rtm-suite/badge-r.svg" alt="R">
+        <h3 class="tool-card-title">SCOPEinR</h3>
         <p>
-          SCOPEinR implements the SCOPE model for simulating 
-          soil–canopy radiative transfer, photosynthesis, fluorescence and surface
-          energy balance. It provides an R interface for producing consistent
-          reflectance, SIF and photosynthesis products under varying stress, 
-          physiological and illumination conditions. This package supports 
-          detailed modelling of vegetation functioning in crop studies.
+          R implementation of SCOPE 2.0 for coupled soil-canopy radiative
+          transfer, photosynthesis, surface energy balance, thermal emission,
+          and sun-induced chlorophyll fluorescence.
         </p>
         <a href="https://gitlab.com/caminoccg/scopeinr"
-           class="card-link"
-           target="_blank">→ View SCOPEinR on GitLab</a>
+           class="tool-repo-link" target="_blank" rel="noopener">
+          GitLab repository ↗
+        </a>
       </article>
 
       <article class="tool-card">
-        <h3 class="tool-card-title">HYDRA-EO project repository</h3>
+        <img class="tool-lang-badge" src="assets/rtm-suite/badge-r-shiny.svg" alt="R and Shiny">
+        <h3 class="tool-card-title">ToolsRTM.app</h3>
         <p>
-          A central Git repository will host the HYDRA-EO pipelines: RTM code, ML models, spectral libraries,
-          trait–stressor metadata and Shiny applications. ESA and project partners will have access for
-          collaboration, reproducibility and long-term reuse.
+          Nine interactive applications for PROSAIL, BRDF, MARMIT, SPART,
+          SCOPE, look-up tables, model comparison, inversion, and STAC
+          satellite workflows.
         </p>
-        <a href="https://github.com/CCGCAM/HydraEO"
-           class="card-link"
-           target="_blank">→ View HYDRA-EO on GitHub</a>
+        <a href="https://github.com/CCGCAM/RTM-Suite/tree/main/ToolsRTM.app"
+           class="tool-repo-link" target="_blank" rel="noopener">
+          GitHub repository ↗
+        </a>
       </article>
 
       <article class="tool-card">
-        <h3 class="tool-card-title">Shiny app for trait retrieval</h3>
+        <img class="tool-lang-badge" src="assets/rtm-suite/badge-python.svg" alt="Python">
+        <h3 class="tool-card-title">toolsrtm</h3>
         <p>
-          An interactive web application will allow users to explore retrieval workflows, visualise scaling
-          effects, and test different sensor configurations and bandsets for specific crops and pathogens.
+          Python library for leaf and canopy simulation, MARMIT, sensor
+          convolution, spectral indices, ML and deep-learning inversion, and
+          STAC-based satellite data access.
         </p>
+        <a href="https://github.com/CCGCAM/ToolsRTMinPython"
+           class="tool-repo-link" target="_blank" rel="noopener">
+          GitHub repository ↗
+        </a>
+      </article>
+
+      <article class="tool-card">
+        <img class="tool-lang-badge" src="assets/rtm-suite/badge-python.svg" alt="Python">
+        <h3 class="tool-card-title">scopeinpython</h3>
+        <p>
+          Python implementation of SCOPE for optical, thermal, biochemical,
+          energy-balance, photosynthesis, and fluorescence simulations within
+          reproducible Python workflows.
+        </p>
+        <a href="https://github.com/CCGCAM/SCOPEinPython"
+           class="tool-repo-link" target="_blank" rel="noopener">
+          GitHub repository ↗
+        </a>
       </article>
     </div>
     <div class="quarto-more">

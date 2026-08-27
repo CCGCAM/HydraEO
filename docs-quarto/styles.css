@@ -752,3 +752,56 @@ a.news-link {
   .campaign-scale { justify-content: flex-start; }
   .campaign-scale b { transform: rotate(90deg); }
 }
+
+/* HYDRA-EO scientific pipeline */
+.pipeline-hero {
+  padding: 2rem 2.2rem;
+  margin-bottom: 1.4rem;
+  color: #fff;
+  background: linear-gradient(135deg, var(--hydra-navy), var(--hydra-blue));
+  border-radius: 22px;
+  box-shadow: 0 16px 40px rgba(0, 50, 71, .18);
+}
+.pipeline-hero .section-label { color: #8ee4d8; }
+.pipeline-hero h1 { color: #fff; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; }
+.pipeline-hero p { max-width: 900px; color: rgba(255,255,255,.86); }
+.pipeline-actions, .pipeline-actions p { display: flex; flex-wrap: wrap; gap: .65rem; margin: 1rem 0 0; }
+.pipeline-flow { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr auto 1fr; gap: .55rem; align-items: stretch; margin: 1.4rem 0 3rem; }
+.pipeline-step { padding: 1rem; background: #fff; border: 1px solid var(--hydra-border); border-radius: 14px; box-shadow: 0 8px 22px rgba(15,23,42,.05); }
+.pipeline-step span { display: inline-grid; place-items: center; width: 30px; height: 30px; margin-bottom: .65rem; color: #fff; background: var(--hydra-blue); border-radius: 50%; font-size: .75rem; font-weight: 800; }
+.pipeline-step p { margin: .35rem 0 0; color: var(--hydra-text-muted); font-size: .78rem; line-height: 1.45; }
+.pipeline-step-accent { background: #eaf7f5; border-color: #8ed9d0; }
+.pipeline-step-accent span { background: #158777; }
+.pipeline-arrow { display: grid; place-items: center; color: #2bb3a3; font-size: 1.4rem; font-weight: 800; }
+.pipeline-card-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; margin: 1.25rem 0 2rem; }
+.pipeline-card { padding: 1.2rem; background: #fff; border: 1px solid var(--hydra-border); border-radius: 15px; box-shadow: 0 8px 24px rgba(15,23,42,.05); }
+.pipeline-card h3 { color: var(--hydra-navy); }
+.pipeline-card p { color: var(--hydra-text-muted); font-size: .88rem; }
+.pipeline-image-wide, .pipeline-image-card { padding: .75rem; background: #fff; border: 1px solid var(--hydra-border); border-radius: 16px; box-shadow: 0 9px 26px rgba(15,23,42,.06); }
+.pipeline-image-wide { margin: 1rem 0 3rem; }
+.pipeline-image-wide img, .pipeline-image-card img { display: block; width: 100%; max-height: 520px; object-fit: contain; border-radius: 11px; background: #eef2f6; }
+.pipeline-image-wide span, .pipeline-image-card span { display: block; margin-top: .6rem; color: var(--hydra-text-muted); font-size: .82rem; }
+.pipeline-rtm-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: center; margin: 1.3rem 0 3rem; }
+.pipeline-rtm-copy { padding: 1.35rem; background: #fff; border-left: 5px solid #2bb3a3; border-radius: 0 16px 16px 0; }
+.pipeline-image-pair { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; margin: 1.25rem 0 3rem; }
+.pipeline-inversion-grid { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); gap: .8rem; margin: 1.25rem 0 1.6rem; }
+.pipeline-inversion-stage { padding: 1rem; color: #fff; background: linear-gradient(135deg, #003247, #06577a); border-radius: 14px; }
+.pipeline-inversion-stage p { margin: .4rem 0 0; color: rgba(255,255,255,.8); font-size: .82rem; }
+.pipeline-output-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .9rem; margin: 1.25rem 0 2rem; }
+.pipeline-output { padding: 1.1rem; background: #fff; border-top: 4px solid #2bb3a3; border-radius: 12px; }
+.pipeline-output p { margin: .4rem 0 0; color: var(--hydra-text-muted); font-size: .86rem; }
+.pipeline-final { padding: 1.4rem 1.6rem; margin: 1.5rem 0; background: #eaf7f5; border: 1px solid #b9e5df; border-radius: 17px; }
+
+@media (max-width: 1050px) {
+  .pipeline-flow { grid-template-columns: 1fr; }
+  .pipeline-arrow { transform: rotate(90deg); }
+  .pipeline-inversion-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
+}
+@media (max-width: 800px) {
+  .pipeline-card-grid, .pipeline-output-grid { grid-template-columns: 1fr; }
+  .pipeline-rtm-layout, .pipeline-image-pair { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .pipeline-hero { padding: 1.4rem; }
+  .pipeline-inversion-grid { grid-template-columns: 1fr; }
+}
