@@ -1,61 +1,146 @@
 ---
 title: "Contact"
+description: "Contact HYDRA-EO, propose a collaboration, or contribute to its open-source ecosystem."
 format: html
 ---
 
+::: {.contact-hero}
 ::: {.section-label}
-Section · Contact
+Contact · Collaborate · Contribute
 :::
 
-## Contact & contributions
+## Let’s connect
 
-If you would like to contribute examples, report issues, or reuse the
-tutorials for teaching, please contact the HYDRA-EO team or open an issue
-in the relevant repositories.
+Whether you are interested in scientific collaboration, field and airborne campaigns,
+software development, training, or reuse of HYDRA-EO resources, this page will direct
+you to the right channel.
+:::
 
----
-
-::: {.card-grid-1}
-
-::: {.vbl-card-1}
+::: {.contact-lead-card}
+::: {.contact-lead-copy}
 ::: {.pill-mini}
-Coordination
+Project coordination
 :::
 
-### Project lead
+### Dr. Carlos Luis Camino González
 
-Dr. **Carlos Camino** (Wageningen University) is responsible for the
-overall scientific coordination of the HYDRA-EO project. His role
-includes leading the development of the methodological framework,
-coordinating the integration of radiative transfer modelling and hybrid
-machine learning approaches, and overseeing the design and maintenance
-of tutorial materials and open-source tools.
+**HYDRA-EO project lead · WU-DES**  
+Laboratory of Geo-information Science and Remote Sensing  
+Wageningen University & Research
 
-He acts as the main interface with ESA and consortium partners, ensuring
-scientific coherence, timely delivery of project outputs, and alignment
-with project objectives.
+Carlos coordinates the scientific programme and its integration of radiative transfer
+modelling, plant traits, remote sensing, and machine learning. Contact him for project
+collaboration, campaigns, consortium activities, and scientific dissemination.
 
-[Go to the Virtual Biophysical Lab](https://ccgcam.github.io/Virtual-Biophysical-Lab/)
+::: {.contact-actions}
+[✉ Email Carlos](mailto:carlos.caminogonzalez@wur.nl){.contact-primary}
+[View WUR profile ↗](https://www.wur.nl/en/persons/dr-cl-carlos-camino-gonzalez){.contact-secondary}
+[Virtual Biophysical Lab ↗](https://virtual-biophysical-lab.wur.nl/){.contact-secondary}
+:::
 :::
 
-::: {.vbl-card-1}
-::: {.pill-mini}
-Code & issues
+::: {.contact-lead-mark}
+**HYDRA-EO**
+
+ESA-funded Earth Observation research
+:::
 :::
 
-### Repositories & support
+## Choose the right channel
 
-Open issues and contribute via the project repositories:
-
-- **[HYDRA-EO workflow (tutorial site)](https://ccgcam.github.io/HydraEO/)**
-- **[ToolsRTM (GitLab)](https://gitlab.com/caminoccg/toolsrtm)**
-- **[SCOPEinR (GitLab)](https://gitlab.com/caminoccg/scopeinr)**
-
+::: {.contact-channel-grid}
+::: {.contact-channel}
+::: {.contact-channel-icon}
+✦
 :::
 
+### Scientific collaboration
+
+Discuss joint research, campaigns, validation datasets, proposals, conference activities,
+or collaboration with the HYDRA-EO consortium.
+
+[Contact the project lead](mailto:carlos.caminogonzalez@wur.nl){.contact-text-link}
+[Explore the 2026 campaigns](news/hydra-eo-campaigns-2026.qmd){.contact-text-link}
 :::
 
----
+::: {.contact-channel}
+::: {.contact-channel-icon}
+⌘
+:::
+
+### Software & technical support
+
+For bugs, feature requests, or reproducible technical questions, open an issue in the
+repository of the relevant tool so the discussion remains visible and reusable.
+
+[Open RTM-Suite on GitHub ↗](https://github.com/CCGCAM/RTM-Suite){.contact-text-link}
+[Browse tools and tutorials](tools.qmd){.contact-text-link}
+:::
+
+::: {.contact-channel}
+::: {.contact-channel-icon}
+↗
+:::
+
+### Training & dissemination
+
+Ask about teaching material, tutorial reuse, demonstrations, presentations, and
+communication around HYDRA-EO methods and open research outputs.
+
+[Explore learning resources](pipeline.qmd){.contact-text-link}
+[See project news](news.qmd){.contact-text-link}
+:::
+:::
+
+## Open-source repositories
+
+HYDRA-EO welcomes contributions, examples, and well-documented issues. Select the
+repository that best matches your question.
+
+::: {.contact-repo-grid}
+::: {.contact-repo}
+![](../assets/GitHub-Logo.png){.contact-repo-logo}
+
+### HYDRA-EO
+
+Project workflows, notebooks, and reproducible research resources.
+
+[Open repository ↗](https://github.com/CCGCAM/HydraEO){.contact-secondary}
+:::
+
+::: {.contact-repo}
+![](../assets/GitHub-Logo.png){.contact-repo-logo}
+
+### RTM-Suite
+
+The integrated R and Python ecosystem, tutorials, examples, and applications.
+
+[Open repository ↗](https://github.com/CCGCAM/RTM-Suite){.contact-secondary}
+[Visit RTM-Suite ↗](https://ccgcam.github.io/RTM-Suite/){.contact-secondary}
+:::
+
+::: {.contact-repo}
+![](../assets/GitLab-Logo.png){.contact-repo-logo}
+
+### R packages
+
+ToolsRTM and SCOPEinR development, source code, issues, and releases.
+
+[ToolsRTM ↗](https://gitlab.com/caminoccg/toolsrtm){.contact-secondary}
+[SCOPEinR ↗](https://gitlab.com/caminoccg/scopeinr){.contact-secondary}
+:::
+
+::: {.contact-repo}
+![](../assets/rtm-suite/badge-python.svg){.contact-tech-badge}
+
+### Python libraries
+
+Python interfaces for radiative transfer modelling and SCOPE workflows.
+
+[ToolsRTMinPython ↗](https://github.com/CCGCAM/ToolsRTMinPython){.contact-secondary}
+[SCOPEinPython ↗](https://github.com/CCGCAM/SCOPEinPython){.contact-secondary}
+:::
+:::
 
 ::: {.quarto-next}
 ### Continue exploring
@@ -77,4 +162,3 @@ Tender *“Crop Multiple Stressors, Pests and Diseases”*. Action **1-12684**.
 
 ![](../assets/GitHub-Logo.png){.footer-logo width=80px} [HYDRA-EO](https://github.com/CCGCAM/HydraEO/)
 :::
-
