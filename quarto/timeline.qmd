@@ -20,48 +20,33 @@ scientific and dissemination milestones.
 :::
 
 ::: {.timeline-now}
-<span>Current position</span>
+<span>Current activities</span>
 
-**Late summer 2026** · Multi-country campaigns and RTM-Suite release completed or under way; dataset harmonisation and hybrid RTM-ML development are active.
-:::
-
-## Project duration at a glance
-
-::: {.vbl-gantt .timeline-gantt-restored}
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Start-up  
-*Jan-Jun 2026*
-:::
-::: {.vbl-gantt-bar .phase1}
-:::
+**Late summer 2026** · Multi-country campaigns and the RTM-Suite release are
+completed or under way. The project is now turning these observations into a
+harmonised analysis-ready dataset and an operational processing chain.
 :::
 
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Aerial & field campaigns  
-*May-Sept 2026*
-:::
-::: {.vbl-gantt-bar .phase2}
-:::
+::: {.timeline-current-grid}
+::: {.timeline-current-item}
+### Hyperspectral processing
+
+Processing and quality control of field, UAV, airborne, and satellite
+hyperspectral observations, together with thermal and fluorescence products.
 :::
 
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Core RTM & ML  
-*Jul 2026-Dec 2027*
-:::
-::: {.vbl-gantt-bar .phase3}
-:::
+::: {.timeline-current-item}
+### Integrated database
+
+Building the project database that connects leaf and canopy measurements,
+plant physiology, biochemistry, disease assessments, and multi-scale EO data.
 :::
 
-::: {.vbl-gantt-row}
-::: {.vbl-gantt-label}
-Integration & dissemination  
-*Jan-Jun 2028*
-:::
-::: {.vbl-gantt-bar .phase4}
-:::
+::: {.timeline-current-item}
+### Processing & retrieval chain
+
+Creating the reproducible HYDRA-EO pipeline for spectral harmonisation,
+RTM simulation, trait retrieval, and hybrid RTM-ML stress detection.
 :::
 :::
 
