@@ -250,5 +250,12 @@
     "title": "Timeline",
     "section": "Work-package status",
     "text": "Work-package status\nThe ten work packages operate as a connected programme rather than a strictly sequential list. Their current emphasis is summarised below.\n\n\n\nFoundations & coordination Active throughout\n\n\nWP1 - Scientific requirement consolidation\nWP10 - Project management, reporting, risk, and contractual coordination\n\n\n\n\nObservations & experimental data Primary 2026 focus\n\n\nWP2 - Field, UAV, airborne, satellite, and in-situ dataset collection\nWP4 - Experimental EO products, synthetic data, and stress-specific libraries\n\n\n\n\nModels & scientific exploitation 2026-2027\n\n\nWP3 - RTM, sensitivity, sensor comparison, inversion, and validation\nWP5 - Trait analysis, stress dynamics, and UAV-to-satellite scaling\n\n\n\n\nImpact, collaboration & roadmap Growing toward 2028\n\n\nWP6 - Agricultural relevance and stakeholder transfer\nWP7 - Scientific roadmap and recommendations for future missions\nWP8 - Collaboration with ESA, European projects, and research networks\nWP9 - Publications, conferences, training, open tools, and outreach\n\n\n\n\n\n\n2026 observation phase: coordinated field, airborne, and satellite acquisitions.\n\n\n\n2026-2027 modelling phase: RTM simulation, sensitivity, inversion, and validation.\n\n\n\nContinue exploring\nScientific pipeline 2026 campaign update RTM-Suite tools Project news\n\n\n\n\n\n\n© 2026 HYDRA-EO.\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684.\n HYDRA-EO"
+  },
+  {
+    "objectID": "timeline.html#project-duration-at-a-glance",
+    "href": "timeline.html#project-duration-at-a-glance",
+    "title": "Timeline",
+    "section": "Project duration at a glance",
+    "text": "Project duration at a glance\n\n\n\nStart-up\nJan-Jun 2026\n\n\n\n\n\n\n\nAerial & field campaigns\nMay-Sept 2026\n\n\n\n\n\n\n\nCore RTM & ML\nJul 2026-Dec 2027\n\n\n\n\n\n\n\nIntegration & dissemination\nJan-Jun 2028"
   }
 ]

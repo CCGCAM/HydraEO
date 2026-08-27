@@ -25,6 +25,46 @@ scientific and dissemination milestones.
 **Late summer 2026** · Multi-country campaigns and RTM-Suite release completed or under way; dataset harmonisation and hybrid RTM-ML development are active.
 :::
 
+## Project duration at a glance
+
+::: {.vbl-gantt .timeline-gantt-restored}
+::: {.vbl-gantt-row}
+::: {.vbl-gantt-label}
+Start-up  
+*Jan-Jun 2026*
+:::
+::: {.vbl-gantt-bar .phase1}
+:::
+:::
+
+::: {.vbl-gantt-row}
+::: {.vbl-gantt-label}
+Aerial & field campaigns  
+*May-Sept 2026*
+:::
+::: {.vbl-gantt-bar .phase2}
+:::
+:::
+
+::: {.vbl-gantt-row}
+::: {.vbl-gantt-label}
+Core RTM & ML  
+*Jul 2026-Dec 2027*
+:::
+::: {.vbl-gantt-bar .phase3}
+:::
+:::
+
+::: {.vbl-gantt-row}
+::: {.vbl-gantt-label}
+Integration & dissemination  
+*Jan-Jun 2028*
+:::
+::: {.vbl-gantt-bar .phase4}
+:::
+:::
+:::
+
 ## Project phases
 
 ::: {.timeline-roadmap aria-label="HYDRA-EO project phases from 2026 to 2028"}
