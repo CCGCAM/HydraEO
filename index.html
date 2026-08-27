@@ -873,6 +873,47 @@ section {
   color: var(--text-muted);
 }
 
+/* Editorial handoff from the one-page site to the Quarto knowledge hub */
+.quarto-more {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 24px;
+}
+
+.quarto-more-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  color: var(--esa-blue);
+  background: #fff;
+  border: 1px solid #d6e0f5;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px rgba(13, 71, 161, .08);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+
+.quarto-more-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--esa-light-blue);
+  box-shadow: 0 12px 26px rgba(13, 71, 161, .14);
+}
+
+.quarto-more-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--esa-blue), var(--esa-light-blue));
+  border-radius: 50%;
+  font-size: 15px;
+  line-height: 1;
+}
+
 #news .rtm-language-badges {
   display: flex;
   align-items: center;
@@ -1562,6 +1603,12 @@ footer.visible {
         <div class="about-meta-row"></div>
       </aside>
     </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/index.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        More project overview in Quarto
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1673,6 +1720,12 @@ footer.visible {
         </div>
       </div>
     </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/index.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        More about the HYDRA-EO mission in Quarto
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1733,6 +1786,12 @@ footer.visible {
         </p>
       </div>
     </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/timeline.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        Explore goals and timeline in Quarto
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1791,6 +1850,12 @@ footer.visible {
           <div class="figure-caption"></div>
         </div>
       </aside>
+    </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/pipeline.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        Explore the full pipeline in Quarto
+      </a>
     </div>
   </div>
 </section>
@@ -1925,6 +1990,12 @@ footer.visible {
         </p>
       </div>
     </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/news.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        More news and campaign stories in Quarto
+      </a>
+    </div>
     
   </div>
 </section>
@@ -2006,6 +2077,12 @@ footer.visible {
         </div>
       </div>
     </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/consortium.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        Meet the consortium in Quarto
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2072,6 +2149,12 @@ footer.visible {
           effects, and test different sensor configurations and bandsets for specific crops and pathogens.
         </p>
       </article>
+    </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/tools.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        Explore all tools in Quarto
+      </a>
     </div>
   </div>
 </section>
@@ -2251,6 +2334,12 @@ db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
         </div>
       </div>
     </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/tools.html#tutorials">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        More tutorials and learning paths in Quarto
+      </a>
+    </div>
   </div>
 </section>
 
@@ -2282,6 +2371,12 @@ db.sim <- SCOPEinR::get.SCOPE(LUT = inputLUT,
           carlos.caminogonzalez@wur.nl
         </a>
       </p>
+    </div>
+    <div class="quarto-more">
+      <a class="quarto-more-link" href="docs-quarto/contact.html">
+        <span class="quarto-more-icon" aria-hidden="true">↗</span>
+        Contact details in Quarto
+      </a>
     </div>
   </div>
 </section>
