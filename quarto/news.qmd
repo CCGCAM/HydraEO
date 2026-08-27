@@ -25,6 +25,11 @@ field, UAV, airborne, and satellite campaigns in the Netherlands, Spain, and
 Italy. Follow the potato, olive, pistachio, and vineyard observations and the
 project's collaborations with CERBERUS and regional plant-health partners.
 
+::: {.news-campaign-images}
+[![](../assets/aerials/lelystad_June%20Hyperspectral.png){fig-alt="Hyperspectral UAV mosaic of the Lelystad potato experiments"}](news/hydra-eo-campaigns-2026.qmd)
+[![](../assets/aerials/Chaparrillo_20260612_zoom.png){fig-alt="Detailed hyperspectral airborne observation at El Chaparrillo"}](news/hydra-eo-campaigns-2026.qmd)
+:::
+
 [Read the campaign story](news/hydra-eo-campaigns-2026.qmd){.news-button}
 
 :::

@@ -946,24 +946,33 @@ section {
 
 #news .campaign-preview {
   display: grid;
-  grid-template-columns: 1.25fr .75fr;
-  grid-template-rows: repeat(2, 125px);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
+}
+
+#news .campaign-preview a {
+  display: block;
+  height: 250px;
+  overflow: hidden;
+  border-radius: 12px;
 }
 
 #news .campaign-preview img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 12px;
+  transition: transform .25s ease;
 }
 
-#news .campaign-preview img:first-child {
-  grid-row: 1 / 3;
-}
+#news .campaign-preview a:hover img { transform: scale(1.025); }
 
 @media (max-width: 800px) {
   #news .campaign-feature-inner { grid-template-columns: 1fr; }
+  #news .campaign-preview a { height: 190px; }
+}
+
+@media (max-width: 520px) {
+  #news .campaign-preview { grid-template-columns: 1fr; }
 }
 
 #news .wp-card a {
@@ -1681,38 +1690,6 @@ footer.visible {
     </div>
 
     <div class="wp-grid">
-      <div class="wp-card campaign-feature">
-        <div class="wp-label">2026 field &amp; airborne campaigns</div>
-        <div class="campaign-feature-inner">
-          <div>
-            <div class="wp-title">From field measurements to airborne and satellite observations</div>
-            <p class="wp-text">
-              Across the Netherlands, Spain, and Italy, HYDRA-EO is combining
-              field measurements with UAV, airborne hyperspectral and thermal
-              imaging, fluorescence observations, and satellite acquisitions to
-              understand how crop disease and stress become detectable across scales.
-            </p>
-            <p class="wp-text">
-              The 2026 campaign includes potato monitoring in Lelystad, olive and
-              pistachio experiments at El Chaparrillo, vineyard observations in
-              Italy, and collaborative activities with CERBERUS and regional
-              plant-health partners.
-            </p>
-            <a href="docs-quarto/news/hydra-eo-campaigns-2026.html" class="card-link">
-              Explore the full campaign story and image gallery →
-            </a>
-          </div>
-          <div class="campaign-preview" aria-label="HYDRA-EO 2026 campaign imagery">
-            <img src="assets/aerials/lelystad_June%20Hyperspectral.png"
-                 alt="Hyperspectral UAV mosaic of potato experiments in Lelystad">
-            <img src="assets/aerials/Chaparrillo_20260612_zoom.png"
-                 alt="Detailed airborne observation over orchards at El Chaparrillo">
-            <img src="assets/aerials/Valencia_20260703.png"
-                 alt="Airborne hyperspectral observation over agricultural sites in Valencia">
-          </div>
-        </div>
-      </div>
-
       <div class="wp-card">
         <div class="wp-label">Functional plant traits</div>
         <div class="wp-title">Retrieve key functional traits</div>
@@ -1833,6 +1810,40 @@ footer.visible {
     
 
     <div class="wp-grid">
+      <div class="wp-card campaign-feature">
+        <div class="wp-label">2026 field &amp; airborne campaigns</div>
+        <div class="campaign-feature-inner">
+          <div>
+            <div class="wp-title">From field measurements to airborne and satellite observations</div>
+            <p class="wp-text">
+              Across the Netherlands, Spain, and Italy, HYDRA-EO is combining
+              field measurements with UAV, airborne hyperspectral and thermal
+              imaging, fluorescence observations, and satellite acquisitions to
+              understand how crop disease and stress become detectable across scales.
+            </p>
+            <p class="wp-text">
+              The 2026 campaign includes potato monitoring in Lelystad, olive and
+              pistachio experiments at El Chaparrillo, vineyard observations in
+              Italy, and collaborative activities with CERBERUS and regional
+              plant-health partners.
+            </p>
+            <a href="docs-quarto/news/hydra-eo-campaigns-2026.html" class="card-link">
+              Explore the full campaign story and image gallery →
+            </a>
+          </div>
+          <div class="campaign-preview" aria-label="HYDRA-EO 2026 campaign imagery">
+            <a href="docs-quarto/news/hydra-eo-campaigns-2026.html" aria-label="Read the full 2026 campaign story">
+              <img src="assets/aerials/lelystad_June%20Hyperspectral.png"
+                   alt="Hyperspectral UAV mosaic of potato experiments in Lelystad">
+            </a>
+            <a href="docs-quarto/news/hydra-eo-campaigns-2026.html" aria-label="Read the full 2026 campaign story">
+              <img src="assets/aerials/Chaparrillo_20260612_zoom.png"
+                   alt="Detailed airborne observation over orchards at El Chaparrillo">
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div class="wp-card">
         <div class="wp-label">Upcoming conference</div>
         <div class="wp-title">ICOS Science Conference 2026</div>
