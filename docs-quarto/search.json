@@ -144,7 +144,7 @@
     "href": "contact.html",
     "title": "Contact",
     "section": "",
-    "text": "Section · Contact"
+    "text": "Contact · Collaborate · Contribute\n\n\n\nWhether you are interested in scientific collaboration, field and airborne campaigns, software development, training, or reuse of HYDRA-EO resources, this page will direct you to the right channel."
   },
   {
     "objectID": "contact.html#contact-contributions",
@@ -257,5 +257,26 @@
     "title": "Timeline",
     "section": "Project duration at a glance",
     "text": "Project duration at a glance\n\n\n\nStart-up\nJan-Jun 2026\n\n\n\n\n\n\n\nAerial & field campaigns\nMay-Sept 2026\n\n\n\n\n\n\n\nCore RTM & ML\nJul 2026-Dec 2027\n\n\n\n\n\n\n\nIntegration & dissemination\nJan-Jun 2028"
+  },
+  {
+    "objectID": "contact.html#lets-connect",
+    "href": "contact.html#lets-connect",
+    "title": "Contact",
+    "section": "",
+    "text": "Whether you are interested in scientific collaboration, field and airborne campaigns, software development, training, or reuse of HYDRA-EO resources, this page will direct you to the right channel."
+  },
+  {
+    "objectID": "contact.html#choose-the-right-channel",
+    "href": "contact.html#choose-the-right-channel",
+    "title": "Contact",
+    "section": "Choose the right channel",
+    "text": "Choose the right channel\n\n\n\n✦\n\n\nScientific collaboration\nDiscuss joint research, campaigns, validation datasets, proposals, conference activities, or collaboration with the HYDRA-EO consortium.\nContact the project lead Explore the 2026 campaigns\n\n\n\n\n⌘\n\n\nSoftware & technical support\nFor bugs, feature requests, or reproducible technical questions, open an issue in the repository of the relevant tool so the discussion remains visible and reusable.\nOpen RTM-Suite on GitHub ↗ Browse tools and tutorials\n\n\n\n\n↗\n\n\nTraining & dissemination\nAsk about teaching material, tutorial reuse, demonstrations, presentations, and communication around HYDRA-EO methods and open research outputs.\nExplore learning resources See project news"
+  },
+  {
+    "objectID": "contact.html#open-source-repositories",
+    "href": "contact.html#open-source-repositories",
+    "title": "Contact",
+    "section": "Open-source repositories",
+    "text": "Open-source repositories\nHYDRA-EO welcomes contributions, examples, and well-documented issues. Select the repository that best matches your question.\n\n\n\n\nHYDRA-EO\nProject workflows, notebooks, and reproducible research resources.\nOpen repository ↗\n\n\n\n\n\nRTM-Suite\nThe integrated R and Python ecosystem, tutorials, examples, and applications.\nOpen repository ↗ Visit RTM-Suite ↗\n\n\n\n\n\nR packages\nToolsRTM and SCOPEinR development, source code, issues, and releases.\nToolsRTM ↗ SCOPEinR ↗\n\n\n\n\n\nPython libraries\nPython interfaces for radiative transfer modelling and SCOPE workflows.\nToolsRTMinPython ↗ SCOPEinPython ↗\n\n\n\n\nContinue exploring\nProject overview RTM-Suite tools 2026 campaigns Project news\n\n\n\n\n\n© 2026 HYDRA-EO.\nHYDRA-EO is funded by the European Space Agency (ESA) under the EXPRO+ Tender “Crop Multiple Stressors, Pests and Diseases”. Action 1-12684.\n HYDRA-EO"
   }
 ]
