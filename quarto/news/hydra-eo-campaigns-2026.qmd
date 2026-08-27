@@ -36,16 +36,17 @@ leaves and plants to UAV, aircraft, and satellite observations.
 
 ## Monitoring potato health in the Netherlands
 
-In Lelystad, HYDRA-EO conducted five UAV campaigns between May and July 2026
+In Lelystad, the **Wageningen University, Department of Environmental Sciences
+(WU-DES)** team conducted five HYDRA-EO UAV campaigns between May and July 2026
 over experimental potato fields. Flights on **11 May, 16 June, 25 June, 1 July,
 and 21 July** followed crop development from early growth through flowering
 and early tuber development.
 
-The measurements combined VNIR hyperspectral imagery, thermal observations,
-fluorescence and SIF measurements, and RGB imagery with field disease
-assessments and plant measurements. Together, they provide a detailed time
-series for investigating how disease and physiological stress evolve during
-the season.
+WU-DES coordinated the multi-sensor observations, combining VNIR hyperspectral
+imagery, thermal observations, fluorescence and SIF measurements, and RGB
+imagery with field disease assessments and plant measurements. Together, they
+provide a detailed time series for investigating how disease and physiological
+stress evolve during the season.
 
 The final UAV campaign also covered the cloud-free portion of an **EnMAP
 hyperspectral satellite acquisition from 19 July**, creating an important
@@ -141,11 +142,13 @@ with operational plant-health surveillance.
 **Valencia collaboration.** Airborne observations extend HYDRA-EO testing to additional crops, landscapes, and operational plant-health priorities.
 :::
 
-The El Chaparrillo campaigns are conducted with **CIAG-IRIAF** and **IAS-CSIC**,
-combining expertise in crop pathology, field experimentation, and plant
-physiology with HYDRA-EO airborne and satellite observations. These partners
-provide the field reference information needed to interpret hyperspectral and
-thermal signals from olive and pistachio systems.
+The El Chaparrillo campaigns are conducted by **Wageningen University,
+Department of Environmental Sciences (WU-DES)** in collaboration with
+**CIAG-IRIAF** and **IAS-CSIC**. The partnership combines WU-DES expertise in
+airborne and satellite Earth Observation with crop pathology, field
+experimentation, and plant physiology. Together, the partners provide the
+reference information needed to interpret hyperspectral and thermal signals
+from olive and pistachio systems.
 
 Together, these collaborations expand HYDRA-EO across crops, diseases,
 environmental conditions, and monitoring frameworks. They also provide
