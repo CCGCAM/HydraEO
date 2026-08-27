@@ -28,7 +28,7 @@ scientific and dissemination milestones.
 ## Project phases
 
 ::: {.timeline-roadmap aria-label="HYDRA-EO project phases from 2026 to 2028"}
-::: {.timeline-year timeline-year-active}
+::: {.timeline-year .timeline-year-active}
 ### 2026 · Observe & establish
 
 ::: {.timeline-phase-status}
@@ -45,7 +45,7 @@ Active
 ::: {.timeline-year}
 ### 2027 · Develop & validate
 
-::: {.timeline-phase-status timeline-status-planned}
+::: {.timeline-phase-status .timeline-status-planned}
 Next phase
 :::
 
@@ -59,7 +59,7 @@ Next phase
 ::: {.timeline-year}
 ### 2028 · Integrate & transfer
 
-::: {.timeline-phase-status timeline-status-planned}
+::: {.timeline-phase-status .timeline-status-planned}
 Planned
 :::
 
@@ -73,7 +73,7 @@ Planned
 ## Milestones in 2026
 
 ::: {.timeline-events}
-::: {.timeline-event timeline-complete}
+::: {.timeline-event .timeline-complete}
 ::: {.timeline-event-date}
 January-June 2026
 :::
@@ -89,7 +89,7 @@ Completed
 :::
 :::
 
-::: {.timeline-event timeline-complete}
+::: {.timeline-event .timeline-complete}
 ::: {.timeline-event-date}
 May-July 2026
 :::
@@ -108,7 +108,7 @@ Completed
 :::
 :::
 
-::: {.timeline-event timeline-complete}
+::: {.timeline-event .timeline-complete}
 ::: {.timeline-event-date}
 June-August 2026
 :::
@@ -125,7 +125,7 @@ Completed
 :::
 :::
 
-::: {.timeline-event timeline-complete}
+::: {.timeline-event .timeline-complete}
 ::: {.timeline-event-date}
 9-14 August 2026
 :::
@@ -143,7 +143,7 @@ Completed
 :::
 :::
 
-::: {.timeline-event timeline-complete}
+::: {.timeline-event .timeline-complete}
 ::: {.timeline-event-date}
 27 August 2026
 :::
@@ -161,7 +161,7 @@ Released
 :::
 :::
 
-::: {.timeline-event timeline-active}
+::: {.timeline-event .timeline-active}
 ::: {.timeline-event-date}
 31 August-5 September 2026
 :::
@@ -177,7 +177,7 @@ Upcoming
 :::
 :::
 
-::: {.timeline-event timeline-active}
+::: {.timeline-event .timeline-active}
 ::: {.timeline-event-date}
 1 September 2026
 :::
@@ -192,7 +192,7 @@ Upcoming
 :::
 :::
 
-::: {.timeline-event timeline-active}
+::: {.timeline-event .timeline-active}
 ::: {.timeline-event-date}
 15-17 September 2026
 :::
@@ -226,7 +226,7 @@ sequential list. Their current emphasis is summarised below.
 - **WP10** - Project management, reporting, risk, and contractual coordination
 :::
 
-::: {.timeline-wp-group timeline-wp-current}
+::: {.timeline-wp-group .timeline-wp-current}
 ::: {.timeline-wp-heading}
 **Observations & experimental data** <span>Primary 2026 focus</span>
 :::
@@ -235,7 +235,7 @@ sequential list. Their current emphasis is summarised below.
 - **WP4** - Experimental EO products, synthetic data, and stress-specific libraries
 :::
 
-::: {.timeline-wp-group timeline-wp-current}
+::: {.timeline-wp-group .timeline-wp-current}
 ::: {.timeline-wp-heading}
 **Models & scientific exploitation** <span>2026-2027</span>
 :::
