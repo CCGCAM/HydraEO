@@ -978,6 +978,46 @@ section {
   grid-column: 1 / -1;
 }
 
+#news .rtm-feature {
+  grid-column: 1 / -1;
+}
+
+#news .rtm-feature-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);
+  gap: 26px;
+  align-items: center;
+}
+
+#news .rtm-preview {
+  display: block;
+  padding: 10px;
+  background: #f4f7f8;
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+#news .rtm-preview img {
+  display: block;
+  width: 100%;
+  height: 290px;
+  object-fit: contain;
+  border-radius: 11px;
+  transition: transform .25s ease;
+}
+
+#news .rtm-preview:hover img { transform: scale(1.02); }
+
+#news .rtm-news-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+#news .rtm-news-actions .news-link { margin: 0; }
+
 #news .campaign-feature-inner {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, .9fr);
@@ -1008,8 +1048,10 @@ section {
 #news .campaign-preview a:hover img { transform: scale(1.025); }
 
 @media (max-width: 800px) {
-  #news .campaign-feature-inner { grid-template-columns: 1fr; }
+  #news .campaign-feature-inner,
+  #news .rtm-feature-inner { grid-template-columns: 1fr; }
   #news .campaign-preview a { height: 190px; }
+  #news .rtm-preview img { height: auto; }
 }
 
 @media (max-width: 520px) {
@@ -1957,37 +1999,40 @@ footer.visible {
         </p>
       </div>
     
-     <div class="wp-card">
+     <div class="wp-card rtm-feature">
         <div class="wp-label">Open-source software release</div>
-        <div class="wp-title">RTM-Suite is now available</div>
-        <div class="rtm-language-badges" aria-label="Available for R and Python">
-          <img
-            src="https://img.shields.io/badge/R-276DC3?logo=r&amp;logoColor=white"
-            alt="R">
-          <img
-            src="https://img.shields.io/badge/Python-3776AB?logo=python&amp;logoColor=white"
-            alt="Python">
+        <div class="rtm-feature-inner">
+          <div>
+            <div class="wp-title">RTM-Suite is now available</div>
+            <div class="rtm-language-badges" aria-label="Available for R and Python">
+              <img src="assets/rtm-suite/badge-r.svg" alt="R">
+              <img src="assets/rtm-suite/badge-python.svg" alt="Python">
+            </div>
+            <p class="wp-text">
+              RTM-Suite brings leaf, canopy, soil, and atmosphere radiative transfer
+              modelling together with sensor convolution and plant-trait inversion in
+              one reproducible R and Python ecosystem. Explore 31 step-by-step tutorials,
+              interactive applications, and verified examples for vegetation and Earth
+              Observation research.
+            </p>
+            <div class="rtm-news-actions">
+              <a class="news-link" href="docs-quarto/news/rtm-suite.html">
+                Read the announcement →
+              </a>
+              <a class="news-link"
+                 href="https://ccgcam.github.io/RTM-Suite/"
+                 target="_blank"
+                 rel="noopener">
+                Explore RTM-Suite →
+              </a>
+            </div>
+          </div>
+          <a class="rtm-preview" href="docs-quarto/news/rtm-suite.html"
+             aria-label="Read the RTM-Suite announcement">
+            <img src="assets/rtm-suite/rtm-suite-model-comparison.png"
+                 alt="Comparison of canopy and leaf radiative transfer models in RTM-Suite">
+          </a>
         </div>
-        <p class="wp-text">
-          RTM-Suite brings leaf, canopy, soil, and atmosphere radiative transfer
-          modelling together with sensor convolution and plant-trait inversion in
-          one reproducible R and Python ecosystem. Explore 31 step-by-step tutorials,
-          interactive applications, and verified examples for vegetation and Earth
-          Observation research.
-        </p>
-        <p>
-          <a class="news-link" href="docs-quarto/news/rtm-suite.html">
-            Read the announcement →
-          </a>
-        </p>
-        <p>
-          <a class="news-link"
-             href="https://ccgcam.github.io/RTM-Suite/"
-             target="_blank"
-             rel="noopener">
-            Explore RTM-Suite →
-          </a>
-        </p>
       </div>
     </div>
     <div class="quarto-more">
