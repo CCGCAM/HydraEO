@@ -107,16 +107,72 @@ physiological changes first become detectable.
 
 ## Following disease development in Italian vineyards
 
-HYDRA-EO is also conducting campaigns in Italian vineyards, combining airborne
+Since **June 2026**, HYDRA-EO has been running a series of campaigns in
+Italian vineyards and at an alfalfa reference site, combining airborne
 VNIR-SWIR hyperspectral and thermal observations with field spectroscopy and
-physiological measurements. A coordinated campaign in the Bologna region in
-early August 2026 captured vineyards under different health conditions.
+physiological measurements. A coordinated campaign with **CNR-IBE** in the
+Bologna region in early August 2026 captured vineyards under different health
+conditions, building on measurements collected since the start of the growing
+season.
 
-Further measurements are planned for **1 September 2026**, targeting vineyards
-affected by *Flavescence dorée*. Repeated observations will help determine how
-disease affects canopy spectral properties, temperature, and plant functioning,
-and whether these signals remain detectable when moving from individual plants
-to larger spatial scales.
+A further measurement campaign in **early September 2026** targets vineyards
+affected by *Flavescence dorée*, continuing the repeated observations carried
+out since June. These repeated observations help determine how disease
+affects canopy spectral properties, temperature, and plant functioning, and
+whether these signals remain detectable when moving from individual plants to
+larger spatial scales.
+
+Airborne acquisitions are carried out in partnership with the **Institute of
+BioEconomy of the Italian National Research Council (CNR-IBE)**, who operate a
+Headwall sensor system combining VNIR-SWIR hyperspectral imaging with a LiDAR
+scanner on a UAV platform. Flying this combined sensor package makes it
+possible to relate canopy spectral signals directly to three-dimensional
+canopy structure. In parallel, field teams collect spectroradiometer
+measurements directly on the vine canopy in the Chianti hills, providing the
+ground reference spectra needed to interpret the airborne imagery.
+
+A permanently installed **FloX system**, powered by solar panels and sited in
+a reference alfalfa field, continuously records canopy reflectance and
+solar-induced fluorescence throughout the season. This automated station
+complements the vineyard campaigns with a long-term, weather-independent
+calibration and validation record. Compact UAV-mounted hyperspectral sensors
+are also being trialled during the July 2026 field campaign, extending the
+observation chain between handheld field instruments and full airborne
+acquisitions.
+
+::: {.campaign-gallery}
+::: {.campaign-photo}
+![](../../assets/aerials/Italy/Italy_headwall_sensor_UAV.jpg){fig-alt="Headwall VNIR-SWIR hyperspectral and LiDAR sensor system mounted on a UAV, operated by CNR-IBE"}
+
+**Headwall VNIR-SWIR + LiDAR sensor.** Operated by CNR-IBE, this UAV-mounted system combines hyperspectral imaging with LiDAR to link canopy spectra with 3D structure.
+:::
+
+::: {.campaign-photo}
+![](../../assets/aerials/Italy/Italy_chianti_vineyard_spectroradiometer.jpg){fig-alt="Field team taking spectroradiometer measurements on grapevine canopy in the Chianti hills"}
+
+**Field spectroscopy in Chianti.** Ground-based spectroradiometer measurements on vine canopies provide reference spectra for the airborne Headwall acquisitions.
+:::
+:::
+
+::: {.campaign-photo .campaign-photo-wide}
+![](../../assets/aerials/Italy/Italy_FloX_alfalfa.jpg){fig-alt="Solar-powered FloX automated fluorescence and reflectance system installed in an alfalfa reference field in Italy"}
+
+**Continuous monitoring with FloX.** A solar-powered FloX station installed in a reference alfalfa field records canopy reflectance and solar-induced fluorescence throughout the season, providing a long-term calibration and validation record for the Italian campaigns.
+:::
+
+::: {.campaign-gallery}
+::: {.campaign-photo}
+![](../../assets/aerials/Italy/Italy_hyperspectral_nano_UAV.jpg){fig-alt="Compact hyperspectral nano sensor payload being prepared for a UAV flight during the Italy field campaign"}
+
+**Compact hyperspectral payload.** A lightweight, UAV-mounted "nano" hyperspectral sensor being prepared for flight, extending coverage between field and full airborne scales.
+:::
+
+::: {.campaign-photo}
+![](../../assets/aerials/Italy/Italy_CNR_field_measurement_July2026.jpg){fig-alt="CNR-IBE field team member taking spectral measurements in a crop field during the July 2026 Italy campaign"}
+
+**Field campaign, July 2026.** A CNR-IBE colleague collecting field spectral measurements as part of the Italian campaign season.
+:::
+:::
 
 ## Expanding observations through European collaboration
 
@@ -124,10 +180,12 @@ HYDRA-EO works with complementary European projects, research institutes, and
 regional plant-health services to extend observations beyond its core sites and
 test methods under real disease-management conditions.
 
-In Italy, collaboration with the **CERBERUS project** and research partners in
-Bologna supports repeated monitoring of vineyards affected by *Flavescence
-dorée*. The early-August and planned 1 September campaigns provide observations
-under different seasonal and physiological conditions.
+In Italy, collaboration with the **CERBERUS project** and **CNR-IBE (Institute
+of BioEconomy, Italian National Research Council)** in Bologna supports
+repeated monitoring of vineyards affected by *Flavescence dorée*. The
+campaigns carried out since June, including the early-August and
+early-September acquisitions, provide observations under different seasonal
+and physiological conditions.
 
 In Valencia, HYDRA-EO collaborates with CERBERUS and the **Servicio de Sanidad
 Vegetal of the Generalitat Valenciana**. Airborne observations cover olive
@@ -135,6 +193,14 @@ orchards and other priority areas identified by plant-health authorities,
 including sites relevant to the surveillance of insect vectors associated with
 *Xylella fastidiosa*. This connects advanced Earth Observation technologies
 with operational plant-health surveillance.
+
+Building on this, **CNR-IBE**, together with **Wageningen University,
+Department of Environmental Sciences (WU-DES)**, is planning a further
+CERBERUS airborne mission for **late September 2026** over areas affected by
+*Xylella fastidiosa*, carried out in collaboration with **CEU Cardenal Herrera
+University**. This mission extends CERBERUS Earth Observation testing to an
+additional vector-borne disease system, linking the Italian and Spanish arms
+of the project.
 
 ::: {.campaign-photo .campaign-photo-wide}
 ![](../../assets/aerials/Valencia_20260703.png){fig-alt="Airborne hyperspectral mosaic of agricultural monitoring sites in Valencia on 3 July 2026"}

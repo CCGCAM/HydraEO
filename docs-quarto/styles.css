@@ -20,6 +20,20 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Justify body copy across every Quarto page */
+#quarto-content p {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+@media (max-width: 768px) {
+  #quarto-content p {
+    text-align: left;
+    hyphens: none;
+  }
+}
+
 /* Navbar Quarto -> estilo ESA */
 .navbar {
   background-color: var(--hydra-navy) !important;
