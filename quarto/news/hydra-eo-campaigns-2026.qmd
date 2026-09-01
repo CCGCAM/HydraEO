@@ -52,6 +52,13 @@ The final UAV campaign also covered the cloud-free portion of an **EnMAP
 hyperspectral satellite acquisition from 19 July**, creating an important
 opportunity to compare ground, UAV, and satellite observations.
 
+The experimental design includes multiple potato varieties with contrasting
+susceptibility to viral and bacterial diseases, including blackleg and soft
+rot caused by *Erwinia* (*Pectobacterium*/*Dickeya*) species. Comparing
+variety- and disease-specific plots throughout the season allows the team to
+relate visible symptom development to the spectral and thermal signals
+captured from the UAV and satellite platforms.
+
 ::: {.campaign-gallery .campaign-gallery-feature}
 ::: {.campaign-photo}
 ![](../../assets/aerials/lelystad_June%20Hyperspectral.png){fig-alt="False-colour hyperspectral UAV mosaic of potato field experiments in Lelystad in June 2026"}
@@ -70,6 +77,39 @@ opportunity to compare ground, UAV, and satellite observations.
 ![](../../assets/aerials/lelystad_20260721_enmap.png){fig-alt="EnMAP satellite context with the Lelystad UAV potato experiment highlighted"}
 
 **Connecting UAV and satellite scales.** The UAV acquisition footprint is shown within the partly cloud-free EnMAP scene acquired on 19 July 2026.
+:::
+
+Alongside the airborne and satellite acquisitions, the WU-DES field team
+photographs the trial plots on the ground throughout the season. These images
+document the different potato varieties and disease treatments side by side,
+including the visible contrast between healthy canopy and the early
+senescence associated with viral and *Erwinia* infection, and provide the
+ground truth needed to interpret the UAV and satellite signals.
+
+::: {.campaign-gallery}
+::: {.campaign-photo}
+![](../../assets/aerials/Lelystad/photo3.jpeg){fig-alt="Close-up of young potato plants on ridged rows in an experimental variety and disease trial plot in Lelystad"}
+
+**Early-season trial plots.** Young potato plants on the ridged rows of the multi-variety disease trial, photographed shortly after emergence.
+:::
+
+::: {.campaign-photo}
+![](../../assets/aerials/Lelystad/photo1.jpeg){fig-alt="Close-up of potato canopy foliage in an experimental plot in Lelystad, used as ground reference for UAV imagery"}
+
+**Canopy ground reference.** Detailed view of canopy foliage colour and structure, used to interpret the hyperspectral, thermal, and RGB imagery collected overhead.
+:::
+:::
+
+::: {.campaign-photo .campaign-photo-wide}
+![](../../assets/aerials/Lelystad/photo2.jpeg){fig-alt="Wide view of potato trial rows in Lelystad showing a row with early canopy senescence next to healthy green rows of different varieties, with wind turbines in the background"}
+
+**Comparing varieties and disease treatments in the field.** A trial row showing early canopy senescence stands out against neighbouring rows of other varieties, illustrating the plot-to-plot contrast in disease response that the UAV and satellite sensors are designed to detect.
+:::
+
+::: {.campaign-photo .campaign-photo-wide}
+![](../../assets/aerials/Lelystad/photo4.jpeg){fig-alt="Wide view of potato trial rows in Lelystad on a later visit, showing continued plot-to-plot variation between varieties"}
+
+**Repeated ground documentation.** Photographs taken across successive field visits track how canopy condition evolves differently between varieties and disease treatments as the season progresses.
 :::
 
 ## Airborne monitoring of olive and pistachio in Spain
