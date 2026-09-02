@@ -37,10 +37,12 @@ leaves and plants to UAV, aircraft, and satellite observations.
 ## Monitoring potato health in the Netherlands
 
 In Lelystad, the **Wageningen University, Department of Environmental Sciences
-(WU-DES)** team conducted five HYDRA-EO UAV campaigns between May and July 2026
-over experimental potato fields. Flights on **11 May, 16 June, 25 June, 1 July,
-and 21 July** followed crop development from early growth through flowering
-and early tuber development.
+(WU-DES)** team — through the [Laboratory of Geo-Information Science and
+Remote Sensing](https://www.wur.nl/en/chair-groups/geo-information-science-and-remote-sensing)
+— conducted five HYDRA-EO UAV campaigns between May and July 2026 over
+experimental potato fields. Flights on **11 May, 16 June, 25 June, 1 July, and
+21 July** followed crop development from early growth through flowering and
+early tuber development.
 
 WU-DES coordinated the multi-sensor observations, combining VNIR hyperspectral
 imagery, thermal observations, fluorescence and SIF measurements, and RGB
@@ -53,11 +55,17 @@ hyperspectral satellite acquisition from 19 July**, creating an important
 opportunity to compare ground, UAV, and satellite observations.
 
 The experimental design includes multiple potato varieties with contrasting
-susceptibility to viral and bacterial diseases, including blackleg and soft
-rot caused by *Erwinia* (*Pectobacterium*/*Dickeya*) species. Comparing
-variety- and disease-specific plots throughout the season allows the team to
-relate visible symptom development to the spectral and thermal signals
-captured from the UAV and satellite platforms.
+susceptibility to viral and bacterial diseases. The primary disease targets
+are *Potato virus Y (PVY)* and *Erwinia* spp., associated with bacterial
+soft rot and blackleg, with *Potato Leaf Curl Virus* monitored as a
+secondary viral target. The trial combines different varieties with known
+disease positions and treatments, which is especially valuable for studying
+how the spectral and physiological signal changes with variety, disease, and
+time in the season — including the interaction between viral and bacterial
+pathogens and variability in soil moisture. Comparing variety- and
+disease-specific plots throughout the season allows the team to relate
+visible symptom development to the spectral and thermal signals captured from
+the UAV and satellite platforms.
 
 ::: {.campaign-gallery .campaign-gallery-feature}
 ::: {.campaign-photo}
@@ -131,6 +139,34 @@ from other sources of plant variability. Repeated measurements are essential:
 the challenge is not only to identify symptomatic plants, but to determine when
 physiological changes first become detectable.
 
+In Ciudad Real, the olive disease work focuses primarily on *Spilocaea
+oleaginea* (peacock spot) and *Pseudomonas savastanoi pv. savastanoi*
+(olive knot). *Bactrocera oleae* (olive fruit fly) is treated as a secondary
+target, monitored when confirmed field incidence is present. The design
+includes plots under different soil management regimes, together with a
+dedicated plot of nine olive varieties, allowing the team to compare
+differences in stress response driven by management practice versus variety.
+This work is also connected to other European surveillance systems for
+*P. savastanoi* and *B. oleae*.
+
+For pistachio, the two primary disease groups are *Septoria* spp. and fungi
+of the *Botryosphaeriaceae* family, with *Alternaria alternata* and
+*Botrytis cinerea* monitored as secondary targets. The pistachio
+experiments span a wide diversity of varieties and rootstocks under
+contrasting rainfed and irrigated management, and the project aims to
+integrate hyperspectral phenotyping with genetic and GWAS data — connecting
+molecular, genomic, and spectral information in pistachio and olive is one of
+the scientific gaps HYDRA-EO aims to address.
+
+::: {.campaign-lead}
+For this summer's analysis, the initial disease classes are being kept
+simple: **Healthy → Primary disease 1 → Primary disease 2 → Other disease/pest
+→ Unknown/abiotic stress.** This avoids forcing trees or plants with
+unconfirmed symptoms into a specific named disease, and lets the classes be
+cross-referenced with traits such as Cab, Car, Anth, N, LWC, gs, temperature,
+and SIF.
+:::
+
 ::: {.campaign-gallery}
 ::: {.campaign-photo}
 ![](../../assets/aerials/Chaparrillo_20260612.png){fig-alt="Airborne hyperspectral mosaic covering experimental fields and orchards at El Chaparrillo on 12 June 2026"}
@@ -160,7 +196,9 @@ affected by *Flavescence dorée*, continuing the repeated observations carried
 out since June. These repeated observations help determine how disease
 affects canopy spectral properties, temperature, and plant functioning, and
 whether these signals remain detectable when moving from individual plants to
-larger spatial scales.
+larger spatial scales. Disease status in the vineyards is confirmed through
+qPCR testing and visual inspection, with **CNR-IBE** and the **University of
+Florence** as the groups involved in this ground-truthing work.
 
 Airborne acquisitions are carried out in partnership with the **Institute of
 BioEconomy of the Italian National Research Council (CNR-IBE)**, who operate a
