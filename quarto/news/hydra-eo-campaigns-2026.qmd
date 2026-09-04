@@ -265,6 +265,21 @@ campaigns carried out since June, including the early-August and
 early-September acquisitions, provide observations under different seasonal
 and physiological conditions.
 
+On **2 September 2026**, a joint field team from **CNR-IBE** and the
+**Department of Agricultural and Food Sciences, University of Bologna**
+carried out ground measurements in the CERBERUS vineyards, combining field
+spectroradiometer readings, SPAD (leaf chlorophyll) measurements, and visual
+disease inspection. This ground-truthing adds another point to the
+*Flavescence dorée* time series and supports the interpretation of the
+airborne hyperspectral and thermal acquisitions collected over the same
+vineyards.
+
+::: {.campaign-photo .campaign-photo-wide}
+![](../../assets/aerials/Cerberus/Collavorations.png){fig-alt="Collage of the CERBERUS field campaign in Bologna vineyards on 2 September 2026: a team walking between vine rows, SPAD chlorophyll measurement on a grape leaf, a spectroradiometer measurement on the canopy, and a researcher recording a visual disease assessment"}
+
+**CERBERUS field campaign, 2 September 2026.** The CNR-IBE and University of Bologna team taking spectroradiometer, SPAD, and visual disease measurements in the vineyards near Bologna.
+:::
+
 In Valencia, HYDRA-EO collaborates with CERBERUS and the **Servicio de Sanidad
 Vegetal of the Generalitat Valenciana**. Airborne observations cover olive
 orchards and other priority areas identified by plant-health authorities,
