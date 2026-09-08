@@ -21,10 +21,10 @@ Software release · 27 August 2026
 :::
 
 ::: {.press-lead}
-The **Virtual Biophysical Lab** at Wageningen University & Research has
-released **RTM-Suite**, an open-source framework that brings radiative
-transfer modelling, sensor simulation, and plant-trait retrieval together
-in a consistent R and Python ecosystem.
+The **Laboratory of Geo-Information Science and Remote Sensing** at
+Wageningen University has released **RTM-Suite**, an open-source framework
+that brings radiative transfer modelling, sensor simulation, and
+plant-trait retrieval together in a consistent R and Python ecosystem.
 :::
 
 ![](../../assets/rtm-suite/rtm-suite-model-comparison.png){fig-alt="Comparison of fourSAIL, foursail2 and INFORM canopy simulations across five leaf radiative transfer models" fig-cap="RTM-Suite connects leaf and canopy radiative transfer models in a common, cross-language framework."}
